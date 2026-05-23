@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vibecoding Political Wealth · Lok Sabha 2024</title>
-  <meta name="description" content="An interactive data investigation into the investment portfolios of newly elected Lok Sabha 2024 MPs — tracking stocks, mutual funds, gold, and silver.">
+  <title>Tracking Political Wealth · Lok Sabha 2024</title>
+  <meta name="description" content="A data investigation into the investment portfolios of newly elected Lok Sabha 2024 MPs — tracking stocks, mutual funds, gold, and silver against the Nifty 50.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
   <header class="hero">
     <div class="hero-inner">
       <p class="hero-kicker">A Data Investigation · May 2026</p>
-      <h1 class="hero-title">Vibecoding<br>Political Wealth</h1>
+      <h1 class="hero-title">Tracking<br>Political Wealth</h1>
       <p class="hero-dek">What happens when you parse the financial disclosures of every newly elected Lok Sabha MP, match their holdings to live market prices, and rank them against the Nifty 50?</p>
       <p class="scroll-cue">Scroll to begin ↓</p>
     </div>
@@ -65,7 +65,7 @@
         <div class="reveal-card">
           <p class="reveal-label">Key Finding</p>
           <div class="reveal-stat" style="color:var(--green)">+7.92%</div>
-          <p class="reveal-note">MPs' discretionary portfolios returned <strong>+7.92%</strong> (simple average) — nearly double the <strong>Nifty 50's +3.63%</strong>. And <strong>63.5%</strong> of trackable portfolios beat the benchmark.</p>
+          <p class="reveal-note">MPs' portfolios (ex promoter holdings) returned <strong>+7.92%</strong> (simple average) — nearly double the <strong>Nifty 50's +3.63%</strong>. And <strong>63.5%</strong> of trackable portfolios beat the benchmark.</p>
         </div>
       </div>
 
@@ -77,25 +77,23 @@
         <div class="step-inner">
           <p class="step-stat" style="font-size:1rem; color:var(--accent); text-transform:uppercase; letter-spacing:.12em; font-family:var(--sans); font-weight:700;">The Spark</p>
           <h3>Yesterday, on an investing focused WhatsApp group I am on, someone posted this:</h3>
-          <p>A joke about political parties being the only "meaningful growth avenue" in India. The laughing emojis piled up. But it got me thinking.</p>
+          <p>A joke about political parties being the only "meaningful growth avenue" in India. But it got me thinking.</p>
         </div>
       </section>
 
       <section class="step" data-step="2">
         <div class="step-inner">
-          <p class="step-stat" style="font-size:1rem; color:var(--accent); text-transform:uppercase; letter-spacing:.12em; font-family:var(--sans); font-weight:700;">The Vibecoding</p>
-          <h3>So I did some vibecoding to parse all the MPs' financial disclosures.</h3>
-          <p>We built a pipeline to extract every stock and mutual fund declared in the official affidavits of 543 Lok Sabha 2024 candidates. Matched them to live market tickers. Reconstructed 104 complete portfolios.</p>
-          <p style="margin-top:.8rem; font-size:.82rem; font-style:italic;">Note: Massive promoter holdings — like Apollo Hospitals (Rs 2,500+ Cr), Jindal Steel, and IMFA — are excluded from discretionary rankings.</p>
+          <p class="step-stat" style="font-size:1rem; color:var(--accent); text-transform:uppercase; letter-spacing:.12em; font-family:var(--sans); font-weight:700;">The Investigation</p>
+          <h3>I looked through the affidavits MPs filed at the time of their election on their assets, and extracted just the publicly tradable assets.</h3>
+          <p>I parsed the financial disclosures of all 543 Lok Sabha candidates elected in May 2024, matching every declared stock and mutual fund to live market tickers. Of those 543 MPs, only 104 held portfolios with enough publicly tradable securities to fully reconstruct — the rest declared primarily property, vehicles, or cash with no trackable market instruments.</p>
+          <p style="margin-top:.8rem; font-size:.82rem; font-style:italic;">Note: Massive promoter holdings — like Apollo Hospitals (Rs 2,500+ Cr), Jindal Steel, and IMFA — are excluded from the returns analysis.<sup><a href="#fn-promoters" style="color:var(--accent)">1</a></sup></p>
         </div>
       </section>
 
       <section class="step" data-step="3">
         <div class="step-inner">
           <p class="step-stat" style="font-size:1rem; color:var(--accent); text-transform:uppercase; letter-spacing:.12em; font-family:var(--sans); font-weight:700;">The Discovery</p>
-          <h3>What happened next will...</h3>
-          <p>...overturn assumptions about how politicians invest. Stripped of dominant promoter stakes, their discretionary portfolios still outperformed the broader index. Their spouses did even better.</p>
-          <p class="step-stat">Let's look at the numbers.</p>
+          <h3>The results were really fascinating.</h3>
         </div>
       </section>
 
@@ -116,7 +114,7 @@
         </div>
         <div class="narrative-side">
           <div class="highlight-box">
-            <p><strong>Key finding:</strong> The Nifty 50 returned a moderate <strong>+3.63%</strong>. MPs' discretionary portfolios returned an asset-weighted <strong>+6.48%</strong>. Their simple average was <strong>+7.92%</strong> — nearly double the benchmark. <strong>63.5%</strong> of trackable portfolios beat Nifty.</p>
+            <p><strong>Key finding:</strong> The Nifty 50 returned a moderate <strong>+3.63%</strong>. MPs' returns (ex promoter holdings) came in at an asset-weighted <strong>+6.48%</strong>. Their simple average was <strong>+7.92%</strong> — nearly double the benchmark. <strong>63.5%</strong> of trackable portfolios beat Nifty.</p>
           </div>
           <p style="margin-top:1rem; font-size:.88rem; color:var(--ink-soft);">Including family promoter holdings (Apollo, Jindal, IMFA), the total combined political assets index grew by <strong>+38.71%</strong> — from Rs 2,919 Cr to Rs 4,050 Cr.</p>
         </div>
@@ -139,13 +137,6 @@
 
       <div class="leaderboard-grid" id="leaderboard-cards"></div>
 
-      <div class="audit-callout">
-        <div class="callout-header">
-          <span class="callout-icon">⚠️</span>
-          <span class="callout-title">Audit: The Eastern Silk Write-off</span>
-        </div>
-        <p class="callout-body">BJP MP <strong>Mukeshkumar Dalal</strong>'s holding in Eastern Silk Industries (<code>EASTSILK</code>) initially showed an artificial <strong>+3,054% return</strong>. Our audit found the NCLT completely extinguished the equity capital. The shares are worth <strong>Rs 0 (−100%)</strong>.</p>
-      </div>
     </div>
   </section>
 
@@ -154,7 +145,7 @@
     <div class="chapter-inner">
       <p class="chapter-num">Chapter 3</p>
       <h2 class="chapter-title">Spouses, super-pickers, and stock trophies.</h2>
-      <p class="chapter-lead">Political spouses manage money with exceptional dynamism — outperforming the MPs themselves across almost every metric.</p>
+      <p class="chapter-lead">Political spouses outperform the MPs themselves.</p>
 
       <div class="spouses-comparison">
         <div class="spouse-card">
@@ -203,7 +194,7 @@
   <section class="chapter chapter-alt" id="ch-gold">
     <div class="chapter-inner">
       <p class="chapter-num">Chapter 4</p>
-      <h2 class="chapter-title">The saffron &amp; gold.</h2>
+      <h2 class="chapter-title">Gold &amp; silver.</h2>
       <p class="chapter-lead">Physical gold and silver represent a massive store of value among Indian lawmakers. The price surge over two years has created extraordinary paper gains.</p>
 
       <!-- Big summary cards -->
@@ -240,15 +231,6 @@
 
       <hr class="section-divider">
 
-      <!-- Mixed separations -->
-      <div>
-        <h4 style="font-family:var(--serif); font-size:1.15rem; font-weight:700; color:var(--ink); margin-bottom:.5rem;">Audited separation of "mixed assets"</h4>
-        <p style="font-size:.88rem; color:var(--ink-soft); margin-bottom:1.5rem;">Indian affidavits group gold, silver, and diamonds into single combined entries. Our audit separated the individual weights for key portfolios.</p>
-        <div id="mixed-separation-cards"></div>
-      </div>
-
-      <hr class="section-divider">
-
       <!-- Party table -->
       <div>
         <h4 style="font-family:var(--serif); font-size:1.15rem; font-weight:700; color:var(--ink); margin-bottom:.5rem;">Precious metals by political party</h4>
@@ -269,37 +251,25 @@
           <tbody></tbody>
         </table>
       </div>
-
-      <hr class="section-divider">
-
-      <!-- Distortions -->
-      <div>
-        <h4 style="font-family:var(--serif); font-size:1.15rem; font-weight:700; color:var(--ink); margin-bottom:.5rem;">The comical "affidavit weight distortions"</h4>
-        <p style="font-size:.88rem; color:var(--ink-soft); margin-bottom:1rem;">Raw databases that rank candidates purely by weight are prone to transcription errors. Here are the realities our audit uncovered.</p>
-        <div id="distortion-cards"></div>
-      </div>
     </div>
   </section>
 
-  <!-- ═══════════════════ CHAPTER 5: SEARCH ═══════════════════ -->
-  <section class="chapter" id="ch-search">
-    <div class="chapter-inner" style="text-align:center;">
-      <p class="chapter-num">Look up an MP</p>
-      <h2 class="chapter-title">Search the database.</h2>
-      <p class="chapter-lead" style="margin-left:auto; margin-right:auto;">Type any MP's name to see their portfolio details, stock picks, and precious metal holdings from across this investigation.</p>
-
-      <div style="max-width:560px; margin:0 auto 2.5rem;">
-        <input type="text" id="mp-search-input" class="search-box" placeholder="Search by name — e.g. Amit Shah, Supriya Sule, Kangana Ranaut...">
-      </div>
-      <div id="search-results" class="search-results">
-        <p class="search-empty">Type an MP's name above to search across all findings.</p>
-      </div>
+  <!-- ═══════════════════ FOOTNOTES ═══════════════════ -->
+  <section class="chapter chapter-alt" id="footnotes">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" style="font-size:1.4rem;">Notes &amp; Methodology</h2>
+      <ol class="footnotes-list">
+        <li id="fn-promoters"><strong>Promoter holdings excluded:</strong> MPs with dominant promoter-category shareholdings — Konda Vishweshwar Reddy (Apollo Hospitals, Rs 2,500+ Cr), Naveen Jindal (Jindal Steel/JSW), and Baijayant Panda (IMFA) — are excluded from the returns analysis. Including them would skew the aggregate by their corporate stakes, which are not meaningful investment positions.</li>
+        <li id="fn-eastern-silk"><strong>Eastern Silk Industries:</strong> BJP MP Mukeshkumar Dalal's holding in Eastern Silk Industries (<code>EASTSILK</code>) initially showed an artificial +3,054% return in raw data. The NCLT completely extinguished the equity capital; the shares are valued at Rs 0 (−100%).</li>
+        <li id="fn-104"><strong>Why 104 portfolios:</strong> Of 543 elected MPs, only 104 filed affidavits with publicly tradable equities or mutual funds that could be matched to live market tickers. The remaining MPs declared assets consisting primarily of property, vehicles, cash, or fixed deposits — none of which have trackable market prices.</li>
+        <li id="fn-data"><strong>Data sources:</strong> MyNeta Lok Sabha 2024 candidate affidavits · Election Commission of India · Yahoo Finance price feeds · AMFI NAV APIs · Indian Bullion and Jewellers Association (IBJA) gold/silver benchmarks. Baseline date: May 28, 2024. Current date: May 23, 2026.</li>
+      </ol>
     </div>
   </section>
 
   <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer>
-    <p>Data: MyNeta Lok Sabha 2024 Candidate Affidavits · Election Commission of India · Yahoo Finance price feeds · AMFI NAV APIs · Indian Bullion and Jewellers Association (IBJA) gold/silver benchmarks</p>
+    <p>A data investigation · May 2026 · <a href="#footnotes" style="color:inherit; text-decoration:underline;">Notes &amp; methodology</a></p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/scrollama@3"></script>

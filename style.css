@@ -282,7 +282,8 @@ header.hero::before {
   padding: .6rem;
   box-shadow: var(--shadow-lg);
   transform: rotate(-1.2deg);
-  max-width: 380px;
+  max-width: 520px;
+  width: 100%;
   transition: transform .4s ease;
 }
 
@@ -712,6 +713,43 @@ header.hero::before {
 
 .stat-num.green { color: var(--green); }
 .stat-num.red   { color: var(--red); }
+
+/* MP avatar initials circle */
+.card-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+  margin-bottom: .8rem;
+  border: 2px solid #e8e4df;
+}
+
+/* Footnotes */
+.footnotes-list {
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footnotes-list li {
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.footnotes-list li strong {
+  color: var(--ink);
+}
 
 /* Audit callout */
 .audit-callout {
@@ -1760,7 +1798,7 @@ footer .footer-brand {
 
   /* ---- Pane variants -------------------------------------------------- */
   .whatsapp-wrapper {
-    max-width: 280px;
+    max-width: 100%;
   }
 
   .parser-console {

@@ -154,10 +154,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // Pad the rank with a leading zero for single digits
       const rankStr = "#" + String(item.rank).padStart(2, "0");
 
+      const initials = item.name.split(" ").filter(w => /^[A-Za-z]/.test(w)).slice(0, 2).map(w => w[0].toUpperCase()).join("");
+
       const card = document.createElement("div");
       card.className = "leaderboard-card";
       card.innerHTML = `
         <div class="card-rank">${rankStr}</div>
+        <div class="card-avatar">${initials}</div>
         <div class="card-header-info">
           <span class="card-tag ${item.party.toLowerCase().replace(/[^a-z]/g,'')}">${item.party}</span>
           <h4 class="card-name">${item.name}</h4>
