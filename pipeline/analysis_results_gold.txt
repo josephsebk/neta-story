@@ -1,0 +1,153 @@
+
+==========================================
+ANALYSIS FOR COHORT: COHORT_A
+==========================================
+Total reconstructed ex-promoter portfolios: 102
+
+--- RECONSTRUCTED DISCRETIONARY PORTFOLIO METRICS ---
+  EQUITY Index: Rs 108.32 Cr -> Rs 112.88 Cr (+4.21%)
+  FUND Index:   Rs 69.94 Cr -> Rs 77.37 Cr (+10.63%)
+  GOLD/PM Index:Rs 177.05 Cr -> Rs 373.89 Cr (+111.18%)
+  COMBINED discretionary Portfolio:
+    Asset-Weighted Aggregate Return: 58.77% (Base: Rs 355.31 Cr, Cur: Rs 564.14 Cr)
+    Simple Average Return Per MP:    76.86%
+    MPs Beating Nifty 50 (+3.63%):   101 / 102 (99.0%)
+
+--- TOP 5 BEST INVESTORS (BY RETURN % - PORTFOLIO >= 10 LAKHS) ---
+  1. VE VAITHILINGAM (INC) | Base: Rs 0.58 Cr | Cur: Rs 1.30 Cr | Return: +123.96% | (PM Base: Rs 0.58 Cr)
+  2. GAJENDRA SINGH SHEKHAWAT (BJP) | Base: Rs 2.52 Cr | Cur: Rs 5.54 Cr | Return: +119.96% | (PM Base: Rs 2.47 Cr)
+  3. BHAGIRATH CHOUDHARY (BJP) | Base: Rs 0.35 Cr | Cur: Rs 0.76 Cr | Return: +119.56% | (PM Base: Rs 0.34 Cr)
+  4. MANISH JAISWAL (BJP) | Base: Rs 0.98 Cr | Cur: Rs 2.14 Cr | Return: +119.12% | (PM Base: Rs 0.80 Cr)
+  5. JYOTSNA CHARANDAS MAHANT (INC) | Base: Rs 0.77 Cr | Cur: Rs 1.68 Cr | Return: +118.78% | (PM Base: Rs 0.59 Cr)
+
+--- TOP 5 WORST INVESTORS (BY RETURN % - PORTFOLIO >= 10 LAKHS) ---
+  1. BAIJAYANT PANDA (BJP) | Base: Rs 8.37 Cr | Cur: Rs 8.36 Cr | Return: -0.07% | (PM Base: Rs 0.25 Cr)
+  2. RAHUL GANDHI (INC) | Base: Rs 7.30 Cr | Cur: Rs 7.77 Cr | Return: +6.35% | (PM Base: Rs 0.04 Cr)
+  3. AMIT SHAH (BJP) | Base: Rs 34.47 Cr | Cur: Rs 38.33 Cr | Return: +11.22% | (PM Base: Rs 1.84 Cr)
+  4. JUNE MALIAH (AITC) | Base: Rs 0.42 Cr | Cur: Rs 0.47 Cr | Return: +12.28% | (PM Base: Rs 0.04 Cr)
+  5. TEJASVI SURYA (BJP) | Base: Rs 3.47 Cr | Cur: Rs 3.90 Cr | Return: +12.34% | (PM Base: Rs 0.00 Cr)
+
+--- TOP 5 ABSOLUTE WEALTH GAINERS (INR) ---
+  1. NAVEEN JINDAL (BJP) | Base: Rs 45.44 Cr | Cur: Rs 95.93 Cr | Gain: Rs +50.50 Cr | Return: +111.13%
+  2. KONDA VISHWESHWAR REDDY (BJP) | Base: Rs 13.20 Cr | Cur: Rs 25.09 Cr | Gain: Rs +11.89 Cr | Return: +90.12%
+  3. C.M.RAMESH (BJP) | Base: Rs 9.16 Cr | Cur: Rs 19.68 Cr | Gain: Rs +10.52 Cr | Return: +114.77%
+  4. SRIBHARAT MATHUKUMILI (TDP) | Base: Rs 10.29 Cr | Cur: Rs 20.57 Cr | Gain: Rs +10.28 Cr | Return: +99.87%
+  5. PIYUSH GOYAL (BJP) | Base: Rs 16.50 Cr | Cur: Rs 25.62 Cr | Gain: Rs +9.12 Cr | Return: +55.28%
+
+--- TOP 5 ABSOLUTE WEALTH LOSERS (INR) ---
+  1. BAIJAYANT PANDA (BJP) | Base: Rs 8.37 Cr | Cur: Rs 8.36 Cr | Loss: Rs -0.01 Cr | Return: -0.07%
+  2. ABHIJIT GANGOPADHYAY (BJP) | Base: Rs 0.05 Cr | Cur: Rs 0.06 Cr | Loss: Rs +0.01 Cr | Return: +26.15%
+  3. JUNE MALIAH (AITC) | Base: Rs 0.42 Cr | Cur: Rs 0.47 Cr | Loss: Rs +0.05 Cr | Return: +12.28%
+  4. JAGANNATH SARKAR (BJP) | Base: Rs 0.07 Cr | Cur: Rs 0.13 Cr | Loss: Rs +0.06 Cr | Return: +77.08%
+  5. GAIKWAD VARSHA EKNATH (INC) | Base: Rs 0.37 Cr | Cur: Rs 0.45 Cr | Loss: Rs +0.08 Cr | Return: +22.58%
+
+--- POLITICAL PARTY PERFORMANCE (>= 2 MPs) ---
+  1. Lok Janshakti Party(Ram Vilas) (2 MPs) | Aggregate: +114.64% | Simple Avg: +114.64% | Total Value: Rs 5.02 Cr
+  2. SP                   (2 MPs) | Aggregate: +109.80% | Simple Avg: +112.62% | Total Value: Rs 2.13 Cr
+  3. TDP                  (6 MPs) | Aggregate: +87.07% | Simple Avg: +81.25% | Total Value: Rs 34.86 Cr
+  4. AAP                  (2 MPs) | Aggregate: +74.98% | Simple Avg: +77.84% | Total Value: Rs 2.93 Cr
+  5. BJP                  (51 MPs) | Aggregate: +66.06% | Simple Avg: +81.75% | Total Value: Rs 367.05 Cr
+  6. DMK                  (2 MPs) | Aggregate: +47.04% | Simple Avg: +70.15% | Total Value: Rs 4.19 Cr
+  7. INC                  (20 MPs) | Aggregate: +38.94% | Simple Avg: +64.20% | Total Value: Rs 88.35 Cr
+  8. AITC                 (9 MPs) | Aggregate: +36.17% | Simple Avg: +41.18% | Total Value: Rs 31.57 Cr
+  9. Nationalist Congress Party – Sharadchandra Pawar (3 MPs) | Aggregate: +26.08% | Simple Avg: +78.09% | Total Value: Rs 24.07 Cr
+
+--- SPOUSE VS MP (SELF/HUF) PERFORMANCE ---
+  Spouse Aggregate Return:     77.52% (Base: Rs 115.25 Cr, Cur: Rs 204.59 Cr)
+  Self/HUF Aggregate Return:   48.86% (Base: Rs 235.82 Cr, Cur: Rs 351.04 Cr)
+  Spouse Simple Average Return: 92.85% (over 89 candidates)
+  Self/HUF Simple Average Return: 65.83% (over 100 candidates)
+
+--- TOP 5 DECLARED GOLD/PM HOLDERS ---
+  1. NAVEEN JINDAL                  (BJP       ) | Declared PM: Rs  43.48 Cr | Current PM: Rs  93.66 Cr | Combined Portfolio Return: +111.13%
+  2. KONDA VISHWESHWAR REDDY        (BJP       ) | Declared PM: Rs  11.01 Cr | Current PM: Rs  23.64 Cr | Combined Portfolio Return: +90.12%
+  3. SRIBHARAT MATHUKUMILI          (TDP       ) | Declared PM: Rs  10.24 Cr | Current PM: Rs  20.51 Cr | Combined Portfolio Return: +99.87%
+  4. C.M.RAMESH                     (BJP       ) | Declared PM: Rs   9.16 Cr | Current PM: Rs  19.68 Cr | Combined Portfolio Return: +114.77%
+  5. PIYUSH GOYAL                   (BJP       ) | Declared PM: Rs   7.81 Cr | Current PM: Rs  16.77 Cr | Combined Portfolio Return: +55.28%
+  6. CHHATRAPATI SHAHU SHAHAJI      (INC       ) | Declared PM: Rs   6.25 Cr | Current PM: Rs  14.00 Cr | Combined Portfolio Return: +33.35%
+  7. POONAMBEN HEMATBHAI MAADAM     (BJP       ) | Declared PM: Rs   5.89 Cr | Current PM: Rs  11.99 Cr | Combined Portfolio Return: +102.14%
+  8. SUPRIYA SULE                   (Nationalist Congress Party – Sharadchandra Pawar) | Declared PM: Rs   5.56 Cr | Current PM: Rs   8.14 Cr | Combined Portfolio Return: +18.41%
+  9. ANURAG SHARMA                  (BJP       ) | Declared PM: Rs   5.32 Cr | Current PM: Rs  11.80 Cr | Combined Portfolio Return: +37.22%
+  10. YADUVEER KRISHNADATTA CHAMARAJA WADIYAR (BJP       ) | Declared PM: Rs   4.66 Cr | Current PM: Rs  10.23 Cr | Combined Portfolio Return: +118.53%
+
+==========================================
+ANALYSIS FOR COHORT: COHORT_B
+==========================================
+Total reconstructed ex-promoter portfolios: 463
+
+--- RECONSTRUCTED DISCRETIONARY PORTFOLIO METRICS ---
+  EQUITY Index: Rs 108.32 Cr -> Rs 112.88 Cr (+4.21%)
+  FUND Index:   Rs 69.94 Cr -> Rs 77.37 Cr (+10.63%)
+  GOLD/PM Index:Rs 368.88 Cr -> Rs 782.65 Cr (+112.17%)
+  COMBINED discretionary Portfolio:
+    Asset-Weighted Aggregate Return: 77.82% (Base: Rs 547.14 Cr, Cur: Rs 972.90 Cr)
+    Simple Average Return Per MP:    106.96%
+    MPs Beating Nifty 50 (+3.63%):   462 / 463 (99.8%)
+
+--- TOP 5 BEST INVESTORS (BY RETURN % - PORTFOLIO >= 10 LAKHS) ---
+  1. MALA RAJYA LAKSHMI SHAH (BJP) | Base: Rs 1.17 Cr | Cur: Rs 2.98 Cr | Return: +153.74% | (PM Base: Rs 1.17 Cr)
+  2. M.K. VISHNUPRASAD (INC) | Base: Rs 0.86 Cr | Cur: Rs 2.17 Cr | Return: +151.15% | (PM Base: Rs 0.86 Cr)
+  3. ANITA NAGARSINGH CHOUHAN (BJP) | Base: Rs 0.39 Cr | Cur: Rs 0.93 Cr | Return: +138.81% | (PM Base: Rs 0.39 Cr)
+  4. ADV GOWAAL KAGADA PADAVI (INC) | Base: Rs 0.19 Cr | Cur: Rs 0.46 Cr | Return: +138.78% | (PM Base: Rs 0.19 Cr)
+  5. MANNA LAL RAWAT (BJP) | Base: Rs 0.38 Cr | Cur: Rs 0.91 Cr | Return: +136.25% | (PM Base: Rs 0.38 Cr)
+
+--- TOP 5 WORST INVESTORS (BY RETURN % - PORTFOLIO >= 10 LAKHS) ---
+  1. BAIJAYANT PANDA (BJP) | Base: Rs 8.37 Cr | Cur: Rs 8.36 Cr | Return: -0.07% | (PM Base: Rs 0.25 Cr)
+  2. RAHUL GANDHI (INC) | Base: Rs 7.30 Cr | Cur: Rs 7.77 Cr | Return: +6.35% | (PM Base: Rs 0.04 Cr)
+  3. CHANDRA PRAKASH CHOUDHARY (AJSU Party) | Base: Rs 0.17 Cr | Cur: Rs 0.19 Cr | Return: +10.87% | (PM Base: Rs 0.17 Cr)
+  4. AMIT SHAH (BJP) | Base: Rs 34.47 Cr | Cur: Rs 38.33 Cr | Return: +11.22% | (PM Base: Rs 1.84 Cr)
+  5. JUNE MALIAH (AITC) | Base: Rs 0.42 Cr | Cur: Rs 0.47 Cr | Return: +12.28% | (PM Base: Rs 0.04 Cr)
+
+--- TOP 5 ABSOLUTE WEALTH GAINERS (INR) ---
+  1. NAVEEN JINDAL (BJP) | Base: Rs 45.44 Cr | Cur: Rs 95.93 Cr | Gain: Rs +50.50 Cr | Return: +111.13%
+  2. KONDA VISHWESHWAR REDDY (BJP) | Base: Rs 13.20 Cr | Cur: Rs 25.09 Cr | Gain: Rs +11.89 Cr | Return: +90.12%
+  3. C.M.RAMESH (BJP) | Base: Rs 9.16 Cr | Cur: Rs 19.68 Cr | Gain: Rs +10.52 Cr | Return: +114.77%
+  4. SRIBHARAT MATHUKUMILI (TDP) | Base: Rs 10.29 Cr | Cur: Rs 20.57 Cr | Gain: Rs +10.28 Cr | Return: +99.87%
+  5. PIYUSH GOYAL (BJP) | Base: Rs 16.50 Cr | Cur: Rs 25.62 Cr | Gain: Rs +9.12 Cr | Return: +55.28%
+
+--- TOP 5 ABSOLUTE WEALTH LOSERS (INR) ---
+  1. BAIJAYANT PANDA (BJP) | Base: Rs 8.37 Cr | Cur: Rs 8.36 Cr | Loss: Rs -0.01 Cr | Return: -0.07%
+  2. DR. RICKY ANDREW J. SYNGKON (Voice of the People Party) | Base: Rs 0.00 Cr | Cur: Rs 0.00 Cr | Loss: Rs +0.00 Cr | Return: +114.80%
+  3. PRIYA SAROJ (SP) | Base: Rs 0.00 Cr | Cur: Rs 0.01 Cr | Loss: Rs +0.00 Cr | Return: +114.80%
+  4. RADHESHYAM RATHIYA (BJP) | Base: Rs 0.01 Cr | Cur: Rs 0.01 Cr | Loss: Rs +0.01 Cr | Return: +114.80%
+  5. SAYANI GHOSH (AITC) | Base: Rs 0.01 Cr | Cur: Rs 0.01 Cr | Loss: Rs +0.01 Cr | Return: +114.80%
+
+--- POLITICAL PARTY PERFORMANCE (>= 2 MPs) ---
+  1. IND                  (6 MPs) | Aggregate: +125.98% | Simple Avg: +117.14% | Total Value: Rs 7.36 Cr
+  2. Janasena Party       (2 MPs) | Aggregate: +122.32% | Simple Avg: +121.32% | Total Value: Rs 2.49 Cr
+  3. ShivSena (Uddhav Balasaheb Thackeray) (7 MPs) | Aggregate: +117.27% | Simple Avg: +115.77% | Total Value: Rs 7.60 Cr
+  4. JD(U)                (11 MPs) | Aggregate: +117.14% | Simple Avg: +117.52% | Total Value: Rs 4.63 Cr
+  5. YSRCP                (4 MPs) | Aggregate: +115.51% | Simple Avg: +118.41% | Total Value: Rs 4.63 Cr
+  6. Lok Janshakti Party(Ram Vilas) (5 MPs) | Aggregate: +115.40% | Simple Avg: +115.75% | Total Value: Rs 6.74 Cr
+  7. Indian Union Muslim League (2 MPs) | Aggregate: +114.80% | Simple Avg: +114.80% | Total Value: Rs 6.32 Cr
+  8. CPI(M)               (3 MPs) | Aggregate: +114.80% | Simple Avg: +114.80% | Total Value: Rs 0.31 Cr
+  9. JMM                  (2 MPs) | Aggregate: +114.80% | Simple Avg: +114.80% | Total Value: Rs 0.31 Cr
+  10. Shiv Sena            (5 MPs) | Aggregate: +114.08% | Simple Avg: +113.44% | Total Value: Rs 5.67 Cr
+  11. SP                   (30 MPs) | Aggregate: +111.98% | Simple Avg: +114.29% | Total Value: Rs 19.49 Cr
+  12. RJD                  (4 MPs) | Aggregate: +111.80% | Simple Avg: +113.16% | Total Value: Rs 4.21 Cr
+  13. Janata Dal (Secular) (2 MPs) | Aggregate: +107.82% | Simple Avg: +110.95% | Total Value: Rs 7.96 Cr
+  14. DMK                  (20 MPs) | Aggregate: +104.66% | Simple Avg: +110.48% | Total Value: Rs 44.79 Cr
+  15. AAP                  (3 MPs) | Aggregate: +95.70% | Simple Avg: +92.43% | Total Value: Rs 5.90 Cr
+  16. TDP                  (15 MPs) | Aggregate: +95.63% | Simple Avg: +102.49% | Total Value: Rs 51.78 Cr
+  17. BJP                  (207 MPs) | Aggregate: +78.55% | Simple Avg: +107.39% | Total Value: Rs 547.12 Cr
+  18. INC                  (84 MPs) | Aggregate: +64.02% | Simple Avg: +103.74% | Total Value: Rs 154.76 Cr
+  19. AITC                 (23 MPs) | Aggregate: +43.66% | Simple Avg: +86.13% | Total Value: Rs 36.75 Cr
+  20. Nationalist Congress Party – Sharadchandra Pawar (7 MPs) | Aggregate: +32.84% | Simple Avg: +95.96% | Total Value: Rs 27.93 Cr
+
+--- SPOUSE VS MP (SELF/HUF) PERFORMANCE ---
+  Spouse Aggregate Return:     95.50% (Base: Rs 224.81 Cr, Cur: Rs 439.50 Cr)
+  Self/HUF Aggregate Return:   63.02% (Base: Rs 306.09 Cr, Cur: Rs 498.99 Cr)
+  Spouse Simple Average Return: 110.41% (over 399 candidates)
+  Self/HUF Simple Average Return: 103.92% (over 422 candidates)
+
+--- TOP 5 DECLARED GOLD/PM HOLDERS ---
+  1. NAVEEN JINDAL                  (BJP       ) | Declared PM: Rs  43.48 Cr | Current PM: Rs  93.66 Cr | Combined Portfolio Return: +111.13%
+  2. KONDA VISHWESHWAR REDDY        (BJP       ) | Declared PM: Rs  11.01 Cr | Current PM: Rs  23.64 Cr | Combined Portfolio Return: +90.12%
+  3. SRIBHARAT MATHUKUMILI          (TDP       ) | Declared PM: Rs  10.24 Cr | Current PM: Rs  20.51 Cr | Combined Portfolio Return: +99.87%
+  4. C.M.RAMESH                     (BJP       ) | Declared PM: Rs   9.16 Cr | Current PM: Rs  19.68 Cr | Combined Portfolio Return: +114.77%
+  5. KANGNA RANAUT                  (BJP       ) | Declared PM: Rs   8.50 Cr | Current PM: Rs  14.91 Cr | Combined Portfolio Return: +75.37%
+  6. PIYUSH GOYAL                   (BJP       ) | Declared PM: Rs   7.81 Cr | Current PM: Rs  16.77 Cr | Combined Portfolio Return: +55.28%
+  7. HARSIMRAT KAUR BADAL           (SAD       ) | Declared PM: Rs   7.03 Cr | Current PM: Rs  15.11 Cr | Combined Portfolio Return: +114.80%
+  8. CHHATRAPATI SHAHU SHAHAJI      (INC       ) | Declared PM: Rs   6.25 Cr | Current PM: Rs  14.00 Cr | Combined Portfolio Return: +33.35%
+  9. POONAMBEN HEMATBHAI MAADAM     (BJP       ) | Declared PM: Rs   5.89 Cr | Current PM: Rs  11.99 Cr | Combined Portfolio Return: +102.14%
+  10. SUPRIYA SULE                   (Nationalist Congress Party – Sharadchandra Pawar) | Declared PM: Rs   5.56 Cr | Current PM: Rs   8.14 Cr | Combined Portfolio Return: +18.41%

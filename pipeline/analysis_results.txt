@@ -1,0 +1,117 @@
+Total reconstructed portfolios after promoter exclusions: 104
+
+--- BEST INVESTORS (BY RETURN % - PORTFOLIO >= 10 LAKHS) ---
+1. SHANKAR LALWANI (BJP) | Base: Rs 0.23 Cr | Cur: Rs 0.34 Cr | Return: +47.93% (E1/F0)
+2. ADV ADOOR PRAKASH (INC) | Base: Rs 1.59 Cr | Cur: Rs 2.16 Cr | Return: +36.34% (E11/F0)
+3. PATHAN YUSUF (AITC) | Base: Rs 1.67 Cr | Cur: Rs 2.17 Cr | Return: +29.48% (E3/F2)
+4. C R PATIL (BJP) | Base: Rs 0.37 Cr | Cur: Rs 0.47 Cr | Return: +26.16% (E5/F6)
+5. VE VAITHILINGAM (INC) | Base: Rs 0.20 Cr | Cur: Rs 0.25 Cr | Return: +24.77% (E1/F2)
+6. SARBANANDA SONOWAL (BJP) | Base: Rs 0.60 Cr | Cur: Rs 0.72 Cr | Return: +21.13% (E1/F0)
+7. BASAVARAJ BOMMAI (BJP) | Base: Rs 0.78 Cr | Cur: Rs 0.94 Cr | Return: +20.73% (E11/F0)
+8. PARSHOTTAMBHAI RUPALA (BJP) | Base: Rs 3.53 Cr | Cur: Rs 4.13 Cr | Return: +17.19% (E2/F2)
+9. VIVEK THAKUR (BJP) | Base: Rs 0.13 Cr | Cur: Rs 0.15 Cr | Return: +16.50% (E12/F5)
+10. SHASHANK MANI (BJP) | Base: Rs 3.81 Cr | Cur: Rs 4.42 Cr | Return: +15.96% (E1/F18)
+
+--- WORST INVESTORS (BY RETURN % - PORTFOLIO >= 10 LAKHS) ---
+1. KONDA VISHWESHWAR REDDY (BJP) | Base: Rs 2.19 Cr | Cur: Rs 1.44 Cr | Return: -34.23% (E12/F1)
+2. NISHIKANT DUBEY (BJP) | Base: Rs 2.66 Cr | Cur: Rs 2.32 Cr | Return: -13.01% (E2/F7)
+3. HASMUKHBHAI PATEL (H.S.PATEL) (BJP) | Base: Rs 0.12 Cr | Cur: Rs 0.11 Cr | Return: -6.47% (E7/F0)
+4. MUKESHKUMAR CHANDRAKAANT DALAL (BJP) | Base: Rs 0.12 Cr | Cur: Rs 0.11 Cr | Return: -5.63% (E4/F4)
+5. SHATRUGHAN PRASAD SINHA (AITC) | Base: Rs 3.21 Cr | Cur: Rs 3.06 Cr | Return: -4.55% (E20/F0)
+6. AZAD KIRTI JHA (AITC) | Base: Rs 0.47 Cr | Cur: Rs 0.46 Cr | Return: -1.62% (E11/F3)
+7. BAIJAYANT PANDA (BJP) | Base: Rs 8.62 Cr | Cur: Rs 8.51 Cr | Return: -1.30% (E4/F10)
+8. VAMSI KRISHNA GADDAM (INC) | Base: Rs 0.31 Cr | Cur: Rs 0.30 Cr | Return: -0.81% (E2/F0)
+9. PRIYANKA GANDHI VADRA (INC) | Base: Rs 2.94 Cr | Cur: Rs 2.93 Cr | Return: -0.43% (E14/F3)
+10. ARUN NEHRU (DMK) | Base: Rs 1.69 Cr | Cur: Rs 1.69 Cr | Return: +0.26% (E31/F2)
+
+--- BEST INVESTORS BY ABSOLUTE GAINS (INR) ---
+1. ANURAG SHARMA (BJP) | Base: Rs 17.65 Cr | Cur: Rs 19.71 Cr | Gain: Rs +2.06 Cr | Return: +11.70%
+2. AMIT SHAH (BJP) | Base: Rs 32.63 Cr | Cur: Rs 34.39 Cr | Gain: Rs +1.76 Cr | Return: +5.39%
+3. RAMASAHAYAM RAGHURAM REDDY (INC) | Base: Rs 11.04 Cr | Cur: Rs 12.30 Cr | Gain: Rs +1.26 Cr | Return: +11.44%
+4. RAVI SHANKAR PRASAD (BJP) | Base: Rs 8.22 Cr | Cur: Rs 9.40 Cr | Gain: Rs +1.18 Cr | Return: +14.35%
+5. SUPRIYA SULE (Nationalist Congress Party – Sharadchandra Pawar) | Base: Rs 12.04 Cr | Cur: Rs 12.80 Cr | Gain: Rs +0.76 Cr | Return: +6.33%
+6. SHASHANK MANI (BJP) | Base: Rs 3.81 Cr | Cur: Rs 4.42 Cr | Gain: Rs +0.61 Cr | Return: +15.96%
+7. PARSHOTTAMBHAI RUPALA (BJP) | Base: Rs 3.53 Cr | Cur: Rs 4.13 Cr | Gain: Rs +0.61 Cr | Return: +17.19%
+8. ADV ADOOR PRAKASH (INC) | Base: Rs 1.59 Cr | Cur: Rs 2.16 Cr | Gain: Rs +0.58 Cr | Return: +36.34%
+9. RACHNA BANERJEE (AITC) | Base: Rs 6.23 Cr | Cur: Rs 6.75 Cr | Gain: Rs +0.51 Cr | Return: +8.24%
+10. PATHAN YUSUF (AITC) | Base: Rs 1.67 Cr | Cur: Rs 2.17 Cr | Gain: Rs +0.49 Cr | Return: +29.48%
+
+--- WORST INVESTORS BY ABSOLUTE LOSSES (INR) ---
+1. KONDA VISHWESHWAR REDDY (BJP) | Base: Rs 2.19 Cr | Cur: Rs 1.44 Cr | Loss: Rs -0.75 Cr | Return: -34.23%
+2. NISHIKANT DUBEY (BJP) | Base: Rs 2.66 Cr | Cur: Rs 2.32 Cr | Loss: Rs -0.35 Cr | Return: -13.01%
+3. SHATRUGHAN PRASAD SINHA (AITC) | Base: Rs 3.21 Cr | Cur: Rs 3.06 Cr | Loss: Rs -0.15 Cr | Return: -4.55%
+4. BAIJAYANT PANDA (BJP) | Base: Rs 8.62 Cr | Cur: Rs 8.51 Cr | Loss: Rs -0.11 Cr | Return: -1.30%
+5. RAVINDRA SHUKLA ALIAS RAVI KISHAN (BJP) | Base: Rs 0.07 Cr | Cur: Rs 0.04 Cr | Loss: Rs -0.03 Cr | Return: -41.46%
+6. PRAVEEN KHANDELWAL (BJP) | Base: Rs 0.08 Cr | Cur: Rs 0.06 Cr | Loss: Rs -0.02 Cr | Return: -20.61%
+7. PRIYANKA GANDHI VADRA (INC) | Base: Rs 2.94 Cr | Cur: Rs 2.93 Cr | Loss: Rs -0.01 Cr | Return: -0.43%
+8. OMPRAKASH BHUPALSINH ALIAS PAVAN RAJENIMBALKAR (ShivSena (Uddhav Balasaheb Thackeray)) | Base: Rs 0.04 Cr | Cur: Rs 0.03 Cr | Loss: Rs -0.01 Cr | Return: -24.96%
+9. KINJARAPU RAMMOHAN NAIDU (TDP) | Base: Rs 0.05 Cr | Cur: Rs 0.05 Cr | Loss: Rs -0.01 Cr | Return: -14.81%
+10. HASMUKHBHAI PATEL (H.S.PATEL) (BJP) | Base: Rs 0.12 Cr | Cur: Rs 0.11 Cr | Loss: Rs -0.01 Cr | Return: -6.47%
+
+--- PERFORMANCE COMPARISON TO NIFTY (+4.06%) ---
+Aggregate (Asset-Weighted) MP Portfolio Return: 6.48%
+Simple Average MP Portfolio Return: 7.92%
+Number of MPs beating Nifty 50 (+4.06%): 66 / 104 (63.5%)
+
+--- SPOUSE VS MP (SELF/HUF) PERFORMANCE ---
+Spouse Aggregate Return: 6.81% (Base: Rs 46.79 Cr, Cur: Rs 49.98 Cr)
+Self/HUF Aggregate Return: 6.35% (Base: Rs 149.34 Cr, Cur: Rs 158.82 Cr)
+Spouse Simple Average Return: 8.76% (over 54 candidates with spouse holdings)
+Self/HUF Simple Average Return: 7.25% (over 92 candidates)
+
+--- BEST STOCK PICKERS (TOP 10 INDIVIDUAL HOLDINGS BY RETURN %) ---
+1. AMIT SHAH (BJP) | Stock: TERASOFT (Tera Software Limited) | Declared: Rs 0.0051 Cr | Cur: Rs 0.0272 Cr | Return: +435.2% | Owner: self
+2. AMIT SHAH (BJP) | Stock: GRWRHITECH (Garware Hi-Tech Films Limited) | Declared: Rs 0.0069 Cr | Cur: Rs 0.0237 Cr | Return: +244.3% | Owner: self
+3. AMIT SHAH (BJP) | Stock: POWERINDIA (Hitachi Energy India Limited) | Declared: Rs 0.1577 Cr | Cur: Rs 0.5373 Cr | Return: +240.8% | Owner: self
+4. PIYUSH GOYAL (BJP) | Stock: PAYTM (One 97 Communications Limited) | Declared: Rs 0.0547 Cr | Cur: Rs 0.1776 Cr | Return: +224.5% | Owner: self
+5. DR. SHARMILA SARKAR (AITC) | Stock: PAYTM (One 97 Communications Limited) | Declared: Rs 0.0045 Cr | Cur: Rs 0.0146 Cr | Return: +224.5% | Owner: self
+6. BRIJENDRA SINGH OLA (INC) | Stock: LAURUSLABS (Laurus Labs Limited) | Declared: Rs 0.0004 Cr | Cur: Rs 0.0012 Cr | Return: +202.5% | Owner: self
+7. BRIJENDRA SINGH OLA (INC) | Stock: LAURUSLABS (Laurus Labs Limited) | Declared: Rs 0.0004 Cr | Cur: Rs 0.0012 Cr | Return: +202.5% | Owner: spouse
+8. AMIT SHAH (BJP) | Stock: MCLEODRUSS (Mcleod Russel India Limited) | Declared: Rs 0.0004 Cr | Cur: Rs 0.0012 Cr | Return: +183.6% | Owner: self
+9. DR. SHARMILA SARKAR (AITC) | Stock: DEEPAKFERT (Deepak Fertilizers and Petrochemicals Corporation Limited) | Declared: Rs 0.0202 Cr | Cur: Rs 0.0553 Cr | Return: +174.0% | Owner: self
+10. AMIT SHAH (BJP) | Stock: SJS (S.J.S. Enterprises Limited) | Declared: Rs 0.0016 Cr | Cur: Rs 0.0045 Cr | Return: +172.1% | Owner: spouse
+11. ARUN NEHRU (DMK) | Stock: KINGFA (Kingfa Science & Technology (India) Limited) | Declared: Rs 0.0504 Cr | Cur: Rs 0.1313 Cr | Return: +160.5% | Owner: self
+12. SHAMBHAVI (Lok Janshakti Party(Ram Vilas)) | Stock: RADICO (Radico Khaitan Limited) | Declared: Rs 0.0170 Cr | Cur: Rs 0.0374 Cr | Return: +120.0% | Owner: spouse
+13. AMIT SHAH (BJP) | Stock: WELCORP (Welspun Corp Limited) | Declared: Rs 0.1676 Cr | Cur: Rs 0.3604 Cr | Return: +115.1% | Owner: self
+14. AMIT SHAH (BJP) | Stock: NAVINFLUOR (Navin Fluorine International Limited) | Declared: Rs 0.0227 Cr | Cur: Rs 0.0484 Cr | Return: +113.3% | Owner: self
+15. AMIT SHAH (BJP) | Stock: IMFA (Indian Metals & Ferro Alloys Limited) | Declared: Rs 0.0001 Cr | Cur: Rs 0.0003 Cr | Return: +107.8% | Owner: self
+
+--- WORST STOCK PICKERS (TOP 10 INDIVIDUAL HOLDINGS BY RETURN %) ---
+1. MUKESHKUMAR CHANDRAKAANT DALAL (BJP) | Stock: EASTSILK (Eastern Silk Industries Limited) | Declared: Rs 0.0001 Cr | Cur: Rs 0.0000 Cr | Return: -100.0% | Owner: self
+2. BASAVARAJ BOMMAI (BJP) | Stock: KESORAMIND (Kesoram Industries Limited) | Declared: Rs 0.0017 Cr | Cur: Rs 0.0001 Cr | Return: -93.1% | Owner: self
+3. PRIYANKA GANDHI VADRA (INC) | Stock: MEP (MEP Infrastructure Developers Limited) | Declared: Rs 0.0022 Cr | Cur: Rs 0.0003 Cr | Return: -88.0% | Owner: spouse
+4. RAHUL GANDHI (INC) | Stock: VERTOZ (Vertoz Limited) | Declared: Rs 0.0189 Cr | Cur: Rs 0.0024 Cr | Return: -87.3% | Owner: self
+5. AMIT SHAH (BJP) | Stock: DISHTV (Dish TV India Limited) | Declared: Rs 0.0044 Cr | Cur: Rs 0.0010 Cr | Return: -78.1% | Owner: self
+6. AMIT SHAH (BJP) | Stock: ABFRL (Aditya Birla Fashion and Retail Limited) | Declared: Rs 0.4599 Cr | Cur: Rs 0.1088 Cr | Return: -76.3% | Owner: spouse
+7. AMIT SHAH (BJP) | Stock: ABFRL (Aditya Birla Fashion and Retail Limited) | Declared: Rs 0.1795 Cr | Cur: Rs 0.0425 Cr | Return: -76.3% | Owner: self
+8. PRIYANKA GANDHI VADRA (INC) | Stock: SWSOLAR (Sterling and Wilson Renewable Energy Limited) | Declared: Rs 0.0821 Cr | Cur: Rs 0.0216 Cr | Return: -73.7% | Owner: spouse
+9. BHAGIRATH CHOUDHARY (BJP) | Stock: VIKASLIFE (Vikas Lifecare Limited) | Declared: Rs 0.0004 Cr | Cur: Rs 0.0001 Cr | Return: -71.2% | Owner: spouse
+10. KONDA VISHWESHWAR REDDY (BJP) | Stock: GVKPIL (GVK Power & Infrastructure Limited) | Declared: Rs 0.4147 Cr | Cur: Rs 0.1211 Cr | Return: -70.8% | Owner: spouse
+11. KONDA VISHWESHWAR REDDY (BJP) | Stock: GVKPIL (GVK Power & Infrastructure Limited) | Declared: Rs 0.3203 Cr | Cur: Rs 0.0936 Cr | Return: -70.8% | Owner: self
+12. HASMUKHBHAI PATEL (H.S.PATEL) (BJP) | Stock: GVKPIL (GVK Power & Infrastructure Limited) | Declared: Rs 0.0098 Cr | Cur: Rs 0.0029 Cr | Return: -70.8% | Owner: self
+13. PIYUSH GOYAL (BJP) | Stock: GOCOLORS (Go Fashion (India) Limited) | Declared: Rs 0.1678 Cr | Cur: Rs 0.0513 Cr | Return: -69.4% | Owner: self
+14. AMIT SHAH (BJP) | Stock: PARSVNATH (Parsvnath Developers Limited) | Declared: Rs 0.0027 Cr | Cur: Rs 0.0009 Cr | Return: -66.7% | Owner: self
+15. DR. SHARMILA SARKAR (AITC) | Stock: NDTV (New Delhi Television Limited) | Declared: Rs 0.0055 Cr | Cur: Rs 0.0018 Cr | Return: -66.7% | Owner: self
+
+--- PARTY PERFORMANCE ---
+1. Lok Janshakti Party(Ram Vilas) (2 MPs) | Aggregate Return: +70.27% | Simple Avg Return: +52.68% | Total Portfolio: Rs 0.05 Cr
+2. TDP (6 MPs) | Aggregate Return: +11.40% | Simple Avg Return: +7.12% | Total Portfolio: Rs 3.94 Cr
+3. AITC (10 MPs) | Aggregate Return: +7.26% | Simple Avg Return: +6.60% | Total Portfolio: Rs 16.49 Cr
+4. INC (20 MPs) | Aggregate Return: +6.78% | Simple Avg Return: +12.34% | Total Portfolio: Rs 51.78 Cr
+5. SP (2 MPs) | Aggregate Return: +6.43% | Simple Avg Return: +21.86% | Total Portfolio: Rs 0.07 Cr
+6. Nationalist Congress Party – Sharadchandra Pawar (4 MPs) | Aggregate Return: +6.33% | Simple Avg Return: +6.77% | Total Portfolio: Rs 12.85 Cr
+7. BJP (51 MPs) | Aggregate Return: +6.21% | Simple Avg Return: +5.94% | Total Portfolio: Rs 121.85 Cr
+8. AAP (2 MPs) | Aggregate Return: +5.62% | Simple Avg Return: +5.55% | Total Portfolio: Rs 0.64 Cr
+9. DMK (2 MPs) | Aggregate Return: +0.27% | Simple Avg Return: +7.39% | Total Portfolio: Rs 1.69 Cr
+
+--- MPS WITH MULTIPLE HIGH-PERFORMING STOCK HOLDINGS (>30% return) ---
+  AMIT SHAH: 30 holdings with return >= 30%
+  BRIJENDRA SINGH OLA: 14 holdings with return >= 30%
+  RACHNA BANERJEE: 12 holdings with return >= 30%
+  ARUN NEHRU: 9 holdings with return >= 30%
+  SUPRIYA SULE: 8 holdings with return >= 30%
+  SHATRUGHAN PRASAD SINHA: 5 holdings with return >= 30%
+  PIYUSH GOYAL: 4 holdings with return >= 30%
+  DR. SHARMILA SARKAR: 4 holdings with return >= 30%
+  DINESHBHAI MAKWANA (ADVOCATE): 3 holdings with return >= 30%
+  DAGGUMALLA PRASADA RAO: 3 holdings with return >= 30%

@@ -1,0 +1,405 @@
+symbol,name,n_mps,agg_current_value,stock_return_pct
+RELIANCE,Reliance Industries Limited,18,28108058,-5.8
+HDFCBANK,HDFC Bank Limited,15,33349040,1.9
+ITC,ITC Limited,14,21666793,-20.7
+RPOWER,Reliance Power Limited,12,672669,8.4
+JIOFIN,Jio Financial Services Limited,12,2310353,-32.7
+TATASTEEL,Tata Steel Limited,12,10583522,24.9
+YESBANK,Yes Bank Limited,9,1716593,-3.8
+INFY,Infosys Limited,9,14436856,-14.7
+SBIN,State Bank of India,9,27793952,19.2
+ICICIBANK,ICICI Bank Limited,9,11017751,14.5
+RCOM,Reliance Communications Limited,8,34433,-44.2
+TITAN,Titan Company Limited,7,14192988,21.3
+COALINDIA,Coal India Limited,7,4415514,6.4
+TECHM,Tech Mahindra Limited,7,17171131,14.3
+TCS,Tata Consultancy Services Limited,7,3045864,-36.1
+IDEA,Vodafone Idea Limited,6,114930,-4.2
+NHPC,NHPC Limited,6,923177,-17.6
+TATAPOWER,Tata Power Company Limited,6,2750682,-5.5
+SUZLON,Suzlon Energy Limited,5,730622,21.5
+LT,Larsen & Toubro Limited,5,53555927,10.9
+BHARTIARTL,Bharti Airtel Limited,5,29063877,38.9
+JSWSTEEL,JSW Steel Limited,5,39378084,43.6
+TATACHEM,Tata Chemicals Limited,4,1457168,-29.6
+RHFL,Reliance Home Finance Limited,4,657,-34.3
+ADANIPOWER,Adani Power Limited,4,2903135,61.9
+BAJFINANCE,Bajaj Finance Limited,4,14791392,35.0
+NTPC,NTPC Limited,4,1168787,11.7
+WIPRO,Wipro Limited,4,324863,-4.0
+CANBK,Canara Bank,4,38270233,17.8
+NMDC,NMDC Limited,4,1026755,10.9
+IOB,Indian Overseas Bank,4,82673,-52.6
+BHARATFORG,Bharat Forge Limited,4,39381955,23.4
+CENTRALBK,Central Bank of India,3,77071,-49.6
+SOUTHBANK,The South Indian Bank Limited,3,1260466,52.1
+KOTAKBANK,Kotak Mahindra Bank Limited,3,835498,12.7
+UNITDSPR,United Spirits Limited,3,59359311,11.7
+UNIONBANK,Union Bank of India,3,394283,8.4
+EICHERMOT,Eicher Motors Limited,3,15925612,49.5
+HINDUNILVR,Hindustan Unilever Limited,3,13102676,-3.9
+IDFCFIRSTB,IDFC First Bank Limited,3,23653472,-11.5
+TIINDIA,Tube Investments of India Limited,3,2474653,-20.8
+TATACONSUM,TATA CONSUMER PRODUCTS LIMITED,3,20143906,10.1
+RBLBANK,RBL Bank Limited,3,2082713,34.0
+ASIANPAINT,Asian Paints Limited,3,3332306,-6.8
+BANKBARODA,Bank of Baroda,3,179587,6.6
+RVNL,Rail Vikas Nigam Limited,3,626481,-26.5
+INDHOTEL,The Indian Hotels Company Limited,3,27379508,15.1
+NAUKRI,Info Edge (India) Limited,3,2514396,-20.3
+NSLNISP,NMDC Steel Limited,3,622363,-27.1
+BPCL,Bharat Petroleum Corporation Limited,3,10256505,2.6
+NESCO,Nesco Limited,3,4749279,44.5
+NESTLEIND,Nestle India Limited,3,8802418,18.5
+IIFL,IIFL Finance Limited,3,922782,17.4
+GVKPIL,GVK Power & Infrastructure Limited,2,2175577,-70.8
+JPPOWER,Jaiprakash Power Ventures Limited,2,458219,-3.1
+INDUSTOWER,Indus Towers Limited,2,6485064,26.8
+EASEMYTRIP,Easy Trip Planners Limited,2,153791,-63.5
+JTEKTINDIA,Jtekt India Limited,2,8266,-22.6
+SAIL,Steel Authority of India Limited,2,393520,26.8
+RAIN,Rain Industries Limited,2,226877,-5.6
+ONGC,Oil & Natural Gas Corporation Limited,2,1646580,17.4
+PNBGILTS,PNB Gilts Limited,2,20449,-22.4
+ABCAPITAL,Aditya Birla Capital Limited,2,5061645,56.1
+TEJASNET,Tejas Networks Limited,2,530723,-59.6
+IRCON,Ircon International Limited,2,119046,-46.4
+ASHOKLEY,Ashok Leyland Limited,2,1378008,43.9
+GNFC,Gujarat Narmada Valley Fertilizers and Chemicals Limited,2,1215070,-19.0
+TANLA,Tanla Platforms Limited,2,494521,-40.5
+AXISBANK,Axis Bank Limited,2,5213000,8.9
+CASTROLIND,Castrol India Limited,2,1586658,7.7
+GODREJCP,Godrej Consumer Products Limited,2,2383520,-20.5
+UBL,United Breweries Limited,2,2994113,-28.5
+AMBUJACEM,Ambuja Cements Limited,2,458396,-29.9
+RALLIS,Rallis India Limited,2,411004,-0.5
+PIDILITIND,Pidilite Industries Limited,2,4143763,-2.3
+VEDL,Vedanta Limited,2,3575406,-16.8
+ADANIPORTS,Adani Ports and Special Economic Zone Limited,2,6314703,28.8
+PAYTM,One 97 Communications Limited,2,1921837,224.5
+POWERGRID,Power Grid Corporation of India Limited,2,332808,0.7
+BERGEPAINT,Berger Paints (I) Limited,2,3812469,3.1
+ARVIND,Arvind Limited,2,907859,34.1
+FINPIPE,Finolex Industries Limited,2,127116,-41.4
+PNB,Punjab National Bank,2,1159994,-16.5
+OIL,Oil India Limited,2,7692469,21.1
+PFC,Power Finance Corporation Limited,2,1703727,-10.0
+MEDANTA,Global Health Limited,2,1174482,0.8
+CRAFTSMAN,Craftsman Automation Limited,2,179399,104.2
+BAJAJFINSV,Bajaj Finserv Limited,2,9431601,10.5
+MANAPPURAM,Manappuram Finance Limited,2,1857250,92.8
+KANSAINER,Kansai Nerolac Paints Limited,2,16390972,-17.4
+SBICARD,SBI Cards and Payment Services Limited,2,16427,-11.6
+COCHINSHIP,Cochin Shipyard Limited,2,55954,-18.5
+UCOBANK,UCO Bank,2,184218,-56.0
+BANDHANBNK,Bandhan Bank Limited,2,14753,4.1
+PETRONET,Petronet LNG Limited,2,664615,-0.4
+HCL-INSYS,HCL Infosystems Limited,2,63675,-33.7
+INOXWIND,Inox Wind Limited,2,9662098,-36.2
+ABSLAMC,Aditya Birla Sun Life AMC Limited,2,3092721,99.7
+MPHASIS,MphasiS Limited,2,1798997,-3.4
+IMFA,Indian Metals & Ferro Alloys Limited,2,859432723,107.8
+PFIZER,Pfizer Limited,2,6872447,6.0
+IFCI,IFCI Limited,2,1108849,6.6
+HINDALCO,Hindalco Industries Limited,2,19774,63.7
+HAL,Hindustan Aeronautics Limited,2,222383,-10.2
+ANUP,The Anup Engineering Limited,2,533420,18.9
+ULTRACEMCO,UltraTech Cement Limited,2,5503154,15.5
+ZYDUSLIFE,Zydus Lifesciences Limited,2,3763180,0.2
+NAGAFERT,Nagarjuna Fertilizers and Chemicals Limited,2,19317,-62.0
+GUJGASLTD,Gujarat Gas Limited,2,29055,-30.2
+JSWENERGY,JSW Energy Limited,2,9581,-9.4
+IRFC,Indian Railway Finance Corporation Limited,2,847974,-43.6
+COROMANDEL,Coromandel International Limited,2,549980,43.0
+HDFCLIFE,HDFC Life Insurance Company Limited,2,56353,7.4
+WABAG,VA Tech Wabag Limited,2,899129,46.5
+CIPLA,Cipla Limited,2,226530,-3.5
+LUPIN,Lupin Limited,2,2252239,44.0
+RAYMOND,Raymond Limited,2,8378228,-22.8
+PCBL,PCBL Chemical Limited,2,2371178,20.9
+BANKINDIA,Bank of India,2,367586,13.5
+FEDERALBNK,The Federal Bank  Limited,2,1468454,81.2
+HCLTECH,HCL Technologies Limited,2,385354,-7.4
+CYIENT,Cyient Limited,2,303337,-47.9
+GMMPFAUDLR,GMM Pfaudler Limited,2,1233194,-36.5
+GRANULES,Granules India Limited,2,248404,74.1
+SPARC,Sun Pharma Advanced Research Company Limited,2,414400,-6.4
+PATELENG,Patel Engineering Limited,1,24945,-56.2
+SALASAR,Salasar Techno Engineering Limited,1,20620,-65.7
+TI,Tilaknagar Industries Limited,1,121867,93.2
+PILANIINVS,Pilani Investment and Industries Corporation Limited,1,123581,20.8
+IMAGICAA,Imagicaaworld Entertainment Limited,1,40650,-47.3
+URJA,Urja Global Limited,1,1967,-49.5
+SBFC,SBFC Finance Limited,1,4044,11.2
+VIKASLIFE,Vikas Lifecare Limited,1,1134,-71.2
+MAHLIFE,Mahindra Lifespace Developers Limited,1,89964,-40.7
+TATAELXSI,Tata Elxsi Limited,1,26739,-39.9
+ALOKINDS,Alok Industries Limited,1,6556,-52.5
+MOIL,MOIL Limited,1,9440,-35.1
+DENORA,De Nora India Limited,1,333097,-52.7
+INDUSINDBK,IndusInd Bank Limited,1,2540329,-37.1
+HINDPETRO,Hindustan Petroleum Corporation Limited,1,685879,14.0
+ICRA,ICRA Limited,1,3994368,3.2
+PGHL,Procter & Gamble Health Limited,1,5001172,22.9
+EVEREADY,Eveready Industries India Limited,1,628840,-4.0
+DREDGECORP,Dredging Corporation of India Limited,1,768898,15.4
+NETWORK18,Network18 Media & Investments Limited,1,1081335,-59.4
+STAR,Strides Pharma Science Limited,1,8435866,42.7
+JAGSNPHARM,Jagsonpal Pharmaceuticals Limited,1,658292,59.0
+GMRP&UI,GMR Power and Urban Infra Limited,1,87245,67.0
+VBL,Varun Beverages Limited,1,8776058,-7.7
+CGPOWER,CG Power and Industrial Solutions Limited,1,463082,39.3
+BRITANNIA,Britannia Industries Limited,1,5166058,4.0
+GODREJAGRO,Godrej Agrovet Limited,1,566117,10.2
+RPSGVENT,RPSG VENTURES LIMITED,1,167759,42.3
+SNOWMAN,Snowman Logistics Limited,1,554051,-39.5
+DEVYANI,Devyani International Limited,1,409379,-23.9
+GNA,GNA Axles Limited,1,827861,-2.8
+NLCINDIA,NLC India Limited,1,354861,59.5
+POONAWALLA,Poonawalla Fincorp Limited,1,841629,-9.9
+PARAGMILK,Parag Milk Foods Limited,1,923778,26.7
+TVSMOTOR,TVS Motor Company Limited,1,2739372,53.4
+CHOLAHLDNG,Cholamandalam Financial Holdings Limited,1,758052,44.1
+NDTV,New Delhi Television Limited,1,18236,-66.7
+PRINCEPIPE,Prince Pipes And Fittings Limited,1,9460,-55.3
+TITAGARH,TITAGARH RAIL SYSTEMS LIMITED,1,29664,-39.4
+PIIND,PI Industries Limited,1,101592,-22.4
+DEEPAKFERT,Deepak Fertilizers and Petrochemicals Corporation Limited,1,552856,174.0
+DOMS,DOMS Industries Limited,1,20310,16.2
+ADANIGREEN,Adani Green Energy Limited,1,221530,-28.1
+GSFC,Gujarat State Fertilizers & Chemicals Limited,1,164157,-19.5
+ADFFOODS,ADF Foods Limited,1,37888,34.7
+HOMEFIRST,Home First Finance Company India Limited,1,141050,32.6
+ATGL,Adani Total Gas Limited,1,50997,-31.3
+RELAXO,Relaxo Footwears Limited,1,48276,-63.2
+SMCGLOBAL,SMC Global Securities Limited,1,217602,-18.5
+HFCL,HFCL Limited,1,128088,38.2
+SICALLOG,Sical Logistics Limited,1,80,-59.8
+ESCORTS,Escorts Kubota Limited,1,328439,-22.3
+APOLLOHOSP,Apollo Hospitals Enterprise Limited,1,36691710193,42.3
+PTC,PTC India Limited,1,916570,-2.1
+ANDHRSUGAR,The Andhra Sugars Limited,1,949711,-10.5
+PRAENG,Prajay Engineers Syndicate Limited,1,7097034,-25.0
+APOLSINHOT,Apollo Sindoori Hotels Limited,1,371040833,-33.3
+SURYODAY,Suryoday Small Finance Bank Limited,1,15681,-17.3
+ICICIGI,ICICI Lombard General Insurance Company Limited,1,1884181,13.0
+TTML,Tata Teleservices (Maharashtra) Limited,1,881923,-43.6
+MFSL,Max Financial Services Limited,1,877751,71.6
+VOLTAS,Voltas Limited,1,1183015,-7.9
+GRASIM,Grasim Industries Limited,1,141039,30.8
+ANANTRAJ,Anant Raj Limited,1,4547544,36.8
+FINCABLES,Finolex Cables Limited,1,1452110,-26.3
+ABB,ABB India Limited,1,5942460,-17.3
+IOC,Indian Oil Corporation Limited,1,232276,-6.9
+CENTENKA,Century Enka Limited,1,81738,-9.9
+AROGRANITE,Aro Granite Industries Limited,1,8116,-51.9
+GFLLIMITED,GFL Limited,1,232548,-38.4
+MAXIND,Max India Limited,1,12692,-43.0
+ALEMBICLTD,Alembic Limited,1,252198,-8.3
+RAJRILTD,Raj Rayon Industries Limited,1,10476,-7.9
+MAXHEALTH,Max Healthcare Institute Limited,1,540010,30.9
+LIBERTSHOE,Liberty Shoes Limited,1,622658,-19.8
+KEC,KEC International Limited,1,349618,-35.1
+KIRLOSBROS,Kirloskar Brothers Limited,1,449382,-0.3
+PGHH,Procter & Gamble Hygiene and Health Care Limited,1,12003461,-36.9
+RSWM,RSWM Limited,1,14177,-5.5
+HEMIPROP,Hemisphere Properties India Limited,1,144519,-27.6
+ZENSARTECH,Zensar Technologies Limited,1,119931,-18.8
+GLAXO,GlaxoSmithKline Pharmaceuticals Limited,1,359134,-3.7
+DBREALTY,Valor Estate Limited,1,3255611,-41.7
+SJS,S.J.S. Enterprises Limited,1,44622,172.1
+MRF,MRF Limited,1,12770526,-1.3
+RTNPOWER,RattanIndia Power Limited,1,47077,-44.9
+SUPERSPIN,Super Spinning Mills Limited,1,5286,-28.4
+ACC,ACC Limited,1,911270,-46.7
+ABFRL,Aditya Birla Fashion and Retail Limited,1,1513409,-76.3
+WELCORP,Welspun Corp Limited,1,3604187,115.1
+PATINTLOG,Patel Integrated Logistics Limited,1,119323,-42.5
+DHANBANK,Dhanlaxmi Bank Limited,1,96375,-18.0
+KARURVYSYA,Karur Vysya Bank Limited,1,33625826,78.2
+TERASOFT,Tera Software Limited,1,272490,435.2
+TARC,TARC Limited,1,1187984,-23.9
+GRAPHITE,Graphite India Limited,1,64463,36.2
+RECLTD,REC Limited,1,1096753,-36.1
+EIHOTEL,EIH Limited,1,675582,-25.1
+COLPAL,Colgate Palmolive (India) Limited,1,8812645,-17.6
+DCMNVL,DCM Nouvelle Limited,1,1468270,-25.9
+POWERINDIA,Hitachi Energy India Limited,1,5372907,240.8
+RAMCOCEM,The Ramco Cements Limited,1,3900066,20.5
+GRINDWELL,Grindwell Norton Limited,1,3527609,-17.5
+SUNPHARMA,Sun Pharmaceutical Industries Limited,1,13657403,30.4
+RTNINDIA,RattanIndia Enterprises Limited,1,45696,-55.6
+NCC,NCC Limited,1,4043464,-46.8
+OAL,Oriental Aromatics Limited,1,16488,-15.8
+WSTCSTPAPR,West Coast Paper Mills Limited,1,1208978,-19.5
+HINDWAREAP,Hindware Home Innovation Limited,1,167445,-43.6
+PARSVNATH,Parsvnath Developers Limited,1,8960,-66.7
+CARBORUNIV,Carborundum Universal Limited,1,1671931,-33.0
+ELECTCAST,Electrosteel Castings Limited,1,272436,-53.1
+SSWL,Steel Strips Wheels Limited,1,692,-1.1
+DISHTV,Dish TV India Limited,1,9718,-78.1
+MCLEODRUSS,Mcleod Russel India Limited,1,12315,183.6
+RHIM,RHI MAGNESITA INDIA LIMITED,1,1514503,-39.5
+BSL,BSL Limited,1,709,-29.1
+GAIL,GAIL (India) Limited,1,1485288,-14.7
+SPLPETRO,Supreme Petrochem Limited,1,3368811,5.5
+APLLTD,Alembic Pharmaceuticals Limited,1,1195861,-17.7
+SIGNPOST,Signpost India Limited,1,34772,7.9
+3IINFOLTD,3i Infotech Limited,1,3740,-53.3
+EIHAHOTELS,EIH Associated Hotels Limited,1,2160592,-6.7
+FLUOROCHEM,Gujarat Fluorochemicals Limited,1,21975261,22.8
+FLAIR,Flair Writing Industries Limited,1,196668,-2.3
+AHLUCONT,Ahluwalia Contracts (India) Limited,1,746970,-36.6
+SHAHALLOYS,Shah Alloys Limited,1,360766,21.5
+BBTC,The Bombay Burmah Trading Corporation Limited,1,3999197,3.1
+GPIL,Godawari Power And Ispat limited,1,2753601,67.7
+MAXESTATES,Max Estates Limited,1,35184,17.5
+AGI,AGI Greenpac Limited,1,536011,-11.1
+HPL,HPL Electric & Power Limited,1,19917,-9.1
+ARVSMART,Arvind SmartSpaces Limited,1,213093,-0.2
+WALCHANNAG,Walchandnagar Industries Limited,1,745714,3.1
+PREMIER,Premier Limited,1,300,-15.5
+NAVINFLUOR,Navin Fluorine International Limited,1,484406,113.3
+ORIENTCER,ORIENT CERATECH LIMITED,1,178750,-11.1
+ROLEXRINGS,Rolex Rings Limited,1,17427,-40.6
+BAJAJELEC,Bajaj Electricals Limited,1,521950,-63.7
+ELGIRUBCO,Elgi Rubber Company Limited,1,105035,-39.9
+GRWRHITECH,Garware Hi-Tech Films Limited,1,236905,244.3
+BHARTIHEXA,Bharti Hexacom Limited,1,465363,58.6
+KECL,Kirloskar Electric Company Limited,1,8989,-35.8
+BAJEL,Bajel Projects Limited,1,230142,-28.6
+CUMMINSIND,Cummins India Limited,1,6133034,44.0
+WELENT,Welspun Enterprises Limited,1,660759,15.5
+INDIANCARD,Indian Card Clothing Company Limited,1,6228,-21.5
+SHREDIGCEM,Shree Digvijay Cement Co.Ltd,1,232507,-32.5
+ESSARSHPNG,Essar Shipping Limited,1,2584,-20.2
+OLECTRA,Olectra Greentech Limited,1,10266537,-32.0
+RENUKA,Shree Renuka Sugars Limited,1,250543,-42.3
+EMIL,Electronics Mart India Limited,1,171157,-40.2
+BEL,Bharat Electronics Limited,1,29526,46.6
+KESORAMIND,Kesoram Industries Limited,1,1190,-93.1
+MATRIMONY,Matrimony.Com Limited,1,20503,-21.8
+GOODLUCK,Goodluck India Limited,1,37764,72.7
+MOL,Meghmani Organics Limited,1,5021,-36.7
+RHL,Robust Hotels Limited,1,39278,2.7
+DLF,DLF Limited,1,117332,-27.4
+SYMPHONY,Symphony Limited,1,5709,-31.1
+QUESS,Quess Corp Limited,1,1077,-63.3
+EDELWEISS,Edelweiss Financial Services Limited,1,1141787,46.1
+JKPAPER,JK Paper Limited,1,9161,4.3
+NUVAMA,Nuvama Wealth Management Limited,1,7239,83.2
+STARCEMENT,Star Cement Limited,1,12850,0.2
+ICICIPRULI,ICICI Prudential Life Insurance Company Limited,1,2792111,-10.8
+JKTYRE,JK Tyre & Industries Limited,1,17808,-10.5
+AMBER,Amber Enterprises India Limited,1,14624,105.4
+IRB,IRB Infrastructure Developers Limited,1,24446,-37.6
+DABUR,Dabur India Limited,1,4299,-18.6
+ERIS,Eris Lifesciences Limited,1,10316,50.2
+JINDALSTEL,JINDAL STEEL LIMITED,1,9866,15.4
+MARICO,Marico Limited,1,8286,37.6
+ASAHIINDIA,Asahi India Glass Limited,1,3402421,47.9
+BIRLACORPN,Birla Corporation Limited,1,39229,-27.6
+BAJAJ-AUTO,Bajaj Auto Limited,1,223495,21.2
+HEG,HEG Limited,1,52511,32.2
+BATAINDIA,Bata India Limited,1,26179,-48.2
+LAURUSLABS,Laurus Labs Limited,1,24222,202.5
+ORTEL,Ortel Communications Limited,1,483582,24.6
+SURYALAXMI,Suryalakshmi Cotton Mills Limited,1,298089,-14.8
+TAJGVK,Taj GVK Hotels & Resorts Limited,1,2130246,-10.3
+APARINDS,Apar Industries Limited,1,23512571,66.0
+APOLLOTYRE,Apollo Tyres Limited,1,760532,-19.1
+HERITGFOOD,Heritage Foods Limited,1,9414065,-10.7
+FILATEX,Filatex India Limited,1,158748,-22.2
+EXIDEIND,Exide Industries Limited,1,4929706,-32.5
+SIEMENS,Siemens Limited,1,19590238,-8.9
+IGL,Indraprastha Gas Limited,1,74668,-30.7
+EQUITASBNK,Equitas Small Finance Bank Limited,1,85,-29.1
+JSWHL,JSW Holdings Limited,1,18675980,91.1
+META,"Meta Platforms, Inc.",1,15214812,27.4
+JSL,Jindal Stainless Limited,1,257038131,4.0
+OSWALAGRO,Oswal Agro Mills Limited,1,6860089,1.6
+NSIL,Nalwa Sons Investments Limited,1,35859589,62.6
+JINDALSAW,Jindal Saw Limited,1,79300256,-18.7
+OSWALGREEN,Oswal Greentech Limited,1,688655,-21.1
+HEXATRADEX,Hexa Tradex Limited,1,7634625,12.4
+SHALPAINTS,Shalimar Paints Limited,1,2045075,-66.3
+REPRO,Repro India Limited,1,257081,-50.5
+STARHEALTH,Star Health and Allied Insurance Company Limited,1,5100506,-0.8
+SHOPERSTOP,Shoppers Stop Limited,1,214532,-55.5
+MAPMYINDIA,C.E. Info Systems Limited,1,404653,-55.1
+JUBLFOOD,Jubilant Foodworks Limited,1,2640924,-11.9
+TATACOMM,Tata Communications Limited,1,4104653,12.1
+ARVINDFASN,Arvind Fashions Limited,1,1685740,-0.4
+ZENTEC,Zen Technologies Limited,1,2863958,73.3
+GOCOLORS,Go Fashion (India) Limited,1,513082,-69.4
+SONACOMS,Sona BLW Precision Forgings Limited,1,999104,-3.3
+CONCORDBIO,Concord Biotech Limited,1,1148661,-16.2
+INDIGO,InterGlobe Aviation Limited,1,1919103,5.8
+UTIAMC,UTI Asset Management Company Limited,1,2237,11.9
+SUNTECK,Sunteck Realty Limited,1,138204,-37.1
+JYOTHYLAB,Jyothy Labs Limited,1,10040,-50.2
+NATCOPHARM,Natco Pharma Limited,1,19588,14.6
+POLYCAB,Polycab India Limited,1,19867,39.6
+SBILIFE,SBI Life Insurance Company Limited,1,22615,29.2
+TRENT,Trent Limited,1,25907,-6.7
+TORNTPOWER,Torrent Power Limited,1,31472,7.5
+VISAKAIND,Visaka Industries Limited,1,50828917,-27.6
+SOMANYCERA,Somany Ceramics Limited,1,462540,-26.3
+GANECOS,Ganesha Ecosphere Limited,1,618173,-16.9
+CROMPTON,Crompton Greaves Consumer Electricals Limited,1,750366,-23.2
+GREENPANEL,Greenpanel Industries Limited,1,448294,-35.3
+JTLIND,JTL INDUSTRIES LIMITED,1,442306,-34.3
+PUNJABCHEM,Punjab Chemicals & Crop Protection Limited,1,618636,-2.2
+DCMSHRIRAM,DCM Shriram Limited,1,314179,15.2
+APOLLOPIPE,Apollo Pipes Limited,1,411942,-21.5
+BESTAGRO,Best Agrolife Limited,1,298427,-40.2
+NH,Narayana Hrudayalaya Ltd.,1,778976,57.5
+ATUL,Atul Limited,1,449123,21.0
+KINGFA,Kingfa Science & Technology (India) Limited,1,1312863,160.5
+ORIENTCEM,Orient Cement Limited,1,357737,-36.2
+DRREDDY,Dr. Reddy's Laboratories Limited,1,783004,10.9
+YUKEN,Yuken India Limited,1,288738,-46.2
+UPL,UPL Limited,1,562773,23.6
+VERTOZ,Vertoz Limited,1,23981,-87.3
+FINEORG,Fine Organic Industries Limited,1,896380,4.7
+DIVISLAB,Divi's Laboratories Limited,1,3147024,59.2
+ALKYLAMINE,Alkyl Amines Chemicals Limited,1,660437,-10.7
+DEEPAKNTR,Deepak Nitrite Limited,1,916117,-23.1
+SUPRAJIT,Suprajit Engineering Limited,1,1802809,8.2
+ITI,ITI Limited,1,2032221,-3.9
+LALPATHLAB,Dr. Lal Path Labs Ltd.,1,1323540,26.8
+MOLDTKPAC,Mold-Tek Packaging Limited,1,1304646,-12.8
+GARFIBRES,Garware Technical Fibres Limited,1,1486813,-9.5
+CHAMBLFERT,Chambal Fertilizers & Chemicals Limited,1,396815,16.0
+IEX,Indian Energy Exchange Limited,1,18605,-14.7
+RADICO,Radico Khaitan Limited,1,374132,120.0
+MOTILALOFS,Motilal Oswal Financial Services Limited,1,471201,53.9
+BHEL,Bharat Heavy Electricals Limited,1,17394,40.7
+ZEEL,Zee Entertainment Enterprises Limited,1,3874,-44.1
+SUNTV,Sun TV Network Limited,1,9218,-23.2
+M&M,Mahindra & Mahindra Limited,1,11873,23.6
+LTF,L&T Finance Limited,1,1497905,79.6
+KPIGREEN,KPI Green Energy Limited,1,5077,-28.0
+ZUARI,Zuari Agro Chemicals Limited,1,1214,23.6
+NOCIL,NOCIL Limited,1,16979,-34.9
+CHEMCON,Chemcon Speciality Chemicals Limited,1,32513,-24.1
+DELTACORP,Delta Corp Limited,1,14225,-35.7
+EASTSILK,Eastern Silk Industries Limited,1,0,-100.0
+INDIANB,Indian Bank,1,253740,52.4
+FELDVR,Future Enterprises Limited,1,254,-49.5
+SURANASOL,Surana Solar Limited,1,2224,-30.4
+MAHABANK,Bank of Maharashtra,1,759,21.6
+MEDPLUS,Medplus Health Services Limited,1,2633,27.6
+TATAINVEST,Tata Investment Corporation Limited,1,12866,3.0
+NBCC,NBCC (India) Limited,1,124,4.1
+TRIVENI,Triveni Engineering & Industries Limited,1,1044,11.9
+GREENPOWER,Orient Green Power Company Limited,1,16624,-42.8
+FACT,Fertilizers and Chemicals Travancore Limited,1,628108,25.6
+LEMONTREE,Lemon Tree Hotels Limited,1,298598,-19.2
+SWSOLAR,Sterling and Wilson Renewable Energy Limited,1,216346,-73.7
+FORTIS,Fortis Healthcare Limited,1,506160,107.4
+RAILTEL,Railtel Corporation Of India Limited,1,164381,-22.3
+NIITLTD,NIIT Limited,1,271472,-35.4
+USHAMART,Usha Martin Limited,1,1141446,33.1
+RITES,RITES Limited,1,184043,-39.2
+MEP,MEP Infrastructure Developers Limited,1,2585,-88.0
