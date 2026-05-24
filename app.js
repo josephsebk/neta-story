@@ -61,56 +61,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =====================================================================
-  // 2. CHAPTER 1 — ANIMATED HORIZONTAL BAR CHART (Index Comparison)
+  // 2. CHAPTER 1 — ANIMATED VERTICAL BAR CHART (Index Comparison)
   // =====================================================================
   const chartContainer = document.getElementById("nifty-comparison-chart");
 
   /**
-   * Build the horizontal bar rows from `NETA_DATA.indices`.
-   * Bars start at width:0 and animate in via IntersectionObserver.
+   * Convert "#rrggbb" -> "rgba(r,g,b,alpha)" so bar fills can be translucent
+   * while remaining keyed off the same palette tokens defined in data.js.
+   */
+  function hexToRgba(hex, alpha) {
+    const h = hex.replace("#", "");
+    const r = parseInt(h.substring(0, 2), 16);
+    const g = parseInt(h.substring(2, 4), 16);
+    const b = parseInt(h.substring(4, 6), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  }
+
+  /**
+   * Build the vertical bar columns from `NETA_DATA.indices`.
+   * Bars start at height:0 and animate up via IntersectionObserver.
    */
   function renderComparisonChart() {
     if (!chartContainer) return;
     chartContainer.innerHTML = "";
 
-    // The largest value in the dataset drives proportional sizing
-    const maxVal = 38.71;
+    // Wrapper that lays bars side-by-side
+    const chart = document.createElement("div");
+    chart.className = "vbar-chart";
+
+    // Largest absolute value drives proportional sizing
+    const maxVal = Math.max(...data.indices.map(i => Math.abs(i.returnPct)));
 
     data.indices.forEach(item => {
       const displayPct =
         (item.returnPct >= 0 ? "+" : "") + item.returnPct.toFixed(2) + "%";
 
-      // Calculate the target width as a percentage of the max bar
-      const targetWidth = ((Math.abs(item.returnPct) / maxVal) * 100).toFixed(2);
+      // Target height as % of track. Guarantee a minimum so small bars stay legible.
+      const targetHeight = Math.max(
+        6,
+        (Math.abs(item.returnPct) / maxVal) * 100
+      ).toFixed(2);
 
-      const row = document.createElement("div");
-      row.className = "bar-row";
-      row.innerHTML = `
-        <div class="bar-label">
-          <span>${item.label}</span>
-          <span class="bar-label-val" style="color:${item.color}">${displayPct}</span>
+      const col = document.createElement("div");
+      col.className = "vbar";
+      col.innerHTML = `
+        <div class="vbar-value" style="color:${item.color}">${displayPct}</div>
+        <div class="vbar-track">
+          <div class="vbar-fill"
+               style="background:${hexToRgba(item.color, 0.55)};
+                      border-top:2px solid ${item.color};"
+               data-target="${targetHeight}"></div>
         </div>
-        <div class="bar-track">
-          <div class="bar-fill" style="background:${item.color}; width:0%" data-target="${targetWidth}"></div>
-        </div>
+        <div class="vbar-label">${item.short || item.label}</div>
       `;
-      chartContainer.appendChild(row);
+      chart.appendChild(col);
     });
+
+    chartContainer.appendChild(chart);
   }
 
   renderComparisonChart();
 
-  // Use IntersectionObserver so bars animate only when scrolled into view
+  // Animate bar heights only when the chart scrolls into view
   if (chartContainer) {
     const chartObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Animate every bar-fill to its target width
-            chartContainer.querySelectorAll(".bar-fill").forEach(bar => {
+            chartContainer.querySelectorAll(".vbar-fill").forEach(bar => {
               const target = parseFloat(bar.dataset.target) || 0;
-              // Guarantee a minimum visible width so short bars are still legible
-              bar.style.width = Math.max(8, target) + "%";
+              bar.style.height = target + "%";
             });
             chartObserver.unobserve(entry.target);
           }

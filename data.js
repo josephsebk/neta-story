@@ -6,10 +6,10 @@ window.NETA_DATA = {
     returnPct: 3.63
   },
   indices: [
-    { label: "Nifty 50 Index", returnPct: 3.63, color: "#3b82f6" },
-    { label: "MP Returns (ex Promoter Holdings) — Simple Avg", returnPct: 7.92, color: "#10b981" },
-    { label: "MP Returns (ex Promoter Holdings) — Weighted", returnPct: 6.48, color: "#8b5cf6" },
-    { label: "Total Combined (inc. Promoters)", returnPct: 38.71, color: "#f59e0b" }
+    { label: "Nifty 50 Index", short: "Nifty 50", returnPct: 3.63, color: "#5a524a" },
+    { label: "MP Returns (ex Promoter) — Simple Avg", short: "MPs (simple avg)", returnPct: 7.92, color: "#3a6a3a" },
+    { label: "MP Returns (ex Promoter) — Weighted", short: "MPs (weighted)", returnPct: 6.48, color: "#7a8a3a" },
+    { label: "Total Combined (inc. Promoters)", short: "Combined w/ promoters", returnPct: 38.71, color: "#b88a00" }
   ],
   aumBreakdown: {
     discretionary: {
