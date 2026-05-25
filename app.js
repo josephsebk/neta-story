@@ -328,6 +328,137 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   renderPartyMetals();
 
+
+  // =====================================================================
+  //  CH.3 / CH.4 — Insights from the investment performance report
+  // =====================================================================
+
+  /**
+   * Return a CSS class for ± return colouring, using the page palette
+   * (green / red CSS vars) rather than bespoke colours per table.
+   */
+  function pctClass(p) {
+    return p >= 0 ? "green-pct" : "red-pct";
+  }
+  function pctFmt(p) {
+    return (p >= 0 ? "+" : "") + p.toFixed(1) + "%";
+  }
+
+  // ----- Super Pickers (Ch.3) -----
+  const superPickersTbody = document
+    .getElementById("super-pickers-table")
+    ?.querySelector("tbody");
+
+  function renderSuperPickers() {
+    if (!superPickersTbody) return;
+    superPickersTbody.innerHTML = "";
+    (data.superPickers || []).forEach((sp, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td><strong>${sp.name}</strong></td>
+        <td>${sp.party}</td>
+        <td><strong>${sp.count}</strong></td>
+        <td>${sp.primaryDriver}</td>
+      `;
+      superPickersTbody.appendChild(tr);
+    });
+  }
+  renderSuperPickers();
+
+  // ----- Party Performance (Ch.3) -----
+  const partyPerfTbody = document
+    .getElementById("party-perf-table")
+    ?.querySelector("tbody");
+
+  function renderPartyPerformance() {
+    if (!partyPerfTbody) return;
+    partyPerfTbody.innerHTML = "";
+    (data.partyPerformance || []).forEach((p, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td><strong>${p.name}</strong></td>
+        <td>${p.count}</td>
+        <td>Rs ${p.aum.toFixed(2)}</td>
+        <td class="${pctClass(p.returnPct)}">${pctFmt(p.returnPct)}</td>
+        <td class="${pctClass(p.avgReturnPct)}">${pctFmt(p.avgReturnPct)}</td>
+        <td class="party-note">${p.note}</td>
+      `;
+      partyPerfTbody.appendChild(tr);
+    });
+  }
+  renderPartyPerformance();
+
+  // ----- Preferred Stocks (Ch.4) -----
+  const preferredStocksTbody = document
+    .getElementById("preferred-stocks-table")
+    ?.querySelector("tbody");
+
+  function renderPreferredStocks() {
+    if (!preferredStocksTbody) return;
+    preferredStocksTbody.innerHTML = "";
+    (data.preferredStocks || []).forEach((s, i) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td><code>${s.ticker}</code></td>
+        <td>${s.name}</td>
+        <td><strong>${s.holders}</strong></td>
+        <td>Rs ${s.aumCr.toFixed(2)}</td>
+        <td class="${pctClass(s.returnPct)}">${pctFmt(s.returnPct)}</td>
+      `;
+      preferredStocksTbody.appendChild(tr);
+    });
+  }
+  renderPreferredStocks();
+
+  // ----- Preferred Mutual Funds (Ch.4) -----
+  const preferredFundsTbody = document
+    .getElementById("preferred-funds-table")
+    ?.querySelector("tbody");
+
+  function renderPreferredFunds() {
+    if (!preferredFundsTbody) return;
+    preferredFundsTbody.innerHTML = "";
+    (data.preferredFunds || []).forEach((f, i) => {
+      const tr = document.createElement("tr");
+      const nameCell = f.foreign
+        ? `${f.name} <span class="foreign-pill">global</span>`
+        : f.name;
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${nameCell}</td>
+        <td><strong>${f.holders}</strong></td>
+        <td>Rs ${f.aumCr.toFixed(2)}</td>
+        <td class="${pctClass(f.returnPct)}">${pctFmt(f.returnPct)}</td>
+      `;
+      preferredFundsTbody.appendChild(tr);
+    });
+  }
+  renderPreferredFunds();
+
+  // ----- Global Standouts (Ch.4) -----
+  const globalCardsEl = document.getElementById("global-cards");
+
+  function renderGlobalCards() {
+    if (!globalCardsEl) return;
+    globalCardsEl.innerHTML = "";
+    (data.globalAssets || []).forEach(g => {
+      const card = document.createElement("div");
+      card.className = "global-card";
+      card.innerHTML = `
+        <div class="global-card-kind">${g.kind}</div>
+        <div class="global-card-asset">${g.asset}</div>
+        <div class="global-card-holder">${g.holder}${g.party && g.party !== "—" ? ` · ${g.party}` : ""}</div>
+        <div class="global-card-return">${pctFmt(g.returnPct)}</div>
+      `;
+      globalCardsEl.appendChild(card);
+    });
+  }
+  renderGlobalCards();
+
+
   // ----- E. Comical Affidavit Weight Distortions -----
   const distortionCardsEl = document.getElementById("distortion-cards");
 

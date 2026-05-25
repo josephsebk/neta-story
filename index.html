@@ -187,13 +187,117 @@
           <div class="st-row"><span>S.J.S. Enterprises</span><span><code>SJS</code></span><span class="green-pct">+172.1%</span></div>
         </div>
       </div>
+
+      <hr class="section-divider">
+
+      <!-- Super Pickers leaderboard -->
+      <div class="ch3-subsection">
+        <p class="subsection-kicker">The Super Pickers</p>
+        <h3 class="subsection-title">Who else consistently picked winners?</h3>
+        <p class="subsection-lead">MPs ranked by number of individual equity holdings returning ≥ +30%. Amit Shah dominates, but a long tail of consistent stock-pickers sits beneath him.</p>
+        <table class="premium-table" id="super-pickers-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>MP</th>
+              <th>Party</th>
+              <th>Winning Holdings (≥ +30%)</th>
+              <th>Primary Driver</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- Party performance table -->
+      <div class="ch3-subsection">
+        <p class="subsection-kicker">By Political Party</p>
+        <h3 class="subsection-title">Which party's MPs invest best?</h3>
+        <p class="subsection-lead">Aggregated discretionary returns by party (≥ 2 trackable portfolios). <strong>TDP leads on aggregate returns</strong>; INC leads on simple-average — both comfortably above the Nifty 50's +3.63%.</p>
+        <table class="premium-table" id="party-perf-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Party</th>
+              <th>MPs</th>
+              <th>AUM (Cr)</th>
+              <th>Aggregate Return</th>
+              <th>Simple Avg</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
   </section>
 
-  <!-- ═══════════════════ CHAPTER 4: GOLD & SILVER ═══════════════════ -->
-  <section class="chapter chapter-alt" id="ch-gold">
+  <!-- ═══════════════════ CHAPTER 4: WHAT LAWMAKERS PREFER ═══════════════════ -->
+  <section class="chapter" id="ch-preferred">
     <div class="chapter-inner">
       <p class="chapter-num">Chapter 4</p>
+      <h2 class="chapter-title">What lawmakers prefer.</h2>
+      <p class="chapter-lead">Where do they actually park their money — and how have those choices performed?</p>
+
+      <!-- Preferred Stocks -->
+      <div class="ch3-subsection">
+        <p class="subsection-kicker">Most-Held Stocks</p>
+        <h3 class="subsection-title">The popular picks weren't the winning picks.</h3>
+        <p class="subsection-lead">The ten stocks held by the most MPs reveal a striking pattern: the three most popular names — <strong>Reliance, HDFC Bank, and ITC</strong> — collectively underperformed. Reliance (18 holders) returned <strong>−5.8%</strong>; ITC (14 holders) dropped <strong>−20.7%</strong>; Jio Financial (12 holders) cratered <strong>−32.7%</strong>.</p>
+        <table class="premium-table" id="preferred-stocks-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Ticker</th>
+              <th>Stock</th>
+              <th>MPs Holding</th>
+              <th>Aggregate Value (Cr)</th>
+              <th>Return</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- Preferred Funds -->
+      <div class="ch3-subsection">
+        <p class="subsection-kicker">Most-Held Mutual Funds</p>
+        <h3 class="subsection-title">The mutual fund picks fared much better.</h3>
+        <p class="subsection-lead">In sharp contrast to direct equities, the most popular mutual fund schemes among MPs delivered consistent double-digit returns. The standout: <strong>Kotak Global Emerging Market FOF</strong>, held by 5 MPs and returning <strong>+82.0%</strong>.</p>
+        <table class="premium-table" id="preferred-funds-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Scheme</th>
+              <th>MPs Holding</th>
+              <th>Aggregate Value (Cr)</th>
+              <th>Return</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- Global Standouts -->
+      <div class="ch3-subsection">
+        <p class="subsection-kicker">Global Exposure</p>
+        <h3 class="subsection-title">The biggest returns came from outside India.</h3>
+        <p class="subsection-lead">A handful of MPs diversified into US tech, Nasdaq trackers, China tech ETFs, and gold FOFs — and were rewarded with returns that dwarfed the domestic market. The single best individual position in any MP's portfolio is a Nasdaq 100 FOF, up <strong>+112.4%</strong>.</p>
+        <div id="global-cards" class="global-cards"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CHAPTER 5: GOLD & SILVER ═══════════════════ -->
+  <section class="chapter chapter-alt" id="ch-gold">
+    <div class="chapter-inner">
+      <p class="chapter-num">Chapter 5</p>
       <h2 class="chapter-title">Gold &amp; silver.</h2>
       <p class="chapter-lead">Physical gold and silver represent a massive store of value among Indian lawmakers. The price surge over two years has created extraordinary paper gains.</p>
 
@@ -262,6 +366,8 @@
         <li id="fn-promoters"><strong>Promoter holdings excluded:</strong> MPs with dominant promoter-category shareholdings — Konda Vishweshwar Reddy (Apollo Hospitals, Rs 2,500+ Cr), Naveen Jindal (Jindal Steel/JSW), and Baijayant Panda (IMFA) — are excluded from the returns analysis. Including them would skew the aggregate by their corporate stakes, which are not meaningful investment positions.</li>
         <li id="fn-eastern-silk"><strong>Eastern Silk Industries:</strong> BJP MP Mukeshkumar Dalal's holding in Eastern Silk Industries (<code>EASTSILK</code>) initially showed an artificial +3,054% return in raw data. The NCLT completely extinguished the equity capital; the shares are valued at Rs 0 (−100%).</li>
         <li id="fn-104"><strong>Why 104 portfolios:</strong> Of 543 elected MPs, only 104 filed affidavits with publicly tradable equities or mutual funds that could be matched to live market tickers. The remaining MPs declared assets consisting primarily of property, vehicles, cash, or fixed deposits — none of which have trackable market prices.</li>
+        <li id="fn-raymond"><strong>Raymond demerger correction:</strong> Two MPs (Chhatrapati Shahu Shahaji, Brijendra Singh Ola) showed paper losses of −74.6% in Raymond Ltd. driven by the 2024 Raymond Lifestyle and 2025 Raymond Realty demergers (4:5 and 1:1 share allocations respectively). Once the demerged share value is added back, the audited residual return is −22.8% — a much smaller, wealth-neutral repricing rather than a real capital loss.</li>
+        <li id="fn-pricing"><strong>Pricing methodology:</strong> Nifty 50 baseline 22,888.15 (close, 28 May 2024) → current 23,817.85 = +4.06%. Listed equities priced via Yahoo Finance close feeds with audited split/bonus handling. Mutual fund NAVs fetched from AMFI via <code>api.mfapi.in</code>, matched to the nearest trading day in June 2024. Physical gold/silver back-calculated where only INR values were declared, using IBJA benchmarks of ₹7,293/g gold and ₹96.50/g silver (May 2024).</li>
         <li id="fn-data"><strong>Data sources:</strong> MyNeta Lok Sabha 2024 candidate affidavits · Election Commission of India · Yahoo Finance price feeds · AMFI NAV APIs · Indian Bullion and Jewellers Association (IBJA) gold/silver benchmarks. Baseline date: May 28, 2024. Current date: May 23, 2026.</li>
       </ol>
     </div>

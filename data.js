@@ -163,5 +163,43 @@ window.NETA_DATA = {
     { name: "Sunil Bose", party: "INC", constituency: "Chamarajanagar", note: "3.2 kg silver corrected from raw 3,200 kg." },
     { name: "Kuldeep Indora", party: "INC", constituency: "Ganganagar", goldKg: 0.34, silverKg: 6.50 },
     { name: "Ravindra Shukla alias Ravi Kishan", party: "BJP", constituency: "Gorakhpur", returnPct: -41.46 }
+  ],
+
+  // ─────────────────────────────────────────────────────────────────────
+  // What lawmakers prefer — Section 8 of the report (top by # of holders)
+  // ─────────────────────────────────────────────────────────────────────
+  preferredStocks: [
+    { ticker: "RELIANCE",  name: "Reliance Industries",        holders: 18, aumCr: 2.81, returnPct: -5.8  },
+    { ticker: "HDFCBANK",  name: "HDFC Bank",                  holders: 15, aumCr: 3.33, returnPct:  1.9  },
+    { ticker: "ITC",       name: "ITC",                        holders: 14, aumCr: 2.17, returnPct: -20.7 },
+    { ticker: "TATASTEEL", name: "Tata Steel",                 holders: 12, aumCr: 1.06, returnPct:  24.9 },
+    { ticker: "RPOWER",    name: "Reliance Power",             holders: 12, aumCr: 0.07, returnPct:   8.4 },
+    { ticker: "JIOFIN",    name: "Jio Financial Services",     holders: 12, aumCr: 0.23, returnPct: -32.7 },
+    { ticker: "ICICIBANK", name: "ICICI Bank",                 holders:  9, aumCr: 1.10, returnPct:  14.5 },
+    { ticker: "INFY",      name: "Infosys",                    holders:  9, aumCr: 1.44, returnPct: -14.7 },
+    { ticker: "SBIN",      name: "State Bank of India",        holders:  9, aumCr: 2.78, returnPct:  19.2 },
+    { ticker: "YESBANK",   name: "Yes Bank",                   holders:  9, aumCr: 0.17, returnPct:  -3.8 }
+  ],
+  preferredFunds: [
+    { name: "ICICI Prudential MNC Fund — Growth",                        holders: 11, aumCr: 3.89, returnPct: 10.0 },
+    { name: "Kotak Flexicap Fund — Growth",                              holders:  9, aumCr: 1.14, returnPct:  4.6 },
+    { name: "HDFC Mid Cap Fund — Growth",                                holders:  9, aumCr: 1.57, returnPct: 15.8 },
+    { name: "Axis Small Cap Fund — Regular Growth",                      holders:  8, aumCr: 0.40, returnPct: 13.6 },
+    { name: "HDFC Flexi Cap Fund — Growth",                              holders:  7, aumCr: 4.07, returnPct: 12.1 },
+    { name: "HDFC Small Cap Fund — Growth",                              holders:  6, aumCr: 2.23, returnPct:  6.7 },
+    { name: "Mirae Asset Large Cap Fund — Growth",                       holders:  5, aumCr: 1.19, returnPct:  6.3 },
+    { name: "Kotak Global Emerging Market Overseas Equity FOF — Growth", holders:  5, aumCr: 1.57, returnPct: 82.0, foreign: true },
+    { name: "SBI Equity Hybrid Fund — Regular Growth",                   holders:  5, aumCr: 3.85, returnPct: 15.8 },
+    { name: "Axis Large & Mid Cap Fund — Regular Growth",                holders:  5, aumCr: 0.26, returnPct: 11.1 }
+  ],
+
+  // Section 9 — global / overseas investment standouts
+  globalAssets: [
+    { holder: "Tanuj Punia",   party: "INC",    asset: "Motilal Oswal Nasdaq 100 FOF",       kind: "US Index FOF",     returnPct: 112.4 },
+    { holder: "Vivek Thakur",  party: "BJP",    asset: "LIC MF Gold ETF Fund of Fund",       kind: "Gold FOF",         returnPct: 113.5 },
+    { holder: "Multiple (5 MPs)", party: "—",   asset: "Kotak Global Emerging Market FOF",   kind: "EM Equity FOF",    returnPct:  81.4 },
+    { holder: "Pathan Yusuf",  party: "AITC",   asset: "Mirae Asset Hang Seng TECH ETF FOF", kind: "China Tech FOF",   returnPct:  68.2 },
+    { holder: "Arun Nehru",    party: "DMK",    asset: "Motilal Oswal S&P 500 Index Fund",   kind: "US Index Fund",    returnPct:  61.9 },
+    { holder: "Naveen Jindal", party: "BJP",    asset: "Meta Platforms (META) — common stock", kind: "Direct US Equity", returnPct: 27.4 }
   ]
 };
