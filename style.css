@@ -2066,3 +2066,221 @@ footer .footer-brand {
   .subsection-title { font-size: 1.3rem; }
   .global-card-return { font-size: 1.2rem; }
 }
+
+
+/* ==========================================================================
+   §EXT — LEADERBOARD DUMBBELL CHART (Ch.2 replacement for cards)
+   ========================================================================== */
+.leaderboard-dumbbells {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 1.5rem;
+}
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 48px 200px 1fr 130px;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 0 1.25rem;
+  padding: 1.1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.lb-row:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.lb-rank {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--rule);
+  letter-spacing: -.02em;
+  grid-row: 1;
+}
+
+.lb-info {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.lb-party-pill {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--sans);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--ink-soft);
+  margin-bottom: .15rem;
+}
+.lb-party-pill.bjp     { background: #d97706; }
+.lb-party-pill.inc     { background: #1d4ed8; }
+.lb-party-pill.aitc    { background: #047857; }
+.lb-party-pill.ncpsp   { background: #7c3aed; }
+.lb-party-pill.dmk     { background: #be123c; }
+.lb-party-pill.tdp     { background: #ca8a04; }
+.lb-party-pill.aap     { background: #0369a1; }
+.lb-party-pill.sp      { background: #b91c1c; }
+
+.lb-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.lb-constituency {
+  font-family: var(--sans);
+  font-size: .78rem;
+  color: var(--ink-soft);
+}
+
+/* ---- Dumbbell track --------------------------------------------------- */
+.lb-track {
+  grid-row: 1;
+  position: relative;
+  height: 56px; /* room for dots + labels */
+  margin: 0 .5rem;
+}
+
+.lb-axis {
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--rule);
+}
+
+.lb-segment {
+  position: absolute;
+  top: calc(50% - 3px);
+  height: 6px;
+  border-radius: 3px;
+  opacity: 0.55;
+}
+
+.lb-dot {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 2px solid var(--ink-soft);
+  box-shadow: 0 0 0 3px var(--bg);
+  z-index: 2;
+}
+.lb-dot-base {
+  background: var(--bg);
+  border-color: var(--ink-soft);
+}
+.lb-dot-current {
+  width: 16px;
+  height: 16px;
+}
+
+.lb-scale-label {
+  position: absolute;
+  top: calc(50% + 12px);
+  transform: translateX(-50%);
+  font-family: var(--sans);
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.lb-base-label    { top: calc(50% - 22px); }
+.lb-current-label { top: calc(50% + 12px); font-weight: 700; }
+
+/* ---- Right-side meta -------------------------------------------------- */
+.lb-meta {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .15rem;
+}
+
+.lb-gain {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.lb-pct {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: .85rem;
+  font-weight: 600;
+}
+.lb-gain.green, .lb-pct.green { color: var(--green); }
+.lb-gain.red,   .lb-pct.red   { color: var(--red); }
+
+/* ---- Driver row (full-width caption under the row) -------------------- */
+.lb-driver-row {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  margin-top: .9rem;
+  padding-top: .7rem;
+  border-top: 1px dashed var(--rule);
+}
+.lb-driver-label {
+  font-family: var(--sans);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.lb-driver-text {
+  font-family: var(--sans);
+  font-size: .88rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---- Mobile: stack the row -------------------------------------------- */
+@media (max-width: 760px) {
+  .lb-row {
+    grid-template-columns: 44px 1fr;
+    grid-template-rows: auto auto auto;
+    gap: .35rem .9rem;
+    padding: 1rem;
+  }
+  .lb-rank { grid-row: 1; }
+  .lb-info { grid-row: 1; grid-column: 2; }
+  .lb-track {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin: .25rem 0 .25rem;
+    height: 52px;
+  }
+  .lb-meta {
+    grid-row: 3;
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .lb-driver-row {
+    grid-row: 4;
+    margin-top: .5rem;
+    padding-top: .55rem;
+  }
+}

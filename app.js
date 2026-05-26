@@ -143,62 +143,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // =====================================================================
-  // 3. CHAPTER 2 — TABBED LEADERBOARD CARDS
+  // 3. CHAPTER 2 — TABBED LEADERBOARD (Dumbbell / slope-chart)
+  // Each MP is a row with two dots (base → current) and a colored line
+  // between them. Replaces the previous 5-card grid for a more graphical,
+  // skim-friendly comparison.
   // =====================================================================
   const leaderboardCards = document.getElementById("leaderboard-cards");
   const tabButtons = document.querySelectorAll(".selector-tabs .tab-btn");
 
   /**
-   * Render a leaderboard tab.
+   * Render a leaderboard tab as a dumbbell chart.
    * @param {string} tabKey — one of 'bestReturn', 'worstReturn', 'bestGainers'
    */
   function renderLeaderboard(tabKey) {
     if (!leaderboardCards) return;
     leaderboardCards.innerHTML = "";
+    leaderboardCards.classList.add("leaderboard-dumbbells");
 
     const list = data.leaderboards[tabKey];
     if (!list) return;
 
-    list.forEach(item => {
-      const isGainer = tabKey === "bestGainers";
+    // Normalise rows: bestGainers stores `gain` not `current`. Compute both.
+    const rows = list.map(item => {
+      const current = item.current != null
+        ? item.current
+        : item.base + (item.gain || 0);
+      const gain = item.gain != null ? item.gain : (current - item.base);
+      return { ...item, current, gain };
+    });
 
-      // For bestGainers show the absolute gain in Rs Crore;
-      // otherwise show the return percentage
-      const valueLabel = isGainer
-        ? `+Rs ${item.gain.toFixed(2)} Cr`
-        : (item.returnPct >= 0 ? "+" : "") + item.returnPct.toFixed(2) + "%";
+    // Shared scale across the visible tab so bars are comparable.
+    const maxVal = Math.max(...rows.map(r => Math.max(r.base, r.current))) * 1.04;
 
-      const valueColorClass = isGainer || item.returnPct >= 0 ? "green" : "red";
-      const returnLabel = isGainer ? "Capital Gain" : "Net Return";
+    rows.forEach(item => {
+      const positive   = item.gain >= 0;
+      const leftPct    = (Math.min(item.base, item.current) / maxVal) * 100;
+      const rightPct   = (Math.max(item.base, item.current) / maxVal) * 100;
+      const segWidth   = Math.max(0.4, rightPct - leftPct); // never zero-width
+      const segColor   = positive ? "var(--green)" : "var(--red)";
 
-      // Pad the rank with a leading zero for single digits
       const rankStr = "#" + String(item.rank).padStart(2, "0");
+      const partyClass = item.party.toLowerCase().replace(/[^a-z]/g, "");
+      const pctStr     = (item.returnPct >= 0 ? "+" : "") + item.returnPct.toFixed(2) + "%";
+      const gainStr    = (item.gain >= 0 ? "+" : "−") + "Rs " + Math.abs(item.gain).toFixed(2) + " Cr";
 
-      const initials = item.name.split(" ").filter(w => /^[A-Za-z]/.test(w)).slice(0, 2).map(w => w[0].toUpperCase()).join("");
+      const row = document.createElement("div");
+      row.className = "lb-row";
+      row.innerHTML = `
+        <div class="lb-rank">${rankStr}</div>
+        <div class="lb-info">
+          <span class="lb-party-pill ${partyClass}">${item.party}</span>
+          <div class="lb-name">${item.name}</div>
+          <div class="lb-constituency">${item.constituency}</div>
+        </div>
 
-      const card = document.createElement("div");
-      card.className = "leaderboard-card";
-      card.innerHTML = `
-        <div class="card-rank">${rankStr}</div>
-        <div class="card-avatar">${initials}</div>
-        <div class="card-header-info">
-          <span class="card-tag ${item.party.toLowerCase().replace(/[^a-z]/g,'')}">${item.party}</span>
-          <h4 class="card-name">${item.name}</h4>
-          <span class="card-constituency">${item.constituency}</span>
+        <div class="lb-track" aria-label="Wealth from base to current">
+          <div class="lb-axis"></div>
+          <div class="lb-segment" style="left:${leftPct}%; width:${segWidth}%; background:${segColor}"></div>
+          <div class="lb-dot lb-dot-base"    style="left:${(item.base   /maxVal)*100}%" title="Base Rs ${item.base.toFixed(2)} Cr"></div>
+          <div class="lb-dot lb-dot-current" style="left:${(item.current/maxVal)*100}%; background:${segColor}; border-color:${segColor}" title="Current Rs ${item.current.toFixed(2)} Cr"></div>
+          <div class="lb-scale-label lb-base-label"    style="left:${(item.base   /maxVal)*100}%">Rs ${item.base.toFixed(2)} Cr</div>
+          <div class="lb-scale-label lb-current-label" style="left:${(item.current/maxVal)*100}%; color:${segColor}">Rs ${item.current.toFixed(2)} Cr</div>
         </div>
-        <div class="card-stats">
-          <div class="stat-item">
-            <span class="num">Rs ${item.base.toFixed(2)} Cr</span>
-            <span class="label">Base</span>
-          </div>
-          <div class="stat-item">
-            <span class="num ${valueColorClass}">${valueLabel}</span>
-            <span class="label">${returnLabel}</span>
-          </div>
+
+        <div class="lb-meta">
+          <div class="lb-gain ${positive ? "green" : "red"}">${gainStr}</div>
+          <div class="lb-pct  ${positive ? "green" : "red"}">${pctStr}</div>
         </div>
-        <p class="card-driver">${item.driver}</p>
+
+        <div class="lb-driver-row">
+          <span class="lb-driver-label">Driver</span>
+          <span class="lb-driver-text">${item.driver}</span>
+        </div>
       `;
-      leaderboardCards.appendChild(card);
+      leaderboardCards.appendChild(row);
     });
   }
 
