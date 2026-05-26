@@ -104,7 +104,7 @@ window.NETA_DATA = {
     { rank: 5, name: "Anurag Sharma", party: "BJP", constituency: "Jhansi", base: 0.47, current: 1.43, weight: 72830, note: "Large family silver articles and coin treasury." }
   ],
   partyGoldSilver: [
-    { rank: "-", name: "NDA Coalition (BJP + TDP + JD(U) + SHS-Shinde + LJP-RV + JD(S) + JSP)", count: 235, base: 198.90, current: 442.25, returnPct: 122.3, goldWeight: 246.58, silverWeight: 1299.49 },
+    { rank: "-", name: "NDA", count: 235, base: 198.90, current: 442.25, returnPct: 122.3, goldWeight: 246.58, silverWeight: 1299.49 },
     { rank: 1, name: "BJP", count: 199, base: 168.45, current: 374.25, returnPct: 122.2, goldWeight: 201.07, silverWeight: 1085.47 },
     { rank: 2, name: "INC", count: 81, base: 43.98, current: 98.14, returnPct: 123.1, goldWeight: 109.90, silverWeight: 3479.69 },
     { rank: 3, name: "TDP", count: 13, base: 19.53, current: 43.70, returnPct: 123.7, goldWeight: 28.95, silverWeight: 143.91 },
