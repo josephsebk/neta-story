@@ -362,6 +362,40 @@ document.addEventListener("DOMContentLoaded", () => {
     return (p >= 0 ? "+" : "") + p.toFixed(1) + "%";
   }
 
+  /**
+   * Build a square logo tile for a company / fund house.
+   *
+   * Fetches the brand mark from Clearbit's logo CDN; if that 404s (or the
+   * domain is missing), the image is hidden and a monogram fallback shows
+   * instead. The tile itself is styled in the editorial cream / ink design
+   * system so even fallbacks look coherent.
+   *
+   * @param {string} domain — e.g. "hdfcbank.com"
+   * @param {string} label  — used for alt text + fallback initials
+   */
+  function logoTile(domain, label) {
+    const safe = (label || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    const initials = (label || "")
+      .split(/\s+/)
+      .filter(w => /^[A-Za-z]/.test(w))
+      .slice(0, 2)
+      .map(w => w[0].toUpperCase())
+      .join("") || "·";
+    if (!domain) {
+      return `<span class="logo-tile"><span class="logo-fallback">${initials}</span></span>`;
+    }
+    return `
+      <span class="logo-tile">
+        <img class="logo-img"
+             src="https://logo.clearbit.com/${domain}"
+             alt="${safe}"
+             loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <span class="logo-fallback" style="display:none">${initials}</span>
+      </span>
+    `;
+  }
+
   // ----- Super Pickers (Ch.3) -----
   const superPickersTbody = document
     .getElementById("super-pickers-table")
@@ -420,8 +454,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${i + 1}</td>
-        <td><code>${s.ticker}</code></td>
-        <td>${s.name}</td>
+        <td class="logo-cell">
+          ${logoTile(s.domain, s.name)}
+          <span class="logo-cell-label">
+            <span class="logo-cell-name">${s.name}</span>
+            <code class="logo-cell-ticker">${s.ticker}</code>
+          </span>
+        </td>
         <td><strong>${s.holders}</strong></td>
         <td>Rs ${s.aumCr.toFixed(2)}</td>
         <td class="${pctClass(s.returnPct)}">${pctFmt(s.returnPct)}</td>
@@ -441,12 +480,16 @@ document.addEventListener("DOMContentLoaded", () => {
     preferredFundsTbody.innerHTML = "";
     (data.preferredFunds || []).forEach((f, i) => {
       const tr = document.createElement("tr");
-      const nameCell = f.foreign
-        ? `${f.name} <span class="foreign-pill">global</span>`
-        : f.name;
+      const foreignPill = f.foreign ? ` <span class="foreign-pill">global</span>` : "";
       tr.innerHTML = `
         <td>${i + 1}</td>
-        <td>${nameCell}</td>
+        <td class="logo-cell">
+          ${logoTile(f.domain, f.house || f.name)}
+          <span class="logo-cell-label">
+            <span class="logo-cell-name">${f.house || ""} · ${f.short || f.name}${foreignPill}</span>
+            <span class="logo-cell-ticker">${f.name}</span>
+          </span>
+        </td>
         <td><strong>${f.holders}</strong></td>
         <td>Rs ${f.aumCr.toFixed(2)}</td>
         <td class="${pctClass(f.returnPct)}">${pctFmt(f.returnPct)}</td>
@@ -466,8 +509,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "global-card";
       card.innerHTML = `
-        <div class="global-card-kind">${g.kind}</div>
-        <div class="global-card-asset">${g.asset}</div>
+        <div class="global-card-head">
+          ${logoTile(g.domain, g.short || g.asset)}
+          <div class="global-card-kind">${g.kind}</div>
+        </div>
+        <div class="global-card-asset">${g.short || g.asset}</div>
         <div class="global-card-holder">${g.holder}${g.party && g.party !== "—" ? ` · ${g.party}` : ""}</div>
         <div class="global-card-return">${pctFmt(g.returnPct)}</div>
       `;

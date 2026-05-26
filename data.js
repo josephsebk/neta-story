@@ -169,37 +169,37 @@ window.NETA_DATA = {
   // What lawmakers prefer — Section 8 of the report (top by # of holders)
   // ─────────────────────────────────────────────────────────────────────
   preferredStocks: [
-    { ticker: "RELIANCE",  name: "Reliance Industries",        holders: 18, aumCr: 2.81, returnPct: -5.8  },
-    { ticker: "HDFCBANK",  name: "HDFC Bank",                  holders: 15, aumCr: 3.33, returnPct:  1.9  },
-    { ticker: "ITC",       name: "ITC",                        holders: 14, aumCr: 2.17, returnPct: -20.7 },
-    { ticker: "TATASTEEL", name: "Tata Steel",                 holders: 12, aumCr: 1.06, returnPct:  24.9 },
-    { ticker: "RPOWER",    name: "Reliance Power",             holders: 12, aumCr: 0.07, returnPct:   8.4 },
-    { ticker: "JIOFIN",    name: "Jio Financial Services",     holders: 12, aumCr: 0.23, returnPct: -32.7 },
-    { ticker: "ICICIBANK", name: "ICICI Bank",                 holders:  9, aumCr: 1.10, returnPct:  14.5 },
-    { ticker: "INFY",      name: "Infosys",                    holders:  9, aumCr: 1.44, returnPct: -14.7 },
-    { ticker: "SBIN",      name: "State Bank of India",        holders:  9, aumCr: 2.78, returnPct:  19.2 },
-    { ticker: "YESBANK",   name: "Yes Bank",                   holders:  9, aumCr: 0.17, returnPct:  -3.8 }
+    { ticker: "RELIANCE",  name: "Reliance Industries",    domain: "ril.com",                       holders: 18, aumCr: 2.81, returnPct: -5.8  },
+    { ticker: "HDFCBANK",  name: "HDFC Bank",              domain: "hdfcbank.com",                  holders: 15, aumCr: 3.33, returnPct:  1.9  },
+    { ticker: "ITC",       name: "ITC",                    domain: "itcportal.com",                 holders: 14, aumCr: 2.17, returnPct: -20.7 },
+    { ticker: "TATASTEEL", name: "Tata Steel",             domain: "tatasteel.com",                 holders: 12, aumCr: 1.06, returnPct:  24.9 },
+    { ticker: "RPOWER",    name: "Reliance Power",         domain: "reliancepower.co.in",           holders: 12, aumCr: 0.07, returnPct:   8.4 },
+    { ticker: "JIOFIN",    name: "Jio Financial Services", domain: "jiofinancialservices.com",      holders: 12, aumCr: 0.23, returnPct: -32.7 },
+    { ticker: "ICICIBANK", name: "ICICI Bank",             domain: "icicibank.com",                 holders:  9, aumCr: 1.10, returnPct:  14.5 },
+    { ticker: "INFY",      name: "Infosys",                domain: "infosys.com",                   holders:  9, aumCr: 1.44, returnPct: -14.7 },
+    { ticker: "SBIN",      name: "State Bank of India",    domain: "sbi.co.in",                     holders:  9, aumCr: 2.78, returnPct:  19.2 },
+    { ticker: "YESBANK",   name: "Yes Bank",               domain: "yesbank.in",                    holders:  9, aumCr: 0.17, returnPct:  -3.8 }
   ],
   preferredFunds: [
-    { name: "ICICI Prudential MNC Fund — Growth",                        holders: 11, aumCr: 3.89, returnPct: 10.0 },
-    { name: "Kotak Flexicap Fund — Growth",                              holders:  9, aumCr: 1.14, returnPct:  4.6 },
-    { name: "HDFC Mid Cap Fund — Growth",                                holders:  9, aumCr: 1.57, returnPct: 15.8 },
-    { name: "Axis Small Cap Fund — Regular Growth",                      holders:  8, aumCr: 0.40, returnPct: 13.6 },
-    { name: "HDFC Flexi Cap Fund — Growth",                              holders:  7, aumCr: 4.07, returnPct: 12.1 },
-    { name: "HDFC Small Cap Fund — Growth",                              holders:  6, aumCr: 2.23, returnPct:  6.7 },
-    { name: "Mirae Asset Large Cap Fund — Growth",                       holders:  5, aumCr: 1.19, returnPct:  6.3 },
-    { name: "Kotak Global Emerging Market Overseas Equity FOF — Growth", holders:  5, aumCr: 1.57, returnPct: 82.0, foreign: true },
-    { name: "SBI Equity Hybrid Fund — Regular Growth",                   holders:  5, aumCr: 3.85, returnPct: 15.8 },
-    { name: "Axis Large & Mid Cap Fund — Regular Growth",                holders:  5, aumCr: 0.26, returnPct: 11.1 }
+    { name: "ICICI Prudential MNC Fund",          short: "MNC Fund",                house: "ICICI Prudential", domain: "iciciprumf.com",     holders: 11, aumCr: 3.89, returnPct: 10.0 },
+    { name: "Kotak Flexicap Fund",                short: "Flexicap",                house: "Kotak Mahindra",   domain: "kotakmf.com",        holders:  9, aumCr: 1.14, returnPct:  4.6 },
+    { name: "HDFC Mid Cap Fund",                  short: "Mid Cap",                 house: "HDFC",             domain: "hdfcfund.com",       holders:  9, aumCr: 1.57, returnPct: 15.8 },
+    { name: "Axis Small Cap Fund",                short: "Small Cap",               house: "Axis",             domain: "axismf.com",         holders:  8, aumCr: 0.40, returnPct: 13.6 },
+    { name: "HDFC Flexi Cap Fund",                short: "Flexi Cap",               house: "HDFC",             domain: "hdfcfund.com",       holders:  7, aumCr: 4.07, returnPct: 12.1 },
+    { name: "HDFC Small Cap Fund",                short: "Small Cap",               house: "HDFC",             domain: "hdfcfund.com",       holders:  6, aumCr: 2.23, returnPct:  6.7 },
+    { name: "Mirae Asset Large Cap Fund",         short: "Large Cap",               house: "Mirae Asset",      domain: "miraeassetmf.co.in", holders:  5, aumCr: 1.19, returnPct:  6.3 },
+    { name: "Kotak Global Emerging Market FOF",   short: "Global EM FOF",           house: "Kotak Mahindra",   domain: "kotakmf.com",        holders:  5, aumCr: 1.57, returnPct: 82.0, foreign: true },
+    { name: "SBI Equity Hybrid Fund",             short: "Equity Hybrid",           house: "SBI MF",           domain: "sbimf.com",          holders:  5, aumCr: 3.85, returnPct: 15.8 },
+    { name: "Axis Large & Mid Cap Fund",          short: "Large & Mid Cap",         house: "Axis",             domain: "axismf.com",         holders:  5, aumCr: 0.26, returnPct: 11.1 }
   ],
 
   // Section 9 — global / overseas investment standouts
   globalAssets: [
-    { holder: "Tanuj Punia",   party: "INC",    asset: "Motilal Oswal Nasdaq 100 FOF",       kind: "US Index FOF",     returnPct: 112.4 },
-    { holder: "Vivek Thakur",  party: "BJP",    asset: "LIC MF Gold ETF Fund of Fund",       kind: "Gold FOF",         returnPct: 113.5 },
-    { holder: "Multiple (5 MPs)", party: "—",   asset: "Kotak Global Emerging Market FOF",   kind: "EM Equity FOF",    returnPct:  81.4 },
-    { holder: "Pathan Yusuf",  party: "AITC",   asset: "Mirae Asset Hang Seng TECH ETF FOF", kind: "China Tech FOF",   returnPct:  68.2 },
-    { holder: "Arun Nehru",    party: "DMK",    asset: "Motilal Oswal S&P 500 Index Fund",   kind: "US Index Fund",    returnPct:  61.9 },
-    { holder: "Naveen Jindal", party: "BJP",    asset: "Meta Platforms (META) — common stock", kind: "Direct US Equity", returnPct: 27.4 }
+    { holder: "Tanuj Punia",      party: "INC",  asset: "Motilal Oswal Nasdaq 100 FOF",         short: "Nasdaq 100 FOF",         domain: "motilaloswalmf.com",  kind: "US Index FOF",     returnPct: 112.4 },
+    { holder: "Vivek Thakur",     party: "BJP",  asset: "LIC MF Gold ETF Fund of Fund",         short: "Gold ETF FOF",           domain: "licmf.com",           kind: "Gold FOF",         returnPct: 113.5 },
+    { holder: "Multiple (5 MPs)", party: "—",    asset: "Kotak Global Emerging Market FOF",     short: "Global EM FOF",          domain: "kotakmf.com",         kind: "EM Equity FOF",    returnPct:  81.4 },
+    { holder: "Pathan Yusuf",     party: "AITC", asset: "Mirae Asset Hang Seng TECH ETF FOF",   short: "Hang Seng TECH FOF",     domain: "miraeassetmf.co.in",  kind: "China Tech FOF",   returnPct:  68.2 },
+    { holder: "Arun Nehru",       party: "DMK",  asset: "Motilal Oswal S&P 500 Index Fund",     short: "S&P 500 Index",          domain: "motilaloswalmf.com",  kind: "US Index Fund",    returnPct:  61.9 },
+    { holder: "Naveen Jindal",    party: "BJP",  asset: "Meta Platforms (META) common stock",   short: "Meta Platforms",         domain: "meta.com",            kind: "Direct US Equity", returnPct:  27.4 }
   ]
 };
