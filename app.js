@@ -363,13 +363,42 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
+   * Manifest: company/fund-house domain → self-hosted logo path under
+   * assets/logos/. These were fetched once from each company's own
+   * apple-touch-icon / favicon endpoint (or Google's favicon mirror for
+   * the few sites that don't serve one directly), so the page no longer
+   * depends on any third-party CDN being up at runtime.
+   */
+  const LOGO_MANIFEST = {
+    "ril.com":                       "assets/logos/ril.ico",
+    "hdfcbank.com":                  "assets/logos/hdfcbank.png",
+    "itcportal.com":                 "assets/logos/itcportal.png",
+    "tatasteel.com":                 "assets/logos/tatasteel.png",
+    "reliancepower.co.in":           "assets/logos/reliancepower.svg",
+    "jiofinancialservices.com":      "assets/logos/jiofinancialservices.ico",
+    "icicibank.com":                 "assets/logos/icicibank.png",
+    "infosys.com":                   "assets/logos/infosys.png",
+    "sbi.co.in":                     "assets/logos/sbi.png",
+    "yesbank.in":                    "assets/logos/yesbank.ico",
+    "iciciprumf.com":                "assets/logos/iciciprumf.png",
+    "kotakmf.com":                   "assets/logos/kotakmf.ico",
+    "hdfcfund.com":                  "assets/logos/hdfcfund.png",
+    "axismf.com":                    "assets/logos/axismf.ico",
+    "miraeassetmf.co.in":            "assets/logos/miraeassetmf.png",
+    "sbimf.com":                     "assets/logos/sbimf.png",
+    "motilaloswalmf.com":            "assets/logos/motilaloswalmf.ico",
+    "licmf.com":                     "assets/logos/licmf.png",
+    "meta.com":                      "assets/logos/meta.png"
+  };
+
+  /**
    * Build a square logo tile for a company / fund house.
    *
-   * Cascade of sources (left to right) so we get the best-looking mark
-   * available without depending on any single CDN being up:
-   *   1. Google s2 favicons (sz=128) — essentially 100% reliable
-   *   2. DuckDuckGo ip3 icons        — backup if Google blocks
-   *   3. Monogram (initials)         — final fallback, always renders
+   * Source priority:
+   *   1. Self-hosted file in assets/logos/ (via LOGO_MANIFEST)
+   *   2. Google s2 favicons (sz=128)  — for any domain not in manifest
+   *   3. DuckDuckGo ip3 icons         — backup if Google blocks
+   *   4. Monogram (initials)          — final fallback
    *
    * @param {string} domain — e.g. "hdfcbank.com"
    * @param {string} label  — used for alt text + fallback initials
@@ -387,8 +416,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return `<span class="logo-tile"><span class="logo-fallback" style="display:flex">${initials}</span></span>`;
     }
 
-    const primary  = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
-    const fallback = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
+    const local    = LOGO_MANIFEST[domain];
+    const google   = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+    const ddg      = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
+    const primary  = local || google;
+    const fallback = local ? google : ddg;
 
     return `
       <span class="logo-tile">
@@ -792,6 +824,159 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Show default placeholder text on load
     renderSearchResults([], "");
+  }
+
+  // ═══════════════════ CHAPTER 5: PIE CHART RENDERING ═══════════════════
+  
+  function getSlicePath(cx, cy, r, startPct, endPct) {
+    if (endPct - startPct >= 99.99) {
+      endPct = 99.99;
+    }
+    const startAngle = (startPct / 100) * 2 * Math.PI;
+    const endAngle = (endPct / 100) * 2 * Math.PI;
+    
+    const x1 = cx + r * Math.cos(startAngle);
+    const y1 = cy + r * Math.sin(startAngle);
+    const x2 = cx + r * Math.cos(endAngle);
+    const y2 = cy + r * Math.sin(endAngle);
+    
+    const largeArcFlag = (endPct - startPct > 50) ? 1 : 0;
+    
+    return `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
+  }
+
+  function renderDonutChart(svgId, legendId, centerLabelId, data, categoryTitle, totalAumText) {
+    const svg = document.getElementById(svgId);
+    const legend = document.getElementById(legendId);
+    const centerLabel = document.getElementById(centerLabelId);
+    
+    if (!svg || !legend || !centerLabel) return;
+    
+    svg.innerHTML = "";
+    legend.innerHTML = "";
+    
+    let accumulatedPct = 0;
+    const cx = 180;
+    const cy = 180;
+    const r = 150;
+    
+    const sliceElements = [];
+    const legendElements = [];
+    
+    data.forEach((item, index) => {
+      const startPct = accumulatedPct;
+      const endPct = accumulatedPct + item.pct;
+      accumulatedPct += item.pct;
+      
+      const pathD = getSlicePath(cx, cy, r, startPct, endPct);
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", pathD);
+      path.setAttribute("fill", item.color);
+      path.setAttribute("class", "pie-slice");
+      svg.appendChild(path);
+      sliceElements.push(path);
+      
+      const legendItem = document.createElement("div");
+      legendItem.className = "legend-item";
+      legendItem.innerHTML = `
+        <div class="legend-swatch" style="background-color: ${item.color}"></div>
+        <div class="legend-label" title="${item.name}">${item.label}</div>
+        <div class="legend-val">₹${item.aumCr.toFixed(2)} Cr</div>
+        <div class="legend-pct">${item.pct.toFixed(1)}%</div>
+      `;
+      legend.appendChild(legendItem);
+      legendElements.push(legendItem);
+    });
+    
+    const centerCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    centerCircle.setAttribute("cx", cx);
+    centerCircle.setAttribute("cy", cy);
+    centerCircle.setAttribute("r", "100");
+    centerCircle.setAttribute("fill", "var(--bg)");
+    centerCircle.style.pointerEvents = "none";
+    svg.appendChild(centerCircle);
+    
+    function updateCenter(title, sub) {
+      const titleEl = centerLabel.querySelector(".center-title");
+      const subEl = centerLabel.querySelector(".center-sub");
+      if (titleEl && subEl) {
+        titleEl.textContent = title;
+        subEl.textContent = sub;
+        titleEl.style.fontSize = title.length > 12 ? "0.95rem" : "1.2rem";
+      }
+    }
+    
+    function resetCenter() {
+      updateCenter(categoryTitle, totalAumText);
+    }
+    
+    function highlightItem(targetIndex) {
+      sliceElements.forEach((path, idx) => {
+        if (idx === targetIndex) {
+          path.classList.add("is-highlighted");
+          path.classList.remove("is-dimmed");
+        } else {
+          path.classList.remove("is-highlighted");
+          path.classList.add("is-dimmed");
+        }
+      });
+      
+      legendElements.forEach((item, idx) => {
+        if (idx === targetIndex) {
+          item.classList.add("is-highlighted");
+        } else {
+          item.classList.remove("is-highlighted");
+        }
+      });
+      
+      const activeItem = data[targetIndex];
+      updateCenter(activeItem.label, `₹${activeItem.aumCr.toFixed(2)} Cr (${activeItem.pct.toFixed(1)}%)`);
+    }
+    
+    function clearHighlight() {
+      sliceElements.forEach(path => {
+        path.classList.remove("is-highlighted");
+        path.classList.remove("is-dimmed");
+      });
+      
+      legendElements.forEach(item => {
+        item.classList.remove("is-highlighted");
+      });
+      
+      resetCenter();
+    }
+    
+    sliceElements.forEach((path, idx) => {
+      path.addEventListener("mouseenter", () => highlightItem(idx));
+      path.addEventListener("mouseleave", clearHighlight);
+    });
+    
+    legendElements.forEach((item, idx) => {
+      item.addEventListener("mouseenter", () => highlightItem(idx));
+      item.addEventListener("mouseleave", clearHighlight);
+    });
+    
+    resetCenter();
+  }
+
+  // Initialize charts
+  if (window.NETA_DATA && window.NETA_DATA.mpStockIndex && window.NETA_DATA.mpFundBasket) {
+    renderDonutChart(
+      "stock-pie-chart",
+      "stock-legend",
+      "stock-center-label",
+      window.NETA_DATA.mpStockIndex,
+      "Stocks",
+      "₹112.9 Cr"
+    );
+    renderDonutChart(
+      "fund-pie-chart",
+      "fund-legend",
+      "fund-center-label",
+      window.NETA_DATA.mpFundBasket,
+      "Funds",
+      "₹96.7 Cr"
+    );
   }
 
 });

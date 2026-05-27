@@ -1,0 +1,1211 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1">
+<script type="text/javascript">
+            function deleteCookie(name) {
+                var path = "/sites";
+                document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=" + path;
+            }
+
+            function setCookie(name,value,days) {
+                deleteCookie(name);
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days*24*60*60*1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "")  + expires + "; path=/sites";
+            }
+            
+            setCookie('siteId','yesbank',1);
+            
+            var SCS = {
+                siteRootPrefix : '/sites/yesbank/',
+                sitePrefix : '/sites/yesbank/',
+                staticPrefix: '/sites/builder',
+                servicePrefix: '/sites/web/ui/idcs',
+                pageId : '1747901540418',
+				localePageId: '',
+                pageLocale : 'en-IN',
+                pageLangCode : '',
+                siteId : 'yesbank',
+                renderMode : 'preview',
+                contentType : "SiteBuilderResource",
+                contentId : '',
+                contentSlug : encodeURIComponent(""),
+                siteInfo: {
+  "properties" : {
+    "themeName" : "Yes-Bank-MigrationTheme",
+    "siteName" : "yesbank",
+    "siteRootPrefix" : "/yesbank/",
+    "isLive" : null,
+    "description" : null,
+    "keywords" : "",
+    "header" : "",
+    "footer" : "",
+    "hideFromSearchEngines" : false,
+    "errorPage" : 1747901543558,
+    "siteURL" : "",
+    "noIndex" : false,
+    "noFollow" : false,
+    "noArchive" : false,
+    "noSnippet" : false,
+    "collectionId" : "",
+    "targetId" : "",
+    "targetAccessTokens" : [ ],
+    "isCobrowseEnabled" : false,
+    "cobrowseId" : "",
+    "siteConnections" : { 
+      "OPAConnection":null,
+      "VBCSConnection":"https://yblvbcs.yes.bank.in"
+    },
+    "conversationId" : null,
+    "mapProvider" : "oracle",
+    "mapAPIKey" : "{\"googleMapJavascriptAPIKey\":\"\",\"googleMapEmbedAPIKey\":\"\"}",
+    "isEnterprise" : true,
+    "repositoryId" : "FED565B4408F415FA4E694D35DB7B4BE",
+    "channelId" : "CHANNELFFC7DB5B1A88370C1716EC217F23D84A5D78213A31B9",
+    "channelAccessTokens" : [ {
+      "name" : "defaultToken",
+      "value" : "7132090987884e90979faaa1b8b332db",
+      "expirationDate" : "01/01/2099"
+    } ],
+    "arCollectionId" : "COLLA24E8CA592304C23BF59AA3C85AD21CB",
+    "defaultLanguage" : "en-IN",
+    "localizationPolicy" : "CB7FC3D798D11A6AE0533410000A26FB",
+    "availableLanguages" : null,
+    "isJSModuleEnabled" : false,
+    "isAssetAnalyticsEnabled" : false,
+    "useStandardAnalyticsScript" : false,
+    "isWebAnalyticsEnabled" : false,
+    "webAnalyticsScript" : null,
+    "customProperties" : {
+      "siteToken" : "21f7ccfa2fc3401091938f541a6f8f2a",
+      "VbcsDomain" :"yblvbcs.yes.bank.in",
+      "CaptchaId" : "6Lca2cIsAAAAACWLXo7jV3CmjNp2ff7zFAp9zgoB"
+    },
+    "localeAliases" : { }
+  }
+},
+                localeSiteInfo: null,
+                pageData: {
+    "properties": {
+        "title": "",
+        "pageLayout": "YBL_MIG_New_Savings_Account.html",
+        "mobileLayout": "",
+        "pageDescription": "",
+        "keywords": "",
+        "hideFromSearchEngines": false,
+        "styles": [
+            "background-attachment:scroll",
+            "background-position:left top",
+            "background-repeat:no-repeat",
+            "background-size:auto"
+        ],
+        "header": "",
+        "footer": "",
+        "noIndex": true,
+        "noFollow": true,
+        "noArchive": true,
+        "noSnippet": true,
+        "isCobrowseEnabled": false,
+        "overrideWebAnalytics": false,
+        "webAnalyticsScript": null
+    },
+    "slots": {
+        "wrapper4": {
+            "components": [
+                "c9ab8aa3-d4a1-4873-9f1c-856d3aefe0b5"
+            ],
+            "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"c9ab8aa3-d4a1-4873-9f1c-856d3aefe0b5\"></div></div></div>"
+        },
+        "wrapper2": {
+            "components": [
+                "b92e03a6-8895-443d-a6b2-26e2ee018028"
+            ],
+            "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"b92e03a6-8895-443d-a6b2-26e2ee018028\"></div></div></div>"
+        },
+        "banner-image": {
+            "components": [
+                "a22436ff-3e80-43b7-8436-bf490df64383",
+                "ca9dc8aa-35eb-4072-9b31-1dce036c83f6"
+            ],
+            "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"ca9dc8aa-35eb-4072-9b31-1dce036c83f6\"></div><div id=\"a22436ff-3e80-43b7-8436-bf490df64383\"></div></div></div>"
+        },
+        "wrapper5": {
+            "components": [],
+            "grid": ""
+        },
+        "wrapper8": {
+            "components": [
+                "c3c24581-bae6-4a40-96d1-6e3ef00c95d5"
+            ],
+            "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"c3c24581-bae6-4a40-96d1-6e3ef00c95d5\"></div></div></div>"
+        },
+        "new-sa-content": {
+            "components": [
+                "f35e11ce-85a2-4503-93cf-f45d1cd61ba2",
+                "bf3fd3e8-93e6-4d05-b818-1d7bf487ce30"
+            ],
+            "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"f35e11ce-85a2-4503-93cf-f45d1cd61ba2\"></div><div id=\"bf3fd3e8-93e6-4d05-b818-1d7bf487ce30\"></div></div></div>"
+        }
+    },
+    "componentInstances": {
+        "e600e4c6-43b6-4fe0-a1de-87e70b94c046": {
+            "type": "scs-componentgroup",
+            "id": "scs-componentgroup",
+            "data": {
+                "allowMove": false,
+                "components": [
+                    "f7172c02-98d5-414a-be29-d4fb3a79ed01"
+                ],
+                "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"f7172c02-98d5-414a-be29-d4fb3a79ed01\"></div></div></div>"
+            }
+        },
+        "a3e794fd-ef28-44f9-ac13-d75788111490": {
+            "type": "scs-componentgroup",
+            "id": "scs-componentgroup",
+            "data": {
+                "allowMove": false,
+                "components": [
+                    "ecb848e9-5069-4dda-a568-a92da2a90ebd"
+                ],
+                "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"ecb848e9-5069-4dda-a568-a92da2a90ebd\"></div></div></div>"
+            }
+        },
+        "ecb848e9-5069-4dda-a568-a92da2a90ebd": {
+            "type": "scs-component",
+            "id": "scs-contentitem",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "",
+                "componentName": "ybl-migration-pr-follow-us-pencil",
+                "componentFactory": "",
+                "componentLayout": "",
+                "contentId": "COREE4FDC6361F6244738850F13205F100B9",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": false,
+                "contentTypes": [
+                    "yb-mig-contactLinks"
+                ],
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "draft",
+                "customRenderComplete": false,
+                "customSettingsData": "",
+                "componentConfig": "",
+                "description": "ybl-migration-pr-follow-us-pencil : Default",
+                "detailPageId": "",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": true,
+                "linkType": "scs-link-action",
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5,
+                "nestedComponents": [],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": true,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0,
+                "contentIds": [
+                    "COREE4FDC6361F6244738850F13205F100B9"
+                ],
+                "contentViewings": [
+                    "draft"
+                ]
+            }
+        },
+        "c9ab8aa3-d4a1-4873-9f1c-856d3aefe0b5": {
+            "type": "scs-sectionlayout",
+            "id": "scs-sl-two-columns",
+            "data": {
+                "componentFactory": "scs-two-columns",
+                "customSettingsData": {
+                    "behavior": "stack12",
+                    "columnWidth1": 50,
+                    "columnWidth2": 50,
+                    "breakpoint": 768
+                },
+                "components": [
+                    "e600e4c6-43b6-4fe0-a1de-87e70b94c046",
+                    "a3e794fd-ef28-44f9-ac13-d75788111490"
+                ],
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "renderOnAccess": "",
+                "styleClass": "",
+                "useStyleClass": "true",
+                "styles": [
+                    "background-attachment:scroll",
+                    "background-color:",
+                    "background-position:left top",
+                    "background-repeat:no-repeat",
+                    "background-size:auto"
+                ]
+            }
+        },
+        "b92e03a6-8895-443d-a6b2-26e2ee018028": {
+            "type": "scs-component",
+            "id": "scs-contentplaceholder",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "",
+                "componentName": "",
+                "componentFactory": "",
+                "componentLayout": "",
+                "contentId": "",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": true,
+                "contentTypes": [
+                    "ybl-mig-pl-drop-down"
+                ],
+                "contentTypeDisplayName": "",
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "",
+                "customRenderComplete": false,
+                "customSettingsData": "",
+                "componentConfig": "",
+                "description": "",
+                "detailPageId": "1747901540418",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": true,
+                "linkType": "scs-link-action",
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5,
+                "nestedComponents": [],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": true,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0
+            }
+        },
+        "f7172c02-98d5-414a-be29-d4fb3a79ed01": {
+            "type": "scs-component",
+            "id": "scs-contentitem",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "",
+                "componentName": "ybl-mig-pr-write-us-locate",
+                "componentFactory": "",
+                "componentLayout": "",
+                "contentId": "CORE18802233532047C5827D84120EA11B4B",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": false,
+                "contentTypes": [
+                    "yb-mig-contactLinks"
+                ],
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "draft",
+                "customRenderComplete": false,
+                "customSettingsData": "",
+                "componentConfig": "",
+                "description": "ybl-mig-pr-write-us-locate : Default",
+                "detailPageId": "",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": true,
+                "linkType": "scs-link-action",
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5,
+                "nestedComponents": [],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": true,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0,
+                "contentIds": [
+                    "CORE18802233532047C5827D84120EA11B4B"
+                ],
+                "contentViewings": [
+                    "draft"
+                ]
+            }
+        },
+        "a22436ff-3e80-43b7-8436-bf490df64383": {
+            "type": "scs-component",
+            "id": "scs-contentitem",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "",
+                "componentName": "Press release Title",
+                "componentFactory": "",
+                "componentLayout": "",
+                "contentId": "CORE1E94EC3CF8184260A9D3B706E5034680",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": false,
+                "contentTypes": [
+                    "ybl-migration-money-matters-title"
+                ],
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "draft",
+                "customRenderComplete": false,
+                "customSettingsData": "",
+                "componentConfig": "",
+                "description": "Press release Title : Default",
+                "detailPageId": "",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": true,
+                "linkType": "scs-link-action",
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5,
+                "nestedComponents": [],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": true,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0,
+                "contentIds": [
+                    "CORE1E94EC3CF8184260A9D3B706E5034680"
+                ],
+                "contentViewings": [
+                    "draft"
+                ]
+            }
+        },
+        "ca9dc8aa-35eb-4072-9b31-1dce036c83f6": {
+            "type": "scs-component",
+            "id": "ybl-mig-header-d-comp",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "sampleComp",
+                "componentName": "ybl-mig-header-d-comp",
+                "componentFactory": "",
+                "componentLayout": "default",
+                "contentId": "",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": false,
+                "contentTypes": [],
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "",
+                "customRenderComplete": false,
+                "customSettingsData": {
+                    "width": "260px",
+                    "linkURL": "https://docs.oracle.com/pls/topic/lookup?ctx=cloud&id=CECCE-GUID-D655DF5D-4A93-4FD3-B1BB-04EC0D0B8312",
+                    "nls": {
+                        "linkText": "More..."
+                    },
+                    "mainHeader": true,
+                    "yesPrivateLogo": true,
+                    "showHeader": true
+                },
+                "componentConfig": {
+                    "id": "sample-component",
+                    "settingsData": {
+                        "settingsHeight": 240,
+                        "settingsWidth": 300,
+                        "settingsRenderOption": "dialog",
+                        "componentLayouts": [
+                            {
+                                "name": "default",
+                                "displayName": "IMAGE_LEFT_LAYOUT"
+                            },
+                            {
+                                "name": "right",
+                                "displayName": "IMAGE_RIGHT_LAYOUT"
+                            },
+                            {
+                                "name": "top",
+                                "displayName": "IMAGE_TOP_LAYOUT"
+                            }
+                        ],
+                        "styles": [
+                            {
+                                "name": "Bold",
+                                "class": "sample-component-bold-style"
+                            },
+                            {
+                                "name": "Italic",
+                                "class": "sample-component-italic-style"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "triggerName": "imageClicked",
+                                "triggerDescription": "Image clicked",
+                                "triggerPayload": [
+                                    {
+                                        "name": "payloadData",
+                                        "displayName": "Trigger Payload Data"
+                                    }
+                                ]
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "actionName": "setImageWidth",
+                                "actionDescription": "Update the image width",
+                                "actionPayload": [
+                                    {
+                                        "name": "imageWidth",
+                                        "description": "Image Width in pixels",
+                                        "type": {
+                                            "ojComponent": {
+                                                "component": "ojInputText"
+                                            }
+                                        },
+                                        "value": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "description": "",
+                "detailPageId": "",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": false,
+                "linkType": "scs-link-action",
+                "marginBottom": "0",
+                "marginLeft": "0",
+                "marginRight": "0",
+                "marginTop": "0",
+                "nestedComponents": [
+                    {
+                        "id": "imageId",
+                        "type": "scs-image",
+                        "data": {
+                            "alignment": "fill",
+                            "altText": "",
+                            "borderColor": "#808080",
+                            "borderRadius": 0,
+                            "borderStyle": "none",
+                            "borderWidth": 1,
+                            "caption": "",
+                            "contentId": "CONT7393C315034D4980BD57926E0DAC486C",
+                            "contentViewing": "draft",
+                            "filePreviewShowDownload": "",
+                            "imageHref": "",
+                            "imageHrefContentViewing": "",
+                            "imageHrefName": "",
+                            "imageName": "logo.jpg",
+                            "imageTarget": "_self",
+                            "imageUrl": "",
+                            "initialized": false,
+                            "linkContentId": "",
+                            "linkContentType": "",
+                            "linkContentViewing": "",
+                            "linkContentName": "",
+                            "linkType": "scs-link-no-link",
+                            "linkRendition": "",
+                            "marginBottom": 0,
+                            "marginLeft": 0,
+                            "marginRight": "0",
+                            "marginTop": 0,
+                            "rendition": "",
+                            "renderOnAccess": "",
+                            "styleClass": "",
+                            "title": "",
+                            "useStyleClass": "true",
+                            "visible": true,
+                            "visibleOnMobile": "",
+                            "width": 300,
+                            "contentIds": [
+                                "CONT7393C315034D4980BD57926E0DAC486C"
+                            ],
+                            "contentViewings": [
+                                "draft"
+                            ]
+                        }
+                    }
+                ],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": false,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0,
+                "contentIds": [
+                    "CONT7393C315034D4980BD57926E0DAC486C"
+                ],
+                "contentViewings": [
+                    "draft"
+                ]
+            }
+        },
+        "c3c24581-bae6-4a40-96d1-6e3ef00c95d5": {
+            "type": "scs-componentgroup",
+            "id": "download-app-wallet-comp",
+            "data": {
+                "components": [
+                    "dea07e7d-80b5-481f-9d42-0113d0b913b7"
+                ],
+                "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"dea07e7d-80b5-481f-9d42-0113d0b913b7\"></div></div></div>"
+            }
+        },
+        "dea07e7d-80b5-481f-9d42-0113d0b913b7": {
+            "type": "scs-sectionlayout",
+            "id": "scs-sl-two-columns",
+            "data": {
+                "componentFactory": "scs-two-columns",
+                "customSettingsData": {
+                    "behavior": "stack12",
+                    "columnWidth1": 50,
+                    "columnWidth2": 50,
+                    "breakpoint": 768
+                },
+                "components": [
+                    "e713e33f-1688-468e-b94c-b1e471ecf9dd",
+                    "c2b211e6-fca4-485f-a4e3-d51424d9c74e"
+                ],
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "renderOnAccess": "",
+                "styleClass": "",
+                "useStyleClass": "true",
+                "styles": [
+                    "background-attachment:scroll",
+                    "background-color:",
+                    "background-position:left top",
+                    "background-repeat:no-repeat",
+                    "background-size:auto"
+                ]
+            }
+        },
+        "e713e33f-1688-468e-b94c-b1e471ecf9dd": {
+            "type": "scs-componentgroup",
+            "id": "scs-componentgroup",
+            "data": {
+                "allowMove": false,
+                "components": [
+                    "e427f099-b5b3-4e06-972f-31224ce3584a"
+                ],
+                "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"e427f099-b5b3-4e06-972f-31224ce3584a\"></div></div></div>"
+            }
+        },
+        "e427f099-b5b3-4e06-972f-31224ce3584a": {
+            "type": "scs-component",
+            "id": "yb-migration-download-app-dcomp",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "sampleComp",
+                "componentName": "yb-migration-download-app-dcomp",
+                "componentFactory": "",
+                "componentLayout": "default",
+                "contentId": "",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": false,
+                "contentTypes": [],
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "",
+                "customRenderComplete": false,
+                "customSettingsData": {
+                    "width": "260px",
+                    "linkURL": "https://docs.oracle.com/pls/topic/lookup?ctx=cloud&id=CECCE-GUID-D655DF5D-4A93-4FD3-B1BB-04EC0D0B8312",
+                    "nls": {
+                        "linkText": "More..."
+                    }
+                },
+                "componentConfig": {
+                    "id": "sample-component",
+                    "settingsData": {
+                        "settingsHeight": 240,
+                        "settingsWidth": 300,
+                        "settingsRenderOption": "dialog",
+                        "componentLayouts": [
+                            {
+                                "name": "default",
+                                "displayName": "IMAGE_LEFT_LAYOUT"
+                            },
+                            {
+                                "name": "right",
+                                "displayName": "IMAGE_RIGHT_LAYOUT"
+                            },
+                            {
+                                "name": "top",
+                                "displayName": "IMAGE_TOP_LAYOUT"
+                            }
+                        ],
+                        "styles": [
+                            {
+                                "name": "Bold",
+                                "class": "sample-component-bold-style"
+                            },
+                            {
+                                "name": "Italic",
+                                "class": "sample-component-italic-style"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "triggerName": "imageClicked",
+                                "triggerDescription": "Image clicked",
+                                "triggerPayload": [
+                                    {
+                                        "name": "payloadData",
+                                        "displayName": "Trigger Payload Data"
+                                    }
+                                ]
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "actionName": "setImageWidth",
+                                "actionDescription": "Update the image width",
+                                "actionPayload": [
+                                    {
+                                        "name": "imageWidth",
+                                        "description": "Image Width in pixels",
+                                        "type": {
+                                            "ojComponent": {
+                                                "component": "ojInputText"
+                                            }
+                                        },
+                                        "value": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "description": "migration website download app default component",
+                "detailPageId": "",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": false,
+                "linkType": "scs-link-action",
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5,
+                "nestedComponents": [
+                    {
+                        "id": "imageId",
+                        "type": "scs-image",
+                        "data": {
+                            "imageUrl": "[!--$SCS_DIST_FOLDER--]/renderer/app/sdk/images/sample-image.png",
+                            "marginBottom": 0,
+                            "marginLeft": 0,
+                            "marginRight": 20,
+                            "marginTop": 0
+                        }
+                    },
+                    {
+                        "id": "titleId",
+                        "type": "scs-title",
+                        "data": {
+                            "userText": "<div>Local Component</div>",
+                            "fontColor": "#000000",
+                            "fontFamily": "'Helvetica Neue Light', Helvetica, Arial, sans-serif",
+                            "fontSize": 20,
+                            "marginBottom": 14,
+                            "marginLeft": 0,
+                            "marginRight": 0,
+                            "marginTop": 0,
+                            "useStyleClass": "false"
+                        }
+                    },
+                    {
+                        "id": "paragraphId",
+                        "type": "scs-paragraph",
+                        "data": {
+                            "userText": "<p style=\"line-height:1.4em;margin-bottom:4px;\">As a page author, you can edit the content and settings for this component. To change settings, including triggers and actions, click the component menu and choose Settings.</p><p style=\"line-height:1.4em;\">As a component developer, you can change the component and its defaults (such as this text) either by working with the files directly through the components browser or by using the desktop app to work with the files on your local system.</p>",
+                            "fontColor": "#333333",
+                            "fontFamily": "'Helvetica Neue Regular', Helvetica, Arial, sans-serif",
+                            "fontSize": 14,
+                            "marginBottom": 10,
+                            "marginLeft": 0,
+                            "marginRight": 0,
+                            "marginTop": 0,
+                            "useStyleClass": "false"
+                        }
+                    }
+                ],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": false,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0
+            }
+        },
+        "c2b211e6-fca4-485f-a4e3-d51424d9c74e": {
+            "type": "scs-componentgroup",
+            "id": "scs-componentgroup",
+            "data": {
+                "allowMove": false,
+                "components": [
+                    "aef2b3bf-3f3b-4811-aa14-1d3584e84ebc"
+                ],
+                "grid": "<div class=\"scs-row\"><div class=\"scs-col\" style=\"width: 100%;\"><div id=\"aef2b3bf-3f3b-4811-aa14-1d3584e84ebc\"></div></div></div>"
+            }
+        },
+        "aef2b3bf-3f3b-4811-aa14-1d3584e84ebc": {
+            "type": "scs-component",
+            "id": "scs-contentitem",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "",
+                "componentName": "Yes Pay Wallet New",
+                "componentFactory": "",
+                "componentLayout": "",
+                "contentId": "CORE56BB92C670C04149A9AB42309868DAA0",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": false,
+                "contentTypes": [
+                    "ybl-migration-yes-pay-wallet-new"
+                ],
+                "contentTypeDisplayName": "",
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "draft",
+                "customRenderComplete": false,
+                "customSettingsData": "",
+                "componentConfig": "",
+                "description": "Yes Pay Wallet New : Default",
+                "detailPageId": "",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": true,
+                "linkType": "scs-link-action",
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5,
+                "nestedComponents": [],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": true,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0,
+                "contentIds": [
+                    "CORE56BB92C670C04149A9AB42309868DAA0"
+                ],
+                "contentViewings": [
+                    "draft"
+                ]
+            }
+        },
+        "f35e11ce-85a2-4503-93cf-f45d1cd61ba2": {
+            "type": "scs-component",
+            "id": "ybl-mig-header-d-comp",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "sampleComp",
+                "componentName": "ybl-mig-header-d-comp",
+                "componentFactory": "",
+                "componentLayout": "default",
+                "contentId": "",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": false,
+                "contentTypes": [],
+                "contentTypeDisplayName": "",
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "",
+                "customRenderComplete": true,
+                "customSettingsData": {
+                    "width": "260px",
+                    "linkURL": "https://docs.oracle.com/pls/topic/lookup?ctx=cloud&id=CECCE-GUID-D655DF5D-4A93-4FD3-B1BB-04EC0D0B8312",
+                    "nls": {
+                        "linkText": "More..."
+                    }
+                },
+                "componentConfig": {
+                    "id": "sample-component",
+                    "settingsData": {
+                        "settingsHeight": 240,
+                        "settingsWidth": 300,
+                        "settingsRenderOption": "dialog",
+                        "componentLayouts": [
+                            {
+                                "name": "default",
+                                "displayName": "IMAGE_LEFT_LAYOUT"
+                            },
+                            {
+                                "name": "right",
+                                "displayName": "IMAGE_RIGHT_LAYOUT"
+                            },
+                            {
+                                "name": "top",
+                                "displayName": "IMAGE_TOP_LAYOUT"
+                            }
+                        ],
+                        "styles": [
+                            {
+                                "name": "Bold",
+                                "class": "sample-component-bold-style"
+                            },
+                            {
+                                "name": "Italic",
+                                "class": "sample-component-italic-style"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "triggerName": "imageClicked",
+                                "triggerDescription": "Image clicked",
+                                "triggerPayload": [
+                                    {
+                                        "name": "payloadData",
+                                        "displayName": "Trigger Payload Data"
+                                    }
+                                ]
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "actionName": "setImageWidth",
+                                "actionDescription": "Update the image width",
+                                "actionPayload": [
+                                    {
+                                        "name": "imageWidth",
+                                        "description": "Image Width in pixels",
+                                        "type": {
+                                            "ojComponent": {
+                                                "component": "ojInputText"
+                                            }
+                                        },
+                                        "value": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "description": "",
+                "detailPageId": "",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": false,
+                "linkType": "scs-link-action",
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5,
+                "nestedComponents": [
+                    {
+                        "id": "imageId",
+                        "type": "scs-image",
+                        "data": {
+                            "imageUrl": "[!--$SCS_DIST_FOLDER--]/renderer/app/sdk/images/sample-image.png",
+                            "marginBottom": 0,
+                            "marginLeft": 0,
+                            "marginRight": 20,
+                            "marginTop": 0
+                        }
+                    }
+                ],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": false,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0
+            }
+        },
+          "bf3fd3e8-93e6-4d05-b818-1d7bf487ce30": {
+                            "type": "scs-component",
+                            "id": "ybl-detail-page-comp",
+                            "data": {
+                                "actions": "",
+                                "alignment": "fill",
+                                "assets": "",
+                                "borderColor": "#808080",
+                                "borderRadius": 0,
+                                "borderStyle": "none",
+                                "borderWidth": 1,
+                                "componentId": "sampleComp",
+                                "componentName": "ybl-detail-page-comp",
+                                "componentFactory": "",
+                                "componentLayout": "default",
+                                "contentId": "",
+                                "contentLayoutCategory": "",
+                                "contentPlaceholder": false,
+                                "contentTypes": [],
+                                "contentTypeDisplayName": "",
+                                "contentTypeCategory": "ContentType",
+                                "contentViewing": "",
+                                "customRenderComplete": false,
+                                "customSettingsData": {
+                                    "width": "260px",
+                                    "linkURL": "https://docs.oracle.com/pls/topic/lookup?ctx=cloud&id=CECCE-GUID-D655DF5D-4A93-4FD3-B1BB-04EC0D0B8312",
+                                    "pageGroup": "ybl-mig-pl-drop-down",
+                                    "nls": {
+                                        "linkText": "More..."
+                                    }
+                                },
+                                "componentConfig": {
+                                    "id": "sample-component",
+                                    "settingsData": {
+                                        "settingsHeight": 240,
+                                        "settingsWidth": 300,
+                                        "settingsRenderOption": "dialog",
+                                        "settingsStyle": "light",
+                                        "componentLayouts": [
+                                            {
+                                                "name": "default",
+                                                "displayName": "IMAGE_LEFT_LAYOUT"
+                                            },
+                                            {
+                                                "name": "right",
+                                                "displayName": "IMAGE_RIGHT_LAYOUT"
+                                            },
+                                            {
+                                                "name": "top",
+                                                "displayName": "IMAGE_TOP_LAYOUT"
+                                            }
+                                        ],
+                                        "styles": [
+                                            {
+                                                "name": "Bold",
+                                                "class": "sample-component-bold-style"
+                                            },
+                                            {
+                                                "name": "Italic",
+                                                "class": "sample-component-italic-style"
+                                            }
+                                        ],
+                                        "triggers": [
+                                            {
+                                                "triggerName": "imageClicked",
+                                                "triggerDescription": "Image clicked",
+                                                "triggerPayload": [
+                                                    {
+                                                        "name": "payloadData",
+                                                        "displayName": "Trigger Payload Data"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "actionName": "setImageWidth",
+                                                "actionDescription": "Update the image width",
+                                                "actionPayload": [
+                                                    {
+                                                        "name": "imageWidth",
+                                                        "description": "Image Width in pixels",
+                                                        "type": {
+                                                            "ojComponent": {
+                                                                "component": "ojInputText"
+                                                            }
+                                                        },
+                                                        "value": ""
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                },
+                                "description": "",
+                                "detailPageId": "",
+                                "height": "",
+                                "initialized": true,
+                                "isCaaSLayout": false,
+                                "linkType": "scs-link-action",
+                                "marginBottom": 5,
+                                "marginLeft": 5,
+                                "marginRight": 5,
+                                "marginTop": 5,
+                                "nestedComponents": [
+                                    {
+                                        "id": "imageId",
+                                        "type": "scs-image",
+                                        "data": {
+                                            "imageUrl": "[!--$SCS_DIST_FOLDER--]/renderer/app/sdk/images/sample-image.png",
+                                            "marginBottom": 0,
+                                            "marginLeft": 0,
+                                            "marginRight": 20,
+                                            "marginTop": 0
+                                        }
+                                    },
+                                    {
+                                        "id": "titleId",
+                                        "type": "scs-title",
+                                        "data": {
+                                            "userText": "<div>Local Component</div>",
+                                            "fontColor": "#000000",
+                                            "fontFamily": "'Helvetica Neue Light', Helvetica, Arial, sans-serif",
+                                            "fontSize": 20,
+                                            "marginBottom": 14,
+                                            "marginLeft": 0,
+                                            "marginRight": 0,
+                                            "marginTop": 0,
+                                            "useStyleClass": "false"
+                                        }
+                                    },
+                                    {
+                                        "id": "paragraphId",
+                                        "type": "scs-paragraph",
+                                        "data": {
+                                            "userText": "<p style=\"line-height:1.4em;margin-bottom:4px;\">As a page author, you can edit the content and settings for this component. To change settings, including triggers and actions, click the component menu and choose Settings.</p><p style=\"line-height:1.4em;\">As a component developer, you can change the component and its defaults (such as this text) either by working with the files directly through the components browser or by using the desktop app to work with the files on your local system.</p>",
+                                            "fontColor": "#333333",
+                                            "fontFamily": "'Helvetica Neue Regular', Helvetica, Arial, sans-serif",
+                                            "fontSize": 14,
+                                            "marginBottom": 10,
+                                            "marginLeft": 0,
+                                            "marginRight": 0,
+                                            "marginTop": 0,
+                                            "useStyleClass": "false"
+                                        }
+                                    }
+                                ],
+                                "renderOnAccess": "",
+                                "styleClass": "",
+                                "styleClassName": "",
+                                "seeded": false,
+                                "useStyleClass": "true",
+                                "visible": true,
+                                "visibleOnMobile": "",
+                                "visibleNestedComponents": [],
+                                "width": 0
+                            }
+                        }
+        ,
+        "a6fece3d-13bf-481c-b5fa-38f2e0340b2d": {
+            "type": "scs-component",
+            "id": "scs-contentplaceholder",
+            "data": {
+                "actions": "",
+                "alignment": "fill",
+                "assets": "",
+                "borderColor": "#808080",
+                "borderRadius": 0,
+                "borderStyle": "none",
+                "borderWidth": 1,
+                "componentId": "",
+                "componentName": "",
+                "componentFactory": "",
+                "componentLayout": "",
+                "contentId": "",
+                "contentLayoutCategory": "",
+                "contentPlaceholder": true,
+                "contentTypes": [
+                    "ybl-mig-pl-drop-down"
+                ],
+                "contentTypeDisplayName": "",
+                "contentTypeCategory": "ContentType",
+                "contentViewing": "",
+                "customRenderComplete": false,
+                "customSettingsData": "",
+                "componentConfig": "",
+                "description": "",
+                "detailPageId": "",
+                "height": "",
+                "initialized": true,
+                "isCaaSLayout": true,
+                "linkType": "scs-link-action",
+                "marginBottom": "",
+                "marginLeft": "",
+                "marginRight": "",
+                "marginTop": "",
+                "nestedComponents": [],
+                "renderOnAccess": "",
+                "styleClass": "",
+                "styleClassName": "",
+                "seeded": true,
+                "useStyleClass": "true",
+                "visible": true,
+                "visibleOnMobile": "",
+                "visibleNestedComponents": [],
+                "width": 0
+            }
+        }
+    }
+},
+                localePageData:null,
+				isDetailPage : true
+            };
+</script>
+<script src="/sites/builder/_sitesclouddelivery/renderer/controller.js"></script>
+</head>
+<body id="scsControllerBody"><noscript>This site requires JavaScript to be enabled.</noscript>
+<img id="scsWaitImage" style="display: none; margin-top: 5%; margin-left: auto; margin-right: auto;" src="data:image/png;base64,R0lGODlhEAAQAMQAAP///+7u7t3d3bu7u6qqqpmZmYiIiHd3d2ZmZlVVVURERDMzMyIiIhEREQARAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFBwAQACwAAAAAEAAQAAAFdyAkQgGJJOWoQgIjBM8jkKsoPEzgyMGsCjPDw7ADpkQBxRDmSCRetpRA6Rj4kFBkgLC4IlUGhbNQIwXOYYWCXDufzYPDMaoKGBoKb886OjAKdgZAAgQkfCwzAgsDBAUCgl8jAQkHEAVkAoA1AgczlyIDczUDA2UhACH5BAUHABAALAAAAAAPABAAAAVjICSO0IGIATkqIiMKDaGKC8Q49jPMYsE0hQdrlABCGgvT45FKiRKQhWA0mPKGPAgBcTjsspBCAoH4gl+FmXNEUEBVAYHToJAVZK/XWoQQDAgBZioHaX8igigFKYYQVlkCjiMhACH5BAUHABAALAAAAAAQAA8AAAVgICSOUGGQqIiIChMESyo6CdQGdRqUENESI8FAdFgAFwqDISYwPB4CVSMnEhSej+FogNhtHyfRQFmIol5owmEta/fcKITB6y4choMBmk7yGgSAEAJ8JAVDgQFmKUCCZnwhACH5BAUHABAALAAAAAAQABAAAAViICSOYkGe4hFAiSImAwotB+si6Co2QxvjAYHIgBAqDoWCK2Bq6A40iA4yYMggNZKwGFgVCAQZotFwwJIF4QnxaC9IsZNgLtAJDKbraJCGzPVSIgEDXVNXA0JdgH6ChoCKKCEAIfkEBQcAEAAsAAAAABAADgAABUkgJI7QcZComIjPw6bs2kINLB5uW9Bo0gyQx8LkKgVHiccKVdyRlqjFSAApOKOtR810StVeU9RAmLqOxi0qRG3LptikAVQEh4UAACH5BAUHABAALAAAAAAQABAAAAVxICSO0DCQKBQQonGIh5AGB2sYkMHIqYAIN0EDRxoQZIaC6bAoMRSiwMAwCIwCggRkwRMJWKSAomBVCc5lUiGRUBjO6FSBwWggwijBooDCdiFfIlBRAlYBZQ0PWRANaSkED1oQYHgjDA8nM3kPfCmejiEAIfkEBQcAEAAsAAAAABAAEAAABWAgJI6QIJCoOIhFwabsSbiFAotGMEMKgZoB3cBUQIgURpFgmEI0EqjACYXwiYJBGAGBgGIDWsVicbiNEgSsGbKCIMCwA4IBCRgXt8bDACkvYQF6U1OADg8mDlaACQtwJCEAIfkEBQcAEAAsAAABABAADwAABV4gJEKCOAwiMa4Q2qIDwq4wiriBmItCCREHUsIwCgh2q8MiyEKODK7ZbHCoqqSjWGKI1d2kRp+RAWGyHg+DQUEmKliGx4HBKECIMwG61AgssAQPKA19EAxRKz4QCVIhACH5BAUHABAALAAAAAAQABAAAAVjICSOUBCQqHhCgiAOKyqcLVvEZOC2geGiK5NpQBAZCilgAYFMogo/J0lgqEpHgoO2+GIMUL6p4vFojhQNg8rxWLgYBQJCASkwEKLC17hYFJtRIwwBfRAJDk4ObwsidEkrWkkhACH5BAUHABAALAAAAQAQAA8AAAVcICSOUGAGAqmKpjis6vmuqSrUxQyPhDEEtpUOgmgYETCCcrB4OBWwQsGHEhQatVFhB/mNAojFVsQgBhgKpSHRTRxEhGwhoRg0CCXYAkKHHPZCZRAKUERZMAYGMCEAIfkEBQcAEAAsAAABABAADwAABV0gJI4kFJToGAilwKLCST6PUcrB8A70844CXenwILRkIoYyBRk4BQlHo3FIOQmvAEGBMpYSop/IgPBCFpCqIuEsIESHgkgoJxwQAjSzwb1DClwwgQhgAVVMIgVyKCEAIfkECQcAEAAsAAAAABAAEAAABWQgJI5kSQ6NYK7Dw6xr8hCw+ELC85hCIAq3Am0U6JUKjkHJNzIsFAqDqShQHRhY6bKqgvgGCZOSFDhAUiWCYQwJSxGHKqGAE/5EqIHBjOgyRQELCBB7EAQHfySDhGYQdDWGQyUhADs=" />
+</body></html>
