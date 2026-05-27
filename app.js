@@ -494,10 +494,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("preferred-stocks-table")
     ?.querySelector("tbody");
 
-  function renderPreferredStocks() {
+  function renderPreferredStocks(view = "holders") {
     if (!preferredStocksTbody) return;
     preferredStocksTbody.innerHTML = "";
-    (data.preferredStocks || []).forEach((s, i) => {
+    const rows = view === "aum"
+      ? (data.preferredStocksByAum || [])
+      : (data.preferredStocks      || []);
+    rows.forEach((s, i) => {
       const tr = document.createElement("tr");
       tr.innerHTML = `
         <td>${i + 1}</td>
@@ -522,10 +525,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("preferred-funds-table")
     ?.querySelector("tbody");
 
-  function renderPreferredFunds() {
+  function renderPreferredFunds(view = "holders") {
     if (!preferredFundsTbody) return;
     preferredFundsTbody.innerHTML = "";
-    (data.preferredFunds || []).forEach((f, i) => {
+    const rows = view === "aum"
+      ? (data.preferredFundsByAum || [])
+      : (data.preferredFunds      || []);
+    rows.forEach((f, i) => {
       const tr = document.createElement("tr");
       const foreignPill = f.foreign ? ` <span class="foreign-pill">global</span>` : "";
       tr.innerHTML = `
@@ -545,6 +551,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   renderPreferredFunds();
+
+  // ----- Toggle wiring: swap dataset + lead paragraph by view -----
+  document.querySelectorAll(".view-toggle").forEach(group => {
+    const targetId = group.dataset.toggle; // "preferred-stocks" | "preferred-funds"
+    const section  = group.closest(".ch3-subsection");
+    const buttons  = group.querySelectorAll(".view-toggle-btn");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const view = btn.dataset.view;
+        // Toggle active button styling
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        // Swap which lead paragraph is visible
+        section.querySelectorAll(".subsection-lead").forEach(p => {
+          p.hidden = (p.dataset.view !== view);
+        });
+        // Re-render the matching table
+        if (targetId === "preferred-stocks") renderPreferredStocks(view);
+        if (targetId === "preferred-funds")  renderPreferredFunds(view);
+      });
+    });
+  });
 
   // ----- Global Standouts (Ch.4) -----
   const globalCardsEl = document.getElementById("global-cards");
@@ -977,6 +1006,146 @@ document.addEventListener("DOMContentLoaded", () => {
       "Funds",
       "₹45.0 Cr"
     );
+  }
+
+
+  // =====================================================================
+  //  CH.6 — 3D ZDOG COINS (gold + silver, auto-rotating, drag-to-spin)
+  // =====================================================================
+  if (typeof window.Zdog !== "undefined") {
+    const Zdog = window.Zdog;
+
+    /**
+     * Build a single 3D coin inside the given canvas element.
+     * The coin is a short cylinder with a ridged edge, an embossed inner
+     * ring, and a centre medallion — laid flat-ish with a slight tilt so
+     * you can see the side ridges. Slowly auto-rotates on the Y axis;
+     * users can drag to spin manually.
+     */
+    function buildCoin(canvas, kind) {
+      const isGold = kind === "gold";
+
+      const palette = isGold
+        ? { face: "#d4af37", rim: "#7a4f00", shine: "#fdebb0", edge: "#8a5f10", inner: "#b88a00" }
+        : { face: "#bcbcbc", rim: "#3a3a3a", shine: "#f4f4f4", edge: "#6a6a6a", inner: "#8a8a8a" };
+
+      // Match the canvas's internal resolution to its CSS display size
+      // (× devicePixelRatio for retina sharpness).
+      const dpr  = window.devicePixelRatio || 1;
+      const cssW = canvas.getBoundingClientRect().width || 100;
+      canvas.width  = cssW * dpr;
+      canvas.height = cssW * dpr;
+
+      let spinning = true;
+
+      const illo = new Zdog.Illustration({
+        element:    canvas,
+        dragRotate: true,
+        rotate:     { x: -Zdog.TAU / 9, y: 0 },   // tilt so the rim shows
+        scale:      cssW * dpr * 0.42,            // coin (Ø 1.6) ≈ 70% of canvas
+        onDragStart() { spinning = false; }
+      });
+
+      const coin = new Zdog.Anchor({ addTo: illo });
+
+      // ── Main coin body: a short cylinder lying flat ──────────────────
+      new Zdog.Cylinder({
+        addTo:     coin,
+        diameter:  1.6,
+        length:    0.22,
+        color:     palette.face,
+        frontFace: palette.face,
+        backface:  palette.face,
+        rotate:    { x: Zdog.TAU / 4 },
+        stroke:    0.04
+      });
+
+      // ── Top emboss ring (decorative groove) ──────────────────────────
+      new Zdog.Ellipse({
+        addTo:     coin,
+        diameter:  1.32,
+        color:     palette.rim,
+        stroke:    0.03,
+        fill:      false,
+        translate: { y: -0.111 },
+        rotate:    { x: Zdog.TAU / 4 }
+      });
+
+      // ── Inner highlight ring (thin gleam) ────────────────────────────
+      new Zdog.Ellipse({
+        addTo:     coin,
+        diameter:  1.18,
+        color:     palette.shine,
+        stroke:    0.015,
+        fill:      false,
+        translate: { y: -0.113 },
+        rotate:    { x: Zdog.TAU / 4 }
+      });
+
+      // ── Centre medallion ─────────────────────────────────────────────
+      new Zdog.Ellipse({
+        addTo:     coin,
+        diameter:  0.65,
+        color:     palette.inner,
+        stroke:    0.08,
+        fill:      true,
+        translate: { y: -0.114 },
+        rotate:    { x: Zdog.TAU / 4 }
+      });
+
+      // ── Same emboss + medallion on the back face ─────────────────────
+      new Zdog.Ellipse({
+        addTo:     coin,
+        diameter:  1.32,
+        color:     palette.rim,
+        stroke:    0.03,
+        fill:      false,
+        translate: { y: 0.111 },
+        rotate:    { x: Zdog.TAU / 4 }
+      });
+      new Zdog.Ellipse({
+        addTo:     coin,
+        diameter:  0.65,
+        color:     palette.inner,
+        stroke:    0.08,
+        fill:      true,
+        translate: { y: 0.114 },
+        rotate:    { x: Zdog.TAU / 4 }
+      });
+
+      // ── Ridged edge: short vertical strokes around the rim ───────────
+      const RIDGES = 64;
+      const radius = 0.8;
+      const halfH  = 0.105;
+      for (let i = 0; i < RIDGES; i++) {
+        const a = (i / RIDGES) * Zdog.TAU;
+        new Zdog.Shape({
+          addTo: coin,
+          path: [
+            { x: Math.cos(a) * radius, y: -halfH, z: Math.sin(a) * radius },
+            { x: Math.cos(a) * radius, y:  halfH, z: Math.sin(a) * radius }
+          ],
+          color:  palette.edge,
+          stroke: 0.045
+        });
+      }
+
+      // ── Animate ──────────────────────────────────────────────────────
+      function tick() {
+        if (spinning) illo.rotate.y += 0.011;
+        illo.updateRenderGraph();
+        requestAnimationFrame(tick);
+      }
+      tick();
+    }
+
+    // Wait one tick so each canvas has its CSS-sized box, then init.
+    requestAnimationFrame(() => {
+      document.querySelectorAll("canvas[data-coin]").forEach(c => {
+        try { buildCoin(c, c.dataset.coin); }
+        catch (err) { console.warn("[coin] init failed", err); }
+      });
+    });
   }
 
 });

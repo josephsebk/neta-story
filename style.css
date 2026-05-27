@@ -1998,6 +1998,41 @@ footer .footer-brand {
   max-width: 60ch;
 }
 
+/* ---- Section view-toggle (Ch.4 holders vs AUM) ------------------------- */
+.view-toggle {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-dark);
+  border-radius: 999px;
+  margin: 0 0 1.2rem;
+}
+
+.view-toggle-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+
+.view-toggle-btn:hover {
+  color: var(--ink);
+}
+
+.view-toggle-btn.active {
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: var(--shadow-sm);
+}
+
 /* ---- red return helper (matches existing .green-pct) ------------------- */
 .red-pct {
   color: var(--red);
@@ -2231,11 +2266,10 @@ footer .footer-brand {
   width: var(--coin-size, 80px);
   height: var(--coin-size, 80px);
   display: block;
-  filter: drop-shadow(0 4px 10px rgba(42, 37, 32, .15));
-  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+  filter: drop-shadow(0 6px 14px rgba(42, 37, 32, .18));
+  cursor: grab;
 }
-
-.coin:hover { transform: rotate(-6deg) scale(1.03); }
+.coin:active { cursor: grabbing; }
 
 .coin-cell figcaption {
   display: flex;

@@ -193,6 +193,35 @@ window.NETA_DATA = {
     { name: "Axis Large & Mid Cap Fund",          short: "Large & Mid Cap",         house: "Axis",             domain: "axismf.com",         holders:  5, aumCr: 0.26, returnPct: 11.1 }
   ],
 
+  // ─────────────────────────────────────────────────────────────────────
+  // What lawmakers prefer — Section 8.B / 8.D of the report
+  // Top picks ranked by aggregate current value (AUM), not # of holders.
+  // ─────────────────────────────────────────────────────────────────────
+  preferredStocksByAum: [
+    { ticker: "UNITDSPR",   name: "United Spirits",       domain: "diageoindia.com",      holders: 3,  aumCr: 5.94, returnPct:  11.7 },
+    { ticker: "LT",         name: "Larsen & Toubro",      domain: "larsentoubro.com",     holders: 5,  aumCr: 5.36, returnPct:  10.9 },
+    { ticker: "BHARATFORG", name: "Bharat Forge",         domain: "bharatforge.com",      holders: 4,  aumCr: 3.94, returnPct:  23.4 },
+    { ticker: "CANBK",      name: "Canara Bank",          domain: "canarabank.com",       holders: 4,  aumCr: 3.83, returnPct:  17.8 },
+    { ticker: "KARURVYSYA", name: "Karur Vysya Bank",     domain: "kvb.co.in",            holders: 1,  aumCr: 3.36, returnPct:  78.2 },
+    { ticker: "HDFCBANK",   name: "HDFC Bank",            domain: "hdfcbank.com",         holders: 15, aumCr: 3.33, returnPct:   1.9 },
+    { ticker: "BHARTIARTL", name: "Bharti Airtel",        domain: "airtel.in",            holders: 5,  aumCr: 2.91, returnPct:  38.9 },
+    { ticker: "RELIANCE",   name: "Reliance Industries",  domain: "ril.com",              holders: 18, aumCr: 2.81, returnPct:  -5.8 },
+    { ticker: "SBIN",       name: "State Bank of India",  domain: "sbi.co.in",            holders: 9,  aumCr: 2.78, returnPct:  19.2 },
+    { ticker: "INDHOTEL",   name: "The Indian Hotels Co.", domain: "tajhotels.com",       holders: 3,  aumCr: 2.74, returnPct:  15.1 }
+  ],
+  preferredFundsByAum: [
+    { name: "HSBC Money Market Fund",        short: "Money Market",        house: "HSBC MF",         domain: "assetmanagement.hsbc.co.in", holders: 1,  aumCr: 11.25, returnPct: -0.2 },
+    { name: "JM Low Duration Fund",          short: "Low Duration",        house: "JM Financial",    domain: "jmfinancialmf.com",          holders: 2,  aumCr:  4.18, returnPct: 13.4 },
+    { name: "HDFC Flexi Cap Fund",           short: "Flexi Cap",           house: "HDFC",            domain: "hdfcfund.com",               holders: 7,  aumCr:  4.07, returnPct: 12.1 },
+    { name: "ICICI Prudential MNC Fund",     short: "MNC Fund",            house: "ICICI Prudential", domain: "iciciprumf.com",            holders: 11, aumCr:  3.89, returnPct: 10.0 },
+    { name: "SBI Equity Hybrid Fund",        short: "Equity Hybrid",       house: "SBI MF",          domain: "sbimf.com",                  holders: 5,  aumCr:  3.85, returnPct: 15.8 },
+    { name: "Kotak Bond Fund",               short: "Bond",                house: "Kotak Mahindra",  domain: "kotakmf.com",                holders: 1,  aumCr:  3.28, returnPct:  9.6 },
+    { name: "Kotak Low Duration Fund",       short: "Low Duration",        house: "Kotak Mahindra",  domain: "kotakmf.com",                holders: 1,  aumCr:  2.69, returnPct: 13.1 },
+    { name: "Franklin India Flexi Cap Fund", short: "Flexi Cap",           house: "Franklin Templeton", domain: "franklintempletonindia.com", holders: 2, aumCr: 2.51, returnPct:  2.6 },
+    { name: "SBI Midcap Fund",               short: "Midcap",              house: "SBI MF",          domain: "sbimf.com",                  holders: 4,  aumCr:  2.25, returnPct:  7.1 },
+    { name: "HDFC Small Cap Fund",           short: "Small Cap",           house: "HDFC",            domain: "hdfcfund.com",               holders: 6,  aumCr:  2.23, returnPct:  6.7 }
+  ],
+
   // Section 9 — global / overseas investment standouts
   globalAssets: [
     { holder: "Tanuj Punia",      party: "INC",  asset: "Motilal Oswal Nasdaq 100 FOF",         short: "Nasdaq 100 FOF",         domain: "motilaloswalmf.com",  kind: "US Index FOF",     returnPct: 112.4 },

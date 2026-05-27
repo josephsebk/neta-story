@@ -246,10 +246,18 @@
       <p class="chapter-lead">Where do they actually park their money — and how have those choices performed?</p>
 
       <!-- Preferred Stocks -->
-      <div class="ch3-subsection">
-        <p class="subsection-kicker">Most-Held Stocks</p>
+      <div class="ch3-subsection" data-section="stocks">
+        <p class="subsection-kicker">Popular Stock Picks</p>
         <h3 class="subsection-title">The popular picks weren't the winning picks.</h3>
-        <p class="subsection-lead">The ten stocks held by the most MPs reveal a striking pattern: the three most popular names — <strong>Reliance, HDFC Bank, and ITC</strong> — collectively underperformed. Reliance (18 holders) returned <strong>−5.8%</strong>; ITC (14 holders) dropped <strong>−20.7%</strong>; Jio Financial (12 holders) cratered <strong>−32.7%</strong>.</p>
+
+        <p class="subsection-lead" data-view="holders">By number of MPs holding: the three most popular names — <strong>Reliance, HDFC Bank, and ITC</strong> — collectively underperformed. Reliance (18 holders) returned <strong>−5.8%</strong>; ITC (14 holders) dropped <strong>−20.7%</strong>; Jio Financial (12 holders) cratered <strong>−32.7%</strong>.</p>
+        <p class="subsection-lead" data-view="aum" hidden>By aggregate value: a different picture emerges. <strong>United Spirits</strong> tops the list (Rs 5.94 Cr from just 3 MPs), followed by <strong>L&amp;T</strong> and <strong>Bharat Forge</strong>. <strong>Karur Vysya Bank</strong> — held by just one MP (Amit Shah's spouse) — sneaks into 5th place with a stunning <strong>+78.2%</strong> return.</p>
+
+        <div class="view-toggle" data-toggle="preferred-stocks">
+          <button class="view-toggle-btn active" data-view="holders">By # of MPs</button>
+          <button class="view-toggle-btn" data-view="aum">By AUM</button>
+        </div>
+
         <table class="premium-table" id="preferred-stocks-table">
           <thead>
             <tr>
@@ -267,10 +275,18 @@
       <hr class="section-divider">
 
       <!-- Preferred Funds -->
-      <div class="ch3-subsection">
-        <p class="subsection-kicker">Most-Held Mutual Funds</p>
+      <div class="ch3-subsection" data-section="funds">
+        <p class="subsection-kicker">Popular Mutual Funds</p>
         <h3 class="subsection-title">The mutual fund picks fared much better.</h3>
-        <p class="subsection-lead">In sharp contrast to direct equities, the most popular mutual fund schemes among MPs delivered consistent double-digit returns. The standout: <strong>Kotak Global Emerging Market FOF</strong>, held by 5 MPs and returning <strong>+82.0%</strong>.</p>
+
+        <p class="subsection-lead" data-view="holders">By number of MPs holding: in sharp contrast to direct equities, the most popular mutual fund schemes delivered consistent double-digit returns. The standout: <strong>Kotak Global Emerging Market FOF</strong>, held by 5 MPs and returning <strong>+82.0%</strong>.</p>
+        <p class="subsection-lead" data-view="aum" hidden>By aggregate value: a single fund tops the list — <strong>HSBC Money Market Fund</strong> at Rs 11.25 Cr, held by just one MP (Naveen Jindal) parking cash. Outside that, <strong>HDFC Flexi Cap</strong> (Rs 4.07 Cr) and the popular <strong>ICICI Prudential MNC Fund</strong> (Rs 3.89 Cr) dominate the active-equity allocation.</p>
+
+        <div class="view-toggle" data-toggle="preferred-funds">
+          <button class="view-toggle-btn active" data-view="holders">By # of MPs</button>
+          <button class="view-toggle-btn" data-view="aum">By AUM</button>
+        </div>
+
         <table class="premium-table" id="preferred-funds-table">
           <thead>
             <tr>
@@ -363,28 +379,16 @@
       <h2 class="chapter-title">Gold &amp; silver.</h2>
       <p class="chapter-lead">Physical gold and silver represent a massive store of value among Indian lawmakers. The price surge over two years has created extraordinary paper gains.</p>
 
-      <!-- Coin growth visual: small 2024 coin → bigger 2026 coin -->
+      <!-- Coin growth visual: small 2024 coin → bigger 2026 coin
+           (3D coins rendered with Zdog; auto-rotates, drag to spin) -->
       <div class="coin-grid">
 
         <!-- ─────────────  GOLD  ───────────── -->
         <div class="coin-panel">
           <p class="coin-panel-title">Physical Gold</p>
           <div class="coin-row">
-            <figure class="coin-cell" style="--coin-size: clamp(56px, 12vw, 80px)">
-              <svg class="coin coin-gold" viewBox="0 0 100 100" aria-hidden="true">
-                <defs>
-                  <radialGradient id="grad-gold-sm" cx="35%" cy="28%" r="75%">
-                    <stop offset="0%"  stop-color="#fdebb0"/>
-                    <stop offset="45%" stop-color="#d4af37"/>
-                    <stop offset="100%" stop-color="#7a4f00"/>
-                  </radialGradient>
-                </defs>
-                <circle cx="50" cy="50" r="47" fill="url(#grad-gold-sm)"/>
-                <circle cx="50" cy="50" r="47" fill="none" stroke="#5a3a00" stroke-width="1.4" opacity=".35"/>
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#fdebb0" stroke-width=".8" opacity=".55"/>
-                <text x="50" y="60" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
-                      font-size="26" font-weight="700" fill="#5a3a00" opacity=".55">Au</text>
-              </svg>
+            <figure class="coin-cell" style="--coin-size: clamp(80px, 14vw, 110px)">
+              <canvas class="coin" data-coin="gold" aria-hidden="true"></canvas>
               <figcaption>
                 <span class="coin-year">2024</span>
                 <span class="coin-value">Rs 281.22 Cr</span>
@@ -399,49 +403,23 @@
               </svg>
             </div>
 
-            <figure class="coin-cell" style="--coin-size: clamp(122px, 26vw, 175px)">
-              <svg class="coin coin-gold" viewBox="0 0 100 100" aria-hidden="true">
-                <defs>
-                  <radialGradient id="grad-gold-lg" cx="35%" cy="28%" r="75%">
-                    <stop offset="0%"  stop-color="#fdebb0"/>
-                    <stop offset="45%" stop-color="#d4af37"/>
-                    <stop offset="100%" stop-color="#7a4f00"/>
-                  </radialGradient>
-                </defs>
-                <circle cx="50" cy="50" r="47" fill="url(#grad-gold-lg)"/>
-                <circle cx="50" cy="50" r="47" fill="none" stroke="#5a3a00" stroke-width="1.4" opacity=".35"/>
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#fdebb0" stroke-width=".8" opacity=".55"/>
-                <text x="50" y="60" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
-                      font-size="26" font-weight="700" fill="#5a3a00" opacity=".55">Au</text>
-              </svg>
+            <figure class="coin-cell" style="--coin-size: clamp(175px, 30vw, 240px)">
+              <canvas class="coin" data-coin="gold" aria-hidden="true"></canvas>
               <figcaption>
                 <span class="coin-year">2026</span>
                 <span class="coin-value coin-value-big">Rs 614.96 Cr</span>
               </figcaption>
             </figure>
           </div>
-          <p class="coin-footnote">854.65 kg of physical gold across all MP portfolios</p>
+          <p class="coin-footnote">854.65 kg of physical gold across all MP portfolios · drag a coin to spin it</p>
         </div>
 
         <!-- ─────────────  SILVER  ───────────── -->
         <div class="coin-panel">
           <p class="coin-panel-title">Physical Silver</p>
           <div class="coin-row">
-            <figure class="coin-cell" style="--coin-size: clamp(56px, 12vw, 80px)">
-              <svg class="coin coin-silver" viewBox="0 0 100 100" aria-hidden="true">
-                <defs>
-                  <radialGradient id="grad-silver-sm" cx="35%" cy="28%" r="75%">
-                    <stop offset="0%"  stop-color="#f7f7f7"/>
-                    <stop offset="45%" stop-color="#bcbcbc"/>
-                    <stop offset="100%" stop-color="#5a5a5a"/>
-                  </radialGradient>
-                </defs>
-                <circle cx="50" cy="50" r="47" fill="url(#grad-silver-sm)"/>
-                <circle cx="50" cy="50" r="47" fill="none" stroke="#3a3a3a" stroke-width="1.4" opacity=".35"/>
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#f7f7f7" stroke-width=".8" opacity=".55"/>
-                <text x="50" y="60" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
-                      font-size="26" font-weight="700" fill="#3a3a3a" opacity=".55">Ag</text>
-              </svg>
+            <figure class="coin-cell" style="--coin-size: clamp(80px, 14vw, 110px)">
+              <canvas class="coin" data-coin="silver" aria-hidden="true"></canvas>
               <figcaption>
                 <span class="coin-year">2024</span>
                 <span class="coin-value">Rs 12.89 Cr</span>
@@ -456,28 +434,15 @@
               </svg>
             </div>
 
-            <figure class="coin-cell" style="--coin-size: clamp(170px, 36vw, 245px)">
-              <svg class="coin coin-silver" viewBox="0 0 100 100" aria-hidden="true">
-                <defs>
-                  <radialGradient id="grad-silver-lg" cx="35%" cy="28%" r="75%">
-                    <stop offset="0%"  stop-color="#f7f7f7"/>
-                    <stop offset="45%" stop-color="#bcbcbc"/>
-                    <stop offset="100%" stop-color="#5a5a5a"/>
-                  </radialGradient>
-                </defs>
-                <circle cx="50" cy="50" r="47" fill="url(#grad-silver-lg)"/>
-                <circle cx="50" cy="50" r="47" fill="none" stroke="#3a3a3a" stroke-width="1.4" opacity=".35"/>
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#f7f7f7" stroke-width=".8" opacity=".55"/>
-                <text x="50" y="60" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
-                      font-size="26" font-weight="700" fill="#3a3a3a" opacity=".55">Ag</text>
-              </svg>
+            <figure class="coin-cell" style="--coin-size: clamp(245px, 42vw, 336px)">
+              <canvas class="coin" data-coin="silver" aria-hidden="true"></canvas>
               <figcaption>
                 <span class="coin-year">2026</span>
                 <span class="coin-value coin-value-big">Rs 39.40 Cr</span>
               </figcaption>
             </figure>
           </div>
-          <p class="coin-footnote">5,063.93 kg of physical silver across all MP portfolios</p>
+          <p class="coin-footnote">5,063.93 kg of physical silver across all MP portfolios · drag a coin to spin it</p>
         </div>
 
       </div>
@@ -556,6 +521,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/scrollama@3"></script>
+  <script src="assets/vendor/zdog.dist.min.js"></script>
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
