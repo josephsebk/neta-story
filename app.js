@@ -1016,21 +1016,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const Zdog = window.Zdog;
 
     /**
-     * Build a single 3D coin inside the given canvas element.
-     * The coin is a short cylinder with a ridged edge, an embossed inner
-     * ring, and a centre medallion — laid flat-ish with a slight tilt so
-     * you can see the side ridges. Slowly auto-rotates on the Y axis;
-     * users can drag to spin manually.
+     * Build a single 3D faceted coin inside the given canvas element.
+     *
+     * Architecture mirrors the Zdog diamond demo: a polyhedron assembled
+     * from flat polygonal facets with alternating shade pairs (A/B) so
+     * that each face catches "light" differently as the coin rotates.
+     *
+     * Geometry: 12-sided prism (SIDES = 12).
+     *   • Top + bottom face   → solid polygons, lightest tone
+     *   • Beveled rim         → 12 short quads sloping from the face down
+     *                           to the side wall (alternating shades)
+     *   • Side wall           → 12 vertical quads (alternating darker
+     *                           shades — these are the rim panels)
+     * Slowly auto-rotates on Y; drag to spin manually.
      */
     function buildCoin(canvas, kind) {
       const isGold = kind === "gold";
 
-      const palette = isGold
-        ? { face: "#d4af37", rim: "#7a4f00", shine: "#fdebb0", edge: "#8a5f10", inner: "#b88a00" }
-        : { face: "#bcbcbc", rim: "#3a3a3a", shine: "#f4f4f4", edge: "#6a6a6a", inner: "#8a8a8a" };
+      // Five-tone palette so adjacent facets always differ: face is the
+      // brightest, then a pair of bevel tones, then a pair of darker
+      // rim tones for the vertical side panels.
+      const palette = isGold ? {
+        face:   "#f0c84a",
+        bevelA: "#dfb02a",
+        bevelB: "#b88a00",
+        sideA:  "#8a5f10",
+        sideB:  "#5a3a00"
+      } : {
+        face:   "#f0f0f0",
+        bevelA: "#c8c8c8",
+        bevelB: "#a4a4a4",
+        sideA:  "#787878",
+        sideB:  "#4a4a4a"
+      };
 
-      // Match the canvas's internal resolution to its CSS display size
-      // (× devicePixelRatio for retina sharpness).
+      const SIDES        = 12;
+      const RADIUS_OUT   = 0.82;   // outer rim radius
+      const RADIUS_IN    = 0.70;   // top/bottom face radius (smaller → bevel)
+      const HALF_H_OUT   = 0.08;   // half-thickness at the rim
+      const HALF_H_IN    = 0.10;   // half-thickness at the inner face
+      const TAU          = Zdog.TAU;
+
+      // Match canvas pixel resolution to CSS size × devicePixelRatio
       const dpr  = window.devicePixelRatio || 1;
       const cssW = canvas.getBoundingClientRect().width || 100;
       canvas.width  = cssW * dpr;
@@ -1041,98 +1068,185 @@ document.addEventListener("DOMContentLoaded", () => {
       const illo = new Zdog.Illustration({
         element:    canvas,
         dragRotate: true,
-        rotate:     { x: -Zdog.TAU / 9, y: 0 },   // tilt so the rim shows
-        scale:      cssW * dpr * 0.42,            // coin (Ø 1.6) ≈ 70% of canvas
+        rotate:     { x: -0.42 },                // tilt so rim + facets visible
+        scale:      cssW * dpr * 0.45,
         onDragStart() { spinning = false; }
       });
 
       const coin = new Zdog.Anchor({ addTo: illo });
 
-      // ── Main coin body: a short cylinder lying flat ──────────────────
-      new Zdog.Cylinder({
-        addTo:     coin,
-        diameter:  1.6,
-        length:    0.22,
-        color:     palette.face,
-        frontFace: palette.face,
-        backface:  palette.face,
-        rotate:    { x: Zdog.TAU / 4 },
-        stroke:    0.04
+      // Helper: point on a regular polygon at (radius, y)
+      const pt = (i, r, y) => {
+        const a = (i / SIDES) * TAU;
+        return { x: Math.cos(a) * r, y, z: Math.sin(a) * r };
+      };
+
+      // ── Top face (solid polygon, lifted slightly above bevel apex) ──
+      new Zdog.Shape({
+        addTo:    coin,
+        path:     Array.from({ length: SIDES }, (_, i) => pt(i, RADIUS_IN, -HALF_H_IN)),
+        closed:   true,
+        stroke:   false,
+        fill:     true,
+        color:    palette.face,
+        backface: palette.face
       });
 
-      // ── Top emboss ring (decorative groove) ──────────────────────────
-      new Zdog.Ellipse({
-        addTo:     coin,
-        diameter:  1.32,
-        color:     palette.rim,
-        stroke:    0.03,
-        fill:      false,
-        translate: { y: -0.111 },
-        rotate:    { x: Zdog.TAU / 4 }
+      // ── Bottom face ─────────────────────────────────────────────────
+      new Zdog.Shape({
+        addTo:    coin,
+        path:     Array.from({ length: SIDES }, (_, i) => pt(i, RADIUS_IN, HALF_H_IN)),
+        closed:   true,
+        stroke:   false,
+        fill:     true,
+        color:    palette.face,
+        backface: palette.face
       });
 
-      // ── Inner highlight ring (thin gleam) ────────────────────────────
-      new Zdog.Ellipse({
-        addTo:     coin,
-        diameter:  1.18,
-        color:     palette.shine,
-        stroke:    0.015,
-        fill:      false,
-        translate: { y: -0.113 },
-        rotate:    { x: Zdog.TAU / 4 }
-      });
+      // ── Facets: top bevel + side wall + bottom bevel per panel ──────
+      for (let i = 0; i < SIDES; i++) {
+        const even = i % 2 === 0;
+        const a1   = pt(i,     RADIUS_IN,  -HALF_H_IN);
+        const a2   = pt(i + 1, RADIUS_IN,  -HALF_H_IN);
+        const b1   = pt(i,     RADIUS_OUT, -HALF_H_OUT);
+        const b2   = pt(i + 1, RADIUS_OUT, -HALF_H_OUT);
+        const c1   = pt(i,     RADIUS_OUT,  HALF_H_OUT);
+        const c2   = pt(i + 1, RADIUS_OUT,  HALF_H_OUT);
+        const d1   = pt(i,     RADIUS_IN,   HALF_H_IN);
+        const d2   = pt(i + 1, RADIUS_IN,   HALF_H_IN);
 
-      // ── Centre medallion ─────────────────────────────────────────────
-      new Zdog.Ellipse({
-        addTo:     coin,
-        diameter:  0.65,
-        color:     palette.inner,
-        stroke:    0.08,
-        fill:      true,
-        translate: { y: -0.114 },
-        rotate:    { x: Zdog.TAU / 4 }
-      });
-
-      // ── Same emboss + medallion on the back face ─────────────────────
-      new Zdog.Ellipse({
-        addTo:     coin,
-        diameter:  1.32,
-        color:     palette.rim,
-        stroke:    0.03,
-        fill:      false,
-        translate: { y: 0.111 },
-        rotate:    { x: Zdog.TAU / 4 }
-      });
-      new Zdog.Ellipse({
-        addTo:     coin,
-        diameter:  0.65,
-        color:     palette.inner,
-        stroke:    0.08,
-        fill:      true,
-        translate: { y: 0.114 },
-        rotate:    { x: Zdog.TAU / 4 }
-      });
-
-      // ── Ridged edge: short vertical strokes around the rim ───────────
-      const RIDGES = 64;
-      const radius = 0.8;
-      const halfH  = 0.105;
-      for (let i = 0; i < RIDGES; i++) {
-        const a = (i / RIDGES) * Zdog.TAU;
+        // Top bevel quad (slope from top face down/out to the rim)
         new Zdog.Shape({
-          addTo: coin,
-          path: [
-            { x: Math.cos(a) * radius, y: -halfH, z: Math.sin(a) * radius },
-            { x: Math.cos(a) * radius, y:  halfH, z: Math.sin(a) * radius }
-          ],
-          color:  palette.edge,
-          stroke: 0.045
+          addTo:    coin,
+          path:     [a1, a2, b2, b1],
+          closed:   true,
+          stroke:   false,
+          fill:     true,
+          color:    even ? palette.bevelA : palette.bevelB,
+          backface: even ? palette.bevelA : palette.bevelB
+        });
+
+        // Vertical side panel
+        new Zdog.Shape({
+          addTo:    coin,
+          path:     [b1, b2, c2, c1],
+          closed:   true,
+          stroke:   false,
+          fill:     true,
+          color:    even ? palette.sideA : palette.sideB,
+          backface: even ? palette.sideA : palette.sideB
+        });
+
+        // Bottom bevel quad (mirror of top)
+        new Zdog.Shape({
+          addTo:    coin,
+          path:     [c1, c2, d2, d1],
+          closed:   true,
+          stroke:   false,
+          fill:     true,
+          color:    even ? palette.bevelB : palette.bevelA,
+          backface: even ? palette.bevelB : palette.bevelA
         });
       }
 
-      // ── Animate ──────────────────────────────────────────────────────
+      // ── Decorative ornament on the top face ─────────────────────────
+      // Just above the top face plane so the embossing is visible:
+      const TOP_DECO_Y  = -HALF_H_IN - 0.002;
+      const FACE_ROTATE = { x: TAU / 4 };  // lay flat on the top face
+
+      // Raised inner ring (defines the decorated medallion area)
+      new Zdog.Ellipse({
+        addTo:     coin,
+        diameter:  RADIUS_IN * 1.7,
+        color:     palette.sideA,
+        stroke:    0.018,
+        fill:      false,
+        translate: { y: TOP_DECO_Y },
+        rotate:    FACE_ROTATE
+      });
+
+      // Beaded border: 18 small filled dots around the inner ring
+      const BEADS    = 18;
+      const beadR    = RADIUS_IN * 0.78;
+      const beadSize = 0.045;
+      for (let i = 0; i < BEADS; i++) {
+        const a = (i / BEADS) * TAU;
+        new Zdog.Ellipse({
+          addTo:     coin,
+          diameter:  beadSize,
+          color:     palette.bevelB,
+          stroke:    0.012,
+          fill:      true,
+          translate: { x: Math.cos(a) * beadR, y: TOP_DECO_Y - 0.001, z: Math.sin(a) * beadR },
+          rotate:    FACE_ROTATE
+        });
+      }
+
+      // Eight-pointed star (Star of Lakshmi) made of two overlapped squares
+      // rotated 45° apart. Sits on the upper half of the medallion.
+      const starCenterZ = -RADIUS_IN * 0.05;     // sits slightly above middle
+      const starR       = RADIUS_IN * 0.32;
+      for (let twist = 0; twist < 2; twist++) {
+        const rot = (twist * TAU) / 8;           // 0 then 45°
+        const square = [];
+        for (let k = 0; k < 4; k++) {
+          const a = rot + (k / 4) * TAU;
+          square.push({
+            x: Math.cos(a) * starR,
+            y: TOP_DECO_Y - 0.003,
+            z: starCenterZ + Math.sin(a) * starR
+          });
+        }
+        new Zdog.Shape({
+          addTo:    coin,
+          path:     square,
+          closed:   true,
+          stroke:   false,
+          fill:     true,
+          color:    twist === 0 ? palette.face   : palette.bevelA,
+          backface: twist === 0 ? palette.face   : palette.bevelA
+        });
+      }
+
+      // Centre boss disc
+      new Zdog.Ellipse({
+        addTo:     coin,
+        diameter:  0.16,
+        color:     palette.bevelB,
+        stroke:    0.045,
+        fill:      true,
+        translate: { x: 0, y: TOP_DECO_Y - 0.005, z: starCenterZ },
+        rotate:    FACE_ROTATE
+      });
+
+      // Wave lines below the star (evoke the rippling water motif).
+      // Three slightly-curved horizontal arcs built from polyline points.
+      const WAVE_BASE_Z = RADIUS_IN * 0.30;
+      for (let line = 0; line < 3; line++) {
+        const zPos    = WAVE_BASE_Z + line * 0.10;
+        const halfW   = RADIUS_IN * (0.55 - line * 0.07);
+        const points  = [];
+        const STEPS   = 9;
+        for (let s = 0; s <= STEPS; s++) {
+          const t = s / STEPS;
+          const x = -halfW + t * (halfW * 2);
+          // small sinusoidal ripple superimposed on the line
+          const z = zPos + Math.sin(t * TAU * 1.5) * 0.018;
+          points.push({ x, y: TOP_DECO_Y - 0.003, z });
+        }
+        new Zdog.Shape({
+          addTo:  coin,
+          path:   points,
+          closed: false,
+          stroke: 0.022,
+          color:  palette.sideA,
+          fill:   false
+        });
+      }
+
+      // ── Animate ─────────────────────────────────────────────────────
       function tick() {
-        if (spinning) illo.rotate.y += 0.011;
+        if (spinning) illo.rotate.y += 0.01;
         illo.updateRenderGraph();
         requestAnimationFrame(tick);
       }
