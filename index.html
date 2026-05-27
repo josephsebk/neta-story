@@ -132,7 +132,6 @@
       <div class="selector-tabs">
         <button class="tab-btn active" data-tab="bestReturn">Best Returns (%)</button>
         <button class="tab-btn" data-tab="worstReturn">Worst Returns (%)</button>
-        <button class="tab-btn" data-tab="bestGainers">Biggest Absolute Gains</button>
       </div>
 
       <div class="leaderboard-grid" id="leaderboard-cards"></div>
@@ -173,7 +172,12 @@
       <!-- Amit Shah Spotlight -->
       <div class="amit-shah-spotlight">
         <div class="spotlight-left">
-          <p class="spotlight-kicker">Ultimate Diversified Stock Picker</p>
+          <figure class="spotlight-portrait">
+            <img src="assets/amit_shah_crown.jpg"
+                 alt="Amit Shah, illustrated with a crown — King of the Stock Pickers"
+                 onerror="this.style.display='none'">
+          </figure>
+          <p class="spotlight-kicker">King of the Stock Pickers</p>
           <h2>Amit Shah.</h2>
           <p>While other MPs scored singular home runs on small portfolios, Home Minister Amit Shah managed an institutional-grade portfolio of <strong>Rs 32+ Crore</strong> spread across <strong>150+ stocks</strong> — with <strong>30 separate positions</strong> returning ≥ +30%.</p>
         </div>
@@ -293,29 +297,189 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ CHAPTER 5: GOLD & SILVER ═══════════════════ -->
-  <section class="chapter chapter-alt" id="ch-gold">
+  <!-- ═══════════════════ CHAPTER 5: THE MP INDEX & MUTUAL FUND BASKET ═══════════════════ -->
+  <section class="chapter chapter-alt" id="ch-basket">
     <div class="chapter-inner">
       <p class="chapter-num">Chapter 5</p>
+      <h2 class="chapter-title">The MP Index &amp; MF Basket.</h2>
+      <p class="chapter-lead">What if we pooled all the MPs' capital and ran it as two giant index funds? By establishing a dual threshold—capturing major direct allocations (aggregate current AUM &ge; <strong>₹2.0 Crores</strong>) and strategic outperformers/underperformers (AUM &ge; <strong>₹25 Lakhs</strong> with Return &ge; <strong>+25%</strong> or &le; <strong>-15%</strong>)—here is how their core portfolios look.</p>
+
+      <div class="basket-container">
+        <!-- Stock Index Chart Card -->
+        <div class="basket-card">
+          <div class="basket-header">
+            <h3>The MP Stock Index</h3>
+            <p class="basket-meta">Ex-promoter direct equities (High-Conviction) · Total AUM: <strong>Rs 72.80 Cr</strong></p>
+          </div>
+          <div class="chart-wrapper">
+            <div class="pie-chart-container">
+              <svg id="stock-pie-chart" viewBox="0 0 360 360" width="100%" height="100%">
+                <!-- Slices generated dynamically via JS -->
+              </svg>
+              <div class="chart-center-label" id="stock-center-label">
+                <span class="center-title">Stocks</span>
+                <span class="center-sub">₹72.8 Cr</span>
+              </div>
+            </div>
+            <div class="basket-legend" id="stock-legend">
+              <!-- Legend generated dynamically via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Mutual Fund Basket Chart Card -->
+        <div class="basket-card">
+          <div class="basket-header">
+            <h3>The MP Mutual Fund Basket</h3>
+            <p class="basket-meta">All mutual fund schemes (High-Conviction) · Total AUM: <strong>Rs 44.98 Cr</strong></p>
+          </div>
+          <div class="chart-wrapper">
+            <div class="pie-chart-container">
+              <svg id="fund-pie-chart" viewBox="0 0 360 360" width="100%" height="100%">
+                <!-- Slices generated dynamically via JS -->
+              </svg>
+              <div class="chart-center-label" id="fund-center-label">
+                <span class="center-title">Funds</span>
+                <span class="center-sub">₹45.0 Cr</span>
+              </div>
+            </div>
+            <div class="basket-legend" id="fund-legend">
+              <!-- Legend generated dynamically via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="basket-insight-box">
+        <p><strong>Key Insight:</strong> By filtering out hundreds of tiny, fragmented, low-value bets and evaluating both capital size and return performance, we gain a clean look at the lawmakers' core allocations. The MP Stock Index is highly focused on large-cap picks, with <strong>United Spirits (8.15%)</strong> and <strong>L&amp;T (7.36%)</strong> carrying the heaviest weights, but <strong>52.95%</strong> remains spread across other active direct equities. In the Mutual Fund Basket, the **HSBC Money Market Fund (25.01%)**—a single massive cash parking scheme held by Naveen Jindal—stands out, while the other **74.99%** of the basket is highly concentrated in well-regarded blue-chip and low-duration schemes, dropping the "Others" category to a highly focused **15.57%**.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CHAPTER 6: GOLD & SILVER ═══════════════════ -->
+  <section class="chapter" id="ch-gold">
+    <div class="chapter-inner">
+      <p class="chapter-num">Chapter 6</p>
       <h2 class="chapter-title">Gold &amp; silver.</h2>
       <p class="chapter-lead">Physical gold and silver represent a massive store of value among Indian lawmakers. The price surge over two years has created extraordinary paper gains.</p>
 
-      <!-- Big summary cards -->
-      <div class="metals-summary-grid">
-        <div class="metal-sum-card gold">
-          <h4>Physical Gold</h4>
-          <div class="sub-text">2024: Rs 281.22 Cr</div>
-          <div class="big-num gold-text">Rs 614.96 Cr</div>
-          <span class="return-badge">+118.67%</span>
-          <div class="sub-text" style="margin-top:.6rem;">854.65 kg across all portfolios</div>
+      <!-- Coin growth visual: small 2024 coin → bigger 2026 coin -->
+      <div class="coin-grid">
+
+        <!-- ─────────────  GOLD  ───────────── -->
+        <div class="coin-panel">
+          <p class="coin-panel-title">Physical Gold</p>
+          <div class="coin-row">
+            <figure class="coin-cell" style="--coin-size: clamp(56px, 12vw, 80px)">
+              <svg class="coin coin-gold" viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                  <radialGradient id="grad-gold-sm" cx="35%" cy="28%" r="75%">
+                    <stop offset="0%"  stop-color="#fdebb0"/>
+                    <stop offset="45%" stop-color="#d4af37"/>
+                    <stop offset="100%" stop-color="#7a4f00"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="47" fill="url(#grad-gold-sm)"/>
+                <circle cx="50" cy="50" r="47" fill="none" stroke="#5a3a00" stroke-width="1.4" opacity=".35"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#fdebb0" stroke-width=".8" opacity=".55"/>
+                <text x="50" y="60" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
+                      font-size="26" font-weight="700" fill="#5a3a00" opacity=".55">Au</text>
+              </svg>
+              <figcaption>
+                <span class="coin-year">2024</span>
+                <span class="coin-value">Rs 281.22 Cr</span>
+              </figcaption>
+            </figure>
+
+            <div class="coin-arrow">
+              <span class="coin-arrow-pct coin-arrow-pct-gold">+118.67%</span>
+              <svg class="coin-arrow-svg" viewBox="0 0 60 20" aria-hidden="true">
+                <line x1="0" y1="10" x2="48" y2="10" stroke="#b88a00" stroke-width="1.6" stroke-linecap="round"/>
+                <polyline points="42,4 52,10 42,16" fill="none" stroke="#b88a00" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <figure class="coin-cell" style="--coin-size: clamp(122px, 26vw, 175px)">
+              <svg class="coin coin-gold" viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                  <radialGradient id="grad-gold-lg" cx="35%" cy="28%" r="75%">
+                    <stop offset="0%"  stop-color="#fdebb0"/>
+                    <stop offset="45%" stop-color="#d4af37"/>
+                    <stop offset="100%" stop-color="#7a4f00"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="47" fill="url(#grad-gold-lg)"/>
+                <circle cx="50" cy="50" r="47" fill="none" stroke="#5a3a00" stroke-width="1.4" opacity=".35"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#fdebb0" stroke-width=".8" opacity=".55"/>
+                <text x="50" y="60" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
+                      font-size="26" font-weight="700" fill="#5a3a00" opacity=".55">Au</text>
+              </svg>
+              <figcaption>
+                <span class="coin-year">2026</span>
+                <span class="coin-value coin-value-big">Rs 614.96 Cr</span>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="coin-footnote">854.65 kg of physical gold across all MP portfolios</p>
         </div>
-        <div class="metal-sum-card silver">
-          <h4>Physical Silver</h4>
-          <div class="sub-text">2024: Rs 12.89 Cr</div>
-          <div class="big-num silver-text">Rs 39.40 Cr</div>
-          <span class="return-badge">+205.70%</span>
-          <div class="sub-text" style="margin-top:.6rem;">5,063.93 kg across all portfolios</div>
+
+        <!-- ─────────────  SILVER  ───────────── -->
+        <div class="coin-panel">
+          <p class="coin-panel-title">Physical Silver</p>
+          <div class="coin-row">
+            <figure class="coin-cell" style="--coin-size: clamp(56px, 12vw, 80px)">
+              <svg class="coin coin-silver" viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                  <radialGradient id="grad-silver-sm" cx="35%" cy="28%" r="75%">
+                    <stop offset="0%"  stop-color="#f7f7f7"/>
+                    <stop offset="45%" stop-color="#bcbcbc"/>
+                    <stop offset="100%" stop-color="#5a5a5a"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="47" fill="url(#grad-silver-sm)"/>
+                <circle cx="50" cy="50" r="47" fill="none" stroke="#3a3a3a" stroke-width="1.4" opacity=".35"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#f7f7f7" stroke-width=".8" opacity=".55"/>
+                <text x="50" y="60" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
+                      font-size="26" font-weight="700" fill="#3a3a3a" opacity=".55">Ag</text>
+              </svg>
+              <figcaption>
+                <span class="coin-year">2024</span>
+                <span class="coin-value">Rs 12.89 Cr</span>
+              </figcaption>
+            </figure>
+
+            <div class="coin-arrow">
+              <span class="coin-arrow-pct coin-arrow-pct-silver">+205.70%</span>
+              <svg class="coin-arrow-svg" viewBox="0 0 60 20" aria-hidden="true">
+                <line x1="0" y1="10" x2="48" y2="10" stroke="#7a7a7a" stroke-width="1.6" stroke-linecap="round"/>
+                <polyline points="42,4 52,10 42,16" fill="none" stroke="#7a7a7a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <figure class="coin-cell" style="--coin-size: clamp(170px, 36vw, 245px)">
+              <svg class="coin coin-silver" viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                  <radialGradient id="grad-silver-lg" cx="35%" cy="28%" r="75%">
+                    <stop offset="0%"  stop-color="#f7f7f7"/>
+                    <stop offset="45%" stop-color="#bcbcbc"/>
+                    <stop offset="100%" stop-color="#5a5a5a"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="47" fill="url(#grad-silver-lg)"/>
+                <circle cx="50" cy="50" r="47" fill="none" stroke="#3a3a3a" stroke-width="1.4" opacity=".35"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#f7f7f7" stroke-width=".8" opacity=".55"/>
+                <text x="50" y="60" text-anchor="middle" font-family="Playfair Display, Georgia, serif"
+                      font-size="26" font-weight="700" fill="#3a3a3a" opacity=".55">Ag</text>
+              </svg>
+              <figcaption>
+                <span class="coin-year">2026</span>
+                <span class="coin-value coin-value-big">Rs 39.40 Cr</span>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="coin-footnote">5,063.93 kg of physical silver across all MP portfolios</p>
         </div>
+
       </div>
 
       <hr class="section-divider">
@@ -353,6 +517,20 @@
           </thead>
           <tbody></tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SEARCH SECTION ═══════════════════ -->
+  <section class="search-section" id="mp-search-section">
+    <div class="chapter-inner">
+      <h2 class="section-title">Explore Candidate Portfolios</h2>
+      <p class="section-sub">Search for any MP to see their listed stock and mutual fund holdings, total asset values, and return metrics.</p>
+      <div class="search-box-wrapper">
+        <input type="text" id="mp-search-input" class="search-box" placeholder="Type a candidate's name (e.g. AMIT SHAH, RAHUL GANDHI)...">
+      </div>
+      <div id="search-results" class="search-results">
+        <!-- Results rendered dynamically via JS -->
       </div>
     </div>
   </section>

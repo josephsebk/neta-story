@@ -201,5 +201,29 @@ window.NETA_DATA = {
     { holder: "Pathan Yusuf",     party: "AITC", asset: "Mirae Asset Hang Seng TECH ETF FOF",   short: "Hang Seng TECH FOF",     domain: "miraeassetmf.co.in",  kind: "China Tech FOF",   returnPct:  68.2 },
     { holder: "Arun Nehru",       party: "DMK",  asset: "Motilal Oswal S&P 500 Index Fund",     short: "S&P 500 Index",          domain: "motilaloswalmf.com",  kind: "US Index Fund",    returnPct:  61.9 },
     { holder: "Naveen Jindal",    party: "BJP",  asset: "Meta Platforms (META) common stock",   short: "Meta Platforms",         domain: "meta.com",            kind: "Direct US Equity", returnPct:  27.4 }
+  ],
+  mpStockIndex: [
+    { label: "UNITDSPR", name: "United Spirits Limited", aumCr: 5.94, pct: 8.15, color: "#3a6a3a" },
+    { label: "LT", name: "Larsen & Toubro Limited", aumCr: 5.36, pct: 7.36, color: "#b88a00" },
+    { label: "BHARATFORG", name: "Bharat Forge Limited", aumCr: 3.94, pct: 5.41, color: "#2e5a95" },
+    { label: "CANBK", name: "Canara Bank", aumCr: 3.83, pct: 5.26, color: "#b83737" },
+    { label: "KARURVYSYA", name: "Karur Vysya Bank Limited", aumCr: 3.36, pct: 4.62, color: "#7a8a3a" },
+    { label: "HDFCBANK", name: "HDFC Bank Limited", aumCr: 3.33, pct: 4.58, color: "#8c5b3c" },
+    { label: "BHARTIARTL", name: "Bharti Airtel Limited", aumCr: 2.91, pct: 3.99, color: "#5a524a" },
+    { label: "RELIANCE", name: "Reliance Industries Limited", aumCr: 2.81, pct: 3.86, color: "#7a8494" },
+    { label: "SBIN", name: "State Bank of India", aumCr: 2.78, pct: 3.82, color: "#8e44ad" },
+    { label: "Others", name: "Other Active Holdings", aumCr: 38.55, pct: 52.95, color: "#c8beb0" }
+  ],
+  mpFundBasket: [
+    { label: "HSBC Money Market Fund", name: "HSBC Money Market Fund - Regular Daily IDCW", aumCr: 11.25, pct: 25.01, color: "#3a6a3a" },
+    { label: "JM Low Duration Fund", name: "JM Low Duration Fund (Regular) - Growth Option", aumCr: 4.18, pct: 9.30, color: "#b88a00" },
+    { label: "HDFC Flexi Cap Fund", name: "HDFC Flexi Cap Fund - Growth Plan", aumCr: 4.07, pct: 9.05, color: "#2e5a95" },
+    { label: "ICICI Prudential MNC Fund", name: "ICICI Prudential MNC Fund - Growth Option", aumCr: 3.89, pct: 8.66, color: "#b83737" },
+    { label: "SBI EQUITY HYBRID FUND", name: "SBI EQUITY HYBRID FUND - REGULAR PLAN -Growth", aumCr: 3.85, pct: 8.57, color: "#7a8a3a" },
+    { label: "Kotak Bond Fund -", name: "Kotak Bond Fund - Regular Plan Growth", aumCr: 3.28, pct: 7.29, color: "#8c5b3c" },
+    { label: "Kotak Low Duration Fund-", name: "Kotak Low Duration Fund- Regular Plan-Growth Option", aumCr: 2.69, pct: 5.98, color: "#5a524a" },
+    { label: "Franklin India Flexi Cap", name: "Franklin India Flexi Cap Fund - Growth", aumCr: 2.51, pct: 5.58, color: "#7a8494" },
+    { label: "SBI MIDCAP FUND -", name: "SBI MIDCAP FUND - REGULAR PLAN - GROWTH", aumCr: 2.25, pct: 5.01, color: "#8e44ad" },
+    { label: "Others", name: "Other Active Funds", aumCr: 7.00, pct: 15.57, color: "#c8beb0" }
   ]
 };

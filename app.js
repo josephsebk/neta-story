@@ -967,7 +967,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "stock-center-label",
       window.NETA_DATA.mpStockIndex,
       "Stocks",
-      "₹112.9 Cr"
+      "₹72.8 Cr"
     );
     renderDonutChart(
       "fund-pie-chart",
@@ -975,7 +975,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "fund-center-label",
       window.NETA_DATA.mpFundBasket,
       "Funds",
-      "₹96.7 Cr"
+      "₹45.0 Cr"
     );
   }
 
