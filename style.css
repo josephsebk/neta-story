@@ -2012,9 +2012,7 @@ footer .footer-brand {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 5px;
-  /* Soften high-saturation logos to fit the cream palette */
-  filter: saturate(0.85) contrast(0.95);
+  padding: 6px;
 }
 
 .logo-fallback {

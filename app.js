@@ -365,10 +365,11 @@ document.addEventListener("DOMContentLoaded", () => {
   /**
    * Build a square logo tile for a company / fund house.
    *
-   * Fetches the brand mark from Clearbit's logo CDN; if that 404s (or the
-   * domain is missing), the image is hidden and a monogram fallback shows
-   * instead. The tile itself is styled in the editorial cream / ink design
-   * system so even fallbacks look coherent.
+   * Cascade of sources (left to right) so we get the best-looking mark
+   * available without depending on any single CDN being up:
+   *   1. Google s2 favicons (sz=128) — essentially 100% reliable
+   *   2. DuckDuckGo ip3 icons        — backup if Google blocks
+   *   3. Monogram (initials)         — final fallback, always renders
    *
    * @param {string} domain — e.g. "hdfcbank.com"
    * @param {string} label  — used for alt text + fallback initials
@@ -381,17 +382,31 @@ document.addEventListener("DOMContentLoaded", () => {
       .slice(0, 2)
       .map(w => w[0].toUpperCase())
       .join("") || "·";
+
     if (!domain) {
-      return `<span class="logo-tile"><span class="logo-fallback">${initials}</span></span>`;
+      return `<span class="logo-tile"><span class="logo-fallback" style="display:flex">${initials}</span></span>`;
     }
+
+    const primary  = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+    const fallback = `https://icons.duckduckgo.com/ip3/${domain}.ico`;
+
     return `
       <span class="logo-tile">
         <img class="logo-img"
-             src="https://logo.clearbit.com/${domain}"
+             src="${primary}"
              alt="${safe}"
              loading="lazy"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <span class="logo-fallback" style="display:none">${initials}</span>
+             data-fallback="${fallback}"
+             onerror="
+               if (this.dataset.fallback) {
+                 this.src = this.dataset.fallback;
+                 this.dataset.fallback = '';
+               } else {
+                 this.style.display='none';
+                 this.nextElementSibling.style.display='flex';
+               }
+             ">
+        <span class="logo-fallback">${initials}</span>
       </span>
     `;
   }
