@@ -1488,13 +1488,23 @@ header.hero::before {
 }
 
 .holder-val-then {
-  font-family: var(--sans);
-  font-size: .78rem;
+  font-family: var(--serif);
+  font-size: .9rem;
+  font-weight: 600;
   color: var(--ink-soft);
+  margin-top: .35rem;
 }
 
-.holder-val-then s {
-  text-decoration-color: var(--red);
+/* Small "2024 valuation" / "2026 valuation" caption under each figure */
+.holder-val-cap {
+  font-family: var(--sans);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: .75;
+  margin-top: 1px;
 }
 
 /* Mixed card bubble */

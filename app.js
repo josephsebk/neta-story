@@ -259,7 +259,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="holder-value">
           <div class="holder-val-now gold-text">Rs ${item.current.toFixed(2)} Cr</div>
-          <div class="holder-val-then"><s>Rs ${item.base.toFixed(2)} Cr</s></div>
+          <div class="holder-val-cap">2026 valuation</div>
+          <div class="holder-val-then">Rs ${item.base.toFixed(2)} Cr</div>
+          <div class="holder-val-cap">2024 valuation</div>
         </div>
       `;
       goldHoldersTable.appendChild(row);
@@ -289,33 +291,15 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="holder-value">
           <div class="holder-val-now silver-text">Rs ${item.current.toFixed(2)} Cr</div>
-          <div class="holder-val-then"><s>Rs ${item.base.toFixed(2)} Cr</s></div>
+          <div class="holder-val-cap">2026 valuation</div>
+          <div class="holder-val-then">Rs ${item.base.toFixed(2)} Cr</div>
+          <div class="holder-val-cap">2024 valuation</div>
         </div>
       `;
       silverHoldersTable.appendChild(row);
     });
   }
   renderSilverHolders();
-
-  // ----- C. Mixed Separations Cards -----
-  const mixedSeparationCards = document.getElementById("mixed-separation-cards");
-
-  function renderMixedSeparations() {
-    if (!mixedSeparationCards) return;
-    mixedSeparationCards.innerHTML = "";
-
-    data.mixedSeparations.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "mixed-card";
-      card.innerHTML = `
-        <h4>${item.name}</h4>
-        <div class="mixed-bubble" style="font-family:monospace">${item.mixedStr}</div>
-        <p class="mixed-separated"><strong>Audited Separation:</strong> ${item.separated}</p>
-      `;
-      mixedSeparationCards.appendChild(card);
-    });
-  }
-  renderMixedSeparations();
 
   // ----- D. Party Gold & Silver Table -----
   const partyMetalsTbody = document
@@ -597,36 +581,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   renderGlobalCards();
-
-
-  // ----- E. Comical Affidavit Weight Distortions -----
-  const distortionCardsEl = document.getElementById("distortion-cards");
-
-  function renderDistortions() {
-    if (!distortionCardsEl) return;
-    distortionCardsEl.innerHTML = "";
-
-    data.weightDistortions.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "distortion-card";
-      card.innerHTML = `
-        <h4>${item.name}</h4>
-        <div class="dist-metric-box">
-          <div class="dist-claim">
-            <span class="lbl">Raw Claimed Weight</span>
-            <span class="val raw" style="text-decoration:line-through; color:#ef4444">${item.claimed}</span>
-          </div>
-          <div class="dist-claim">
-            <span class="lbl">Audited Real Weight</span>
-            <span class="val real" style="color:#10b981">${item.reality.split(".")[0]}.</span>
-          </div>
-        </div>
-        <p class="dist-desc">${item.reality}</p>
-      `;
-      distortionCardsEl.appendChild(card);
-    });
-  }
-  renderDistortions();
 
 
   // =====================================================================
