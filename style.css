@@ -1998,6 +1998,49 @@ footer .footer-brand {
   max-width: 60ch;
 }
 
+/* ---- Disclaimer box (between Ch.1 and Ch.2) ---------------------------- */
+.disclaimer-box {
+  background: rgba(184, 138, 0, 0.06);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 1.6rem 1.8rem;
+}
+
+.disclaimer-title {
+  font-family: var(--sans);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.disclaimer-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
+
+.disclaimer-list li {
+  font-family: var(--sans);
+  font-size: .95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.disclaimer-list li strong {
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .disclaimer-box { padding: 1.3rem 1.3rem; }
+  .disclaimer-list li { font-size: .9rem; }
+}
+
 /* ---- Mixed-asset + distortion card grids (Ch.6) ------------------------ */
 .mixed-grid,
 .distortion-grid {
