@@ -8,7 +8,7 @@ window.NETA_DATA = {
   indices: [
     { label: "Nifty 50 Index", short: "Nifty 50", returnPct: 3.63, color: "#5a524a" },
     { label: "MP Returns (ex Promoter) — Weighted", short: "MPs (weighted)", returnPct: 6.48, color: "#7a8a3a" },
-    { label: "MP Returns (ex Promoter) — Simple Avg", short: "MPs (simple avg)", returnPct: 7.92, color: "#3a6a3a" },
+    { label: "MP Returns (ex Promoter) — Median", short: "MPs (median)", returnPct: 7.40, color: "#3a6a3a" },
     { label: "Total Combined (inc. Promoters)", short: "Combined w/ promoters", returnPct: 38.71, color: "#b88a00" }
   ],
   aumBreakdown: {
