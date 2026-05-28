@@ -186,3 +186,37 @@ To execute the portfolio parsing, matching, re-pricing, and analysis from scratc
    ```bash
    python3 export_csv_v3.py
    ```
+
+---
+
+## 8. Interactive Story Web Application (Neta Story Visualizer)
+
+A premium, custom-styled frontend visualizer resides in the `neta_story` directory, translating the audited ex-promoter dataset into a rich, editorial "scrollytelling" experience:
+
+### A. Editorial & Scrollytelling Layout (Ch. 1–6)
+- **Fluid Scrollytelling Framework:** A customized JavaScript scroll listener maps viewports to trigger-active states across sections, seamlessly blending text narration with responsive interactive graphics.
+- **Dumbbell Performance Scale (Ch. 2):** Highlights the absolute growth gap for leading portfolios using customized dumbbell track charts, re-scaled from absolute assets to percentage returns to ensure legible gaps across both small and institutional-grade portfolios.
+- **Leaderboard Visualizer (Ch. 2 & 3):** Fully interactive tabs to toggle between the best and worst-performing MP portfolios, populated with party tags, assets distributions, and live return coloring.
+
+### B. Interactive 3D Precious Metals Physics Visualizer (Ch. 5)
+- **Zdog pseudo-3D Engine:** Implements interactive 3D models for physical Gold and Silver coins using the Zdog vector physics engine, complete with custom drag-and-spin rotations.
+- **Double-DPR Clipping Resolution:** Solved canvas double-scaling clipping issues on high-DPI retina mobile screens by removing manual pixel ratio overrides and synchronizing Zdog layout boundaries with core CSS dimensions.
+- **Scroll Spacing Alignment:** Optimized spacing and transitions around massive valuation numbers (e.g. `+7.40%` and `+205.70%`) to guarantee appropriate scrolling padding before graphical pops trigger.
+
+### C. Search, Filter & Holdings Browse Engine (Ch. 6)
+- **Live Search Field:** Allows instant, fuzzy search across all Lok Sabha candidates' ex-promoter portfolios on a debounced `200ms` input listener.
+- **Tactile Holdings Accoridon Toggles:** Displays complete list-level asset breakdowns inside search cards, redesigned as a tactile accordion widget with subtle gold borders (`rgba(184, 138, 0, 0.25)`), hover states, and smooth click transformations.
+- **Dynamic Family/Spouse Tagging:** Individual stocks and funds clearly demarcate family ownership via custom `spouse` and `fund` badges inside search cards.
+
+### D. Advanced Mobile Responsive Engineering
+- **Zero-Overflow Collapsing Tables:** Overhauled the standard `.premium-table` elements under the `@media (max-width: 820px)` tablet/mobile query. Removed standard horizontal table scroll boxes in favor of structured column-collapsing layouts that natively fit screens down to `320px`.
+- **Precious Metals Mobile View:** Hid the `#` rank, `Gold (kg)`, and `Silver (kg)` columns on mobile, limiting the table to Party Name, MPs count, Value 2024, Value 2026, and Gain to ensure precise data alignments and prevent layout breaks.
+- **Stocks & Schemes Column Optimizations:** Hid redundant stock ticker badges and long mutual fund scheme names on mobile screens. Removed the repetitive "Rs " and " Cr" units within mobile cell fields to save horizontal viewport space.
+- **Responsive Helpers:** Added robust `.hide-mobile` and `.show-mobile-inline` display controllers that preserve native `table-cell` structure on desktop viewports while enforcing clean displays on mobile.
+
+---
+
+## 9. Brand & Audience Integrations
+- ** caveates disclaimer 1 update:** Caveat 1 in the disclaimer has been updated to explicitly clarify the returns timeline baseline: *"Returns shown assumes May 2024 as the baseline"*.
+- **Instagram Brand Integration:** Ebedded a styled `Follow @mallucinations on Instagram` call-to-action button directly under the disclaimer section (above Chapter 2) as well as within the final "More Content" footer block.
+
