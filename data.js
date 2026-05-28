@@ -47,8 +47,8 @@ window.NETA_DATA = {
     ]
   },
   spouseVsSelf: {
-    self: { label: "Self / HUF", returnPct: 6.35, avgReturnPct: 7.25, base: 158.82, mps: 92 },
-    spouse: { label: "Spouse / Dependent", returnPct: 6.81, avgReturnPct: 8.76, base: 49.98, mps: 54 }
+    self: { label: "Self / HUF", returnPct: 6.35, avgReturnPct: 6.88, base: 158.82, mps: 92 },
+    spouse: { label: "Spouse / Dependent", returnPct: 6.81, avgReturnPct: 8.37, base: 49.98, mps: 54 }
   },
   bestStocks: [
     { rank: 1, name: "Amit Shah", party: "BJP", stock: "Tera Software Limited", ticker: "TERASOFT", baseVal: 50910, curVal: 272470, returnPct: 435.2, owner: "Self" },
@@ -73,14 +73,14 @@ window.NETA_DATA = {
     { name: "Dr. Sharmila Sarkar", party: "AITC", count: 4, primaryDriver: "PayTM & fertilizer picks" }
   ],
   partyPerformance: [
-    { name: "TDP", count: 6, aum: 3.94, returnPct: 11.40, avgReturnPct: 7.12, note: "Solid mid-cap growth." },
-    { name: "AITC", count: 10, aum: 16.49, returnPct: 7.26, avgReturnPct: 6.60, note: "Consistent mid-cap selections." },
-    { name: "INC", count: 20, aum: 51.78, returnPct: 6.78, avgReturnPct: 12.34, note: "Excellent simple avg (Raymond demerger correction)." },
-    { name: "SP", count: 2, aum: 0.07, returnPct: 6.43, avgReturnPct: 21.86, note: "High avg returns on tiny portfolios." },
-    { name: "NCP-SP", count: 4, aum: 12.85, returnPct: 6.33, avgReturnPct: 6.77, note: "Anchored by Supriya Sule's holdings." },
-    { name: "BJP", count: 51, aum: 121.85, returnPct: 6.21, avgReturnPct: 5.94, note: "Massive institutional-grade diversification." },
-    { name: "AAP", count: 2, aum: 0.64, returnPct: 5.62, avgReturnPct: 5.55, note: "Average performers, beating Nifty." },
-    { name: "DMK", count: 2, aum: 1.69, returnPct: 0.27, avgReturnPct: 7.39, note: "Flat aggregate, decent simple average." }
+    { name: "TDP", count: 6, aum: 3.94, returnPct: 11.40, avgReturnPct: 7.00, note: "Solid mid-cap growth." },
+    { name: "AITC", count: 10, aum: 16.49, returnPct: 7.26, avgReturnPct: 6.80, note: "Consistent mid-cap selections." },
+    { name: "INC", count: 20, aum: 51.78, returnPct: 6.78, avgReturnPct: 6.40, note: "Strong absolute wealth gains." },
+    { name: "SP", count: 2, aum: 0.07, returnPct: 6.43, avgReturnPct: 21.85, note: "High median returns on tiny portfolios." },
+    { name: "NCP-SP", count: 4, aum: 12.85, returnPct: 6.33, avgReturnPct: 5.50, note: "Anchored by Supriya Sule's holdings." },
+    { name: "BJP", count: 51, aum: 121.85, returnPct: 6.21, avgReturnPct: 10.10, note: "Leads major parties on median return (+10.10%)." },
+    { name: "AAP", count: 2, aum: 0.64, returnPct: 5.62, avgReturnPct: 5.55, note: "Beating Nifty." },
+    { name: "DMK", count: 2, aum: 1.69, returnPct: 0.27, avgReturnPct: 7.40, note: "Flat aggregate, strong median return." }
   ],
   preciousMetals: {
     total: { base: 294.11, current: 654.36, returnPct: 122.49, gain: 360.25 },

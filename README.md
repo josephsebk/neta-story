@@ -97,19 +97,19 @@ NIFTY 50     : +3.63% (Closing price close-to-close)
 
 ### A. Spouses Outperform the MPs
 Analyzing ex-promoter portfolios by ownership category reveals that spouses manage money more dynamically than candidates themselves:
-* **Spouse / Dependent**: **+8.69% Aggregate Return** (+8.14% Simple Average) on **Rs 35.97 Crore** AUM (52 Spouses).
-* **Self / HUF**: **+4.59% Aggregate Return** (+7.31% Simple Average) on **Rs 148.66 Crore** AUM (90 MPs).
+* **Spouse / Dependent**: **+8.69% Aggregate Return** (+8.37% Median Return) on **Rs 35.97 Crore** AUM (52 Spouses).
+* **Self / HUF**: **+4.59% Aggregate Return** (+6.88% Median Return) on **Rs 148.66 Crore** AUM (90 MPs).
 
 ### B. Political Party Performance
 Ranked by aggregate return percentage (only including parties with $\ge 2$ trackable portfolios):
-1. **TDP**: 6 MPs | Aggregate **+8.96%** | Simple Avg **+5.48%** | Total AUM: **Rs 3.85 Cr**
-2. **AITC**: 9 MPs | Aggregate **+7.33%** | Simple Avg **+7.20%** | Total AUM: **Rs 15.90 Cr**
-3. **BJP**: 51 MPs | Aggregate **+6.94%** | Simple Avg **+7.11%** | Total AUM: **Rs 107.12 Cr**
-4. **SP**: 2 MPs | Aggregate **+6.43%** | Simple Avg **+21.86%** | Total AUM: **Rs 0.07 Cr**
-5. **AAP**: 2 MPs | Aggregate **+5.62%** | Simple Avg **+5.55%** | Total AUM: **Rs 0.64 Cr**
-6. **NCP-SP**: 3 MPs | Aggregate **+5.43%** | Simple Avg **+6.14%** | Total AUM: **Rs 12.66 Cr**
-7. **INC**: 20 MPs | Aggregate **+1.88%** | Simple Avg **+9.72%** | Total AUM: **Rs 53.20 Cr**
-8. **DMK**: 2 MPs | Aggregate **+0.27%** | Simple Avg **+7.39%** | Total AUM: **Rs 1.69 Cr**
+1. **TDP**: 6 MPs | Aggregate **+8.96%** | Median Return **+7.00%** | Total AUM: **Rs 3.85 Cr**
+2. **AITC**: 9 MPs | Aggregate **+7.33%** | Median Return **+6.80%** | Total AUM: **Rs 15.90 Cr**
+3. **BJP**: 51 MPs | Aggregate **+6.94%** | Median Return **+10.10%** | Total AUM: **Rs 107.12 Cr**
+4. **SP**: 2 MPs | Aggregate **+6.43%** | Median Return **+21.85%** | Total AUM: **Rs 0.07 Cr**
+5. **AAP**: 2 MPs | Aggregate **+5.62%** | Median Return **+5.55%** | Total AUM: **Rs 0.64 Cr**
+6. **NCP-SP**: 3 MPs | Aggregate **+5.43%** | Median Return **+5.50%** | Total AUM: **Rs 12.66 Cr**
+7. **INC**: 20 MPs | Aggregate **+1.88%** | Median Return **+6.40%** | Total AUM: **Rs 53.20 Cr**
+8. **DMK**: 2 MPs | Aggregate **+0.27%** | Median Return **+7.40%** | Total AUM: **Rs 1.69 Cr**
 
 ### C. Top Diversified "Super Pickers"
  Diversified candidates with multiple stock holdings returning $\ge$ +30%:
