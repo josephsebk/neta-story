@@ -1161,10 +1161,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const rect = canvas.getBoundingClientRect();
         const w = rect.width || 100;
         const currentDpr = window.devicePixelRatio || 1;
-        const targetW = Math.round(w * currentDpr);
-        if (canvas.width !== targetW || canvas.height !== targetW) {
-          canvas.width = targetW;
-          canvas.height = targetW;
+        if (illo.width !== w) {
+          illo.setSize(w, w);
           illo.scale = w * currentDpr * 0.45;
         }
       }
