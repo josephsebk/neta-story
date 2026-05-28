@@ -548,7 +548,6 @@ document.addEventListener("DOMContentLoaded", () => {
           ${logoTile(f.domain, f.house || f.name)}
           <span class="logo-cell-label">
             <span class="logo-cell-name">${f.house || ""} · ${f.short || f.name}${foreignPill}</span>
-            <span class="logo-cell-ticker hide-mobile">${f.name}</span>
           </span>
         </td>
         <td><strong>${f.holders}</strong></td>
