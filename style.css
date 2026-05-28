@@ -1778,9 +1778,6 @@ footer .footer-brand {
 }
 
 /* ---- Responsive helpers ------------------------------------------------ */
-.hide-mobile {
-  display: inline;
-}
 .show-mobile-inline {
   display: none;
 }
