@@ -184,13 +184,25 @@ document.addEventListener("DOMContentLoaded", () => {
       return { ...item, current, gain };
     });
 
-    // Shared scale across the visible tab so bars are comparable.
-    const maxVal = Math.max(...rows.map(r => Math.max(r.base, r.current))) * 1.04;
+    // Shared scale across the visible tab based on percentage returns
+    const pctList = rows.map(r => r.returnPct);
+    const minPct  = Math.min(0, ...pctList);
+    const maxPct  = Math.max(0, ...pctList);
+    const pctRange = maxPct - minPct;
+
+    const getPctPosition = (p) => {
+      if (pctRange === 0) return 50;
+      // Maps [minPct, maxPct] to [15%, 85%] range for comfortable margin padding on the track
+      return 15 + ((p - minPct) / pctRange) * 70;
+    };
 
     rows.forEach(item => {
       const positive   = item.gain >= 0;
-      const leftPct    = (Math.min(item.base, item.current) / maxVal) * 100;
-      const rightPct   = (Math.max(item.base, item.current) / maxVal) * 100;
+      const basePos    = getPctPosition(0);
+      const currentPos = getPctPosition(item.returnPct);
+      
+      const leftPct    = Math.min(basePos, currentPos);
+      const rightPct   = Math.max(basePos, currentPos);
       const segWidth   = Math.max(0.4, rightPct - leftPct); // never zero-width
       const segColor   = positive ? "var(--green)" : "var(--red)";
 
@@ -209,13 +221,13 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="lb-constituency">${item.constituency}</div>
         </div>
 
-        <div class="lb-track" aria-label="Wealth from base to current">
+        <div class="lb-track" aria-label="Wealth growth percentage">
           <div class="lb-axis"></div>
           <div class="lb-segment" style="left:${leftPct}%; width:${segWidth}%; background:${segColor}"></div>
-          <div class="lb-dot lb-dot-base"    style="left:${(item.base   /maxVal)*100}%" title="Base Rs ${item.base.toFixed(2)} Cr"></div>
-          <div class="lb-dot lb-dot-current" style="left:${(item.current/maxVal)*100}%; background:${segColor}; border-color:${segColor}" title="Current Rs ${item.current.toFixed(2)} Cr"></div>
-          <div class="lb-scale-label lb-base-label"    style="left:${(item.base   /maxVal)*100}%">Rs ${item.base.toFixed(2)} Cr</div>
-          <div class="lb-scale-label lb-current-label" style="left:${(item.current/maxVal)*100}%; color:${segColor}">Rs ${item.current.toFixed(2)} Cr</div>
+          <div class="lb-dot lb-dot-base"    style="left:${basePos}%" title="Base: Rs ${item.base.toFixed(2)} Cr (0%)"></div>
+          <div class="lb-dot lb-dot-current" style="left:${currentPos}%; background:${segColor}; border-color:${segColor}" title="Current: Rs ${item.current.toFixed(2)} Cr (${pctStr})"></div>
+          <div class="lb-scale-label lb-base-label"    style="left:${basePos}%">0%</div>
+          <div class="lb-scale-label lb-current-label" style="left:${currentPos}%; color:${segColor}">${pctStr}</div>
         </div>
 
         <div class="lb-meta">
