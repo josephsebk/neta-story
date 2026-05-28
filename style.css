@@ -61,7 +61,21 @@ body {
   line-height: 1.7;
   color: var(--ink);
   background: var(--bg);
+  /* Prevent any wide child from stretching the page horizontally, which
+     would inflate the `vw` unit (and the vw-sized coins) on mobile. */
+  overflow-x: hidden;
 }
+
+/* Wide tables scroll inside their own box instead of widening the page */
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* Keep columns readable: below these widths the table scrolls horizontally
+   inside .table-scroll rather than squishing (only triggers on narrow screens). */
+.table-scroll .premium-table { min-width: 460px; }
+.table-scroll #party-metals-table { min-width: 620px; }
 
 img {
   max-width: 100%;
@@ -243,6 +257,11 @@ header.hero::before {
 
 .step.is-active {
   opacity: 1;
+}
+
+/* Extra scroll breathing room before transitioning to Ch.1 reveal (+7.40% card) */
+.step[data-step="3"] {
+  margin-top: 35vh;
 }
 
 .step-inner {
@@ -2574,13 +2593,23 @@ footer .footer-brand {
   font-style: italic;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 820px) {
   .coin-grid {
     grid-template-columns: 1fr;
     gap: 1.4rem;
   }
-  .coin-row { min-height: 180px; }
-  .coin-arrow { padding-bottom: 1.4rem; }
+  .coin-panel { padding: 1.2rem 1rem 1rem; }
+  .coin-row { min-height: 130px; gap: .4rem; }
+  .coin-arrow { padding-bottom: 1.1rem; gap: .2rem; }
+  .coin-arrow-pct { font-size: .75rem; padding: 2px 6px; }
+  .coin-arrow-svg { width: 40px; height: 12px; }
+  .coin-value, .coin-value-big { font-size: .85rem; }
+
+  /* Perfectly proportional coin sizes on mobile, preventing ballooning */
+  .coin-cell:first-child .coin { width: 36px !important;  height: 36px !important; flex-shrink: 0 !important; }
+  .coin-cell:last-child  .coin { width: 78px !important;  height: 78px !important; flex-shrink: 0 !important; }
+  .coin-grid > .coin-panel:nth-child(2) .coin-cell:first-child .coin { width: 30px !important;  height: 30px !important; flex-shrink: 0 !important; }
+  .coin-grid > .coin-panel:nth-child(2) .coin-cell:last-child  .coin { width: 90px !important; height: 90px !important; flex-shrink: 0 !important; }
 }
 
 

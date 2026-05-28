@@ -12,6 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // ---------- RESPONSIVE TABLES ----------
+  // Wrap wide tables in a horizontally-scrollable box so they can't stretch
+  // the page on mobile. (Page-level overflow was inflating the `vw` unit and
+  // blowing up the vw-sized gold/silver coins.)
+  document.querySelectorAll(".premium-table").forEach(t => {
+    if (t.parentElement && t.parentElement.classList.contains("table-scroll")) return;
+    const wrap = document.createElement("div");
+    wrap.className = "table-scroll";
+    t.parentNode.insertBefore(wrap, t);
+    wrap.appendChild(t);
+  });
+
   // =====================================================================
   // 1. SCROLLAMA — STICKY PANE SCROLLYTELLING
   // =====================================================================
@@ -1144,6 +1156,19 @@ document.addEventListener("DOMContentLoaded", () => {
         onDragStart() { spinning = false; }
       });
 
+      // Responsive resize helper to prevent stretching and distortion on mobile
+      function resize() {
+        const rect = canvas.getBoundingClientRect();
+        const w = rect.width || 100;
+        const currentDpr = window.devicePixelRatio || 1;
+        const targetW = Math.round(w * currentDpr);
+        if (canvas.width !== targetW || canvas.height !== targetW) {
+          canvas.width = targetW;
+          canvas.height = targetW;
+          illo.scale = w * currentDpr * 0.45;
+        }
+      }
+
       const coin = new Zdog.Anchor({ addTo: illo });
 
       // Helper: point on a regular polygon at (radius, y)
@@ -1317,6 +1342,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // ── Animate ─────────────────────────────────────────────────────
       function tick() {
+        resize();
         if (spinning) illo.rotate.y += 0.01;
         illo.updateRenderGraph();
         requestAnimationFrame(tick);
