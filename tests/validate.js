@@ -67,7 +67,8 @@ section("3. Local asset references");
 const assetRefs = new Set();
 for (const m of html.matchAll(/(?:src|href)=["']([^"']+)["']/g)) {
   const u = m[1];
-  if (u.startsWith("http") || u.startsWith("#") || u.startsWith("data:")) continue;
+  // Skip external (http/https), protocol-relative (//cdn...), anchors, data URIs
+  if (u.startsWith("http") || u.startsWith("//") || u.startsWith("#") || u.startsWith("data:")) continue;
   assetRefs.add(u);
 }
 for (const rel of [...assetRefs].sort()) {
