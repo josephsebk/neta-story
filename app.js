@@ -340,13 +340,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isCoalition) tr.className = "highlight-coalition";
 
       tr.innerHTML = `
-        <td>${item.rank}</td>
+        <td class="hide-mobile">${item.rank}</td>
         <td><strong>${item.name}</strong></td>
         <td>${item.count}</td>
-        <td>${item.goldWeight.toFixed(2)} kg</td>
-        <td>${item.silverWeight.toLocaleString("en-IN")} kg</td>
-        <td>Rs ${item.base.toFixed(2)} Cr</td>
-        <td><strong>Rs ${item.current.toFixed(2)} Cr</strong></td>
+        <td class="hide-mobile">${item.goldWeight.toFixed(2)} kg</td>
+        <td class="hide-mobile">${item.silverWeight.toLocaleString("en-IN")} kg</td>
+        <td><span class="hide-mobile">Rs </span>${item.base.toFixed(2)}<span class="hide-mobile"> Cr</span></td>
+        <td><span class="hide-mobile">Rs </span><strong>${item.current.toFixed(2)}<span class="hide-mobile"> Cr</span></strong></td>
         <td class="green-pct">+${item.returnPct.toFixed(1)}%</td>
       `;
       partyMetalsTbody.appendChild(tr);
@@ -466,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <td><strong>${sp.name}</strong></td>
         <td>${sp.party}</td>
         <td><strong>${sp.count}</strong></td>
-        <td>${sp.primaryDriver}</td>
+        <td class="hide-mobile">${sp.primaryDriver}</td>
       `;
       superPickersTbody.appendChild(tr);
     });
@@ -487,10 +487,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${i + 1}</td>
         <td><strong>${p.name}</strong></td>
         <td>${p.count}</td>
-        <td>Rs ${p.aum.toFixed(2)}</td>
+        <td><span class="hide-mobile">Rs </span>${p.aum.toFixed(2)}</td>
         <td class="${pctClass(p.returnPct)}">${pctFmt(p.returnPct)}</td>
         <td class="${pctClass(p.avgReturnPct)}">${pctFmt(p.avgReturnPct)}</td>
-        <td class="party-note">${p.note}</td>
+        <td class="party-note hide-mobile">${p.note}</td>
       `;
       partyPerfTbody.appendChild(tr);
     });
@@ -516,11 +516,11 @@ document.addEventListener("DOMContentLoaded", () => {
           ${logoTile(s.domain, s.name)}
           <span class="logo-cell-label">
             <span class="logo-cell-name">${s.name}</span>
-            <code class="logo-cell-ticker">${s.ticker}</code>
+            <code class="logo-cell-ticker hide-mobile">${s.ticker}</code>
           </span>
         </td>
         <td><strong>${s.holders}</strong></td>
-        <td>Rs ${s.aumCr.toFixed(2)}</td>
+        <td><span class="hide-mobile">Rs </span>${s.aumCr.toFixed(2)}</td>
         <td class="${pctClass(s.returnPct)}">${pctFmt(s.returnPct)}</td>
       `;
       preferredStocksTbody.appendChild(tr);
@@ -548,11 +548,11 @@ document.addEventListener("DOMContentLoaded", () => {
           ${logoTile(f.domain, f.house || f.name)}
           <span class="logo-cell-label">
             <span class="logo-cell-name">${f.house || ""} · ${f.short || f.name}${foreignPill}</span>
-            <span class="logo-cell-ticker">${f.name}</span>
+            <span class="logo-cell-ticker hide-mobile">${f.name}</span>
           </span>
         </td>
         <td><strong>${f.holders}</strong></td>
-        <td>Rs ${f.aumCr.toFixed(2)}</td>
+        <td><span class="hide-mobile">Rs </span>${f.aumCr.toFixed(2)}</td>
         <td class="${pctClass(f.returnPct)}">${pctFmt(f.returnPct)}</td>
       `;
       preferredFundsTbody.appendChild(tr);
