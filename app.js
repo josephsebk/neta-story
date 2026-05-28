@@ -619,7 +619,8 @@ document.addEventListener("DOMContentLoaded", () => {
           superPickerCount: null,
           driver: null,
           stock: null,
-          stockReturnPct: null
+          stockReturnPct: null,
+          holdings: null
         };
 
         // Merge fields – keep the first non-null value already stored
@@ -635,6 +636,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (raw.driver) existing.driver = existing.driver || raw.driver;
         if (raw.stock) existing.stock = raw.stock;
         if (raw.stockReturnPct != null) existing.stockReturnPct = raw.stockReturnPct;
+        if (raw.holdings) existing.holdings = raw.holdings;
 
         mpMap.set(key, existing);
       }
@@ -701,6 +703,27 @@ document.addEventListener("DOMContentLoaded", () => {
       // --- Source: Party Gold/Silver (party-level, no individual names) ---
       // These are party aggregates, not individual MPs — skip for search.
 
+      // --- Source: Full per-MP listed holdings (holdings.js) ---
+      // This is the richest source — it adds every MP who declared any
+      // listed equity/fund, plus their actual position list.
+      const HOLD = window.NETA_HOLDINGS || {};
+      Object.keys(HOLD).forEach(upperName => {
+        const h = HOLD[upperName];
+        // Title-case the UPPERCASE dataset name for display
+        const pretty = upperName
+          .toLowerCase()
+          .replace(/\b\w/g, c => c.toUpperCase());
+        upsert({
+          name: pretty,
+          party: h.party,
+          constituency: h.constituency,
+          base: h.listedBase != null ? h.listedBase / 1e7 : null,   // ₹ -> Cr
+          current: h.listedCur != null ? h.listedCur / 1e7 : null,
+          returnPct: h.listedRet,
+          holdings: h
+        });
+      });
+
       return Array.from(mpMap.values());
     }
 
@@ -758,6 +781,43 @@ document.addEventListener("DOMContentLoaded", () => {
           ? `<div class="result-metrics">${metrics.join(" &middot; ")}</div>`
           : "";
 
+        // --- Listed holdings table (if we have position-level data) ---
+        let holdingsHtml = "";
+        const h = mp.holdings;
+        if (h && h.positions && h.positions.length) {
+          const rows = h.positions.map(pos => {
+            const retClass = pos.r == null ? "" : (pos.r >= 0 ? "green" : "red");
+            const retStr   = pos.r == null ? "—" : (pos.r >= 0 ? "+" : "") + pos.r.toFixed(1) + "%";
+            const ownerTag = pos.o === "S" ? ` <span class="hold-owner">spouse</span>` : "";
+            const kindTag  = pos.k === "F" ? ` <span class="hold-kind">fund</span>` : "";
+            return `
+              <tr>
+                <td class="hold-name"><span class="hold-sym">${pos.s}</span> ${pos.n}${kindTag}${ownerTag}</td>
+                <td class="hold-val">Rs ${fmtCr(pos.c)}</td>
+                <td class="hold-ret ${retClass}">${retStr}</td>
+              </tr>`;
+          }).join("");
+
+          const more = (h.nEquity + h.nFund) > h.positions.length
+            ? `<p class="hold-more">Showing top ${h.positions.length} of ${h.nEquity + h.nFund} listed holdings (by current value).</p>`
+            : "";
+
+          const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+          const stockTxt = h.nEquity ? plural(h.nEquity, "stock") : "";
+          const fundTxt  = h.nFund ? plural(h.nFund, "fund") : "";
+          const countTxt = [stockTxt, fundTxt].filter(Boolean).join(" &amp; ");
+
+          holdingsHtml = `
+            <details class="hold-details">
+              <summary>Listed holdings — Rs ${fmtCr(h.listedCur)} across ${countTxt}</summary>
+              <table class="hold-table">
+                <thead><tr><th>Security</th><th>2026 value</th><th>Return</th></tr></thead>
+                <tbody>${rows}</tbody>
+              </table>
+              ${more}
+            </details>`;
+        }
+
         card.innerHTML = `
           <div class="result-header">
             ${mp.party ? `<span class="card-tag ${mp.party.toLowerCase().replace(/[^a-z]/g,'')}">${mp.party}</span>` : ""}
@@ -765,9 +825,20 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           ${mp.constituency ? `<span class="result-constituency">${mp.constituency}</span>` : ""}
           ${metricsHtml}
+          ${holdingsHtml}
         `;
         searchResults.appendChild(card);
       });
+    }
+
+    /**
+     * Format raw rupees into a compact "X.XX Cr" / "X.XX L" / "₹N" string.
+     */
+    function fmtCr(rupees) {
+      if (rupees == null) return "—";
+      if (rupees >= 1e7) return (rupees / 1e7).toFixed(2) + " Cr";
+      if (rupees >= 1e5) return (rupees / 1e5).toFixed(2) + " L";
+      return Math.round(rupees).toLocaleString("en-IN");
     }
 
     /**

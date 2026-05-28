@@ -2008,6 +2008,102 @@ footer .footer-brand {
   max-width: 60ch;
 }
 
+/* ---- Search result: listed holdings table ------------------------------ */
+.hold-details {
+  margin-top: .9rem;
+  border-top: 1px solid var(--rule);
+  padding-top: .6rem;
+}
+
+.hold-details summary {
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--accent);
+  list-style: none;
+  user-select: none;
+}
+.hold-details summary::-webkit-details-marker { display: none; }
+.hold-details summary::before {
+  content: "▸ ";
+  display: inline-block;
+  transition: transform .15s ease;
+}
+.hold-details[open] summary::before { content: "▾ "; }
+
+.hold-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: .7rem;
+}
+.hold-table th {
+  font-family: var(--sans);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: left;
+  padding: .3rem .5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.hold-table th:nth-child(2),
+.hold-table th:nth-child(3),
+.hold-table td:nth-child(2),
+.hold-table td:nth-child(3) { text-align: right; white-space: nowrap; }
+
+.hold-table td {
+  font-family: var(--sans);
+  font-size: .82rem;
+  color: var(--ink);
+  padding: .35rem .5rem;
+  border-bottom: 1px solid rgba(200,190,176,.4);
+  vertical-align: top;
+}
+
+.hold-sym {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  background: var(--bg-dark);
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-right: .35rem;
+}
+
+.hold-owner, .hold-kind {
+  display: inline-block;
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border-radius: 8px;
+  margin-left: .3rem;
+  vertical-align: middle;
+}
+.hold-owner { background: rgba(184,138,0,.12); color: var(--accent); }
+.hold-kind  { background: rgba(58,106,58,.12); color: var(--green); }
+
+.hold-val { font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+.hold-ret {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.hold-ret.green { color: var(--green); }
+.hold-ret.red   { color: var(--red); }
+
+.hold-more {
+  font-family: var(--sans);
+  font-size: .72rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: .5rem;
+}
+
 /* ---- Disclaimer box (between Ch.1 and Ch.2) ---------------------------- */
 .disclaimer-box {
   background: rgba(184, 138, 0, 0.06);
