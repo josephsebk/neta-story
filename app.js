@@ -782,7 +782,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const metrics = [];
         if (mp.returnPct != null) {
           const sign = mp.returnPct >= 0 ? "+" : "";
-          metrics.push(`Return: <span class="${mp.returnPct >= 0 ? "green" : "red"}">${sign}${mp.returnPct.toFixed(2)}%</span>`);
+          metrics.push(`Stock / Fund Returns: <span class="${mp.returnPct >= 0 ? "green" : "red"}">${sign}${mp.returnPct.toFixed(2)}%</span>`);
         }
         if (mp.gain != null) {
           metrics.push(`Gain: +Rs ${mp.gain.toFixed(2)} Cr`);
