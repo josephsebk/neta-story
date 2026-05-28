@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "neta-story",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["tests/server.js"],
+      "port": 4178
+    }
+  ]
+}

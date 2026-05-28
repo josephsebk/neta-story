@@ -1998,6 +1998,15 @@ footer .footer-brand {
   max-width: 60ch;
 }
 
+/* ---- Mixed-asset + distortion card grids (Ch.6) ------------------------ */
+.mixed-grid,
+.distortion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 /* ---- Section view-toggle (Ch.4 holders vs AUM) ------------------------- */
 .view-toggle {
   display: inline-flex;
@@ -2344,8 +2353,8 @@ footer .footer-brand {
     grid-template-columns: 1fr;
     gap: 1.4rem;
   }
-  .coin-row { min-height: 220px; }
-  .coin-arrow { padding-bottom: 1.8rem; }
+  .coin-row { min-height: 180px; }
+  .coin-arrow { padding-bottom: 1.4rem; }
 }
 
 
