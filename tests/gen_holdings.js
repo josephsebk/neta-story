@@ -50,14 +50,44 @@ for (const p of d.portfolios) {
   const listedBase = eqBase + fdBase;
   const listedCur  = eqCur + fdCur;
 
+  // Count actual listed positions (p.n_equity is the ex-promoter count and
+  // can understate the true number of declared equity lines, e.g. promoter
+  // holdings), so derive counts from the data we actually show.
+  const nEq = listed.filter(x => x.kind === "equity").length;
+  const nFd = listed.filter(x => x.kind === "fund").length;
+
+  // Aggregate physical gold and silver from the precious-metal positions.
+  function metalAgg(sym) {
+    const items = (p.positions || []).filter(
+      x => x.kind === "precious_metal" && x.symbol === sym
+    );
+    if (!items.length) return null;
+    let base = 0, cur = 0, grams = 0;
+    for (const x of items) {
+      base  += x.declared_value || 0;
+      cur   += x.cur_value || 0;
+      grams += x.weight_grams || 0;
+    }
+    return {
+      b: round(base),
+      c: round(cur),
+      g: Math.round(grams),                                   // grams
+      r: base ? Math.round((cur / base - 1) * 1000) / 10 : null
+    };
+  }
+  const gold   = metalAgg("GOLD");
+  const silver = metalAgg("SILVER");
+
   out[p.name.trim().toUpperCase()] = {
     party:        p.party || null,
     constituency: p.constituency || null,
-    nEquity:      p.n_equity || 0,
-    nFund:        p.n_fund || 0,
+    nEquity:      nEq,
+    nFund:        nFd,
     listedBase:   round(listedBase),
     listedCur:    round(listedCur),
     listedRet:    listedBase ? Math.round((listedCur / listedBase - 1) * 1000) / 10 : null,
+    gold,
+    silver,
     positions
   };
   mps++;

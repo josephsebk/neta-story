@@ -781,11 +781,13 @@ document.addEventListener("DOMContentLoaded", () => {
           ? `<div class="result-metrics">${metrics.join(" &middot; ")}</div>`
           : "";
 
-        // --- Listed holdings table (if we have position-level data) ---
+        // --- Holdings table: listed securities + physical gold/silver ---
         let holdingsHtml = "";
         const h = mp.holdings;
-        if (h && h.positions && h.positions.length) {
-          const rows = h.positions.map(pos => {
+        const hasMetals = h && (h.gold || h.silver);
+        if (h && ((h.positions && h.positions.length) || hasMetals)) {
+          // Listed equity / fund rows
+          const rows = (h.positions || []).map(pos => {
             const retClass = pos.r == null ? "" : (pos.r >= 0 ? "green" : "red");
             const retStr   = pos.r == null ? "—" : (pos.r >= 0 ? "+" : "") + pos.r.toFixed(1) + "%";
             const ownerTag = pos.o === "S" ? ` <span class="hold-owner">spouse</span>` : "";
@@ -798,24 +800,45 @@ document.addEventListener("DOMContentLoaded", () => {
               </tr>`;
           }).join("");
 
-          const more = (h.nEquity + h.nFund) > h.positions.length
-            ? `<p class="hold-more">Showing top ${h.positions.length} of ${h.nEquity + h.nFund} listed holdings (by current value).</p>`
+          // Physical metal rows (gold, then silver)
+          function metalRow(m, label, cls) {
+            if (!m) return "";
+            const kg = m.g / 1000;
+            const wt = kg >= 1 ? kg.toFixed(2) + " kg" : Math.round(m.g) + " g";
+            const retClass = m.r == null ? "" : (m.r >= 0 ? "green" : "red");
+            const retStr   = m.r == null ? "—" : (m.r >= 0 ? "+" : "") + m.r.toFixed(1) + "%";
+            return `
+              <tr class="hold-metal-row">
+                <td class="hold-name"><span class="hold-metal ${cls}">${label}</span> Physical ${label} <span class="hold-wt">${wt}</span></td>
+                <td class="hold-val">Rs ${fmtCr(m.c)}</td>
+                <td class="hold-ret ${retClass}">${retStr}</td>
+              </tr>`;
+          }
+          const metalRows = metalRow(h.gold, "Gold", "gold") + metalRow(h.silver, "Silver", "silver");
+
+          const more = (h.nEquity + h.nFund) > (h.positions || []).length
+            ? `<p class="hold-more">Showing top ${(h.positions || []).length} of ${h.nEquity + h.nFund} listed holdings (by current value), plus physical metals.</p>`
             : "";
 
+          // Summary line: count of each asset type
           const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
-          const stockTxt = h.nEquity ? plural(h.nEquity, "stock") : "";
-          const fundTxt  = h.nFund ? plural(h.nFund, "fund") : "";
-          const countTxt = [stockTxt, fundTxt].filter(Boolean).join(" &amp; ");
+          const parts = [];
+          if (h.nEquity) parts.push(plural(h.nEquity, "stock"));
+          if (h.nFund)   parts.push(plural(h.nFund, "fund"));
+          if (h.gold)    parts.push("gold");
+          if (h.silver)  parts.push("silver");
+          const countTxt = parts.join(", ");
+          const totalCur = (h.listedCur || 0) + (h.gold ? h.gold.c : 0) + (h.silver ? h.silver.c : 0);
 
           holdingsHtml = `
             <div class="hold-block">
               <button type="button" class="hold-toggle" aria-expanded="false">
-                <span class="hold-caret">▸</span> Listed holdings — Rs ${fmtCr(h.listedCur)} across ${countTxt}
+                <span class="hold-caret">▸</span> Holdings — Rs ${fmtCr(totalCur)} across ${countTxt}
               </button>
               <div class="hold-body" hidden>
                 <table class="hold-table">
-                  <thead><tr><th>Security</th><th>2026 value</th><th>Return</th></tr></thead>
-                  <tbody>${rows}</tbody>
+                  <thead><tr><th>Holding</th><th>2026 value</th><th>Return</th></tr></thead>
+                  <tbody>${rows}${metalRows}</tbody>
                 </table>
                 ${more}
               </div>
