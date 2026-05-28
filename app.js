@@ -1152,7 +1152,7 @@ document.addEventListener("DOMContentLoaded", () => {
         element:    canvas,
         dragRotate: true,
         rotate:     { x: -0.42 },                // tilt so rim + facets visible
-        scale:      cssW * dpr * 0.45,
+        scale:      cssW * 0.45,
         onDragStart() { spinning = false; }
       });
 
@@ -1160,10 +1160,9 @@ document.addEventListener("DOMContentLoaded", () => {
       function resize() {
         const rect = canvas.getBoundingClientRect();
         const w = rect.width || 100;
-        const currentDpr = window.devicePixelRatio || 1;
         if (illo.width !== w) {
           illo.setSize(w, w);
-          illo.scale = w * currentDpr * 0.45;
+          illo.scale = w * 0.45;
         }
       }
 
