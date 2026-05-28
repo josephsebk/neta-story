@@ -808,14 +808,18 @@ document.addEventListener("DOMContentLoaded", () => {
           const countTxt = [stockTxt, fundTxt].filter(Boolean).join(" &amp; ");
 
           holdingsHtml = `
-            <details class="hold-details">
-              <summary>Listed holdings — Rs ${fmtCr(h.listedCur)} across ${countTxt}</summary>
-              <table class="hold-table">
-                <thead><tr><th>Security</th><th>2026 value</th><th>Return</th></tr></thead>
-                <tbody>${rows}</tbody>
-              </table>
-              ${more}
-            </details>`;
+            <div class="hold-block">
+              <button type="button" class="hold-toggle" aria-expanded="false">
+                <span class="hold-caret">▸</span> Listed holdings — Rs ${fmtCr(h.listedCur)} across ${countTxt}
+              </button>
+              <div class="hold-body" hidden>
+                <table class="hold-table">
+                  <thead><tr><th>Security</th><th>2026 value</th><th>Return</th></tr></thead>
+                  <tbody>${rows}</tbody>
+                </table>
+                ${more}
+              </div>
+            </div>`;
         }
 
         card.innerHTML = `
@@ -875,6 +879,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Attach debounced listener (200ms)
     searchInput.addEventListener("input", debounce(handleSearch, 200));
+
+    // Delegated click handler for the "Listed holdings" toggles. Delegation
+    // means it keeps working after every search re-render without rebinding.
+    searchResults.addEventListener("click", (e) => {
+      const btn = e.target.closest(".hold-toggle");
+      if (!btn) return;
+      const body  = btn.nextElementSibling;        // .hold-body
+      const caret = btn.querySelector(".hold-caret");
+      const open  = body.hasAttribute("hidden");
+      if (open) {
+        body.removeAttribute("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        if (caret) caret.textContent = "▾";
+      } else {
+        body.setAttribute("hidden", "");
+        btn.setAttribute("aria-expanded", "false");
+        if (caret) caret.textContent = "▸";
+      }
+    });
 
     // Show default placeholder text on load
     renderSearchResults([], "");

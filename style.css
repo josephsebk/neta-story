@@ -2009,28 +2009,31 @@ footer .footer-brand {
 }
 
 /* ---- Search result: listed holdings table ------------------------------ */
-.hold-details {
+.hold-block {
   margin-top: .9rem;
   border-top: 1px solid var(--rule);
   padding-top: .6rem;
 }
 
-.hold-details summary {
+.hold-toggle {
+  display: block;
+  width: 100%;
+  text-align: left;
+  appearance: none;
+  border: none;
+  background: transparent;
   cursor: pointer;
   font-family: var(--sans);
   font-size: .82rem;
   font-weight: 600;
   color: var(--accent);
-  list-style: none;
-  user-select: none;
+  padding: .25rem 0;
 }
-.hold-details summary::-webkit-details-marker { display: none; }
-.hold-details summary::before {
-  content: "▸ ";
+.hold-toggle:hover { color: var(--ink); }
+.hold-caret {
   display: inline-block;
-  transition: transform .15s ease;
+  width: 1em;
 }
-.hold-details[open] summary::before { content: "▾ "; }
 
 .hold-table {
   width: 100%;
