@@ -41,7 +41,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
          line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance}
 /* "Over" struck through: it wasn't overheard, all of it was heard.
    Uses the font's own strikeout metric, which sits through the middle of the
-   lowercase — a hand-tuned offset rides too high at display sizes. */
+   lowercase; a hand-tuned offset rides too high at display sizes. */
 .hero h1 s{text-decoration:line-through;
            text-decoration-thickness:.055em;
            text-decoration-color:currentColor;
@@ -82,7 +82,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
 /* Row metrics shrink with viewport height so all 27 themes stay on screen. */
 /* Theme swarm: one dot per theme, placed on a single axis by how much it gets
    spoken about. A distribution survives a narrow screen in a way that 27
-   labelled rows cannot — only the themes being talked about need a label. */
+   labelled rows cannot: only the themes being talked about need a label. */
 #swarm{display:block;width:100%;height:auto}
 .dot{fill:var(--gray);transition:fill .5s ease,opacity .5s ease}
 .dot.off{opacity:.2}
@@ -98,7 +98,7 @@ body{margin:0;background:var(--bg);color:var(--ink);
            min-height:3.2em}
 .swarm-cap b{color:var(--ink);font-weight:600}
 
-/* .steps / .step geometry lives in the scrolly block above — do not redeclare. */
+/* .steps / .step geometry lives in the scrolly block above; do not redeclare. */
 .step-inner{background:var(--bg);border-left:2px solid var(--accent);
             padding:20px 20px;border-radius:0 var(--radius-md) var(--radius-md) 0;
             box-shadow:var(--shadow-sm)}
@@ -251,7 +251,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
   <div class="hero-inner">
     <p class="kicker">Global Fintech Fest · 4.7 Million Words</p>
     <h1><s>Over</s>heard at GFF</h1>
-    <p class="dek">Ever wondered what they actually talk about at GFF? I ran a full analysis of what gets spoken about at the conference — 758 sessions across four editions transcribed, 4.7 million words, to work out which topics are hot and which are not.</p>
+    <p class="dek">Ever wondered what they actually talk about at GFF? I ran a full analysis of what gets spoken about at the conference. 758 sessions across four editions transcribed, 4.7 million words, to work out which topics are hot and which are not.</p>
     <p class="scroll-cue">Scroll to begin ↓</p>
   </div>
 </header>
@@ -269,7 +269,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
     <section class="step" data-step="1">
       <div class="step-inner">
         <h2>Everything they talked about.</h2>
-        <p>Twenty-seven themes, tracked across every published session from 2022 to 2025. Each dot is one theme, placed by how often it is spoken about per ten thousand words — so a long keynote and a short panel count on the same scale.</p>
+        <p>Twenty-seven themes, tracked across every published session from 2022 to 2025. Each dot is one theme, placed by how often it is spoken about per ten thousand words, so a long keynote and a short panel count on the same scale.</p>
         <p class="note">The corpus is 758 sessions.</p>
       </div>
     </section>
@@ -277,7 +277,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
     <section class="step" data-step="2">
       <div class="step-inner">
         <h2>Ten themes carry the conference.</h2>
-        <p>The top ten account for the overwhelming share of everything said on stage. <strong>Lending and credit leads every single year</strong> — however, it is not as hot as it once was.</p>
+        <p>The top ten account for the overwhelming share of everything said on stage. <strong>Lending and credit leads every single year</strong>, though it is not as hot as it once was.</p>
       </div>
     </section>
 
@@ -285,7 +285,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
       <div class="step-inner">
         <h2>One theme never moves.</h2>
         <span class="bigword">Regulation.</span>
-        <p>Between 22.1 and 24.7 mentions per ten thousand words in every year measured, and present in <strong>at least 90% of sessions annually</strong> — reaching 94% in 2025.</p>
+        <p>Between 22.1 and 24.7 mentions per ten thousand words in every year measured, and present in <strong>at least 90% of sessions annually</strong>, reaching 94% in 2025.</p>
         <p>No other theme is remotely that stable, or that pervasive.</p>
       </div>
     </section>
@@ -293,7 +293,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
     <section class="step" data-step="4">
       <div class="step-inner">
         <h2>And one arrived from nothing.</h2>
-        <p>Across 1.25 million words of 2022 sessions, there is not a single mention of generative AI or large language models. Not rare — <strong>absent</strong>.</p>
+        <p>Across 1.25 million words of 2022 sessions, there is not a single mention of generative AI or large language models. Not rare. It is <strong>absent</strong>.</p>
         <p>By 2025 the two AI themes together appear in more than a third of every session on the programme.</p>
       </div>
     </section>
@@ -342,7 +342,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
           <text x="78" y="238" fill="#5a524a" font-size="11.5" font-weight="500">both at zero</text>
         </g>
       </svg>
-      <p class="figcap">Mentions per 10,000 words. Agentic AI is not a gradual build — it is absent, absent, a rounding error, then present in <span class="mono">31%</span> of all 2025 sessions.</p>
+      <p class="figcap">Mentions per 10,000 words. Agentic AI is not a gradual build. It is absent, absent, a rounding error, then present in <span class="mono">31%</span> of all 2025 sessions.</p>
     </div>
 
     <p class="chapter-kicker">A conference agenda is a lagging indicator of what an industry believes.</p>
@@ -359,12 +359,12 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
       <div class="fig-head" style="margin-bottom:2px">Biggest movers, 2022 to 2025</div>
       <div class="fig-sub">change in mentions per 10,000 words</div>
       <div class="mv" id="movers"></div>
-      <p class="figcap"><strong>Green rises, red falls.</strong> The themes that fell hardest are largely the ones launched with the most fanfare — open networks, the digital rupee, embedded finance and climate finance all peaked early and receded.</p>
+      <p class="figcap"><strong>Green rises, red falls.</strong> The themes that fell hardest are largely the ones launched with the most fanfare. Open networks, the digital rupee, embedded finance and climate finance all peaked early and receded.</p>
     </div>
 
-    <p>Lending's decline is larger than any other movement in the corpus by a factor of two and a half — <span class="mono">−8.68</span> mentions per ten thousand words, against a next-largest fall of <span class="mono">−2.85</span>. But it falls from a base so high that it remains the single most-discussed theme on the programme.</p>
+    <p>Lending's decline is larger than any other movement in the corpus by a factor of two and a half: <span class="mono">−8.68</span> mentions per ten thousand words, against a next-largest fall of <span class="mono">−2.85</span>. But it falls from a base so high that it remains the single most-discussed theme on the programme.</p>
 
-    <p class="chapter-kicker">Four years ago this was a conference about what the industry could build. It is now substantially a conference about what the industry has to defend — from fraud, from data law, and from the regulator who was always already in the room.</p>
+    <p class="chapter-kicker">Four years ago this was a conference about what the industry could build. It is now substantially a conference about what the industry has to defend: from fraud, from data law, and from the regulator who was always already in the room.</p>
   </div>
 </section>
 
@@ -384,11 +384,11 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
   <div class="chapter-inner">
     <p class="chapter-num">Chapter 8</p>
     <h2 class="chapter-title">Four themes that peaked and faded.</h2>
-    <p class="chapter-lead">The corpus is long enough to watch enthusiasm cycles complete. Each of these rose, drew a dedicated track, and then thinned out — visible not only as fewer mentions, but as fewer sessions willing to touch the subject at all.</p>
+    <p class="chapter-lead">The corpus is long enough to watch enthusiasm cycles complete. Each of these rose, drew a dedicated track, and then thinned out, visible not only as fewer mentions but as fewer sessions willing to touch the subject at all.</p>
 
     <div class="decay" id="decay"></div>
 
-    <p class="note">The metaverse does not even appear as a tracked theme. It surfaced instead as one of the terms most distinctive to 2022 in the pass above — and vanishes entirely thereafter.</p>
+    <p class="note">The metaverse does not even appear as a tracked theme. It surfaced instead as one of the terms most distinctive to 2022 in the pass above, and vanishes entirely thereafter.</p>
 
     <p class="chapter-kicker">The pattern is uncomfortable for anyone launching a category: the themes that fell hardest are largely the ones introduced with the most institutional fanfare. Open networks, the digital rupee, embedded finance and climate finance all peaked early and receded.</p>
   </div>
@@ -398,7 +398,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
   <div class="chapter-inner">
     <p class="chapter-num">Chapter 9</p>
     <h2 class="chapter-title">All twenty-seven, in full.</h2>
-    <p class="chapter-lead">Mentions per ten thousand words, by year. The final column is the share of that year's sessions in which the theme appears at all — the difference between a theme being discussed intensely and being discussed widely.</p>
+    <p class="chapter-lead">Mentions per ten thousand words, by year. The final column is the share of that year's sessions in which the theme appears at all. That is the difference between a theme being discussed intensely and being discussed widely.</p>
 
     <div class="tw">
       <table>
@@ -407,7 +407,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
         <tbody id="tbody"></tbody>
       </table>
     </div>
-    <p class="note">Sparklines are scaled to each theme's own maximum, so they show shape rather than magnitude. Themes overlap by design — a session about fraud in digital lending counts toward both.</p>
+    <p class="note">Sparklines are scaled to each theme's own maximum, so they show shape rather than magnitude. Themes overlap by design: a session about fraud in digital lending counts toward both.</p>
   </div>
 </section>
 
@@ -415,9 +415,9 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
   <div class="chapter-inner">
     <p class="chapter-num">Chapter 10 · The reversal</p>
     <h2 class="chapter-title">Early signs from Day 1: 2026</h2>
-    <p class="chapter-lead">GFF 2026 was billed on three pillars: agentic AI, tokenisation and quantum. Measured on the four years of sessions that preceded it, only one of the three had any momentum — tokenisation was in steady decline, and the billing looked aspirational.</p>
+    <p class="chapter-lead">GFF 2026 was billed on three pillars: agentic AI, tokenisation and quantum. Measured on the four years of sessions that preceded it, only one of the three had any momentum. Tokenisation was in steady decline, and the billing looked aspirational.</p>
 
-    <p>No individual sessions are published yet, but the full-day room feeds for Day 1 are — and they can be read against the equivalent 2025 feeds, room against room, so the recording format is held constant. On that comparison the earlier reading was wrong.</p>
+    <p>No individual sessions are published yet, but the full-day room feeds for Day 1 are, and they can be read against the equivalent 2025 feeds, room against room, so the recording format is held constant. On that comparison the earlier reading was wrong.</p>
 
     <div class="tw">
       <table>
@@ -427,7 +427,7 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
     </div>
 
     <ul class="pl">
-      <li><strong>Tokenisation is genuinely up, in both rooms.</strong> Every 2026 feed exceeds every 2025 feed — the quieter room by roughly two and a half times, the busier one by five.</li>
+      <li><strong>Tokenisation is genuinely up, in both rooms.</strong> Every 2026 feed exceeds every 2025 feed: the quieter room by roughly two and a half times, the busier one by five.</li>
       <li><strong>Agentic AI is up, more modestly.</strong> Both 2026 feeds sit at or above the 2025 range, confirming the original reading.</li>
       <li><strong>Quantum is one track, not a theme.</strong> It reaches <span class="mono">2.99</span> in Jasmine 3 but only <span class="mono">0.32</span> in the main hall.</li>
     </ul>
@@ -450,19 +450,19 @@ footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
     </div>
 
     <ul class="pl">
-      <li><strong>Event year, not upload year.</strong> Sessions appear for months after the event — one GFF'25 session surfaced in February 2026. Year comes from an explicit GFF marker where one exists, otherwise a conference-season rule. 2025 is 97% explicitly tagged; 2022 leans on the fallback for 80% of its videos, so the early years are the softest figures here.</li>
-      <li><strong>Everything is normalised per 10,000 words.</strong> The corpus is uneven — 267 sessions in 2025 against 147 in 2024 — so raw counts would measure upload volume rather than attention.</li>
+      <li><strong>Event year, not upload year.</strong> Sessions appear for months after the event. One GFF'25 session surfaced in February 2026. Year comes from an explicit GFF marker where one exists, otherwise a conference-season rule. 2025 is 97% explicitly tagged; 2022 leans on the fallback for 80% of its videos, so the early years are the softest figures here.</li>
+      <li><strong>Everything is normalised per 10,000 words.</strong> The corpus is uneven, with 267 sessions in 2025 against 147 in 2024, so raw counts would measure upload volume rather than attention.</li>
       <li><strong>Livestreams are held separately.</strong> A shingle-overlap test found 46% to 85% of each full-day room feed already appears verbatim in that year's sessions, so merging them would count the same speech twice. They are used only for 2026, where no sessions exist yet.</li>
-      <li><strong>Auto-captions mishear things,</strong> especially Indian acronyms — UPI becomes "you pi", eKYC "e k y c". The lexicon compensates with spaced variants; the keyness pass still needed manual cleaning. And keyword counting is not comprehension: a theme mentioned dismissively counts the same as one taken seriously.</li>
+      <li><strong>Auto-captions mishear things,</strong> especially Indian acronyms. UPI becomes "you pi", eKYC "e k y c". The lexicon compensates with spaced variants; the keyness pass still needed manual cleaning. And keyword counting is not comprehension: a theme mentioned dismissively counts the same as one taken seriously.</li>
     </ul>
 
-    <p class="chapter-kicker">Median session length is near-identical across all four years — 37.6 to 41.4 minutes — so these trends are not an artefact of the programme being recorded differently over time. Every number is reproducible from the published recordings.</p>
+    <p class="chapter-kicker">Median session length is near-identical across all four years, between 37.6 and 41.4 minutes, so these trends are not an artefact of the programme being recorded differently over time. Every number is reproducible from the published recordings.</p>
   </div>
 </section>
 
 <footer>
   <p class="credit">Produced by <a href="https://blume.vc" target="_blank" rel="noopener">Blume Ventures</a></p>
-  <p class="reach">Reach out if you're building in fintech —<br><a href="mailto:joseph@blume.vc">joseph@blume.vc</a></p>
+  <p class="reach">Reach out if you're building in fintech<br><a href="mailto:joseph@blume.vc">joseph@blume.vc</a></p>
   <div class="foot-rule"></div>
   <p class="mono">758 sessions · 4,735,833 words · 2022–2025</p>
   <p>Plus 12 full-day room feeds, held separately</p>
@@ -546,7 +546,7 @@ function label(name, sub, place) {
 }
 
 const CAPS = {
-  1: 'Twenty-seven themes. Most cluster below five — and two sit a long way out on their own.',
+  1: 'Twenty-seven themes. Most cluster below five, and two sit a long way out on their own.',
   2: '<b>The ten biggest carry the conference.</b> Everything else shares what is left.',
   3: '<b>Regulation never moves.</b> 24.7 per 10,000 words, and in 94% of sessions.',
   4: '<b>Both AI dots were at zero in 2022.</b> The dashed line is how far they travelled.'
@@ -571,7 +571,7 @@ function setStep(n) {
     anns = label(REG, '24.7 · 94% of sessions', -1);
   } else if (n === 4) {
     // The two AI dots sit almost on top of each other, so the higher one takes
-    // the label above and the lower one below — otherwise the leaders cross.
+    // the label above and the lower one below, otherwise the leaders cross.
     const ai = AI.map(nm => byName[nm]).filter(Boolean).sort((a, b) => a.y - b.y);
     ai.forEach((p, i) => {
       ghosts += '<circle class="ghost" cx="' + sx(0).toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="' + SW.r + '"/>' +
@@ -627,7 +627,7 @@ const decayNames = ['CBDC & digital rupee', 'ONDC & open networks',
                     'Sustainability & climate finance', 'Embedded finance & BaaS'];
 const blurb = {
   'CBDC & digital rupee': 'More than doubled into 2023, then collapsed. Now in just 13% of sessions.',
-  'ONDC & open networks': 'The most marginal theme tracked — present in under 4% of 2025 sessions.',
+  'ONDC & open networks': 'The most marginal theme tracked, present in under 4% of 2025 sessions.',
   'Sustainability & climate finance': 'The sharpest proportional decline of any theme in the corpus.',
   'Embedded finance & BaaS': 'A headline category in 2022. Effectively gone by 2025.'
 };
@@ -670,7 +670,7 @@ $('movers').innerHTML = movers.map(m => {
   '</div>';
 }).join('');
 
-// Set widths unconditionally — the CSS transition still animates them, and the
+// Set widths unconditionally: the CSS transition still animates them, and the
 // chart is never left blank if an observer or scroll event fails to fire.
 function growMovers() {
   document.querySelectorAll('.mvbar').forEach(b => { b.style.width = b.dataset.w + '%'; });

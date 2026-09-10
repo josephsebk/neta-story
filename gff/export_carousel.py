@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 SLIDE_W, SLIDE_H = 1080, 1350
-TOTAL_SLIDES = 10
+TOTAL_SLIDES = 9
 OUT_DIR = os.path.dirname(os.path.abspath(__file__))
 PNG_DIR = os.path.join(OUT_DIR, "carousel_out")
 ZIP_PATH = os.path.join(OUT_DIR, "gff_carousel.zip")
