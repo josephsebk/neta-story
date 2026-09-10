@@ -34,20 +34,20 @@ html,body{background:#1a1714;font-family:'Inter',sans-serif;overflow-x:hidden}
 
 /* ── Slide canvas ── */
 .slide{width:1080px;height:1350px;background:var(--bg);position:relative;
-  overflow:hidden;flex-shrink:0;display:none;padding:78px 60px 120px;
+  overflow:hidden;flex-shrink:0;display:none;padding:80px 68px 130px;
   color:var(--ink)}
 .slide.active{display:flex;flex-direction:column}
 
 .kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;
-  font-size:17px;font-weight:600;color:var(--ink-soft)}
-.slide h1{font-family:var(--serif);font-weight:900;font-size:118px;line-height:1;
+  font-size:21px;font-weight:600;color:var(--ink-soft)}
+.slide h1{font-family:var(--serif);font-weight:900;font-size:106px;line-height:1;
   letter-spacing:-.025em}
-.slide h2{font-family:var(--serif);font-weight:700;font-size:62px;line-height:1.1;
+.slide h2{font-family:var(--serif);font-weight:700;font-size:75px;line-height:1.1;
   letter-spacing:-.02em}
 .slide em{font-style:normal;color:var(--accent)}
 .slide h1 s{text-decoration:line-through;text-decoration-thickness:.055em;
   text-decoration-skip-ink:none;color:var(--ink-soft);opacity:.45}
-.lead{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--ink-soft);
+.lead{font-family:var(--serif);font-style:italic;font-size:32px;color:var(--ink-soft);
   line-height:1.45;max-width:900px}
 .brand-tag{position:absolute;bottom:46px;left:60px;font-family:var(--sans);font-size:14px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
@@ -59,83 +59,83 @@ html,body{background:#1a1714;font-family:'Inter',sans-serif;overflow-x:hidden}
 /* S1 */
 .s1{text-align:center;justify-content:center;align-items:center}
 .s1 .kicker{margin-bottom:34px}
-.s1 .dek{font-family:var(--serif);font-style:italic;font-size:31px;color:var(--ink-soft);
-  line-height:1.45;max-width:800px;margin:30px auto 0}
+.s1 .dek{font-family:var(--serif);font-style:italic;font-size:35px;color:var(--ink-soft);
+  line-height:1.45;max-width:860px;margin:30px auto 0}
 .s1 .stat-row{display:flex;justify-content:center;gap:70px;margin-top:58px}
-.s1 .stat-num{font-family:var(--serif);font-weight:900;font-size:70px;line-height:1}
-.s1 .stat-lbl{font-family:var(--sans);font-size:15px;text-transform:uppercase;
+.s1 .stat-num{font-family:var(--serif);font-weight:900;font-size:88px;line-height:1}
+.s1 .stat-lbl{font-family:var(--sans);font-size:18px;text-transform:uppercase;
   letter-spacing:.14em;color:var(--ink-soft);font-weight:600;margin-top:10px}
-.s1 .footer-note{font-family:var(--serif);font-style:italic;font-size:21px;
-  color:var(--ink-soft);margin-top:56px}
+.s1 .footer-note{font-family:var(--serif);font-style:italic;font-size:26px;
+  color:var(--ink-soft);margin-top:auto;padding-top:52px}
 
 /* pipeline (S2) */
-.pipeline{display:flex;flex-direction:column;gap:26px;margin-top:48px}
+.pipeline{display:flex;flex-direction:column;gap:26px;margin:auto 0}
 .step{display:flex;gap:30px;align-items:flex-start;padding-bottom:26px;
   border-bottom:1px solid var(--rule)}
 .step:last-child{border-bottom:none}
-.step-num{font-family:var(--serif);font-weight:900;font-size:64px;color:var(--accent);
+.step-num{font-family:var(--serif);font-weight:900;font-size:78px;color:var(--accent);
   line-height:.95;min-width:150px}
-.step-text strong{display:block;font-size:27px;font-weight:700;margin-bottom:8px}
-.step-text span{font-size:22px;color:var(--ink-soft);line-height:1.5}
+.step-text strong{display:block;font-size:33px;font-weight:700;margin-bottom:8px}
+.step-text span{font-size:27px;color:var(--ink-soft);line-height:1.5}
 
 /* big number pairs */
-.duo{display:flex;gap:34px;margin-top:52px}
+.duo{display:flex;gap:34px;margin:auto 0}
 .duo-cell{flex:1;background:var(--bg-dark);border-radius:16px;padding:40px 34px}
-.duo-val{font-family:var(--serif);font-weight:900;font-size:88px;line-height:1;
+.duo-val{font-family:var(--serif);font-weight:900;font-size:116px;line-height:1;
   letter-spacing:-.02em}
-.duo-lbl{font-size:21px;color:var(--ink-soft);margin-top:14px;line-height:1.35;font-weight:500}
+.duo-lbl{font-size:27px;color:var(--ink-soft);margin-top:14px;line-height:1.35;font-weight:500}
 
 /* the one word */
-.megaword{font-family:var(--serif);font-weight:900;font-size:150px;line-height:.98;
+.megaword{font-family:var(--serif);font-weight:900;font-size:172px;line-height:.98;
   color:var(--accent);letter-spacing:-.03em;margin:36px 0 28px}
 
 /* stat lines */
-.lines{display:flex;flex-direction:column;gap:22px;margin-top:46px}
+.lines{display:flex;flex-direction:column;gap:22px;margin:auto 0}
 .line{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:baseline;
   padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .line:last-child{border-bottom:none}
-.line-v{font-family:var(--serif);font-weight:900;font-size:56px;line-height:1}
+.line-v{font-family:var(--serif);font-weight:900;font-size:70px;line-height:1}
 .line-v.up{color:var(--green)} .line-v.down{color:var(--red)}
-.line-t{font-size:26px;line-height:1.35}
-.line-t span{display:block;font-size:20px;color:var(--ink-soft);margin-top:6px}
+.line-t{font-size:32px;line-height:1.35}
+.line-t span{display:block;font-size:25px;color:var(--ink-soft);margin-top:6px}
 
 /* decay rows */
-.decay{display:flex;flex-direction:column;gap:0;margin-top:44px}
+.decay{display:flex;flex-direction:column;gap:0;margin:auto 0}
 .drow{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
   padding:22px 0;border-bottom:1px solid var(--rule)}
 .drow:last-child{border-bottom:none}
-.dname{font-size:29px;font-weight:600}
-.dnums{font-family:var(--serif);font-size:34px;font-weight:700;white-space:nowrap}
+.dname{font-size:36px;font-weight:600}
+.dnums{font-family:var(--serif);font-size:44px;font-weight:700;white-space:nowrap}
 .dnums b{color:var(--red);font-weight:900}
-.dsub{font-size:19px;color:var(--ink-soft);margin-top:5px}
+.dsub{font-size:24px;color:var(--ink-soft);margin-top:5px}
 
 /* year blocks */
-.years{display:flex;flex-direction:column;gap:0;margin-top:40px}
+.years{display:flex;flex-direction:column;gap:0;margin:auto 0}
 .yrow{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:center;
   padding:26px 0;border-bottom:1px solid var(--rule)}
 .yrow:last-child{border-bottom:none}
-.ynum{font-family:var(--serif);font-weight:900;font-size:52px;color:var(--accent)}
-.yterms{font-size:25px;line-height:1.45;color:var(--ink)}
+.ynum{font-family:var(--serif);font-weight:900;font-size:64px;color:var(--accent)}
+.yterms{font-size:31px;line-height:1.45;color:var(--ink)}
 .yterms b{font-weight:700}
 
 /* comparison table (S9) */
-.cmp{margin-top:44px;border-top:2px solid var(--ink)}
+.cmp{margin:auto 0;border-top:2px solid var(--ink)}
 .crow{display:grid;grid-template-columns:1fr 200px;gap:20px;align-items:center;
-  padding:20px 0;border-bottom:1px solid var(--rule)}
+  padding:13px 0;border-bottom:1px solid var(--rule)}
 .crow.hi{background:rgba(184,138,0,.09)}
-.cname{font-size:24px;font-weight:500;padding-left:10px}
-.cval{font-family:var(--serif);font-size:44px;font-weight:900;text-align:right;padding-right:10px}
+.cname{font-size:30px;font-weight:500;padding-left:10px}
+.cval{font-family:var(--serif);font-size:55px;font-weight:900;text-align:right;padding-right:10px}
 .crow.hi .cval{color:var(--accent)}
 
 /* S10 */
 .s10{text-align:center;justify-content:center;align-items:center}
-.s10 .cta{margin-top:46px;font-family:var(--serif);font-style:italic;font-size:27px;color:var(--ink)}
-.s10 .handle{font-family:var(--serif);font-weight:900;font-size:52px;color:var(--accent);
+.s10 .cta{margin-top:52px;font-family:var(--serif);font-style:italic;font-size:33px;color:var(--ink)}
+.s10 .handle{font-family:var(--serif);font-weight:900;font-size:62px;color:var(--accent);
   margin-top:10px;letter-spacing:-.01em}
 .s10 .credit{margin-top:52px;padding-top:30px;border-top:1px solid var(--rule);
-  font-size:23px;color:var(--ink-soft);line-height:1.6}
+  font-size:28px;color:var(--ink-soft);line-height:1.6}
 .s10 .credit b{color:var(--blume);font-weight:700}
-.note{font-size:21px;color:var(--ink-soft);line-height:1.5;margin-top:34px}
+.note{font-size:27px;color:var(--ink-soft);line-height:1.5;margin-top:34px}
 </style>
 </head>
 <body>
@@ -185,7 +185,7 @@ html,body{background:#1a1714;font-family:'Inter',sans-serif;overflow-x:hidden}
       <div class="duo-cell"><div class="duo-val">27.6</div><div class="duo-lbl">Lending &amp; credit<br>mentions per 10,000 words</div></div>
       <div class="duo-cell"><div class="duo-val">24.7</div><div class="duo-lbl">Regulation &amp; compliance<br>mentions per 10,000 words</div></div>
     </div>
-    <p class="lead spacer" style="margin-top:56px">No other theme comes close. The third-placed subject runs at less than half their rate — and lending has led every single year measured.</p>
+    <p class="lead spacer">No other theme comes close. The third-placed subject runs at less than half their rate — and lending has led every single year measured.</p>
     <p class="note">Though it is not as hot as it once was: down roughly a quarter from its 2022 peak.</p>
     <div class="brand-tag">@<em>mallucinations</em></div>
     <div class="slide-num">3 / 10</div>
@@ -228,7 +228,7 @@ html,body{background:#1a1714;font-family:'Inter',sans-serif;overflow-x:hidden}
       <div class="line"><div class="line-v up">+54%</div><div class="line-t">Fraud &amp; cybersecurity<span>Mule accounts, phishing, money laundering.</span></div></div>
       <div class="line"><div class="line-v down">−24%</div><div class="line-t">Lending &amp; credit<span>Still first, but falling faster than anything else rose.</span></div></div>
     </div>
-    <p class="lead spacer" style="margin-top:46px">Four years ago this was a conference about what the industry could build. It is now largely a conference about what the industry has to defend.</p>
+    <p class="lead spacer">Four years ago this was a conference about what the industry could build. It is now largely a conference about what the industry has to defend.</p>
     <div class="brand-tag">@<em>mallucinations</em></div>
     <div class="slide-num">6 / 10</div>
   </section>
@@ -275,7 +275,7 @@ html,body{background:#1a1714;font-family:'Inter',sans-serif;overflow-x:hidden}
       <div class="crow hi"><div class="cname"><b>2026 · Day-1 Grand Theatre</b></div><div class="cval">8.69</div></div>
       <div class="crow hi"><div class="cname"><b>2026 · Day-1 Jasmine 3</b></div><div class="cval">16.64</div></div>
     </div>
-    <p class="note">Up in both rooms — the quieter one by 2.5×, the busier by 5×. Quantum, though, is one track, not a theme: 2.99 in Jasmine 3 against 0.32 in the main hall.</p>
+    <p class="note spacer">Up in both rooms — the quieter one by 2.5×, the busier by 5×. Quantum, though, is one track, not a theme: 2.99 in Jasmine 3 against 0.32 in the main hall.</p>
     <div class="brand-tag">@<em>mallucinations</em></div>
     <div class="slide-num">9 / 10</div>
   </section>
