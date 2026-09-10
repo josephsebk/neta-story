@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="What they actually talk about at Global Fintech Fest: 758 sessions, 4.7 million words, analysed.">
+<meta property="og:title" content="Overheard at GFF">
+<meta property="og:description" content="758 sessions across four editions. 4.7 million words. Which topics are hot and which are not.">
+<meta property="og:type" content="article">
+<title>Overheard at GFF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f0e8; --bg-dark:#e8e0d0; --ink:#2a2520; --ink-soft:#5a524a;
+  --rule:#c8beb0; --accent:#b88a00; --red:#b83737; --green:#3a6a3a;
+  --blume:#2e5a95; --gray:#c9c4ba;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --max-w:1100px;
+  --radius-sm:4px; --radius-md:8px; --radius-lg:12px; --radius-xl:16px;
+  --shadow-sm:0 1px 3px rgba(42,37,32,.08);
+  --shadow-md:0 4px 12px rgba(42,37,32,.10);
+  --shadow-lg:0 8px 30px rgba(42,37,32,.12);
+  --shadow-gold:0 4px 18px rgba(184,138,0,.12);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font-family:var(--sans);font-size:16px;line-height:1.65;
+     -webkit-font-smoothing:antialiased}
+
+/* ─────────────── hero ─────────────── */
+.hero{min-height:82vh;display:flex;align-items:center;justify-content:center;
+      text-align:center;padding:80px 24px 60px;border-bottom:1px solid var(--rule)}
+.hero-inner{max-width:760px}
+.kicker{font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.18em;
+        text-transform:uppercase;color:var(--accent);margin:0 0 26px}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(46px,8.4vw,82px);
+         line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance}
+/* "Over" struck through: it wasn't overheard, all of it was heard.
+   Uses the font's own strikeout metric, which sits through the middle of the
+   lowercase — a hand-tuned offset rides too high at display sizes. */
+.hero h1 s{text-decoration:line-through;
+           text-decoration-thickness:.055em;
+           text-decoration-color:currentColor;
+           text-decoration-skip-ink:none;
+           color:var(--ink-soft);opacity:.5}
+.dek{font-family:var(--serif);font-style:italic;font-weight:400;
+     font-size:clamp(18px,2.5vw,22px);line-height:1.5;color:var(--ink-soft);
+     margin:26px auto 0;max-width:36em}
+.scroll-cue{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+            color:var(--ink-soft);opacity:.6;margin-top:56px}
+
+/* ─────────────── scrolly ─────────────── */
+/* Mobile first: the chart pins to the top of the screen and the step cards
+   scroll through the space beneath it. Two side-by-side columns only once
+   there is width for them. */
+#scrolly{position:relative;max-width:var(--max-w);margin:0 auto;display:block}
+
+.sticky-fig{position:sticky;top:0;z-index:3;margin:0;
+            display:flex;flex-direction:column;justify-content:flex-start;
+            height:47vh;padding:14px 16px 10px;background:var(--bg);
+            border-bottom:1px solid var(--rule);
+            box-shadow:0 8px 14px -10px rgba(42,37,32,.3)}
+.steps{position:relative;z-index:1;margin:0;padding:0 16px}
+.step{min-height:78vh;display:flex;align-items:center;padding:18px 0}
+
+@media(min-width:900px){
+  #scrolly{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;padding:0 24px}
+  .sticky-fig{height:100vh;justify-content:center;padding:24px 0;
+              background:transparent;border-bottom:none;box-shadow:none}
+  .steps{padding:0}
+  .step{min-height:96vh;padding:40px 0}
+}
+.fig-head{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+          color:var(--ink-soft);margin-bottom:4px}
+.fig-sub{font-family:var(--mono);font-size:11px;color:var(--ink-soft);opacity:.75;
+         margin-bottom:18px}
+
+/* Row metrics shrink with viewport height so all 27 themes stay on screen. */
+/* Theme swarm: one dot per theme, placed on a single axis by how much it gets
+   spoken about. A distribution survives a narrow screen in a way that 27
+   labelled rows cannot — only the themes being talked about need a label. */
+#swarm{display:block;width:100%;height:auto}
+.dot{fill:var(--gray);transition:fill .5s ease,opacity .5s ease}
+.dot.off{opacity:.2}
+.dot.on{fill:var(--accent)}
+.dot.ai{fill:var(--green)}
+.ax{stroke:var(--rule);stroke-width:1}
+.axt{fill:var(--ink-soft);font-family:var(--mono);font-size:8.5px}
+.ann-t{fill:var(--ink);font-family:var(--sans);font-size:10px;font-weight:700}
+.ann-s{fill:var(--ink-soft);font-family:var(--mono);font-size:8.5px}
+.ann-l{stroke:var(--ink-soft);stroke-width:.8;stroke-dasharray:2 2;fill:none}
+.ghost{fill:none;stroke:var(--green);stroke-width:1.1;stroke-dasharray:2.5 2.5}
+.swarm-cap{font-size:13px;color:var(--ink-soft);margin-top:12px;line-height:1.45;
+           min-height:3.2em}
+.swarm-cap b{color:var(--ink);font-weight:600}
+
+/* .steps / .step geometry lives in the scrolly block above — do not redeclare. */
+.step-inner{background:var(--bg);border-left:2px solid var(--accent);
+            padding:20px 20px;border-radius:0 var(--radius-md) var(--radius-md) 0;
+            box-shadow:var(--shadow-sm)}
+.step h2{font-family:var(--serif);font-weight:700;font-size:clamp(24px,5.6vw,34px);
+         line-height:1.14;letter-spacing:-.01em;margin:0 0 12px}
+.step p{margin:0 0 12px;color:var(--ink-soft);font-size:15.5px}
+/* the one word the chapter turns on */
+.bigword{display:block;font-family:var(--serif);font-weight:900;
+         font-size:clamp(38px,9vw,58px);line-height:1;letter-spacing:-.02em;
+         color:var(--accent);margin:2px 0 10px}
+.step p:last-child{margin-bottom:0}
+.step strong{color:var(--ink);font-weight:600}
+
+/* ─────────────── chapters ─────────────── */
+.chapter{padding:60px 18px;border-top:1px solid var(--rule)}
+@media(min-width:900px){.chapter{padding:96px 24px}}
+.chapter-alt{background:var(--bg-dark)}
+.chapter-inner{max-width:820px;margin:0 auto}
+.chapter-num{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+             color:var(--accent);margin:0 0 14px}
+.chapter-title{font-family:var(--serif);font-weight:800;font-size:clamp(30px,5vw,46px);
+               line-height:1.08;letter-spacing:-.015em;margin:0 0 18px;text-wrap:balance}
+.chapter-lead{font-size:18px;line-height:1.6;color:var(--ink-soft);margin:0 0 30px;max-width:40em}
+.chapter p{max-width:40em}
+.chapter-kicker{margin-top:34px;padding-top:20px;border-top:1px solid var(--rule);
+                font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.6;
+                color:var(--ink);max-width:40em}
+.sub-h{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+       color:var(--ink-soft);margin:0 0 14px}
+.note{font-size:14px;color:var(--ink-soft);opacity:.9}
+.big-stat{font-family:var(--serif);font-size:clamp(30px,5vw,44px);font-weight:700;
+          line-height:1.2;margin:26px 0}
+.big-stat strong{color:var(--accent);font-weight:900}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+       gap:1px;background:var(--rule);border:1px solid var(--rule);
+       border-radius:var(--radius-md);overflow:hidden;margin:30px 0}
+.stat{background:var(--bg);padding:18px 16px}
+.chapter-alt .stat{background:var(--bg-dark)}
+.stat-v{font-family:var(--serif);font-weight:900;font-size:30px;line-height:1;
+        letter-spacing:-.02em;margin-bottom:6px}
+.stat-l{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--ink-soft)}
+
+/* line chart */
+.figbox{background:var(--bg);border:1px solid var(--rule);border-radius:var(--radius-lg);
+        padding:16px 12px 12px;margin:26px 0;box-shadow:var(--shadow-sm)}
+@media(min-width:640px){.figbox{padding:22px 20px 16px}}
+.mvval{min-width:38px}
+@media(min-width:640px){.mvval{min-width:46px}}
+.chapter-alt .figbox{background:var(--bg)}
+.figbox svg{display:block;width:100%;height:auto;overflow:visible}
+.figcap{font-size:13.5px;color:var(--ink-soft);margin-top:14px;padding-top:12px;
+        border-top:1px solid var(--rule)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+.lg{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;color:var(--ink-soft)}
+.sw{width:14px;height:3px;border-radius:2px}
+
+/* diverging movers chart */
+.mv{display:flex;flex-direction:column;gap:3px}
+.mvrow{display:grid;grid-template-columns:minmax(72px,104px) 1fr 1fr auto;gap:6px;
+       align-items:center;font-size:11px}
+@media(min-width:640px){.mvrow{grid-template-columns:minmax(92px,148px) 1fr 1fr auto;
+                               gap:10px;font-size:13px}}
+.mvlab{text-align:right;color:var(--ink-soft);font-weight:500;line-height:1.22}
+.mvneg{display:flex;justify-content:flex-end;border-right:1px solid var(--rule);padding-right:1px}
+.mvpos{display:flex;justify-content:flex-start;border-left:1px solid var(--rule);
+       margin-left:-1px;padding-left:1px}
+.mvbar{display:block;height:15px;width:0;
+       transition:width .9s cubic-bezier(.22,.9,.28,1)}
+.mvneg .mvbar{background:var(--red);border-radius:3px 0 0 3px}
+.mvpos .mvbar{background:var(--green);border-radius:0 3px 3px 0}
+.mvval{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);
+       font-variant-numeric:tabular-nums;min-width:46px;text-align:right}
+
+/* decay grid */
+.decay{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule);
+       border:1px solid var(--rule);border-radius:var(--radius-md);overflow:hidden;margin:26px 0}
+@media(min-width:620px){.decay{grid-template-columns:1fr 1fr}}
+.dcell{background:var(--bg);padding:16px 18px}
+.chapter-alt .dcell{background:var(--bg-dark)}
+.dname{font-family:var(--serif);font-weight:700;font-size:17px;margin-bottom:2px}
+.dnum{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-bottom:9px}
+.dnum b{color:var(--red);font-weight:600}
+
+/* table */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--radius-md);
+    background:var(--bg);margin:26px 0}
+.chapter-alt .tw{background:var(--bg)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
+th,td{padding:8px 12px;border-bottom:1px solid var(--rule);text-align:left}
+thead th{font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+         color:var(--ink-soft);background:var(--bg-dark);white-space:nowrap}
+thead th.r{text-align:right}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--bg-dark)}
+td.nm{font-weight:600;white-space:nowrap}
+td.r{text-align:right;font-family:var(--mono);font-size:12px;
+     font-variant-numeric:tabular-nums;color:var(--ink-soft);white-space:nowrap}
+td.up{color:var(--green);font-weight:600}
+td.dn{color:var(--red);font-weight:600}
+.spark{width:56px;height:17px;display:block}
+
+/* year terms */
+.years{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule);
+       border:1px solid var(--rule);border-radius:var(--radius-md);overflow:hidden;margin:26px 0}
+@media(min-width:640px){.years{grid-template-columns:1fr 1fr}}
+.ycell{background:var(--bg);padding:18px}
+.chapter-alt .ycell{background:var(--bg-dark)}
+.ynum{font-family:var(--serif);font-weight:900;font-size:24px;color:var(--accent);margin-bottom:10px}
+.terms{display:flex;flex-wrap:wrap;gap:6px}
+.term{font-size:12.5px;padding:4px 10px;border-radius:14px;background:var(--bg-dark);
+      color:var(--ink-soft);border:1px solid var(--rule)}
+.chapter-alt .term{background:var(--bg)}
+.term.hot{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600;
+          box-shadow:var(--shadow-gold)}
+
+/* callout */
+.call{border-left:3px solid var(--accent);background:var(--bg-dark);padding:18px 22px;
+      margin:26px 0;border-radius:0 var(--radius-md) var(--radius-md) 0;max-width:44em}
+.chapter-alt .call{background:var(--bg)}
+.call p:last-child{margin-bottom:0}
+.call.warn{border-left-color:var(--red)}
+.call-h{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+        color:var(--accent);margin-bottom:8px}
+.call.warn .call-h{color:var(--red)}
+
+ul.pl{padding-left:20px;max-width:40em}
+ul.pl li{margin-bottom:10px;color:var(--ink-soft)}
+ul.pl strong{color:var(--ink)}
+
+footer{padding:56px 24px 70px;border-top:1px solid var(--rule);text-align:center}
+footer p{font-size:12.5px;color:var(--ink-soft);margin:5px auto;max-width:34em}
+footer .credit{font-family:var(--serif);font-weight:700;font-size:clamp(19px,3.4vw,23px);
+               color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+footer .reach{font-size:14.5px;line-height:1.55;color:var(--ink-soft);margin-bottom:26px}
+footer .foot-rule{width:44px;height:1px;background:var(--rule);margin:26px auto}
+/* Everything Blume carries the blue, not the story's gold accent. */
+footer a{color:var(--blume);text-decoration:none;
+         border-bottom:1px solid rgba(46,90,149,.35)}
+footer a:hover,footer a:focus-visible{border-bottom-color:var(--blume)}
+.mono{font-family:var(--mono)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker">Global Fintech Fest · A Corpus Investigation</p>
+    <h1><s>Over</s>heard at GFF</h1>
+    <p class="dek">Ever wondered what they actually talk about at GFF? I ran a full analysis of what gets spoken about at the conference — 758 sessions across four editions transcribed, 4.7 million words, to work out which topics are hot and which are not.</p>
+    <p class="scroll-cue">Scroll to begin ↓</p>
+  </div>
+</header>
+
+<main id="scrolly">
+  <figure class="sticky-fig">
+    <div class="fig-head">Themes on the GFF stage · 2025</div>
+    <div class="fig-sub">each dot is one theme · mentions per 10,000 words</div>
+    <svg id="swarm" viewBox="0 0 340 180" role="img"
+         aria-label="Twenty-seven themes plotted by how often each is mentioned per ten thousand words in 2025. Most cluster below five; lending and credit and regulation and compliance sit far to the right."></svg>
+    <p class="swarm-cap" id="swarmcap"></p>
+  </figure>
+
+  <article class="steps">
+    <section class="step" data-step="1">
+      <div class="step-inner">
+        <h2>Everything they talked about.</h2>
+        <p>Twenty-seven themes, tracked across every published session from 2022 to 2025. Each dot is one theme, placed by how often it is spoken about per ten thousand words — so a long keynote and a short panel count on the same scale.</p>
+        <p class="note">The corpus is 758 sessions.</p>
+      </div>
+    </section>
+
+    <section class="step" data-step="2">
+      <div class="step-inner">
+        <h2>Ten themes carry the conference.</h2>
+        <p>The top ten account for the overwhelming share of everything said on stage. <strong>Lending and credit leads every single year</strong> — however, it is not as hot as it once was.</p>
+      </div>
+    </section>
+
+    <section class="step" data-step="3">
+      <div class="step-inner">
+        <h2>One theme never moves.</h2>
+        <span class="bigword">Regulation.</span>
+        <p>Between 22.1 and 24.7 mentions per ten thousand words in every year measured, and present in <strong>at least 90% of sessions annually</strong> — reaching 94% in 2025.</p>
+        <p>No other theme is remotely that stable, or that pervasive.</p>
+      </div>
+    </section>
+
+    <section class="step" data-step="4">
+      <div class="step-inner">
+        <h2>And one arrived from nothing.</h2>
+        <p>Across 1.25 million words of 2022 sessions, there is not a single mention of generative AI or large language models. Not rare — <strong>absent</strong>.</p>
+        <p>By 2025 the two AI themes together appear in more than a third of every session on the programme.</p>
+      </div>
+    </section>
+  </article>
+</main>
+
+<section class="chapter" id="ch5">
+  <div class="chapter-inner">
+    <p class="chapter-num">Chapter 5</p>
+    <h2 class="chapter-title">From zero to a third of the programme.</h2>
+    <p class="chapter-lead">This is the cleanest signal in four years of transcripts, because it starts at a true zero rather than merely a low number. Agentic AI stayed at zero for two years after that.</p>
+
+    <div class="figbox">
+      <div class="legend">
+        <span class="lg"><span class="sw" style="background:#b88a00"></span>Generative AI &amp; LLMs</span>
+        <span class="lg"><span class="sw" style="background:#3a6a3a"></span>Agentic AI</span>
+      </div>
+      <svg viewBox="0 0 720 300" role="img" aria-label="Generative AI rises from zero in 2022 to 2.95 mentions per 10,000 words in 2025. Agentic AI is zero until 2024, then 2.17 in 2025.">
+        <g stroke="#c8beb0" stroke-width="1">
+          <line x1="64" y1="245" x2="694" y2="245"/>
+          <line x1="64" y1="178.3" x2="694" y2="178.3" stroke-dasharray="2 5"/>
+          <line x1="64" y1="111.7" x2="694" y2="111.7" stroke-dasharray="2 5"/>
+          <line x1="64" y1="45" x2="694" y2="45" stroke-dasharray="2 5"/>
+        </g>
+        <g fill="#5a524a" font-family="ui-monospace,SF Mono,Menlo,monospace" font-size="11" text-anchor="end">
+          <text x="54" y="249">0</text><text x="54" y="182.3">1</text>
+          <text x="54" y="115.7">2</text><text x="54" y="49">3</text>
+        </g>
+        <g fill="#5a524a" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" text-anchor="middle">
+          <text x="64" y="270">2022</text><text x="274" y="270">2023</text>
+          <text x="484" y="270">2024</text><text x="694" y="270">2025</text>
+        </g>
+        <polyline points="64,245 274,167.7 484,159.1 694,48.4" fill="none" stroke="#b88a00"
+                  stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <polyline points="64,245 274,245 484,235.7 694,100.4" fill="none" stroke="#3a6a3a"
+                  stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <g stroke="#f5f0e8" stroke-width="2.5">
+          <circle cx="64" cy="245" r="4.5" fill="#b88a00"/><circle cx="274" cy="167.7" r="4.5" fill="#b88a00"/>
+          <circle cx="484" cy="159.1" r="4.5" fill="#b88a00"/><circle cx="694" cy="48.4" r="6" fill="#b88a00"/>
+          <circle cx="274" cy="245" r="4.5" fill="#3a6a3a"/>
+          <circle cx="484" cy="235.7" r="4.5" fill="#3a6a3a"/><circle cx="694" cy="100.4" r="6" fill="#3a6a3a"/>
+        </g>
+        <g font-family="Inter,sans-serif" font-size="13" font-weight="700">
+          <text x="682" y="32" fill="#b88a00" text-anchor="end">2.95</text>
+          <text x="682" y="122" fill="#3a6a3a" text-anchor="end">2.17</text>
+          <text x="78" y="238" fill="#5a524a" font-size="11.5" font-weight="500">both at zero</text>
+        </g>
+      </svg>
+      <p class="figcap">Mentions per 10,000 words. Agentic AI is not a gradual build — it is absent, absent, a rounding error, then present in <span class="mono">31%</span> of all 2025 sessions.</p>
+    </div>
+
+    <p class="chapter-kicker">A conference agenda is a lagging indicator of what an industry believes. The interesting thing about the AI line is not that it rises — everyone expected that — but how long it stayed at exactly zero while the technology was already being built.</p>
+  </div>
+</section>
+
+<section class="chapter chapter-alt" id="ch6">
+  <div class="chapter-inner">
+    <p class="chapter-num">Chapter 6</p>
+    <h2 class="chapter-title">What rose and what fell.</h2>
+    <p class="chapter-lead">Lending is still the most-discussed theme in 2025, but it has fallen roughly a quarter from its 2022 peak. What grew in its place is striking: three of the four fastest-rising themes are protective rather than expansionary.</p>
+
+    <div class="figbox">
+      <div class="fig-head" style="margin-bottom:2px">Biggest movers, 2022 to 2025</div>
+      <div class="fig-sub">change in mentions per 10,000 words</div>
+      <div class="mv" id="movers"></div>
+      <p class="figcap"><strong>Green rises, red falls.</strong> The themes that fell hardest are largely the ones launched with the most fanfare — open networks, the digital rupee, embedded finance and climate finance all peaked early and receded.</p>
+    </div>
+
+    <p>Lending's decline is larger than any other movement in the corpus by a factor of two and a half — <span class="mono">−8.68</span> mentions per ten thousand words, against a next-largest fall of <span class="mono">−2.85</span>. But it falls from a base so high that it remains the single most-discussed theme on the programme.</p>
+
+    <p class="chapter-kicker">Four years ago this was a conference about what the industry could build. It is now substantially a conference about what the industry has to defend — from fraud, from data law, and from the regulator who was always already in the room.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch7">
+  <div class="chapter-inner">
+    <p class="chapter-num">Chapter 7</p>
+    <h2 class="chapter-title">What each year sounded like.</h2>
+    <p class="chapter-lead">Separately from the fixed theme list, every term in each year was scored by log-likelihood against all other years.</p>
+
+    <div class="years" id="years"></div>
+
+    <p class="chapter-kicker">The arc reads cleanly: a metaverse moment in 2022, central-bank digital currency and open-network commerce in 2023, cross-border rails and public infrastructure in 2024, and in 2025 a wholesale shift to language models, agents, the compute underneath them, and the data-protection law that governs them.</p>
+  </div>
+</section>
+
+<section class="chapter chapter-alt" id="ch8">
+  <div class="chapter-inner">
+    <p class="chapter-num">Chapter 8</p>
+    <h2 class="chapter-title">Four themes that peaked and faded.</h2>
+    <p class="chapter-lead">The corpus is long enough to watch enthusiasm cycles complete. Each of these rose, drew a dedicated track, and then thinned out — visible not only as fewer mentions, but as fewer sessions willing to touch the subject at all.</p>
+
+    <div class="decay" id="decay"></div>
+
+    <p class="note">The metaverse does not even appear as a tracked theme. It surfaced instead as one of the terms most distinctive to 2022 in the pass above — and vanishes entirely thereafter.</p>
+
+    <p class="chapter-kicker">The pattern is uncomfortable for anyone launching a category: the themes that fell hardest are largely the ones introduced with the most institutional fanfare. Open networks, the digital rupee, embedded finance and climate finance all peaked early and receded.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch9">
+  <div class="chapter-inner">
+    <p class="chapter-num">Chapter 9</p>
+    <h2 class="chapter-title">All twenty-seven, in full.</h2>
+    <p class="chapter-lead">Mentions per ten thousand words, by year. The final column is the share of that year's sessions in which the theme appears at all — the difference between a theme being discussed intensely and being discussed widely.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>Theme</th><th class="r">2022</th><th class="r">2023</th><th class="r">2024</th>
+        <th class="r">2025</th><th>Trend</th><th class="r">Change</th><th class="r">Sessions ’25</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <p class="note">Sparklines are scaled to each theme's own maximum, so they show shape rather than magnitude. Themes overlap by design — a session about fraud in digital lending counts toward both.</p>
+  </div>
+</section>
+
+<section class="chapter chapter-alt" id="ch10">
+  <div class="chapter-inner">
+    <p class="chapter-num">Chapter 10 · The reversal</p>
+    <h2 class="chapter-title">Early signs from Day 1: 2026</h2>
+    <p class="chapter-lead">GFF 2026 was billed on three pillars: agentic AI, tokenisation and quantum. Measured on the four years of sessions that preceded it, only one of the three had any momentum — tokenisation was in steady decline, and the billing looked aspirational.</p>
+
+    <p>No individual sessions are published yet, but the full-day room feeds for Day 1 are — and they can be read against the equivalent 2025 feeds, room against room, so the recording format is held constant. On that comparison the earlier reading was wrong.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>Room feed</th><th class="r">Tokenisation</th><th class="r">Agentic AI</th><th class="r">Quantum</th></tr></thead>
+        <tbody id="feeds"></tbody>
+      </table>
+    </div>
+
+    <ul class="pl">
+      <li><strong>Tokenisation is genuinely up, in both rooms.</strong> Every 2026 feed exceeds every 2025 feed — the quieter room by roughly two and a half times, the busier one by five.</li>
+      <li><strong>Agentic AI is up, more modestly.</strong> Both 2026 feeds sit at or above the 2025 range, confirming the original reading.</li>
+      <li><strong>Quantum is one track, not a theme.</strong> It reaches <span class="mono">2.99</span> in Jasmine 3 but only <span class="mono">0.32</span> in the main hall.</li>
+    </ul>
+
+    <div class="call warn">
+      <div class="call-h">How much weight this carries</div>
+      <p>Day 1 only, two room feeds, <span class="mono">123,438</span> words — Day-2 and Day-3 captions had not finished processing when this was measured. Room feeds also reflect whichever track happened to be scheduled in that hall, which is exactly why quantum looks large in one room and absent in the other.</p>
+    </div>
+
+    <p class="chapter-kicker">A conference theme is a forward bet, not a description of last year. On four years of evidence the tokenisation pillar looked like wishful thinking; on the first day of the actual event it was the third most-discussed subject in the building. The lesson is about the limits of extrapolation, not about the organisers.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch11">
+  <div class="chapter-inner">
+    <p class="chapter-num">Chapter 11 · Method</p>
+    <h2 class="chapter-title">How this was counted.</h2>
+    <p class="chapter-lead">Every video published on the channel was enumerated, then its metadata and English auto-captions retrieved and parsed into a local database. Two passes run over it: a hand-built lexicon of 27 fintech themes, and an unsupervised keyness comparison of each year against the rest.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-v">758</div><div class="stat-l">Sessions</div></div>
+      <div class="stat"><div class="stat-v">4.74M</div><div class="stat-l">Words</div></div>
+      <div class="stat"><div class="stat-v">27</div><div class="stat-l">Themes</div></div>
+      <div class="stat"><div class="stat-v">2022–25</div><div class="stat-l">Years compared</div></div>
+    </div>
+
+    <h3 class="sub-h">Choices that shape the numbers</h3>
+    <ul class="pl">
+      <li><strong>Event year, not upload year.</strong> Sessions are uploaded for months after the event — one GFF'25 session appeared in February 2026. Year comes from an explicit GFF marker in the title, description or tags where present, otherwise from a conference-season rule.</li>
+      <li><strong>Everything is normalised per 10,000 words.</strong> The corpus is uneven — 2025 has 267 sessions against 2024's 147 — so raw counts would measure upload volume rather than attention.</li>
+      <li><strong>Livestreams are held separately.</strong> The channel publishes full-day room feeds on a tab distinct from session uploads. A shingle-overlap test found <strong>46% to 85% of each stream's text already appears verbatim</strong> in that year's individual sessions, so merging them would count the same speech twice, unevenly by year. They are used only where no sessions exist: 2026.</li>
+    </ul>
+
+    <h3 class="sub-h">Where to be careful</h3>
+    <ul class="pl">
+      <li><strong>Auto-captions mishear things</strong>, especially Indian names and acronyms. The lexicon compensates with spaced variants — UPI is transcribed "you pi", eKYC as "e k y c" — but the keyness pass still surfaced artefacts that needed manual cleaning.</li>
+      <li><strong>The earlier years lean on the fallback rule.</strong> 2025 is 97% explicitly tagged; 2022 assigns 80% of its videos by upload season, and 2023 assigns 60%. Those two years are the softest figures here.</li>
+      <li><strong>Keyword counting is not comprehension.</strong> A theme mentioned dismissively counts the same as one discussed seriously.</li>
+    </ul>
+
+    <div class="call">
+      <div class="call-h">One validation worth trusting</div>
+      <p>Median session length and word count are near-identical across all four years — <span class="mono">37.6</span> to <span class="mono">41.4</span> minutes, roughly <span class="mono">6,000</span> to <span class="mono">6,800</span> words. The corpus is genuinely comparable year to year, so the trends are not an artefact of the programme being recorded differently over time.</p>
+    </div>
+
+    <p class="chapter-kicker">Every number here is reproducible from the published recordings. When the 2026 sessions are uploaded individually, the same scripts add a fifth year and the pillars can be judged on a full programme rather than one day of it.</p>
+  </div>
+</section>
+
+<footer>
+  <p class="credit">Produced by <a href="https://blume.vc" target="_blank" rel="noopener">Blume Ventures</a></p>
+  <p class="reach">Reach out if you're building in fintech —<br><a href="mailto:joseph@blume.vc">joseph@blume.vc</a></p>
+  <div class="foot-rule"></div>
+  <p class="mono">758 sessions · 4,735,833 words · 2022–2025</p>
+  <p>Plus 12 full-day room feeds, held separately</p>
+  <p>Source: publicly published GFF session recordings</p>
+  <p><a href="https://blume.vc" target="_blank" rel="noopener">blume.vc</a></p>
+</footer>
+
+<script>
+const DATA = {"themes":[{"t":"Lending & credit","v":[36.3,37.42,28.7,27.62],"sh":82.4,"chg":-8.68},{"t":"Regulation & compliance","v":[22.12,24.72,24.62,24.73],"sh":94.0,"chg":2.61},{"t":"UPI & real-time payments","v":[13.18,16.88,12.12,10.44],"sh":74.5,"chg":-2.74},{"t":"MSME & small business finance","v":[11.75,11.05,7.86,10.13],"sh":61.0,"chg":-1.62},{"t":"Fraud, risk & cybersecurity","v":[6.11,6.16,10.12,9.4],"sh":68.2,"chg":3.29},{"t":"Cloud & infrastructure","v":[6.3,6.09,4.62,8.84],"sh":79.0,"chg":2.54},{"t":"Identity & KYC","v":[6.69,6.77,5.47,7.89],"sh":68.2,"chg":1.2},{"t":"Financial inclusion & Bharat","v":[8.42,7.62,6.38,7.81],"sh":67.4,"chg":-0.61},{"t":"Data protection & privacy","v":[3.48,3.41,3.07,6.91],"sh":47.9,"chg":3.43},{"t":"Wealth & capital markets","v":[2.52,3.61,7.77,5.46],"sh":55.8,"chg":2.94},{"t":"Tokenisation, blockchain & crypto","v":[5.42,5.44,4.75,4.44],"sh":40.1,"chg":-0.98},{"t":"Customer experience & personalisation","v":[3.61,2.52,3.29,4.1],"sh":59.9,"chg":0.49},{"t":"Insurance & insurtech","v":[4.21,3.67,5.91,3.9],"sh":50.9,"chg":-0.31},{"t":"Generative AI & LLMs","v":[0.0,1.16,1.29,2.95],"sh":36.3,"chg":2.95},{"t":"Account Aggregator & open banking","v":[1.96,2.48,2.12,2.79],"sh":35.6,"chg":0.83},{"t":"Digital public infrastructure","v":[1.06,2.4,3.82,2.68],"sh":34.5,"chg":1.62},{"t":"Cross-border & remittances","v":[4.66,4.76,3.34,2.48],"sh":30.7,"chg":-2.18},{"t":"AI & machine learning (general)","v":[1.36,1.88,1.81,2.47],"sh":41.9,"chg":1.11},{"t":"Talent, culture & leadership","v":[1.39,3.02,1.63,2.34],"sh":49.4,"chg":0.95},{"t":"Agentic AI","v":[0.0,0.0,0.14,2.17],"sh":31.1,"chg":2.17},{"t":"Funding, VC & profitability","v":[3.02,2.3,4.48,2.0],"sh":34.1,"chg":-1.02},{"t":"Sustainability & climate finance","v":[4.73,2.17,2.8,1.88],"sh":25.5,"chg":-2.85},{"t":"Banking transformation & neobanks","v":[2.42,1.32,0.88,1.66],"sh":33.0,"chg":-0.76},{"t":"Quantum computing","v":[0.5,0.17,1.79,0.93],"sh":14.2,"chg":0.43},{"t":"CBDC & digital rupee","v":[1.9,3.94,1.75,0.83],"sh":13.1,"chg":-1.07},{"t":"ONDC & open networks","v":[1.62,1.2,0.2,0.51],"sh":3.7,"chg":-1.11},{"t":"Embedded finance & BaaS","v":[1.55,0.85,0.19,0.48],"sh":12.0,"chg":-1.07}],"corpus":[{"y":2022,"sessions":186,"words":1248325},{"y":2023,"sessions":146,"words":939340},{"y":2024,"sessions":147,"words":878076},{"y":2025,"sessions":267,"words":1667793}],"keyness":{"2022":["metaverse","aadhaar","spend management","biller","outages","cash free","payments partner"],"2023":["digital rupee","invisible payments","seller app","account aggregator","microfinance","source of trust"],"2024":["interlinking","forex","commercial card","DPI","federal reserve","MSMEs","Sugam"],"2025":["DPDP Act","AI agent","LLMs","human in the loop","GPUs","LEI","digital euro","auditors"]},"feeds2026":[{"y":2025,"room":"Day-1 Grand Theatre","w":21442,"tok":1.87,"q":0.0,"ag":0.47},{"y":2025,"room":"Day-1 Jasmine","w":45438,"tok":3.3,"q":0.22,"ag":2.2},{"y":2025,"room":"Day-3 Grand Theatre","w":16740,"tok":2.99,"q":0.0,"ag":3.58},{"y":2026,"room":"Day-1 Grand Theatre","w":63325,"tok":8.69,"q":0.32,"ag":3.32},{"y":2026,"room":"Day-1 Jasmine 3","w":60113,"tok":16.64,"q":2.99,"ag":6.49}],"dupe":[{"y":2022,"lo":81.2,"hi":84.5},{"y":2023,"lo":46.2,"hi":70.1},{"y":2024,"lo":46.4,"hi":69.3},{"y":2025,"lo":52.3,"hi":76.7}]};
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- theme swarm ---------- */
+const themes = DATA.themes;                 // already sorted by 2025 value, desc
+const AI = ['Generative AI & LLMs', 'Agentic AI'];
+const REG = 'Regulation & compliance';
+
+const SW = { x0: 26, x1: 312, cy: 78, axis: 152, r: 4.6, step: 10.4 };
+const maxV = Math.max(...themes.map(t => t.v[3]));
+const sx = v => SW.x0 + (v / maxV) * (SW.x1 - SW.x0);
+
+// Beeswarm packing: walk left to right and nudge each dot off the centre line
+// until it clears its neighbours. Keeps the pile-up of small themes readable.
+const pts = themes.map(t => ({ t, v: t.v[3], x: sx(t.v[3]) })).sort((a, b) => a.x - b.x);
+const placed = [];
+for (const p of pts) {
+  let k = 0, y = SW.cy;
+  while (placed.some(q => Math.abs(q.x - p.x) < SW.r * 2.05 && Math.abs(q.y - y) < SW.r * 2.05)) {
+    k++;
+    y = SW.cy + (k % 2 ? 1 : -1) * Math.ceil(k / 2) * SW.step;
+  }
+  p.y = y;
+  placed.push(p);
+}
+const byName = Object.fromEntries(placed.map(p => [p.t.t, p]));
+
+const svg = $('swarm');
+const ticks = [0, 5, 10, 15, 20, 25];
+svg.innerHTML =
+  '<g>' +
+    '<line class="ax" x1="' + SW.x0 + '" y1="' + SW.axis + '" x2="' + SW.x1 + '" y2="' + SW.axis + '"/>' +
+    ticks.map(t => '<line class="ax" x1="' + sx(t).toFixed(1) + '" y1="' + (SW.axis - 4) +
+                   '" x2="' + sx(t).toFixed(1) + '" y2="' + SW.axis + '"/>').join('') +
+    ticks.map(t => '<text class="axt" x="' + sx(t).toFixed(1) + '" y="' + (SW.axis + 13) +
+                   '" text-anchor="middle">' + t + '</text>').join('') +
+  '</g>' +
+  '<g id="ghosts"></g>' +
+  '<g id="dots">' + placed.map(p =>
+    '<circle class="dot" data-n="' + esc(p.t.t) + '" cx="' + p.x.toFixed(1) +
+    '" cy="' + p.y.toFixed(1) + '" r="' + SW.r + '">' +
+    '<title>' + esc(p.t.t) + ' · ' + p.v.toFixed(1) + '</title></circle>').join('') + '</g>' +
+  '<g id="anns"></g>';
+
+const dots = [...svg.querySelectorAll('.dot')];
+const SHORTLAB = {
+  'Lending & credit': 'Lending', 'Regulation & compliance': 'Regulation',
+  'Generative AI & LLMs': 'Generative AI', 'Agentic AI': 'Agentic AI'
+};
+
+/* Labels stack vertically off the dot, not sideways. Two dots close together
+   on the x-axis would otherwise push their labels into each other, and a
+   horizontal leader can end up pointing at a neighbouring dot.
+   place: -1 puts the label above the dot, +1 below. */
+function label(name, sub, place) {
+  const p = byName[name];
+  if (!p) return '';
+  const up = place < 0;
+  const x = p.x;
+  const anchor = x > 288 ? 'end' : (x < 52 ? 'start' : 'middle');
+  const nameY = p.y + (up ? -21 : 20);
+  const subY = nameY + 11;
+  const l1 = p.y + (up ? -(SW.r + 1.5) : SW.r + 1.5);
+  const l2 = p.y + (up ? -12 : 11);
+  return '<line class="ann-l" x1="' + x.toFixed(1) + '" y1="' + l1.toFixed(1) +
+         '" x2="' + x.toFixed(1) + '" y2="' + l2.toFixed(1) + '"/>' +
+         '<text class="ann-t" x="' + x.toFixed(1) + '" y="' + nameY.toFixed(1) +
+         '" text-anchor="' + anchor + '">' + esc(SHORTLAB[name] || name) + '</text>' +
+         '<text class="ann-s" x="' + x.toFixed(1) + '" y="' + subY.toFixed(1) +
+         '" text-anchor="' + anchor + '">' + esc(sub) + '</text>';
+}
+
+const CAPS = {
+  1: 'Twenty-seven themes. Most cluster below five — and two sit a long way out on their own.',
+  2: '<b>The ten biggest carry the conference.</b> Everything else shares what is left.',
+  3: '<b>Regulation never moves.</b> 24.7 per 10,000 words, and in 94% of sessions.',
+  4: '<b>Both AI dots were at zero in 2022.</b> The dashed line is how far they travelled.'
+};
+
+function setStep(n) {
+  const top10 = new Set(themes.slice(0, 10).map(t => t.t));
+  dots.forEach(d => {
+    const name = d.dataset.n;
+    d.classList.remove('off', 'on', 'ai');
+    let r = SW.r;
+    if (n === 2) { if (top10.has(name)) { d.classList.add('on'); r = SW.r + 1; } else d.classList.add('off'); }
+    if (n === 3) { if (name === REG) { d.classList.add('on'); r = SW.r + 3; } else d.classList.add('off'); }
+    if (n === 4) { if (AI.includes(name)) { d.classList.add('ai'); r = SW.r + 3; } else d.classList.add('off'); }
+    d.setAttribute('r', r);
+  });
+
+  let anns = '', ghosts = '';
+  if (n === 2) {
+    anns = label('Lending & credit', '27.6', -1) + label('Regulation & compliance', '24.7', +1);
+  } else if (n === 3) {
+    anns = label(REG, '24.7 · 94% of sessions', -1);
+  } else if (n === 4) {
+    // The two AI dots sit almost on top of each other, so the higher one takes
+    // the label above and the lower one below — otherwise the leaders cross.
+    const ai = AI.map(nm => byName[nm]).filter(Boolean).sort((a, b) => a.y - b.y);
+    ai.forEach((p, i) => {
+      ghosts += '<circle class="ghost" cx="' + sx(0).toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="' + SW.r + '"/>' +
+                '<line class="ghost" x1="' + (sx(0) + SW.r + 1.5).toFixed(1) + '" y1="' + p.y.toFixed(1) +
+                '" x2="' + (p.x - SW.r - 1.5).toFixed(1) + '" y2="' + p.y.toFixed(1) + '"/>';
+      anns += label(p.t.t, p.v.toFixed(1), i === 0 ? -1 : +1);
+    });
+  }
+  svg.querySelector('#anns').innerHTML = anns;
+  svg.querySelector('#ghosts').innerHTML = ghosts;
+  $('swarmcap').innerHTML = CAPS[n] || CAPS[1];
+}
+// The active band differs by layout: on desktop the chart is centred beside the
+// text, so the trigger sits mid-viewport. On mobile the chart is pinned across
+// the top 47vh, so the band has to sit below it or steps fire behind the chart.
+const wide = window.matchMedia('(min-width:900px)');
+let io = null;
+function bindSteps() {
+  if (io) io.disconnect();
+  const margin = wide.matches ? '-45% 0px -45% 0px' : '-58% 0px -14% 0px';
+  io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) setStep(+e.target.dataset.step); });
+  }, { rootMargin: margin, threshold: 0 });
+  document.querySelectorAll('.step').forEach(s => io.observe(s));
+}
+bindSteps();
+setStep(1);   // the page must read correctly before any scrolling happens
+(wide.addEventListener ? wide.addEventListener('change', bindSteps) : wide.addListener(bindSteps));
+
+/* ---------- sparkline ---------- */
+function spark(vals, color) {
+  const mx = Math.max(...vals) || 1;
+  const xs = [3, 20, 37, 53];
+  const pts = vals.map((v, i) => xs[i] + ',' + (15 - v / mx * 12).toFixed(1)).join(' ');
+  const dots = vals.map((v, i) =>
+    '<circle cx="' + xs[i] + '" cy="' + (15 - v / mx * 12).toFixed(1) + '" r="1.5" fill="' + color + '"/>').join('');
+  return '<svg class="spark" viewBox="0 0 56 17" aria-hidden="true"><polyline points="' + pts +
+         '" fill="none" stroke="' + color + '" stroke-width="1.5" stroke-linejoin="round"/>' + dots + '</svg>';
+}
+
+/* ---------- full table ---------- */
+$('tbody').innerHTML = themes.map(t => {
+  const up = t.chg >= 0, col = up ? '#3a6a3a' : '#b83737';
+  return '<tr><td class="nm">' + esc(t.t) + '</td>' +
+    t.v.map(v => '<td class="r">' + v.toFixed(2) + '</td>').join('') +
+    '<td>' + spark(t.v, col) + '</td>' +
+    '<td class="r ' + (up ? 'up' : 'dn') + '">' + (up ? '+' : '−') + Math.abs(t.chg).toFixed(2) + '</td>' +
+    '<td class="r">' + t.sh.toFixed(0) + '%</td></tr>';
+}).join('');
+
+/* ---------- decay cells ---------- */
+const decayNames = ['CBDC & digital rupee', 'ONDC & open networks',
+                    'Sustainability & climate finance', 'Embedded finance & BaaS'];
+const blurb = {
+  'CBDC & digital rupee': 'More than doubled into 2023, then collapsed. Now in just 13% of sessions.',
+  'ONDC & open networks': 'The most marginal theme tracked — present in under 4% of 2025 sessions.',
+  'Sustainability & climate finance': 'The sharpest proportional decline of any theme in the corpus.',
+  'Embedded finance & BaaS': 'A headline category in 2022. Effectively gone by 2025.'
+};
+$('decay').innerHTML = decayNames.map(n => {
+  const t = themes.find(x => x.t === n);
+  if (!t) return '';
+  return '<div class="dcell"><div class="dname">' + esc(n) + '</div>' +
+    '<div class="dnum">' + t.v[0].toFixed(2) + ' → <b>' + t.v[3].toFixed(2) + '</b> per 10k · ' +
+    t.sh.toFixed(0) + '% of sessions</div>' + spark(t.v, '#b83737') +
+    '<p class="note" style="margin:10px 0 0">' + esc(blurb[n]) + '</p></div>';
+}).join('');
+
+/* ---------- diverging movers ---------- */
+const SHORT = {
+  'Fraud, risk & cybersecurity': 'Fraud & cybersecurity',
+  'Digital public infrastructure': 'Digital public infra',
+  'Embedded finance & BaaS': 'Embedded finance',
+  'MSME & small business finance': 'MSME finance',
+  'Sustainability & climate finance': 'Sustainability & climate',
+  'Customer experience & personalisation': 'Customer experience',
+  'Banking transformation & neobanks': 'Banking transformation',
+  'Account Aggregator & open banking': 'Account Aggregator',
+  'Tokenisation, blockchain & crypto': 'Tokenisation & crypto',
+  'AI & machine learning (general)': 'AI & machine learning'
+};
+const short = n => SHORT[n] || n;
+
+const sorted = [...themes].sort((a, b) => b.chg - a.chg);
+const movers = [...sorted.slice(0, 8), ...sorted.slice(-8)];
+const maxAbs = Math.max(...movers.map(m => Math.abs(m.chg)));
+
+$('movers').innerHTML = movers.map(m => {
+  const up = m.chg >= 0;
+  const w = (Math.abs(m.chg) / maxAbs * 100).toFixed(1);
+  return '<div class="mvrow">' +
+    '<span class="mvlab">' + esc(short(m.t)) + '</span>' +
+    '<span class="mvneg">' + (up ? '' : '<span class="mvbar" data-w="' + w + '"></span>') + '</span>' +
+    '<span class="mvpos">' + (up ? '<span class="mvbar" data-w="' + w + '"></span>' : '') + '</span>' +
+    '<span class="mvval">' + (up ? '+' : '−') + Math.abs(m.chg).toFixed(2) + '</span>' +
+  '</div>';
+}).join('');
+
+// Set widths unconditionally — the CSS transition still animates them, and the
+// chart is never left blank if an observer or scroll event fails to fire.
+function growMovers() {
+  document.querySelectorAll('.mvbar').forEach(b => { b.style.width = b.dataset.w + '%'; });
+}
+requestAnimationFrame(() => requestAnimationFrame(growMovers));
+setTimeout(growMovers, 400);
+
+/* ---------- year terms ---------- */
+$('years').innerHTML = Object.keys(DATA.keyness).map((y, i) =>
+  '<div class="ycell"><div class="ynum">' + y + '</div><div class="terms">' +
+  DATA.keyness[y].map((t, j) => '<span class="term' + (j === 0 ? ' hot' : '') + '">' + esc(t) + '</span>').join('') +
+  '</div></div>').join('');
+
+/* ---------- 2026 feeds ---------- */
+$('feeds').innerHTML = DATA.feeds2026.map(f => {
+  const is26 = f.y === 2026;
+  const w = v => is26 ? '<strong>' + v.toFixed(2) + '</strong>' : v.toFixed(2);
+  return '<tr><td class="nm">' + f.y + ' · ' + esc(f.room) + '</td>' +
+    '<td class="r">' + w(f.tok) + '</td><td class="r">' + w(f.ag) + '</td>' +
+    '<td class="r">' + w(f.q) + '</td></tr>';
+}).join('');
+</script>
+</body>
+</html>
