@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overheard at GFF · Carousel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#1a1714;font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* ── Controls ── */
+.controls{position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  padding:14px 20px;background:rgba(26,23,20,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.08)}
+.controls button{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;
+  padding:8px 18px;border-radius:6px;border:none;cursor:pointer;transition:all .15s ease}
+.nav-btn{background:rgba(255,255,255,.12);color:#fff}
+.nav-btn:hover{background:rgba(255,255,255,.22)}
+.nav-btn:disabled{opacity:.3;cursor:default}
+.counter{color:rgba(255,255,255,.6);font-size:14px;font-weight:500;min-width:60px;text-align:center}
+
+.viewport{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:80px 20px 40px}
+
+:root{
+  --bg:#f5f0e8;--bg-dark:#e8e0d0;--ink:#2a2520;--ink-soft:#5a524a;
+  --rule:#c8beb0;--accent:#b88a00;--green:#3a6a3a;--red:#b83737;
+  --blume:#2e5a95;--gray:#c9c4ba;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Inter',sans-serif;
+}
+
+/* ── Slide canvas ── */
+.slide{width:1080px;height:1350px;background:var(--bg);position:relative;
+  overflow:hidden;flex-shrink:0;display:none;padding:78px 60px 120px;
+  color:var(--ink)}
+.slide.active{display:flex;flex-direction:column}
+
+.kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;
+  font-size:17px;font-weight:600;color:var(--ink-soft)}
+.slide h1{font-family:var(--serif);font-weight:900;font-size:118px;line-height:1;
+  letter-spacing:-.025em}
+.slide h2{font-family:var(--serif);font-weight:700;font-size:62px;line-height:1.1;
+  letter-spacing:-.02em}
+.slide em{font-style:normal;color:var(--accent)}
+.slide h1 s{text-decoration:line-through;text-decoration-thickness:.055em;
+  text-decoration-skip-ink:none;color:var(--ink-soft);opacity:.45}
+.lead{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--ink-soft);
+  line-height:1.45;max-width:900px}
+.brand-tag{position:absolute;bottom:46px;left:60px;font-family:var(--sans);font-size:14px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.brand-tag em{font-style:normal;color:var(--accent)}
+.slide-num{position:absolute;bottom:46px;right:60px;font-family:var(--serif);
+  font-size:22px;color:var(--rule);font-weight:400}
+.spacer{margin-top:auto}
+
+/* S1 */
+.s1{text-align:center;justify-content:center;align-items:center}
+.s1 .kicker{margin-bottom:34px}
+.s1 .dek{font-family:var(--serif);font-style:italic;font-size:31px;color:var(--ink-soft);
+  line-height:1.45;max-width:800px;margin:30px auto 0}
+.s1 .stat-row{display:flex;justify-content:center;gap:70px;margin-top:58px}
+.s1 .stat-num{font-family:var(--serif);font-weight:900;font-size:70px;line-height:1}
+.s1 .stat-lbl{font-family:var(--sans);font-size:15px;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--ink-soft);font-weight:600;margin-top:10px}
+.s1 .footer-note{font-family:var(--serif);font-style:italic;font-size:21px;
+  color:var(--ink-soft);margin-top:56px}
+
+/* pipeline (S2) */
+.pipeline{display:flex;flex-direction:column;gap:26px;margin-top:48px}
+.step{display:flex;gap:30px;align-items:flex-start;padding-bottom:26px;
+  border-bottom:1px solid var(--rule)}
+.step:last-child{border-bottom:none}
+.step-num{font-family:var(--serif);font-weight:900;font-size:64px;color:var(--accent);
+  line-height:.95;min-width:150px}
+.step-text strong{display:block;font-size:27px;font-weight:700;margin-bottom:8px}
+.step-text span{font-size:22px;color:var(--ink-soft);line-height:1.5}
+
+/* big number pairs */
+.duo{display:flex;gap:34px;margin-top:52px}
+.duo-cell{flex:1;background:var(--bg-dark);border-radius:16px;padding:40px 34px}
+.duo-val{font-family:var(--serif);font-weight:900;font-size:88px;line-height:1;
+  letter-spacing:-.02em}
+.duo-lbl{font-size:21px;color:var(--ink-soft);margin-top:14px;line-height:1.35;font-weight:500}
+
+/* the one word */
+.megaword{font-family:var(--serif);font-weight:900;font-size:150px;line-height:.98;
+  color:var(--accent);letter-spacing:-.03em;margin:36px 0 28px}
+
+/* stat lines */
+.lines{display:flex;flex-direction:column;gap:22px;margin-top:46px}
+.line{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:baseline;
+  padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.line:last-child{border-bottom:none}
+.line-v{font-family:var(--serif);font-weight:900;font-size:56px;line-height:1}
+.line-v.up{color:var(--green)} .line-v.down{color:var(--red)}
+.line-t{font-size:26px;line-height:1.35}
+.line-t span{display:block;font-size:20px;color:var(--ink-soft);margin-top:6px}
+
+/* decay rows */
+.decay{display:flex;flex-direction:column;gap:0;margin-top:44px}
+.drow{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+  padding:22px 0;border-bottom:1px solid var(--rule)}
+.drow:last-child{border-bottom:none}
+.dname{font-size:29px;font-weight:600}
+.dnums{font-family:var(--serif);font-size:34px;font-weight:700;white-space:nowrap}
+.dnums b{color:var(--red);font-weight:900}
+.dsub{font-size:19px;color:var(--ink-soft);margin-top:5px}
+
+/* year blocks */
+.years{display:flex;flex-direction:column;gap:0;margin-top:40px}
+.yrow{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:center;
+  padding:26px 0;border-bottom:1px solid var(--rule)}
+.yrow:last-child{border-bottom:none}
+.ynum{font-family:var(--serif);font-weight:900;font-size:52px;color:var(--accent)}
+.yterms{font-size:25px;line-height:1.45;color:var(--ink)}
+.yterms b{font-weight:700}
+
+/* comparison table (S9) */
+.cmp{margin-top:44px;border-top:2px solid var(--ink)}
+.crow{display:grid;grid-template-columns:1fr 200px;gap:20px;align-items:center;
+  padding:20px 0;border-bottom:1px solid var(--rule)}
+.crow.hi{background:rgba(184,138,0,.09)}
+.cname{font-size:24px;font-weight:500;padding-left:10px}
+.cval{font-family:var(--serif);font-size:44px;font-weight:900;text-align:right;padding-right:10px}
+.crow.hi .cval{color:var(--accent)}
+
+/* S10 */
+.s10{text-align:center;justify-content:center;align-items:center}
+.s10 .cta{margin-top:46px;font-family:var(--serif);font-style:italic;font-size:27px;color:var(--ink)}
+.s10 .handle{font-family:var(--serif);font-weight:900;font-size:52px;color:var(--accent);
+  margin-top:10px;letter-spacing:-.01em}
+.s10 .credit{margin-top:52px;padding-top:30px;border-top:1px solid var(--rule);
+  font-size:23px;color:var(--ink-soft);line-height:1.6}
+.s10 .credit b{color:var(--blume);font-weight:700}
+.note{font-size:21px;color:var(--ink-soft);line-height:1.5;margin-top:34px}
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button class="nav-btn" id="prev">← Prev</button>
+  <span class="counter" id="counter">1 / 10</span>
+  <button class="nav-btn" id="next">Next →</button>
+</div>
+
+<div class="viewport">
+
+  <!-- S1: TITLE -->
+  <section class="slide s1 active">
+    <p class="kicker">A Data Investigation · September 2026</p>
+    <h1><s>Over</s>heard at GFF</h1>
+    <p class="dek">We transcribed every session Global Fintech Fest has ever published — to find out what the stage actually talks about.</p>
+    <div class="stat-row">
+      <div><div class="stat-num">758</div><div class="stat-lbl">Sessions</div></div>
+      <div><div class="stat-num">4.7M</div><div class="stat-lbl">Words</div></div>
+      <div><div class="stat-num">27</div><div class="stat-lbl">Themes tracked</div></div>
+    </div>
+    <p class="footer-note">Four editions: 2022 → 2025</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">1 / 10</div>
+  </section>
+
+  <!-- S2: SETUP -->
+  <section class="slide s2">
+    <p class="kicker">The Setup</p>
+    <h2 style="margin-top:22px">How do you find out what a conference <em>really</em> talks about?</h2>
+    <div class="pipeline">
+      <div class="step"><div class="step-num">795</div><div class="step-text"><strong>Videos enumerated.</strong><span>Every upload on the official channel, including the full-day livestreams.</span></div></div>
+      <div class="step"><div class="step-num">758</div><div class="step-text"><strong>Transcripts parsed.</strong><span>English auto-captions, cleaned, word-counted and dated to the right edition.</span></div></div>
+      <div class="step"><div class="step-num">27</div><div class="step-text"><strong>Themes counted.</strong><span>Measured per 10,000 words — so a long keynote and a short panel count on the same scale.</span></div></div>
+    </div>
+    <p class="note spacer">Four years, one method — so the editions can actually be compared against each other.</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">2 / 10</div>
+  </section>
+
+  <!-- S3: WHAT DOMINATES -->
+  <section class="slide s3">
+    <p class="kicker">What Dominates</p>
+    <h2 style="margin-top:22px">Lending is still the loudest thing in the room.</h2>
+    <div class="duo">
+      <div class="duo-cell"><div class="duo-val">27.6</div><div class="duo-lbl">Lending &amp; credit<br>mentions per 10,000 words</div></div>
+      <div class="duo-cell"><div class="duo-val">24.7</div><div class="duo-lbl">Regulation &amp; compliance<br>mentions per 10,000 words</div></div>
+    </div>
+    <p class="lead spacer" style="margin-top:56px">No other theme comes close. The third-placed subject runs at less than half their rate — and lending has led every single year measured.</p>
+    <p class="note">Though it is not as hot as it once was: down roughly a quarter from its 2022 peak.</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">3 / 10</div>
+  </section>
+
+  <!-- S4: THE CONSTANT -->
+  <section class="slide s4">
+    <p class="kicker">The Constant</p>
+    <h2 style="margin-top:22px">One theme <em>never</em> moves.</h2>
+    <div class="megaword">Regulation.</div>
+    <div class="lines" style="margin-top:10px">
+      <div class="line"><div class="line-v">22–25</div><div class="line-t">Mentions per 10,000 words<span>In every single year measured. No other theme is remotely that stable.</span></div></div>
+      <div class="line"><div class="line-v">94%</div><div class="line-t">Of all 2025 sessions<span>It has never dropped below 90% in any year.</span></div></div>
+    </div>
+    <p class="note spacer">Regulation isn't a topic at GFF so much as the medium the other topics are discussed in.</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">4 / 10</div>
+  </section>
+
+  <!-- S5: THE ARRIVAL -->
+  <section class="slide s5">
+    <p class="kicker">The Arrival</p>
+    <h2 style="margin-top:22px">In 2022, AI was <em>not mentioned once.</em></h2>
+    <p class="lead" style="margin-top:30px">Across 1.25 million words of 2022 sessions there is not a single match for generative AI or large language models. Not rare — absent.</p>
+    <div class="duo">
+      <div class="duo-cell"><div class="duo-val" style="color:var(--gray)">0.00</div><div class="duo-lbl">2022<br>Generative AI &amp; agentic AI</div></div>
+      <div class="duo-cell"><div class="duo-val" style="color:var(--green)">2.95</div><div class="duo-lbl">2025<br>Generative AI &amp; LLMs</div></div>
+    </div>
+    <p class="note spacer">Agentic AI is even sharper: absent, absent, a rounding error — then present in 31% of all 2025 sessions.</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">5 / 10</div>
+  </section>
+
+  <!-- S6: THE TURN -->
+  <section class="slide s6">
+    <p class="kicker">The Turn</p>
+    <h2 style="margin-top:22px">The stage turned <em>defensive.</em></h2>
+    <div class="lines">
+      <div class="line"><div class="line-v up">+99%</div><div class="line-t">Data protection &amp; privacy<span>The DPDP Act is one of the terms most distinctive to 2025.</span></div></div>
+      <div class="line"><div class="line-v up">+54%</div><div class="line-t">Fraud &amp; cybersecurity<span>Mule accounts, phishing, money laundering.</span></div></div>
+      <div class="line"><div class="line-v down">−24%</div><div class="line-t">Lending &amp; credit<span>Still first, but falling faster than anything else rose.</span></div></div>
+    </div>
+    <p class="lead spacer" style="margin-top:46px">Four years ago this was a conference about what the industry could build. It is now largely a conference about what the industry has to defend.</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">6 / 10</div>
+  </section>
+
+  <!-- S7: HYPE DECAY -->
+  <section class="slide s7">
+    <p class="kicker" style="color:var(--red)">Hype Decay</p>
+    <h2 style="margin-top:22px">Four themes that peaked and <em>faded.</em></h2>
+    <div class="decay">
+      <div class="drow"><div><div class="dname">CBDC &amp; the digital rupee</div><div class="dsub">Doubled into 2023, then collapsed. Now in 13% of sessions.</div></div><div class="dnums">1.90 → <b>0.83</b></div></div>
+      <div class="drow"><div><div class="dname">ONDC &amp; open networks</div><div class="dsub">The most marginal theme tracked — under 4% of sessions.</div></div><div class="dnums">1.62 → <b>0.51</b></div></div>
+      <div class="drow"><div><div class="dname">Sustainability &amp; climate</div><div class="dsub">The sharpest proportional decline of any theme: −60%.</div></div><div class="dnums">4.73 → <b>1.88</b></div></div>
+      <div class="drow"><div><div class="dname">Embedded finance &amp; BaaS</div><div class="dsub">A headline category in 2022. Effectively gone.</div></div><div class="dnums">1.55 → <b>0.48</b></div></div>
+    </div>
+    <p class="note spacer">The themes that fell hardest are largely the ones launched with the most institutional fanfare.</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">7 / 10</div>
+  </section>
+
+  <!-- S8: YEARS -->
+  <section class="slide s8">
+    <p class="kicker" style="color:var(--accent)">Four Years, Four Vocabularies</p>
+    <h2 style="margin-top:22px">What each year sounded like.</h2>
+    <div class="years">
+      <div class="yrow"><div class="ynum">2022</div><div class="yterms"><b>metaverse</b> · aadhaar · spend management · biller · outages</div></div>
+      <div class="yrow"><div class="ynum">2023</div><div class="yterms"><b>digital rupee</b> · invisible payments · seller app · microfinance</div></div>
+      <div class="yrow"><div class="ynum">2024</div><div class="yterms"><b>interlinking</b> · forex · commercial card · DPI · federal reserve</div></div>
+      <div class="yrow"><div class="ynum">2025</div><div class="yterms"><b>DPDP Act</b> · AI agent · LLMs · human in the loop · GPUs</div></div>
+    </div>
+    <p class="note spacer">Every term scored by log-likelihood against all other years — so these are the words that genuinely spiked, not just the common ones.</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">8 / 10</div>
+  </section>
+
+  <!-- S9: THE REVERSAL -->
+  <section class="slide s9">
+    <p class="kicker" style="color:var(--accent)">The Reversal</p>
+    <h2 style="margin-top:22px">We called tokenisation <em>aspirational.</em> Day 1 of 2026 disagreed.</h2>
+    <p class="lead" style="margin-top:26px">On four years of sessions, tokenisation was in steady decline — so billing it as a 2026 pillar looked like wishful thinking. Then the room feeds landed.</p>
+    <div class="cmp">
+      <div class="crow"><div class="cname">2025 · Day-1 Grand Theatre</div><div class="cval">1.87</div></div>
+      <div class="crow"><div class="cname">2025 · Day-1 Jasmine</div><div class="cval">3.30</div></div>
+      <div class="crow"><div class="cname">2025 · Day-3 Grand Theatre</div><div class="cval">2.99</div></div>
+      <div class="crow hi"><div class="cname"><b>2026 · Day-1 Grand Theatre</b></div><div class="cval">8.69</div></div>
+      <div class="crow hi"><div class="cname"><b>2026 · Day-1 Jasmine 3</b></div><div class="cval">16.64</div></div>
+    </div>
+    <p class="note">Up in both rooms — the quieter one by 2.5×, the busier by 5×. Quantum, though, is one track, not a theme: 2.99 in Jasmine 3 against 0.32 in the main hall.</p>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">9 / 10</div>
+  </section>
+
+  <!-- S10: CTA -->
+  <section class="slide s10">
+    <p class="kicker">The Full Investigation</p>
+    <h2>27 themes. Four years.<br>Every number reproducible.</h2>
+    <p class="lead" style="margin:32px auto 0">The complete analysis — chart by chart, with the method and the caveats written out in full.</p>
+    <p class="cta">Read it here ↓</p>
+    <p class="handle">mallucinations.fun/gff</p>
+    <div class="credit">Produced by <b>Blume Ventures</b><br>Reach out if you're building in fintech — joseph@blume.vc</div>
+    <div class="brand-tag">@<em>mallucinations</em></div>
+    <div class="slide-num">10 / 10</div>
+  </section>
+
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let i = 0;
+const counter = document.getElementById('counter');
+function show(n) {
+  i = Math.max(0, Math.min(slides.length - 1, n));
+  slides.forEach((s, k) => s.classList.toggle('active', k === i));
+  counter.textContent = (i + 1) + ' / ' + slides.length;
+  document.getElementById('prev').disabled = i === 0;
+  document.getElementById('next').disabled = i === slides.length - 1;
+  window.scrollTo(0, 0);
+}
+document.getElementById('prev').onclick = () => show(i - 1);
+document.getElementById('next').onclick = () => show(i + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') show(i - 1);
+  if (e.key === 'ArrowRight') show(i + 1);
+});
+show(0);
+</script>
+</body>
+</html>
