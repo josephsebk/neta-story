@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kendex — the Kerala index</title>
+<title>Kerala Performance Index</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -87,7 +87,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--borderStrong)
 
 <header>
   <div class="pill">Thematic index · Research preview</div>
-  <h1>Kendex<span class="dot">.</span></h1>
+  <h1>Kerala Performance Index<span class="dot">.</span></h1>
   <div class="sub">An index of Kerala-based and Malayali-promoted listed companies — 28 constituents,
   from Muthoot and Federal Bank to Kitex and Wonderla. Backtested July 2016 → today, base 1000.</div>
   <div class="mono" style="margin-top:12px">AS OF <span id="asof"></span> · PRICES: YAHOO FINANCE · TICKERS VERIFIED VS NSE/BSE</div>
@@ -116,7 +116,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--borderStrong)
       <canvas id="dd"></canvas>
       <div id="tip"></div>
     </div>
-    <div class="mono" style="margin-top:10px">BOTTOM PANEL: DRAWDOWN FROM PEAK — KENDEX CAP (GREEN FILL) VS NIFTY 50 (LINE)</div>
+    <div class="mono" style="margin-top:10px">BOTTOM PANEL: DRAWDOWN FROM PEAK — KPI CAP (GREEN FILL) VS NIFTY 50 (LINE)</div>
   </div>
 </section>
 
@@ -143,8 +143,8 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--borderStrong)
         <li><b>Universe.</b> Broad basis: Kerala-headquartered companies, Kerala PSUs (Cochin Shipyard, FACT),
         and Malayali-promoted companies HQ'd elsewhere (MRF, Sobha, Aster DM). All 28 tickers verified against
         the Zerodha instrument master.</li>
-        <li><b>Two weighting schemes.</b> <b>Kendex-Cap</b>: market-cap weighted with a 20% single-stock cap
-        (NSE thematic convention — otherwise Muthoot dominates). <b>Kendex-EQ</b>: equal weight.</li>
+        <li><b>Two weighting schemes.</b> <b>KPI-Cap</b>: market-cap weighted with a 20% single-stock cap
+        (NSE thematic convention — otherwise Muthoot dominates). <b>KPI-EQ</b>: equal weight.</li>
         <li><b>Quarterly rebalance</b> on the first trading day of Jan / Apr / Jul / Oct.</li>
         <li><b>Dynamic universe.</b> Stocks enter at the first rebalance after listing — Kalyan (2021),
         ESAF / Fedbank Fin / Muthoot Microfin (2023), Popular Vehicles (2024).</li>
@@ -171,7 +171,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--borderStrong)
 </section>
 
 <footer>
-  <div class="mono">KENDEX · BUILT WITH THE MONTRA PRICE ENGINE · NOT INVESTMENT ADVICE — A RESEARCH TOY WITH KNOWN BIASES</div>
+  <div class="mono">KERALA PERFORMANCE INDEX (KPI) · BUILT WITH THE MONTRA PRICE ENGINE · NOT INVESTMENT ADVICE — A RESEARCH TOY WITH KNOWN BIASES</div>
 </footer>
 
 </div>
@@ -187,10 +187,10 @@ const M=DATA.metrics;
 function cards(){
   const m=state.mode, k='KENDEX_CAP_'+m, e='KENDEX_EQ_'+m;
   const items=[
-    ['Kendex-Cap CAGR',M[k].cagr+'%','10-yr, '+(m==='TR'?'divs reinvested':'price only'),1],
-    ['Kendex-EQ CAGR',M[e].cagr+'%','equal weight',1],
+    ['KPI-Cap CAGR',M[k].cagr+'%','10-yr, '+(m==='TR'?'divs reinvested':'price only'),1],
+    ['KPI-EQ CAGR',M[e].cagr+'%','equal weight',1],
     ['Nifty 50 CAGR',M.NIFTY50.cagr+'%','price return',0],
-    ['Alpha vs Nifty 50',(M[k].cagr-M.NIFTY50.cagr).toFixed(1)+' pp','Cap variant, per year',1],
+    ['Alpha vs Nifty 50',(M.KENDEX_CAP_PR.cagr-M.NIFTY50.cagr).toFixed(1)+' pp','Cap, price vs price, per year',1],
     ['Max drawdown',M[k].maxdd+'%','Cap · trough '+M[k].maxdd_date.slice(0,7),-1],
     ['Sharpe',M[k].sharpe,'rf 6.5% · vol '+M[k].vol+'%',0]];
   $('#statcards').innerHTML=items.map(([l,v,d,s])=>
@@ -203,8 +203,8 @@ const dates=DATA.dates.map(d=>new Date(d));
 function activeSeries(){
   const m=state.mode;
   return [
-    {key:'KENDEX_CAP_'+m,label:'Kendex Cap',color:C.capTR,w:2.4},
-    {key:'KENDEX_EQ_'+m,label:'Kendex EQ',color:C.eqTR,w:1.8,dash:[1,0]},
+    {key:'KENDEX_CAP_'+m,label:'KPI Cap',color:C.capTR,w:2.4},
+    {key:'KENDEX_EQ_'+m,label:'KPI EQ',color:C.eqTR,w:1.8,dash:[1,0]},
     {key:'NIFTY50',label:'Nifty 50',color:C.n50,w:1.6},
     {key:'NIFTY500',label:'Nifty 500',color:C.n500,w:1.6}];
 }
@@ -300,7 +300,7 @@ addEventListener('resize',draw);
 
 // ---------- yearly table ----------
 function yearly(){
-  const cols=[['KENDEX_CAP_PR','Kendex Cap'],['KENDEX_EQ_PR','Kendex EQ'],['NIFTY50','Nifty 50'],['NIFTY500','Nifty 500']];
+  const cols=[['KENDEX_CAP_PR','KPI Cap'],['KENDEX_EQ_PR','KPI EQ'],['NIFTY50','Nifty 50'],['NIFTY500','Nifty 500']];
   const years=Object.keys(M.NIFTY50.yearly);
   let h='<thead><tr><th>Year</th>'+cols.map(c=>`<th class="r">${c[1]}</th>`).join('')+'<th class="r">Cap − N50</th></tr></thead><tbody>';
   years.forEach(y=>{
