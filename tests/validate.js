@@ -17,7 +17,8 @@ const path = require("path");
 const vm   = require("vm");
 
 const ROOT = path.resolve(__dirname, "..");
-const read = f => fs.readFileSync(path.join(ROOT, f), "utf8");
+const SITE = path.join(ROOT, "lok-sabha");
+const read = f => fs.readFileSync(path.join(SITE, f), "utf8");
 
 let pass = 0, fail = 0;
 const ok   = m => { pass++; console.log("  ✓ " + m); };
@@ -72,7 +73,7 @@ for (const m of html.matchAll(/(?:src|href)=["']([^"']+)["']/g)) {
   assetRefs.add(u);
 }
 for (const rel of [...assetRefs].sort()) {
-  fs.existsSync(path.join(ROOT, rel)) ? ok(`${rel} exists`)
+  fs.existsSync(path.join(SITE, rel)) ? ok(`${rel} exists`)
                                       : bad(`${rel} referenced but NOT found on disk`);
 }
 
@@ -127,7 +128,7 @@ if (manMatch) {
   const pairs = [...manMatch[1].matchAll(/"([^"]+)":\s*"([^"]+)"/g)];
   pairs.length ? null : bad("LOGO_MANIFEST parsed but empty");
   for (const [, domain, file] of pairs) {
-    fs.existsSync(path.join(ROOT, file)) ? ok(`${domain} → ${file}`)
+    fs.existsSync(path.join(SITE, file)) ? ok(`${domain} → ${file}`)
                                          : bad(`${domain} → ${file} MISSING`);
   }
 } else bad("LOGO_MANIFEST not found in app.js");

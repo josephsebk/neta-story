@@ -15,7 +15,7 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const SRC  = path.join(ROOT, "data", "neta_dataset_v3_with_alternatives.json");
-const OUT  = path.join(ROOT, "holdings.js");
+const OUT  = path.join(ROOT, "lok-sabha", "holdings.js");
 
 const MAX_POSITIONS = 25;          // cap per MP to keep file small
 const round = n => Math.round(n);  // values stay in raw rupees
