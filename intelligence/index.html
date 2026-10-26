@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Information Asymmetry to Intelligence Asymmetry</title>
+<meta name="description" content="The web made information free. AI makes intelligence cheap. The second shift is bigger than the first, and it hits specific markets with predictable force.">
+<meta name="author" content="Joseph Sebastian">
+
+<!-- Open Graph -->
+<meta property="og:title" content="From Information Asymmetry to Intelligence Asymmetry">
+<meta property="og:description" content="The web made information free. AI makes intelligence cheap. The second shift is bigger than the first, and it hits specific markets with predictable force.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://mallucinations.fun/intelligence/og-image.png">
+<meta property="og:url" content="https://mallucinations.fun/intelligence/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="From Information Asymmetry to Intelligence Asymmetry">
+<meta name="twitter:description" content="The web made information free. AI makes intelligence cheap. The second shift is bigger than the first.">
+<meta name="twitter:image" content="https://mallucinations.fun/intelligence/og-image.png">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --bg: #faf9f7;
+    --bg-card: #fff;
+    --bg-pullquote: #f0ede8;
+    --accent: #c54b27;
+    --accent-light: #e8d5cd;
+    --border: #e0dcd5;
+    --border-light: #ece8e2;
+    --max-width: 680px;
+    --wide-width: 820px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.72;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .article-header {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 80px 24px 40px;
+  }
+  .article-header .kicker {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .article-header h1 {
+    font-family: 'Newsreader', serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  .article-header .subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 32px;
+  }
+  .article-header .meta {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: var(--text-muted);
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  .content p { margin-bottom: 22px; }
+
+  .content h2 {
+    font-family: 'Newsreader', serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 56px 0 20px;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  .content h3 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 48px 0 16px;
+  }
+
+  .content strong { font-weight: 600; }
+  .content em { font-style: italic; }
+
+  .content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .content a:hover { text-decoration-thickness: 2px; }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-size: 72px;
+    line-height: 0.75;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 6px 10px 0 0;
+    font-family: 'Newsreader', serif;
+  }
+
+  .epigraph {
+    margin: 40px 0;
+    padding: 24px 32px;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-pullquote);
+    border-radius: 0 6px 6px 0;
+  }
+  .epigraph p {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 8px !important;
+    color: var(--text-secondary);
+  }
+  .epigraph .attr {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+  }
+
+  .pullquote {
+    margin: 48px -40px;
+    padding: 32px 40px;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--accent);
+    text-align: center;
+    font-style: italic;
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .sep {
+    text-align: center;
+    margin: 48px 0;
+    color: var(--text-muted);
+    letter-spacing: 8px;
+    font-size: 14px;
+  }
+
+  .visual {
+    margin: 40px -70px;
+    padding: 0;
+  }
+  @media (max-width: 860px) {
+    .visual { margin: 40px -12px; }
+  }
+
+  .visual-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .visual-caption {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  .mechanism-steps { margin: 32px 0; }
+  .step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 28px;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .step-text { flex: 1; }
+  .step-text strong {
+    display: block;
+    font-size: 17px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .step-text p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 0 !important;
+  }
+
+  .section-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .fn {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 12px;
+    padding-left: 20px;
+    border-left: 2px solid var(--border-light);
+  }
+
+  .matrix-text { font-family: 'Source Sans 3', sans-serif; }
+  .axis-label { fill: #888; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .quadrant-label { fill: #1a1a1a; font-size: 13px; font-weight: 700; }
+  .quadrant-sublabel { fill: #888; font-size: 11px; }
+  .example-label { fill: #c54b27; font-size: 11px; font-weight: 600; }
+  .dot { stroke: #c54b27; stroke-width: 2; }
+
+  .chart-label { font-family: 'Source Sans 3', sans-serif; fill: #555; font-size: 11px; }
+  .chart-annotation { font-family: 'Source Sans 3', sans-serif; fill: #c54b27; font-size: 11px; font-weight: 600; }
+
+  /* Appendix styling */
+  .appendix-header {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 60px 24px 0;
+    border-top: 3px solid var(--border);
+  }
+  .appendix-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .article-header h1 { font-size: 32px; }
+    .article-header .subtitle { font-size: 18px; }
+    .content { font-size: 17px; }
+    .pullquote { margin: 40px 0; font-size: 22px; padding: 24px; }
+    .visual { margin: 32px 0; }
+  }
+</style>
+</head>
+<body>
+
+<article>
+<header class="article-header">
+  <div class="kicker">Economics of AI</div>
+  <h1>From Information Asymmetry to Intelligence Asymmetry</h1>
+  <div class="subtitle">The web made information free. AI makes intelligence cheap. The second shift is bigger than the first, and it hits specific markets with predictable force.</div>
+  <div class="meta">February 2026</div>
+</header>
+
+<div class="content">
+
+<p>Two concepts have caught my eye regarding AI recently,</p>
+
+<!-- ===================== PART 1: PEREZ ===================== -->
+
+<h2>1) The Perez Transition, A Familiar Pattern, a New Question</h2>
+
+<div class="epigraph">
+  <p>You can see the computer age everywhere but in the productivity statistics.</p>
+  <span class="attr">Robert Solow, New York Times Book Review, 1987</span>
+</div>
+
+<p>Every major technological revolution follows the same arc. Capital floods into infrastructure first. Then, after a turning point that usually involves a financial crisis and a reckoning with overbuilt capacity, value migrates from the builders of infrastructure to the users of it.</p>
+
+<p>The railways made more money for Standard Oil and Sears Roebuck than they did for most railway companies. The internet made more money for Google and Amazon than it did for Cisco and Level 3 Communications. Carlota Perez documented this pattern rigorously across five technological revolutions spanning two and a half centuries. It is among the most reliable patterns in the history of capitalism.</p>
+
+<p>AI is currently deep in its infrastructure phase. Nvidia earned 73% gross margins on its GPU business in Q3 FY2025. Hyperscaler capex is projected to exceed $300 billion in 2025. Infrastructure spending outpaces application revenue by roughly 10:1. Menlo Ventures estimates companies spent $37 billion on generative AI in 2025, of which $18 billion went to infrastructure: foundation model APIs, training compute, and AI tooling.</p>
+
+<p>Textbook Perez installation-phase dynamics.</p>
+
+<p>But the Perez framework has a gap. It tells you that value will migrate from infrastructure to applications. It leaves open the question of <em>which</em> applications. Downstream uses of a technology revolution don't all capture value equally. A company that uses electricity to light its offices captures far less than one that uses electricity to reinvent manufacturing.</p>
+
+<p>The question that matters for anyone allocating capital or building companies:</p>
+
+<div class="pullquote">Among all the industries that will use AI, where does it create structural change rather than incremental efficiency? Where does it go beyond making existing players faster and fundamentally restructure who captures margin and why?</div>
+
+<p>I believe we are in the early stages of transition away from infrastructure to application. Which application would this move to? I believe the answer lies in intelligence asymmetry, and in a specific mechanical sequence through which AI disrupts markets where that asymmetry is wide.</p>
+
+<div class="visual">
+<div class="visual-card">
+<svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+  <rect x="30" y="40" width="200" height="120" rx="6" fill="#f0ede8" stroke="#c4bfb5" stroke-width="1.5"/>
+  <text x="130" y="70" text-anchor="middle" class="matrix-text" style="font-size:13px;font-weight:700;fill:#555">Infrastructure Phase</text>
+  <text x="130" y="90" text-anchor="middle" class="matrix-text" style="font-size:11px;fill:#888">GPUs, Models, Compute</text>
+  <text x="130" y="108" text-anchor="middle" class="matrix-text" style="font-size:11px;fill:#888">~$300B+ capex in 2025</text>
+  <text x="130" y="145" text-anchor="middle" class="matrix-text" style="font-size:11px;font-weight:600;fill:#555">WE ARE HERE</text>
+  <path d="M240 100 L290 100" stroke="#c54b27" stroke-width="2" fill="none" marker-end="url(#arrowR)"/>
+  <defs><marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#c54b27"/></marker></defs>
+  <text x="265" y="90" text-anchor="middle" class="matrix-text" style="font-size:9px;fill:#c54b27;font-weight:600">VALUE</text>
+  <text x="265" y="115" text-anchor="middle" class="matrix-text" style="font-size:9px;fill:#c54b27;font-weight:600">MIGRATES</text>
+  <rect x="300" y="40" width="200" height="120" rx="6" fill="#fdf5f0" stroke="#d4a88a" stroke-width="1.5"/>
+  <text x="400" y="70" text-anchor="middle" class="matrix-text" style="font-size:13px;font-weight:700;fill:#c54b27">Application Phase</text>
+  <text x="400" y="90" text-anchor="middle" class="matrix-text" style="font-size:11px;fill:#888">Industry-specific AI</text>
+  <text x="400" y="108" text-anchor="middle" class="matrix-text" style="font-size:11px;fill:#888">that restructures economics</text>
+  <text x="400" y="145" text-anchor="middle" class="matrix-text" style="font-size:11px;font-weight:600;fill:#c54b27">WHERE VALUE GOES</text>
+  <path d="M510 100 L540 100" stroke="#aaa" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+  <defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#aaa"/></marker></defs>
+  <rect x="550" y="55" width="150" height="90" rx="6" fill="none" stroke="#c54b27" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="625" y="90" text-anchor="middle" class="matrix-text" style="font-size:13px;font-weight:700;fill:#c54b27">But which</text>
+  <text x="625" y="110" text-anchor="middle" class="matrix-text" style="font-size:13px;font-weight:700;fill:#c54b27">applications?</text>
+</svg>
+</div>
+<div class="visual-caption">Perez tells you <em>value migrates downstream</em>. Intelligence asymmetry tells you <em>which downstream markets</em>.</div>
+</div>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== PART 2: INTELLIGENCE ASYMMETRY ===================== -->
+
+<h2>2) Information Asymmetry to Intelligence Asymmetry</h2>
+
+<p class="drop-cap">Economics has long understood that markets fail when participants possess different information. The theory of information asymmetry, formalized by Akerlof, Spence, and Stiglitz, earned its architects a Nobel Prize and provided the dominant lens for understanding why intermediaries exist, why markets for used cars and insurance suffer from adverse selection, and why vast pools of economic margin accumulate wherever one party in a transaction knows things the other does not.</p>
+
+<p>Perhaps the single biggest value the web created was the disruption of structural information asymmetry. The web attacked this problem with devastating effectiveness. Job search portals, Craigslist, search engines, price comparison portals, review platforms, and digital marketplaces made information freely available to participants who previously had no access. Travel agents who profited from knowing flight schedules and seat availability lost their reason to exist. Ticket touts outside Indian cinema halls, who profited from knowing which shows had seats and which did not, disappeared. Stockbrokers who added value primarily through access to price data saw their commissions collapse.</p>
+
+<p>But here is the puzzle that should bother anyone thinking about where AI creates real economic value:</p>
+
+<p><strong>In many markets, the information is now freely available, yet the gap in outcomes between sophisticated and unsophisticated participants remains wide. In some cases it has widened.</strong></p>
+
+<p>An Indian salaried professional can download an insurance product brochure, read the fine print, and access every commission disclosure mandated by the regulator. The information exists. Yet that professional still cannot decompose the effective internal rate of return on a unit-linked insurance plan, compare it against a term-plus-SIP alternative, evaluate mortality charge structures, or model the impact of different premium allocation ratios on terminal wealth.</p>
+
+<p>A cardamom farmer in Kerala can see auction prices on a government app. They cannot integrate that price with monsoon forecasts, global demand from Guatemala, the futures curve on the Multi Commodity Exchange, and warehouse inventory levels across India.</p>
+
+<p>A small manufacturer in Rajkot can read every line of a working capital loan agreement. They cannot decompose the effective annual cost, benchmark the spread against prevailing rates, evaluate whether the prepayment penalty is standard or punitive, or calculate the cost of the collateral requirement in forgone liquidity.</p>
+
+<p>In each case, the data is right there. What's missing is the analytical capability to make sense of it.</p>
+
+<p>This distinction, between <strong>information asymmetry</strong> (knowing what the facts are) and <strong>intelligence asymmetry</strong> (knowing what to do with them), goes well beyond semantics. It is the central economic question of the AI era.</p>
+
+<div class="visual">
+<div class="visual-card">
+<svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg">
+  <rect x="20" y="30" width="320" height="180" rx="8" fill="#f7f4ef" stroke="#d4cec4" stroke-width="1.5"/>
+  <rect x="380" y="30" width="320" height="180" rx="8" fill="#fdf5f0" stroke="#d4a88a" stroke-width="1.5"/>
+  <text x="180" y="62" text-anchor="middle" class="matrix-text" style="font-size:14px;font-weight:700;fill:#555">Information Asymmetry</text>
+  <text x="180" y="82" text-anchor="middle" class="matrix-text" style="font-size:11px;fill:#888;font-style:italic">One party has data the other does not</text>
+  <line x1="80" y1="95" x2="280" y2="95" stroke="#d4cec4" stroke-width="1"/>
+  <text x="180" y="118" text-anchor="middle" class="matrix-text" style="font-size:12px;fill:#888">Used car history</text>
+  <text x="180" y="138" text-anchor="middle" class="matrix-text" style="font-size:12px;fill:#888">Flight schedules &amp; seat availability</text>
+  <text x="180" y="158" text-anchor="middle" class="matrix-text" style="font-size:12px;fill:#888">Stock prices &amp; order flow</text>
+  <text x="180" y="185" text-anchor="middle" class="matrix-text" style="font-size:12px;font-weight:600;fill:#555">Solved by: The Web</text>
+  <text x="540" y="62" text-anchor="middle" class="matrix-text" style="font-size:14px;font-weight:700;fill:#c54b27">Intelligence Asymmetry</text>
+  <text x="540" y="82" text-anchor="middle" class="matrix-text" style="font-size:11px;fill:#888;font-style:italic">Both have data; one can analyze it better</text>
+  <line x1="440" y1="95" x2="640" y2="95" stroke="#d4a88a" stroke-width="1"/>
+  <text x="540" y="118" text-anchor="middle" class="matrix-text" style="font-size:12px;fill:#888">Insurance product IRR decomposition</text>
+  <text x="540" y="138" text-anchor="middle" class="matrix-text" style="font-size:12px;fill:#888">Commodity pricing with global signals</text>
+  <text x="540" y="158" text-anchor="middle" class="matrix-text" style="font-size:12px;fill:#888">SME loan pricing and term evaluation</text>
+  <text x="540" y="185" text-anchor="middle" class="matrix-text" style="font-size:12px;font-weight:600;fill:#c54b27">Solved by: AI</text>
+  <path d="M345 120 L370 120" stroke="#aaa" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+</svg>
+</div>
+<div class="visual-caption">The web closed the first gap. AI closes the second. The second gap is wider, more persistent, and more economically significant.</div>
+</div>
+
+<p>One way to think about this is that reduction of intelligence asymmetry widens the bounds of Herbert Simon's concept of bounded rationality. The bounded rationality framework acknowledged that all human decision-makers have finite cognitive capacity. But Simon treated it as a roughly uniform condition. What we observe in practice is something more like <em>differential</em> rationality: the distance between effective analytical capability can be enormous. A Cargill commodity trading desk and a cardamom farmer in Idukki are both boundedly rational. But the distance between where their bounded rationality lands them is vast.</p>
+
+<p>The web gave the farmer a smartphone with prices. It did not give them Cargill's analytical infrastructure. AI can.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== DOMAIN I ===================== -->
+
+<h3>Example I</h3>
+<h2>The Farmer and the Trader</h2>
+
+<p>Consider the supply chain for cardamom in Kerala. A smallholder farmer with two or three acres of cardamom-producing land harvests and brings their crop to a local auction. Between that farmer and the global buyer, whether Cargill, Olam, or a large domestic spice processor, there are multiple layers of intermediation: local trader, regional aggregator, exporter, end buyer. At each layer, the participant closer to the global market has a substantial analytical advantage over the one further from it.</p>
+
+<p>The farmer can see auction prices on the spices board website. The information is available. But the farmer cannot integrate that day's auction price with global cardamom supply from Guatemala (the world's largest producer), monsoon forecasts for the coming two months, the futures curve for small cardamom on the Multi Commodity Exchange, warehouse inventory levels across India, and the purchasing patterns of the three largest domestic processors.</p>
+
+<p>The local trader can approximate some of this. Cargill's trading desk can do all of it, in real time, across dozens of commodities. The intelligence gradient from farmer to Cargill is enormous, and at every step along it, margin is extracted.</p>
+
+<p>The farmer doesn't need to become Cargill. They need to go from making pricing decisions based on immediate cash needs and the local trader's offer to making decisions informed by a rough synthesis of the same factors Cargill considers. That leap, from the 5th percentile to the 50th percentile of commodity pricing decision quality, transforms the farmer's operation in all kinds of decisions. They may now choose not to expand their cultivation during periods of high price (every shortage led to a glut precisely because of this). But now the farmer can use a service that helps them analyse past data and ask the question on whether they should plant this year when prices are very high (the answer is no). This changes the bounds of rationality within which the farmer operated and will have significant impact on the value chain.</p>
+
+<p>This isn't just theory. I have actually built a tool that helps cardamom farmers with precisely these kind of questions: <a href="https://josephsebk.github.io/CardamomPulse/" target="_blank">CardamomPulse</a>.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== DOMAIN II ===================== -->
+
+<h3>Domain II</h3>
+<h2>The Small Business Owner and the Bank</h2>
+
+<p>A fifteen-person auto parts manufacturer in Rajkot needs working capital. The owner walks into a bank branch, talks to a relationship manager, and receives a loan offer: 14% interest, collateral requirement of 1.5x the loan value, a processing fee, and a prepayment penalty buried in the fine print. The owner has no basis for evaluating this offer. They have seen one, maybe two loan offers in their life. So they negotiate on the headline interest rate number and then they accept the offer.</p>
+
+<p>Meanwhile, a large corporate borrower with a dedicated treasury team and relationships across six banks can decompose the all-in cost of each offer, benchmark it against the prevailing AAA corporate bond yield, negotiate away the prepayment penalty, evaluate whether a working capital loan or a receivables factoring facility is cheaper, and play lenders against each other for better terms. Two comparable large corporates borrowing from the same type of bank will see offers within 20 to 30 basis points of each other. Two comparable SME borrowers, same city, same sector, similar financials, can be paying rates 500 to 800 basis points apart. The corporate loan market prices on fundamentals. The SME loan market prices on whatever the borrower will accept. That dispersion is the intelligence tax made visible.</p>
+
+<p>The information infrastructure exists. RBI mandates that banks publish their benchmark lending rates. Credit scores are available. Government portals list SME lending schemes. The Rajkot manufacturer can access all of it. But they cannot synthesize a bank's marginal cost of lending, compare it against the quoted rate, identify whether the processing fee is market-standard or inflated, or calculate the effective annual cost once prepayment penalties are factored in.</p>
+
+<p>It is only a matter of time before AI lending advisors enter into this gap. The Reserve Bank of India's Account Aggregator framework, now reaching critical mass with over 100 million linked accounts, provides the data rails that AI advisory needs to function: a small business owner can consent to share their financial data across lenders, and an AI intermediary can evaluate all available offers in minutes.</p>
+
+<p>The pattern extends well beyond lending. A shopkeeper signing a commercial lease, a family navigating a property transaction, an individual in an employment dispute: in each case the intelligence gap with the counterparty's professional advisors is extreme. The contract text sits in front of both parties. The ability to evaluate it often belongs to one side.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== DOMAIN III ===================== -->
+
+<h3>Domain III</h3>
+<h2>The Patient and the Specialist</h2>
+
+<p>A patient diagnosed with stage II breast cancer sits across from an oncologist. The patient can access the same medical literature the oncologist has. PubMed is free. Clinical trial databases are public. NCCN treatment guidelines are published online. The information asymmetry that once characterized medicine has been substantially reduced.</p>
+
+<p>The intelligence asymmetry remains vast.</p>
+
+<p>The patient cannot synthesize their specific tumor pathology (ER-positive, HER2-negative, Ki-67 of 22%, tumor size 2.3 cm with one positive lymph node) with relevant clinical evidence, model the trade-offs between adjuvant chemotherapy and endocrine therapy alone, estimate the marginal survival benefit of adding four cycles of TC chemotherapy, or weigh that benefit against the toxicity profile and their personal values around quality of life.</p>
+
+<p>This domain illustrates something important: the oncologist's intelligence advantage is <em>real and genuinely earned</em>, unlike in some of our other examples where the intermediary's analytical superiority serves their margin more than the customer's interest. But even here, the intelligence asymmetry has consequences. Patients who cannot evaluate their options are unable to participate meaningfully in shared decision-making. They accept what is recommended without understanding the trade-offs. In systems with fee-for-service incentives, the recommendation may be influenced by reimbursement structures.</p>
+
+<p>AI treatment navigation tools are entering this space. Systems that ingest a patient's complete record and produce a structured analysis of options with supporting evidence are being piloted at academic medical centers. The patient doesn't become an oncologist. They cross a threshold: from passive acceptance to informed participation. They can ask, "What is the absolute survival benefit of adding chemotherapy in my specific case?" and understand the answer well enough to make a genuine choice.</p>
+
+<p>Two features of the mechanism are visible here. First, intelligence asymmetry reduction only requires the unsophisticated party to cross a threshold of functional competence, not to reach the analytical frontier. Second, the trust and relational value of the oncologist remain high. The mechanism compresses the analytical component of the gap while leaving the relational component largely intact.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== TWO FORCES ===================== -->
+
+<h2>Two Forces That Shape the Transition</h2>
+
+<p>The three domains above illustrate the mechanism. But they don't explain why the structural direction favors gap compression rather than gap preservation. Two opposing forces determine this.</p>
+
+<h3>Force I: The Concavity of Returns</h3>
+
+<p>The returns to AI-augmented analysis are concave. The marginal benefit of AI is substantially larger for a participant starting at a low level of analytical sophistication than for one starting at a high level.</p>
+
+<div class="visual">
+<div class="visual-card">
+<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg">
+  <line x1="80" y1="300" x2="660" y2="300" stroke="#ccc" stroke-width="1.5"/>
+  <line x1="80" y1="300" x2="80" y2="40" stroke="#ccc" stroke-width="1.5"/>
+  <text x="370" y="340" text-anchor="middle" class="chart-label" style="font-size:12px;font-weight:600">Analytical Capability (Pre-AI Baseline)</text>
+  <text x="30" y="170" text-anchor="middle" class="chart-label" style="font-size:12px;font-weight:600" transform="rotate(-90, 30, 170)">Decision Quality Improvement from AI</text>
+  <path d="M100,80 C180,90 280,160 400,230 C480,265 560,285 640,290" fill="none" stroke="#c54b27" stroke-width="3"/>
+  <circle cx="140" cy="85" r="6" fill="#c54b27" class="dot" fill-opacity="0.15"/>
+  <line x1="140" y1="85" x2="140" y2="300" stroke="#c54b27" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+  <text x="145" y="75" class="chart-annotation" style="font-size:12px">Farmer with AI</text>
+  <text x="145" y="65" class="chart-annotation" style="font-size:10px;font-weight:400;fill:#888">Transformative leap</text>
+  <circle cx="300" cy="175" r="6" fill="#c54b27" class="dot" fill-opacity="0.15"/>
+  <line x1="300" y1="175" x2="300" y2="300" stroke="#c54b27" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+  <text x="305" y="165" class="chart-annotation" style="font-size:12px">SME borrower</text>
+  <text x="305" y="155" class="chart-annotation" style="font-size:10px;font-weight:400;fill:#888">Significant benefit</text>
+  <circle cx="580" cy="282" r="6" fill="#c54b27" class="dot" fill-opacity="0.15"/>
+  <line x1="580" y1="282" x2="580" y2="300" stroke="#c54b27" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+  <text x="505" y="265" class="chart-annotation" style="font-size:12px">Cargill's desk</text>
+  <text x="505" y="255" class="chart-annotation" style="font-size:10px;font-weight:400;fill:#888">Marginal improvement</text>
+  <path d="M95,90 L95,295" stroke="#c54b27" stroke-width="2" fill="none" opacity="0.3"/>
+  <text x="85" y="195" text-anchor="end" class="chart-annotation" style="font-size:10px;fill:#c54b27" transform="rotate(-90, 85, 195)">LARGE GAIN</text>
+  <path d="M585,285 L585,295" stroke="#c54b27" stroke-width="2" fill="none" opacity="0.3"/>
+</svg>
+</div>
+<div class="visual-caption">The concavity of returns to AI. The marginal benefit is highest where analytical capability was previously most scarce. This is the structural reason the gap compresses rather than persists.</div>
+</div>
+
+<p>The cardamom farmer who goes from pricing decisions based on the local trader's offer to decisions based on an AI-generated synthesis of weather, demand, and inventory data experiences a transformative leap. Cargill's trading desk, which already integrates all these signals and more, gets a marginal improvement: slightly faster analysis, slightly broader coverage. The farmer's decision quality jumps from the 10th percentile to the 55th. Cargill's moves from the 92nd to the 94th.</p>
+
+<p>There is growing empirical support. Brynjolfsson, Li, and Raymond (2023) studied AI-augmented customer service workers and found that productivity gains were concentrated among the least experienced and lowest-performing workers. The top performers saw minimal improvement; the bottom performers saw dramatic gains. Research using Chinese firm-level data found the same pattern at the enterprise level. A study in the Journal of Monetary Economics found that when the Transformer architecture made processed data widely accessible, it substituted for advanced proprietary AI, enabling lower-AI firms to narrow the gap with high-AI counterparts.</p>
+
+<p>Concavity follows from the mathematical structure of the capability-to-outcome function. Decisions made with very little analysis are often very bad. Decisions made with moderate analysis are usually adequate. Decisions made with expert analysis are marginally better. The low-hanging fruit of decision improvement is captured first. This is why the farmer benefits more than Cargill, the SME borrower more than the bank's treasury desk, and the patient more than the oncologist.</p>
+
+<h3>Force II: The Walmart Problem</h3>
+
+<p>But there is a countervailing force. In practice, the sophisticated party almost always adopts AI first.</p>
+
+<p>Cargill integrates satellite imagery and machine learning into its commodity models years before the average farmer gets an AI crop advisor. Banks deploy AI credit scoring and dynamic pricing before SME borrowers get AI-powered loan comparison tools. Walmart deployed AI negotiation bots against 20,000 small suppliers, extracting better terms at scale, before those suppliers had access to comparable tools.</p>
+
+<p>In the near term, AI can actually <em>widen</em> intelligence asymmetry. A bank RM equipped with an AI-generated propensity score becomes more effective at selling suboptimal products. An insurance company using AI for lead scoring targets the most susceptible customers with greater precision.</p>
+
+<p><strong>So which force wins?</strong></p>
+
+<p>The Walmart problem is transitional. AI tools are commoditizing rapidly; the cost of deploying capable analysis has fallen by orders of magnitude since 2022 and continues to fall. There is a powerful commercial incentive to build consumer-side tools, because the margin pool being disrupted represents a large addressable market for whoever captures even a fraction of it on the consumer's behalf.</p>
+
+<p>Concavity is structural. It derives from the mathematical properties of the capability-to-outcome function, which does not change with deployment patterns. However fast the sophisticated side adopts, the marginal gain from moving a naive participant to "good enough" will always exceed the marginal gain from moving an expert to "slightly better."</p>
+
+<p>The Walmart problem determines the path and the speed. Concavity determines the destination.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== PREDICTING ===================== -->
+
+<h2>Predicting Where the Mechanism Hits Hardest</h2>
+
+<p>Given the mechanism and the forces that shape it, we can build a framework for prediction. Two dimensions matter:</p>
+
+<div class="visual">
+<div class="visual-card">
+<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg">
+  <rect x="120" y="40" width="270" height="190" rx="4" fill="#fdf5f0" opacity="0.5"/>
+  <rect x="390" y="40" width="270" height="190" rx="4" fill="#faeee6" opacity="0.7"/>
+  <rect x="120" y="230" width="270" height="190" rx="4" fill="#f7f4ef" opacity="0.4"/>
+  <rect x="390" y="230" width="270" height="190" rx="4" fill="#fdf5f0" opacity="0.5"/>
+  <line x1="120" y1="420" x2="660" y2="420" stroke="#999" stroke-width="1.5"/>
+  <line x1="120" y1="420" x2="120" y2="40" stroke="#999" stroke-width="1.5"/>
+  <polygon points="660,420 652,415 652,425" fill="#999"/>
+  <polygon points="120,40 115,48 125,48" fill="#999"/>
+  <text x="390" y="455" text-anchor="middle" class="axis-label">Analytical content of intermediary value</text>
+  <text x="50" y="230" text-anchor="middle" class="axis-label" transform="rotate(-90, 50, 230)">Width of intelligence gap</text>
+  <text x="255" y="440" text-anchor="middle" class="matrix-text" style="font-size:11px;fill:#aaa">Low</text>
+  <text x="525" y="440" text-anchor="middle" class="matrix-text" style="font-size:11px;fill:#aaa">High</text>
+  <text x="108" y="325" text-anchor="end" class="matrix-text" style="font-size:11px;fill:#aaa">Narrow</text>
+  <text x="108" y="135" text-anchor="end" class="matrix-text" style="font-size:11px;fill:#aaa">Wide</text>
+  <text x="530" y="75" text-anchor="middle" class="quadrant-label" style="fill:#c54b27;font-size:15px">MAXIMUM</text>
+  <text x="530" y="95" text-anchor="middle" class="quadrant-label" style="fill:#c54b27;font-size:15px">DISRUPTION</text>
+  <text x="255" y="80" text-anchor="middle" class="quadrant-label">AI Helps,</text>
+  <text x="255" y="98" text-anchor="middle" class="quadrant-label">Doesn't Disrupt</text>
+  <text x="530" y="265" text-anchor="middle" class="quadrant-label">Arms Race</text>
+  <text x="530" y="283" text-anchor="middle" class="quadrant-sublabel">(both sides adopt, structure</text>
+  <text x="530" y="297" text-anchor="middle" class="quadrant-sublabel">doesn't change)</text>
+  <text x="255" y="275" text-anchor="middle" class="quadrant-label">Minimal Impact</text>
+  <circle cx="540" cy="120" r="8" fill="#c54b27" opacity="0.7"/>
+  <text x="555" y="118" class="example-label">Retail Insurance</text>
+  <text x="555" y="132" class="example-label" style="font-weight:400;fill:#888;font-size:10px">(India)</text>
+  <circle cx="480" cy="100" r="8" fill="#c54b27" opacity="0.7"/>
+  <text x="410" y="108" class="example-label" text-anchor="end">Ag. Commodities</text>
+  <circle cx="510" cy="145" r="8" fill="#c54b27" opacity="0.7"/>
+  <text x="525" y="158" class="example-label">SME Lending</text>
+  <circle cx="460" cy="160" r="8" fill="#c54b27" opacity="0.7"/>
+  <text x="385" y="172" class="example-label" text-anchor="end">Legal (small biz)</text>
+  <circle cx="340" cy="115" r="6" fill="#c54b27" opacity="0.4"/>
+  <text x="280" y="125" class="example-label" text-anchor="end" style="fill:#888">Healthcare</text>
+  <circle cx="500" cy="340" r="6" fill="#888" opacity="0.4"/>
+  <text x="515" y="345" class="example-label" style="fill:#888;font-weight:400">Institutional FX</text>
+  <circle cx="200" cy="350" r="6" fill="#888" opacity="0.4"/>
+  <text x="215" y="355" class="example-label" style="fill:#888;font-weight:400">Luxury Goods</text>
+  <circle cx="430" cy="310" r="6" fill="#888" opacity="0.4"/>
+  <text x="445" y="315" class="example-label" style="fill:#888;font-weight:400">Wealth Mgmt (HNI)</text>
+  <circle cx="220" cy="290" r="6" fill="#888" opacity="0.4"/>
+  <text x="235" y="295" class="example-label" style="fill:#888;font-weight:400">M&amp;A Advisory</text>
+  <circle cx="310" cy="330" r="6" fill="#888" opacity="0.4"/>
+  <text x="310" y="355" class="example-label" style="fill:#888;font-weight:400" text-anchor="middle">Motor Insurance</text>
+</svg>
+</div>
+<div class="visual-caption">The two-dimensional framework. Markets in the upper right, where intelligence gaps are wide and intermediary value is primarily analytical, face maximum disruption. Healthcare sits slightly left because the doctor's relational value is genuinely high.</div>
+</div>
+
+<p><strong>Dimension 1: How wide is the intelligence gap</strong> between the participants in a typical transaction? Agricultural commodities (Cargill vs. smallholder farmer) and retail insurance (bank RM vs. salaried professional) have extreme gaps. Institutional FX trading has a narrow gap. Wider gaps mean more margin attributable to intelligence asymmetry and more margin exposed to compression.</p>
+
+<p><strong>Dimension 2: How much of the intermediary's value derives from analytical sophistication versus other sources?</strong> An insurance agent who helps customers understand products provides analytical value: AI replaces this. An agent who assists with claims and provides reassurance provides relational value: AI doesn't. A notary whose existence is legally mandated provides compliance value: AI can't bypass this.</p>
+
+<p>The maximum disruption zone: wide gap, primarily analytical intermediary value.</p>
+
+<p><strong>Buyer sophistication, not the B2C/B2B label, determines gap width.</strong> Some B2B transactions have intelligence gaps as wide as any consumer transaction. The Rajkot manufacturer we discussed is, for analytical purposes, as unsophisticated as a retail borrower. They see one or two bank offers and accept. The 400-600 basis point spread between SME and large corporate borrowing rates is partly credit risk, partly an intelligence tax. Screen on buyer analytical infrastructure, not on buyer category.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== LIMITS ===================== -->
+
+<h2>Where the Mechanism Does Not Apply</h2>
+
+<p>A framework earns credibility by specifying its limits. Four boundary conditions:</p>
+
+<p><strong>Regulatory moats.</strong> Insurance distribution requires a license. Legal advice requires bar membership. These create delays, not barriers. Discount brokers became thin wrappers around algorithmic strategies despite regulatory requirements for licensed intermediation.</p>
+
+<p><strong>Trust and behavioral value.</strong> A mutual fund distributor who talks a panicking client out of redeeming during a crash provides value that is relational, emotional, and behavioral. AI can simulate empathy, but it cannot replicate trust built through years of interaction, particularly in contexts where financial literacy is low and communication happens via WhatsApp and phone calls rather than apps.</p>
+
+<p><strong>Agency asymmetry.</strong> Even when the intelligence gap closes, action may be constrained. The farmer who knows to wait cannot wait if they need cash to repay a loan. The SME owner who knows they're overpaying cannot switch lenders if their bank holds cross-collateralized security. Intelligence improves in theory while remaining unrealized in practice.</p>
+
+<p><strong>Non-analytical intermediary value.</strong> An investment banker's M&A value is that they know who the buyers are and have their phone numbers. A luxury brand's margin derives from social signaling. A notary's value is legal mandate. The mechanism doesn't operate where margin isn't built on an analytical gap.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== THREE-LAYER LENS ===================== -->
+
+<h2>The Three-Layer Investment Lens</h2>
+
+<p>Assembling the argument into a unified framework:</p>
+
+<div class="visual">
+<div class="visual-card">
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- Layer 1 -->
+  <rect x="40" y="20" width="640" height="100" rx="8" fill="#f0ede8" stroke="#c4bfb5" stroke-width="1.5"/>
+  <text x="60" y="46" class="matrix-text" style="font-size:11px;font-weight:700;fill:#999;letter-spacing:1px">LAYER 1</text>
+  <text x="60" y="70" class="matrix-text" style="font-size:16px;font-weight:700;fill:#555">The Perez Direction</text>
+  <text x="60" y="100" class="matrix-text" style="font-size:12px;fill:#888">Value migrates from AI infrastructure to AI applications.</text>
+  <text x="660" y="100" text-anchor="end" class="matrix-text" style="font-size:12px;font-weight:600;fill:#555">Look downstream.</text>
+
+  <!-- Arrow 1 -->
+  <path d="M360 125 L360 150" stroke="#c54b27" stroke-width="2" fill="none" marker-end="url(#arrowD)"/>
+  <defs><marker id="arrowD" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto"><path d="M0,0 L4,6 L8,0" fill="#c54b27"/></marker></defs>
+
+  <!-- Layer 2 -->
+  <rect x="40" y="155" width="640" height="100" rx="8" fill="#fdf5f0" stroke="#d4a88a" stroke-width="1.5"/>
+  <text x="60" y="181" class="matrix-text" style="font-size:11px;font-weight:700;fill:#c54b27;letter-spacing:1px">LAYER 2</text>
+  <text x="60" y="205" class="matrix-text" style="font-size:16px;font-weight:700;fill:#c54b27">Intelligence Asymmetry Filter</text>
+  <text x="60" y="235" class="matrix-text" style="font-size:12px;fill:#888">Among all AI application sectors, prioritize where the gap is wide.</text>
+  <text x="660" y="235" text-anchor="end" class="matrix-text" style="font-size:12px;font-weight:600;fill:#c54b27">Which sectors.</text>
+
+  <!-- Arrow 2 -->
+  <path d="M360 260 L360 285" stroke="#c54b27" stroke-width="2" fill="none" marker-end="url(#arrowD)"/>
+
+  <!-- Layer 3 -->
+  <rect x="40" y="290" width="640" height="100" rx="8" fill="#faeee6" stroke="#c54b27" stroke-width="2"/>
+  <text x="60" y="316" class="matrix-text" style="font-size:11px;font-weight:700;fill:#c54b27;letter-spacing:1px">LAYER 3</text>
+  <text x="60" y="340" class="matrix-text" style="font-size:16px;font-weight:700;fill:#c54b27">Concavity Filter</text>
+  <text x="60" y="370" class="matrix-text" style="font-size:12px;fill:#888">Within sectors, serve the less sophisticated party.</text>
+  <text x="660" y="370" text-anchor="end" class="matrix-text" style="font-size:12px;font-weight:600;fill:#c54b27">Which products.</text>
+</svg>
+</div>
+<div class="visual-caption">Three-layer screening lens. Each layer narrows the field. The intersection of all three identifies the highest-conviction structural opportunities.</div>
+</div>
+
+<p><strong>Layer 1: The Perez direction.</strong> Value migrates from AI infrastructure to AI applications. Look downstream, not upstream. The infrastructure buildout is well-understood and increasingly priced in. The application layer, where AI meets specific industries and restructures their economics, is where the largest risk-adjusted returns lie.</p>
+
+<p><strong>Layer 2: The intelligence asymmetry filter.</strong> Among all industries that will use AI, the largest value redistribution occurs where intelligence asymmetry is wide and intermediary margins are built on that asymmetry. The 2x2 (gap width times analytical content of intermediary value) is the screening tool. Agricultural intermediation, retail insurance, SME lending, small-business professional services: upper-right quadrant.</p>
+
+<p><strong>Layer 3: The concavity filter.</strong> Within those sectors, the biggest delta accrues to products and companies that serve the less sophisticated party. This is the most counterintuitive filter. A company building AI tools for bank RMs to sell more effectively is an arms race play. A company building a fiduciary AI advisor that helps consumers evaluate insurance products is a structural play. A company building AI crop advisory for smallholder farmers disrupts agricultural intermediation margins far more than a company optimizing Cargill's already-sophisticated models.</p>
+
+<p>The concavity of returns means the marginal benefit is largest when AI reaches the unsophisticated side of the transaction. That is where the structural value lies.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<!-- ===================== CONCLUSION ===================== -->
+
+<h2>The Force, Not the Forecast</h2>
+
+<p>This essay has described a force, and deliberately avoided making a forecast. I don't claim to know the precise timing of the transition in any sector, the exact share of intermediary margin attributable to intelligence asymmetry, or the specific path through which consumer-side AI advisory will reach the Indian smallholder farmer or the first-time insurance buyer.</p>
+
+<p>What I have done is identify a mechanism, describe its steps, demonstrate that it is already operating in multiple domains, and establish the structural reasons that determine its direction.</p>
+
+<p>The web made information free. AI makes intelligence cheap.</p>
+
+<p>The economic consequences of the second shift are at least as large as the first. They are concentrated in sectors and transactions where one party's inability to analyze freely available information has been the primary source of the other party's margin.</p>
+
+<p>Intelligence asymmetry will be compressed. That much is certain. The real questions are who builds the tools, which side of the transaction they serve, how quickly they reach the unsophisticated party, and whether the regulatory environment accelerates or retards that deployment.</p>
+
+<p>The largest welfare gains, and the largest investment returns, lie with whoever answers those questions first.</p>
+
+<div class="sep">&bull; &bull; &bull;</div>
+
+<p style="font-size:15px;color:#888;margin-top:40px;"><em>If you found this useful, subscribe for more at the intersection of AI, economics, and emerging markets. Share it with someone who's thinking about where to allocate capital in the AI era.</em></p>
+
+</div>
+
+<!-- ===================== APPENDIX 1: TINDER PROBLEM ===================== -->
+
+<div class="appendix-header">
+  <div class="appendix-label">Appendix</div>
+</div>
+
+<div class="content">
+
+<h2>The Tinder Problem: What Happens After the Gap Closes</h2>
+
+<p>There is a tempting implication in everything above: that intelligence asymmetry compression leads to a flatter, more equal economic landscape. It doesn't. It leads to a more efficient one. And efficient markets are generous to the best participants, not the average ones.</p>
+
+<p>The web era proved this. Before the internet, information asymmetry protected thousands of mediocre businesses. A local travel agent survived because customers couldn't easily compare prices across airlines. A middling stockbroker kept clients because they had no convenient alternative for accessing price data. A decent restaurant in a small town thrived because potential competitors had no low-cost way to advertise. The fog of information asymmetry created a kind of artificial equality: it hid the gap between the best and the rest.</p>
+
+<p>The web lifted that fog. And rather than creating a thousand equally successful competitors, it created Booking.com, Robinhood, and Amazon. When search costs fall to zero, the actually-best offering becomes visible to everyone simultaneously, and everyone picks it. The market clears toward a handful of winners.</p>
+
+<p>Scott Galloway makes this point about dating apps. Before Tinder and Hinge, dating markets were local and informationally constrained. You met people through friends, work, your neighborhood, your religious community. Friction created a rough equality of opportunity. Dating apps made the market efficient, and efficient markets concentrate: the top 20% of men receive roughly 80% of the right swipes. This is what happens when you remove search costs from any matching market.</p>
+
+<p>The pattern, stated abstractly: asymmetry compression produces market efficiency, and market efficiency produces winner-take-most outcomes. The question is where this shows up in the three domains we have discussed.</p>
+
+<p>In agricultural commodities: if every farmer gets AI-powered pricing and demand forecasting, the local trader's margin disappears. But the farmers aren't made equal. The ones who combine AI intelligence with better land, better logistics, better cooperative structures, and better access to credit will capture disproportionate share. The "efficient" market reveals which farmers were genuinely productive versus which ones were merely well-connected or lucky.</p>
+
+<p>In SME lending: if AI makes loan comparison and term benchmarking free, the business owners who were always sharp operators but simply lacked financial analysis capability will secure far better terms than before. The ones who were weak operators hiding behind relationship banking will be exposed. The intelligence tax paid to banks gets partially redistributed, but unevenly. The best-run businesses capture most of the surplus.</p>
+
+<p>In healthcare: if patients can all access AI second opinions, the truly excellent oncologists become visible and in higher demand. The mediocre ones who survived partly on information asymmetry, partly on patients' inability to evaluate their recommendations, lose patients to the recognized best.</p>
+
+<p>This isn't a dystopian outcome. The pre-compression world wasn't fair either; it was merely opaque. The farmer who got a bad price, the SME owner who signed a terrible loan agreement, the patient who received a suboptimal treatment recommendation: they weren't being protected by intelligence asymmetry. They were being taxed by it. Compression removes the tax. It also removes the fog that allowed mediocre participants on both sides to muddle through.</p>
+
+<p>For investors, the Tinder Problem adds a refinement to the concavity argument. Concavity tells you that AI benefits the unsophisticated party more than the sophisticated party. The Tinder Problem tells you that <em>among</em> the newly empowered unsophisticated parties, the gains will concentrate. The farmer who uses AI <em>and</em> has good land <em>and</em> joins a well-run cooperative captures far more value than the farmer who just uses AI. The SME owner who uses AI loan comparison <em>and</em> runs a tight operation <em>and</em> has strong receivables captures far more than the one who just has the comparison tool.</p>
+
+<p>The concavity of returns tells you the gap compresses. The Tinder Problem tells you what the post-compression landscape looks like: a new set of peaks, not a flat field.</p>
+
+</div>
+
+<!-- ===================== APPENDIX 2: SIX STEPS ===================== -->
+
+<div class="appendix-header">
+  <div class="appendix-label">Appendix 2</div>
+</div>
+
+<div class="content">
+
+<h2>Six Steps from Intelligence Gap to Market Restructuring</h2>
+
+<p>The intelligence asymmetry thesis identifies a specific, traceable, step-by-step causal chain through which AI restructures a market. The sequence has six steps:</p>
+
+<div class="mechanism-steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-text">
+      <strong>An existing equilibrium sustained by an intelligence gap.</strong>
+      <p>An intermediary captures margin between two parties. The stated justification is advisory or expertise. In practice, the intermediary's analytical capability is at least partly deployed in service of their own margin rather than the customer's interest. The gap is wide enough that the less sophisticated party cannot evaluate whether the advice is good, conflicted, or wrong.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-text">
+      <strong>Information infrastructure has been built, but hasn't solved the problem.</strong>
+      <p>The web, regulation, or digital platforms have made data available. The less sophisticated party can access prices, disclosures, or terms. But they cannot analyze this information effectively. The information layer is necessary groundwork, not the disruption.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-text">
+      <strong>AI enters on the unsophisticated side.</strong>
+      <p>An AI system is deployed that serves the less sophisticated party. It can decompose pricing, compare alternatives, identify conflicts of interest, model outcomes. The party's analytical capability jumps from roughly the 5th percentile to the 60th percentile of decision quality in that domain.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-text">
+      <strong>The intermediary's analytical advantage erodes.</strong>
+      <p>The intermediary's value proposition, to the extent it was genuinely analytical, is now redundant. The portion that was analytical theater, justifying commissions rather than serving the customer, is exposed.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-text">
+      <strong>The margin compresses.</strong>
+      <p>Through two channels: direct substitution (parties move to lower-cost channels) and informed negotiation (parties benchmark intermediary recommendations against AI analysis, eroding the ability to steer toward suboptimal-but-high-margin products).</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-text">
+      <strong>New equilibrium.</strong>
+      <p>Intermediaries whose value was primarily analytical lose margin. Those whose value was relational, behavioral, or regulatory (trust, hand-holding, compliance) survive and may see their value proposition clarified. The margin pool shifts in composition: less payment for analytical superiority, more for relational value.</p>
+    </div>
+  </div>
+</div>
+
+<p>This sequence is abstract by design. Its power is its generality: it applies, with variations in speed, wherever the preconditions are met.</p>
+
+</div>
+
+</article>
+
+</body>
+</html>
